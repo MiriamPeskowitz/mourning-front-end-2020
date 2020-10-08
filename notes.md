@@ -2,5 +2,6 @@
 2. set up root reducer 
 3. entriesReducer and usersReducer: add full state, as needed in front end 
 	entry (title: '', content: '')
-	user(name: '')
+	user(name: '') DONE, but not yet sure it works 
+
 	
