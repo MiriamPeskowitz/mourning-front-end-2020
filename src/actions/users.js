@@ -4,14 +4,18 @@
  
 
 
-export const getUsers = () => {
-	return dispatch => {
-		dispatch => {
+const getUsers = () => {
+	return (dispatch) => {
 			dispatch({type: "LOADING_MOURNERS_NAMES"})
-			return fetch(./users)
+			return fetch('/users')
 			.then(res => res.json())
-			.then(users => dispatch({type: "MOURNERS_LOADED", payload: users}))
-			//will have to check on users.name etc 
-		}
-	}
+			.then(users => {
+				console.log(users),
+				dispatch({type: "MOURNERS_LOADED", payload: users})
+			})
+			
 }
+}
+
+			//will have to check on users.name etc 
+export default getUsers
