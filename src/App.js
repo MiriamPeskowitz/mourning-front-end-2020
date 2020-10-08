@@ -1,6 +1,8 @@
 import React from 'react';
-import './css/App.css';
+import { connect } from 'react-redux'
 import Navbar from './components/Navbar'
+import Mourners from './containers/Mourners'
+import './css/App.css';
 
 class App extends React.Component {
 	render() {
@@ -16,12 +18,13 @@ class App extends React.Component {
 	    </div>
 	  );
 	}
-	const mapStateToProps = state => {
-		return {
-			names: state.usersReducer.users,
-			loading: state.usersReducer.loading
-		}
+}
+const mapStateToProps = state => {
+	return {
+		names: state.usersReducer.users,
+		loading: state.usersReducer.loading
 	}
 }
+
 
 export default connect(mapStateToProps)(App);

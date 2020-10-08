@@ -3,3 +3,10 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
+class Mourners extends Component {
+
+
+}
+
+export default Mourners
