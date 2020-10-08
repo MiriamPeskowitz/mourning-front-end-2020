@@ -4,5 +4,8 @@
 	entry (title: '', content: '')
 	user(name: '') DONE, but not yet sure it works 
 4. Build out the app, then think about what goes where 
-
+5. Great work on Wednesday! User actions and reducer working. Next step: build the event that fires the getUsers action to load the names on mount. 
+6. Then, repeat all this with the entries. 
+7. Then work on number of mourners
+8. Then work on user auth. 
 

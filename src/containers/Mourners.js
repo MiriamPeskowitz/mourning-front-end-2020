@@ -9,6 +9,8 @@ class Mourners extends Component {
 	render() {
 		return (
 			<h3>Mourners</h3>
+			//call an action that calls a fetch, on
+			//component will mount 
 
 		)
 	}
