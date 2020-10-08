@@ -6,6 +6,13 @@ import { connect } from 'react-redux'
 
 class Mourners extends Component {
 
+	render() {
+		return (
+			<h3>Mourners</h3>
+
+		)
+	}
+
 
 }
 

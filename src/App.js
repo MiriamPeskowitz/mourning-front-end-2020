@@ -21,8 +21,8 @@ class App extends React.Component {
 }
 const mapStateToProps = state => {
 	return {
-		names: state.usersReducer.users,
-		loading: state.usersReducer.loading
+		names: state.userReducer.users,
+		loading: state.userReducer.loading
 	}
 }
 

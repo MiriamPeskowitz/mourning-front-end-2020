@@ -1,4 +1,7 @@
-export default(state = {users: [], loading: false}, action) => {
+
+const names = ["rob", "Miriam", "Tamar"] 
+
+export default(state = {users: names, loading: false}, action) => {
 	switch(action.type){
 		case "LOADING_MOURNERS_NAMES":
 			return {
@@ -8,7 +11,7 @@ export default(state = {users: [], loading: false}, action) => {
 		case "MOURNERS_LOADED":
 			return {
 				...state,
-				todos: action.payload,
+				users: action.payload,
 				loading: false
 			}
 		default:
