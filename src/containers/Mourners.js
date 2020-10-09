@@ -2,34 +2,36 @@
 //semantic-ui-react -- make a card around this, or a section. 
 
 import React, { Component } from 'react'
-// import { connect } from 'react-redux'
-
+import { connect } from 'react-redux'
+import getUsers from '../actions/users'
+import MournersList from '../components/MournersList'
 
 class Mourners extends Component {
-	
-	render() {
-		const nameList = ["rob", "Miriam", "Tamar"];
+	state = {
+		users: '',
+		loading: false
+	}
+	componentDidMount(){
+		this.props.getUsers()
+		console.log("ComponentDidMount")
+	}
 
-		const names = nameList.map((name, index) => <span key={index}> {name} </span>)
-
+	render() {		
 		return (
 			<div className="mourner-list">
 			 <h2>Who is here mourning their dead?</h2>
-			  <h3>{names}</h3>
+			  <ul>
+			  {this.props.loading ? <h3>Loading...</h3> : <MournersList users={this.props.users}/> }
+			  </ul>
 			</div>
 		)
 	}
 }
-// const mapStateToProps() {
-// 	return {
+const mapStateToProps = state => {
+	return {
+		users: state.userReducer.users,
+		loading: state.userReducer.loading
+	}
+}
 
-
-// 	}
-// }
-export default Mourners
-// export default connect(null, {getUsers})(Mourners)
-
-//call an action that calls a fetch, on
-			//component will mount 
-			  // {this.props.loading ? <h3>Loading...</h3> : <Mourners names={names}/> }
-			
+export default connect(mapStateToProps, {getUsers} )(Mourners)

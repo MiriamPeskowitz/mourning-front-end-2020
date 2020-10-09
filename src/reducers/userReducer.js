@@ -1,4 +1,4 @@
-// const names = ["rob", "Miriam", "Tamar"] 
+// const names = ["rob", "Mir", "Tamar"] 
 export default(state = {users: [], loading: false}, action) => {
 	switch(action.type){
 		case "LOADING_MOURNERS_NAMES":
@@ -9,7 +9,7 @@ export default(state = {users: [], loading: false}, action) => {
 		case "MOURNERS_LOADED":
 			return {
 				...state,
-				users: [...state.users, action.payload],
+				users: action.payload,
 				loading: false
 			}
 		default:

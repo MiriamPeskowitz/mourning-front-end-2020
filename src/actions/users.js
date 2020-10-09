@@ -9,13 +9,10 @@ const getUsers = () => {
 			dispatch({type: "LOADING_MOURNERS_NAMES"})
 			return fetch('/users')
 			.then(res => res.json())
-			.then(users => {
-				console.log(users),
+			.then(users => {			
 				dispatch({type: "MOURNERS_LOADED", payload: users})
 			})
-			
-}
+	}
 }
 
-			//will have to check on users.name etc 
 export default getUsers
