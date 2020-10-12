@@ -1,9 +1,9 @@
 
 import React from 'react'
 
-const MournersList = (props) => {
+const MournersList = ( {users}) => {
 
-	const names = this.props.users.map((user) => (
+	const names = users.map((user) => (
 		<li key={user.id}> {user.name} </li>
 	))
 	return names
@@ -11,3 +11,6 @@ const MournersList = (props) => {
 }
 
 export default MournersList
+
+//destructure somehow -- need to get the names and the ids 
+//from the user object 
