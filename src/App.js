@@ -19,15 +19,3 @@ class App extends Component {
 	  )
 	}
 }
-
-// const mapStateToProps = state => {
-// 	return {
-// 		names: state.userReducer.users,
-// 		loading: state.userReducer.loading
-// 	}
-// }
-export default App
-// export default connect(mapStateToProps)(App);
-
-
-//add <Entries /> when ready 
