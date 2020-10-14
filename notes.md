@@ -7,6 +7,7 @@
 5. DONE Great work on Wednesday! User actions and reducer working. Next step: build the event that fires the getUsers action to load the names on mount. 
 6. DONE Then, repeat all this with the entries. 
 7. Then work on number of mourners
-8. get rid of bullet points in entries
+8. DONE get rid of bullet points in entries
 9. Then work on user auth. HERE now. Plan: 
+10 Work on links and routing 
 
