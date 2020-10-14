@@ -9,5 +9,7 @@
 7. Then work on number of mourners
 8. DONE get rid of bullet points in entries
 9. Then work on user auth. HERE now. Plan: 
+React/Redux Simple Auth - https://www.youtube.com/watch?v=HYVJcq7Ika8 
+https://github.com/cernanb/online-web-pt-120919-react-redux-simple-auth/tree/master/src
 10 Work on links and routing 
 
