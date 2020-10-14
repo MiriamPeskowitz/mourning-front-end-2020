@@ -1,6 +1,3 @@
-// state -- names 
-//semantic-ui-react -- make a card around this, or a section. 
-
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import getUsers from '../actions/users'
@@ -10,16 +7,16 @@ class Mourners extends Component {
 
 	componentDidMount(){
 		this.props.getUsers()
-		console.log("ComponentDidMount")
+		console.log("ComponentDidMount/Users")
 	}
 
 	render() {		
 		return (
 			<div className="mourner-list">
 			 <h2>Who is here mourning their dead?</h2>
-			  <ul>
-			  {this.props.loading ? <h3>Loading...</h3> : <MournersList users={this.props.users}/> }
-			  </ul>
+			  <div>
+			  {this.props.loading ? <h3>Loading...</h3> : <MournersList users={this.props.users} /> }
+			  </div>
 			</div>
 		)
 	}
@@ -32,6 +29,10 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {getUsers} )(Mourners)
+// state -- names 
+//semantic-ui-react -- make a card around this, or a section. 
+
+
 // state = {
 	// 	users: '',
 	// 	loading: false
