@@ -7,10 +7,7 @@ import getUsers from '../actions/users'
 import MournersList from '../components/MournersList'
 
 class Mourners extends Component {
-	state = {
-		users: '',
-		loading: false
-	}
+
 	componentDidMount(){
 		this.props.getUsers()
 		console.log("ComponentDidMount")
@@ -35,3 +32,7 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {getUsers} )(Mourners)
+// state = {
+	// 	users: '',
+	// 	loading: false
+	// }

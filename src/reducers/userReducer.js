@@ -1,5 +1,5 @@
-// const names = ["rob", "Mir", "Tamar"] 
-export default(state = {user: {}, loading: false}, action) => {
+
+export default(state = {users: [], loading: false}, action) => {
 	switch(action.type){
 		case "LOADING_MOURNERS_NAMES":
 			return {

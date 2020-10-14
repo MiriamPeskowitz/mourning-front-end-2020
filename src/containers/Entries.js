@@ -19,11 +19,13 @@ class Mourners extends Component {
 			<div className="entry-list">
 			 <h2>What they are saying? What do they need? </h2>
 			   <ul>
-			     {this.props.loading ? <h3>Loading...</h3> : <EntryList entries={entries}/> }
+			     {this.props.loading ? <h3>Loading...</h3> : <EntryList entries="data goes here"
+			    /> }
 			   </ul>
 			</div>
 		)
 	}   
+}
 const mapStateToProps = state => {
 	return {
 		entries: state.EntryReducer.entries,
@@ -31,5 +33,6 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, {getEntries} )(Mourners)
+
+export default connect(mapStateToProps, {get} )(Mourners)
 

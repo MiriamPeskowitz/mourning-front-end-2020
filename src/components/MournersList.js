@@ -1,12 +1,15 @@
 
 import React from 'react'
 
-const MournersList = ( {users}) => {
 
+
+const MournersList = ( {users} ) => {
+	console.log("users:", users)
 	const names = users.map((user) => (
-		<li key={user.id}> {user.name} </li>
+		<li key={user.id}> {user.attributes.name} </li>
 	))
-	return names
+
+	return <ul>{names}</ul>
 	
 }
 

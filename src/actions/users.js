@@ -7,12 +7,16 @@
 const getUsers = () => {
 	return (dispatch) => {
 			dispatch({type: "LOADING_MOURNERS_NAMES"})
-			return fetch('/users')
+			return fetch("users")
 			.then(res => res.json())
 			.then(users => {			
-				dispatch({type: "MOURNERS_LOADED", payload: users})
+				dispatch({
+				  type: "MOURNERS_LOADED", 
+				  payload: users.data})
 			})
+
 	}
 }
 
 export default getUsers
+
