@@ -1,16 +1,13 @@
-
 import React from 'react'
-
-
 
 const MournersList = ( {users} ) => {
 	console.log("users:", users)
 	const names = users.map((user) => (
-		<li key={user.id}> {user.attributes.name} </li>
+		<span key={user.id}> {user.attributes.name} </span>
 	))
-
-	return <ul>{names}</ul>
-	
+	return (
+		<div>{names}</div>
+	)
 }
 
 export default MournersList
