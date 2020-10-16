@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import getEntries from '../actions/entries'
 import EntriesList from '../components/EntriesList'
 
+const violet = {color: 'violet'}
+
 class Entries extends Component {
 	
 	componentDidMount(){
@@ -13,7 +15,7 @@ class Entries extends Component {
 	render() {		
 		return (
 			<div className="entry-list">
-			 <h2>What they are saying? What do they need? </h2>
+			 <h2 style={violet}>What they are saying? What do they need? </h2>
 			 {this.props.loading ? <h3>Loading...</h3> : <EntriesList entries={this.props.entries} />}
 			</div>
 		)
