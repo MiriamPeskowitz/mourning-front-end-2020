@@ -11,8 +11,12 @@ body {
   
 }
 
-/*a:active, a:focus {
+a:active, a:focus {
  box-shadow: none;
+}
+/*.Navbar {
+  boxShadow: none;
+  
 }*/
 
 .App {
@@ -20,11 +24,11 @@ body {
 /*  outline: none; */
 }
 
-.Navbar:active, .Navbar:focus, .Navbar:visited {
+/*.Navbar:active, .Navbar:focus, .Navbar:visited {
   box-shadow: none;
   outline: none;
   text-decoration:none;
-}
+}*/
 /*
 .App-header {
   background-color: #282c34;

@@ -4,14 +4,14 @@ import Navbar from './components/Navbar'
 import Mourners from './containers/Mourners'
 import Entries from './containers/Entries'
 
-import './css/App.css';
+// import './css/App.css';
 
 class App extends Component {
 	
 	render() {
 	  return (
 	    <div className="App">
-	    	<Navbar>SignUp LogIn Profile Main</Navbar>
+	    	<Navbar />
 	    	<Mourners />
 	    	<Entries />
 	    
@@ -21,3 +21,5 @@ class App extends Component {
 }
 
 export default App
+
+	// <Navbar>SignUp LogIn Profile Main</Navbar>
