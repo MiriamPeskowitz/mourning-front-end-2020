@@ -15,21 +15,18 @@ class SignUp extends Component {
         }
     
 
-    handleUsernameChange = (e) => {
+    handleChange = (e) => {
     	this.setState({
     		[e.target.name] = (e.target.value)
     	})
     } 
 
-    handlePasswordChange = (e) => {
-    	this.setState(
-    		[e.target.name] = (e.target.value)
-    }
-
+   
     handleSubmit = (e) => {
     	e.preventDefault()
     	const newuser = this.state.newuserName
-    	this.props.signUp(newUser)
+    	this.props.signUp(newUser) //state.
+    	//then what, render what page ? 
 
 
     }
@@ -41,10 +38,10 @@ class SignUp extends Component {
 	      	<form className="signup-form" onSubmit={this.handleSubmit}>
 	         	<div className="field">
 	            <label>Username</label>
-	            <input value="text" name="name" value={this.state.name} onChange={this.handleUsername} type="text" placeholder="username"/>
+	            <input value="text" name="newUserName" value={this.state.newUserName} onChange={this.handleChange} type="text" placeholder="username"/>
 	          </div>
 	            <label>Password</label>
-	            <input value="password" name="password" value={this.state.password} onChange={this.handlePassword} type="password" placeholder="password"/>
+	            <input value="password" name="newUserPassword" value={this.state.newUserPassword} onChange={this.handleChange} type="password" placeholder="password"/>
 	          </div>
 
 	          <button className="signup-button" type="submit">Submit</button>
@@ -62,7 +59,7 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {signUp})(SignUp);
+export default connect(mapStateToProps, { signUp } )(SignUp);
 
 // this.props.loggedIn ?  (
 //          	<div>"Welcome {this.props.currentUser.username}" </div> 

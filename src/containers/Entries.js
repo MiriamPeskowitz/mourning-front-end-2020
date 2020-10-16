@@ -15,7 +15,7 @@ class Entries extends Component {
 	render() {		
 		return (
 			<div className="entry-list">
-			 <h2 style={violet}>What they are saying? What do they need? </h2>
+			 <h2 style={violet}>What are they saying? What do they need? </h2>
 			 {this.props.loading ? <h3>Loading...</h3> : <EntriesList entries={this.props.entries} />}
 			</div>
 		)
