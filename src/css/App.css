@@ -7,14 +7,24 @@ body {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white
+  color: white;
+  
 }
 
+/*a:active, a:focus {
+ box-shadow: none;
+}*/
 
 .App {
   text-align: center;
+/*  outline: none; */
 }
 
+.Navbar:active, .Navbar:focus, .Navbar:visited {
+  box-shadow: none;
+  outline: none;
+  text-decoration:none;
+}
 /*
 .App-header {
   background-color: #282c34;

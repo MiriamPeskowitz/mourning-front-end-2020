@@ -7,8 +7,10 @@ const link = {
   margin: '2px 2px 2px',
   textDecoration: 'none',
   color: 'white'
- }
 
+ }
+ // const outline = {
+ // 		li:active {outline: 'none'}}
 
 const listStyle = {
     listStyle: 'none'
@@ -16,8 +18,8 @@ const listStyle = {
 
 const Navbar = (props) => {
 	return (
-		<div>
-			<ul style={ listStyle }>
+		<div className="Navbar">
+			// <ul style={ listStyle }>
 			<li><NavLink to='/' exact style={ link } activeStyle={{ background: 'royalBlue'}}>Main</NavLink></li>
 
 			<li><NavLink to='/SignUp' exact style={ link } activeStyle={{ background: '#e69500' }}>Register</NavLink></li>
@@ -34,4 +36,3 @@ const Navbar = (props) => {
 
 export default Navbar
 
-// NEXT bring in stuff for routes from last version -- create new js file 
