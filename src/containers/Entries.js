@@ -4,7 +4,7 @@ import getEntries from '../actions/entries'
 import EntriesList from '../components/EntriesList'
 
 const violet = {color: 'violet'}
-
+//add the number of people present 
 class Entries extends Component {
 	
 	componentDidMount(){

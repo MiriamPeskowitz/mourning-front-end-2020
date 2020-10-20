@@ -9,27 +9,27 @@ import { signUp } from '../actions/auth'
 //then does something in the render: like let the user into their profile 
 
 class SignUp extends Component {
-        state = {
-        	newUserName: '',
-        	newUserPassword: '', 
-        }
+  state = {
+  	userName: '',
+  	userPassword: '', 
+  }
     
 
-    handleChange = (e) => {
-    	this.setState({
-    		[e.target.name] = (e.target.value)
-    	})
-    } 
+  handleChange = (e) => {
+  	this.setState({
+  		[e.target.name]: (e.target.value)
+  	})
+  } 
 
-   
-    handleSubmit = (e) => {
-    	e.preventDefault()
-    	const newuser = this.state.newuserName
-    	this.props.signUp(newUser) //state.
-    	//then what, render what page ? 
+ 
+  handleSubmit = (e) => {
+  	e.preventDefault()
+  	const newUser = this.state.userName
+  	this.props.signUp(newUser) //state.
+  	//then what, render what page ? 
 
 
-    }
+  }
 //sending username and password to signUp Action 
     render() {
       return (
@@ -38,10 +38,11 @@ class SignUp extends Component {
 	      	<form className="signup-form" onSubmit={this.handleSubmit}>
 	         	<div className="field">
 	            <label>Username</label>
-	            <input value="text" name="newUserName" value={this.state.newUserName} onChange={this.handleChange} type="text" placeholder="username"/>
+	            <input value="text" name="userName" value={this.state.userName} onChange={this.handleChange} type="text" placeholder="username"/>
 	          </div>
+	          <div>
 	            <label>Password</label>
-	            <input value="password" name="newUserPassword" value={this.state.newUserPassword} onChange={this.handleChange} type="password" placeholder="password"/>
+	            <input value="password" name="userPassword" value={this.state.userPassword} onChange={this.handleChange} type="password" placeholder="password"/>
 	          </div>
 
 	          <button className="signup-button" type="submit">Submit</button>

@@ -14,21 +14,14 @@ body {
 a:active, a:focus {
  box-shadow: none;
 }
-/*.Navbar {
-  boxShadow: none;
-  
-}*/
+
+li, div {
+  outline: none;
+}
 
 .App {
   text-align: center;
-/*  outline: none; */
 }
-
-/*.Navbar:active, .Navbar:focus, .Navbar:visited {
-  box-shadow: none;
-  outline: none;
-  text-decoration:none;
-}*/
 /*
 .App-header {
   background-color: #282c34;
@@ -43,5 +36,4 @@ a:active, a:focus {
 
 .App-link {
   color: #61dafb;
-}
-*/
+}*/

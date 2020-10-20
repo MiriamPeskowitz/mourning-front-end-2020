@@ -14,4 +14,7 @@ https://github.com/cernanb/online-web-pt-120919-react-redux-simple-auth/tree/mas
 Look at notes: 
 
 10 Work on links and routing 
+-- Doing routing first. More scared of auth
+
+11. Semantic-ui-react 
 

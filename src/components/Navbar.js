@@ -18,15 +18,15 @@ const Navbar = (props) => {
 	return (
 		<div className="Navbar">
 			<ul style={ liststyle }>
-				<li><NavLink to='/' exact style={ link } activeStyle={{ background: 'royalBlue'}}>Main</NavLink></li>
+				<li><NavLink to='/' exact style={ link } activeStyle={{ background: 'royalBlue'}}>Mourning</NavLink></li>
 
-				<li><NavLink to='/SignUp' exact style={ link } activeStyle={{ background: '#e69500' }}>Register</NavLink></li>
+				<li><NavLink to='/SignUp' exact style={ link } activeStyle={{ background: '#e69500' }}>Join</NavLink></li>
 
 				<li><NavLink to='/Login' exact style={ link } activeStyle={{ background: '#e69500' }}>Login</NavLink></li>
 
 				<li><NavLink to='/Story' exact style={ link } activeStyle={{ background: 'violet' }}>Story</NavLink></li>
 
-				<li><NavLink to='/Profile' exact style={  link } activeStyle={{ background: '#cd5c5c' }}>Profile</NavLink></li>
+				<li><NavLink to='/users/:id' exact style={  link } activeStyle={{ background: '#cd5c5c' }}>Profile</NavLink></li>
 			</ul>
 		</div>
 	)
