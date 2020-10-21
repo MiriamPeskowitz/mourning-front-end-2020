@@ -16,5 +16,27 @@ Look at notes:
 10 Work on links and routing 
 -- Doing routing first. More scared of auth
 
-11. Semantic-ui-react 
+11. Semantic-ui-react -- later 
 
+I've gotten into a mess. I have lost track of what I want the app to do. Plan: back up to user stories. 
+
+A mourner can sign up (I really need to grab the bull by the horns and do this)
+
+A mourner can post entries
+A mourner can let her friends see the entries 
+
+A user can see the public entries on the home page, and see the people who are mourning. 
+
+A user can see how many people are mourning. 
+
+Write down what should happen when each button is pressed (this will guide me on the routes)
+
+Mourning: front page with selections of mourner and entries Plus story 
+
+Join: SignUp
+
+Login: Login
+
+Story: this is the about page. 
+
+Profile: when someone is signed in, Profile shows. 
