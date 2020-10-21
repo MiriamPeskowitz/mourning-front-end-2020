@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import { connect } from 'react-redux'
-import { Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Mourners from './containers/Mourners'
 import Entries from './containers/Entries'
@@ -20,8 +19,8 @@ class App extends Component {
 	    <div className="App">
 	      <Navbar />
 	    	
-	    	<Mourners />
-	    	<Entries />
+	    	// <Mourners />
+	    	// <Entries />
 	    	<Story />
 	    
 	    </div>
@@ -32,15 +31,6 @@ class App extends Component {
 export default App
 
 	// <Navbar>SignUp LogIn Profile Main</Navbar>
-
-// <Switch>
-	    	// 	<Route exact path="/story" component={Story} />
-	    	// 	<Route exact path="/entries" component={Entries} />
-	    	// 	<Route exact path="/signUp" component={SignUp} />
-	    	// 	<Route exact path="/login" component={Login} />
-	    	// 	<Route exact path="/users/:id" component={Profile} />
-	    	// 	<Route exact path="/" component={Home} />
-	    	// </Switch>
 
 
 
