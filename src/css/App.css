@@ -16,11 +16,16 @@ a:active, a:focus {
 }
 
 li, div {
-  outline: none;
+  outline: red;
 }
 
 .App {
   text-align: center;
+}
+
+
+.App-link {
+  color: #61dafb;
 }
 /*
 .App-header {

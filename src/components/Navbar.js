@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import routes from '../routes'
 import '../css/App.css';
 
 const link = {
@@ -20,7 +21,7 @@ const Navbar = (props) => {
 			<ul style={ liststyle }>
 				<li><NavLink to='/' exact style={ link } activeStyle={{ background: 'royalBlue'}}>Mourning</NavLink></li>
 
-				<li><NavLink to='/SignUp' exact style={ link } activeStyle={{ background: '#e69500' }}>Join</NavLink></li>
+				<li><NavLink to='/signUp' exact style={ link } activeStyle={{ background: '#e69500' }}>Join</NavLink></li>
 
 				<li><NavLink to='/Login' exact style={ link } activeStyle={{ background: '#e69500' }}>Login</NavLink></li>
 

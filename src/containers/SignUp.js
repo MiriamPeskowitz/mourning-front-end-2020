@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { signUp } from '../actions/auth'
 
+
 //Form | Capture entries in a variable | send data to SignUP action | 
 //this function dispatches new data to the backend, then sends
 // the result that's returned, to the reducer 
@@ -34,6 +35,7 @@ class SignUp extends Component {
     render() {
       return (
       	<div>
+        <h1>SIGNUP</h1>
 	      	<h1>Sign Up</h1>
 	      	<form className="signup-form" onSubmit={this.handleSubmit}>
 	         	<div className="field">

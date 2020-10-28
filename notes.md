@@ -40,3 +40,5 @@ Login: Login
 Story: this is the about page. 
 
 Profile: when someone is signed in, Profile shows. 
+
+?? What file should the routes go in? 

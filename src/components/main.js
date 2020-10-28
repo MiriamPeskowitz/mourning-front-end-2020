@@ -3,6 +3,8 @@ Different ways to do it.
 import {BroswerRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './containers/Home'
 import Navigation from './components/Navigation'
+import IngredientsContainer from './containers/IngredientsContainer'
+import IngredientsList from './containers/IngredientsList'
 
 //wrap in Router, then add a Switch 
 //each route -- what is the path I want to match? 
@@ -19,6 +21,9 @@ function App() {
 				<Route exact path="/categories" component={CategoriesContainer}/>
 				<Route exact path="/ingredients" component={IngredientsContainer}/>
 				<Route exact path="/ingredients/:id" component={IngredientsList}/>
+					//this one doesn't go into Navigation.js. You don't hit it 
+					//with a button on a nav bar, but by clicking on an 
+					//ingredient 
 			</Switch>
 			//<Home />
 			// <CategoriesContainer /> Then get rid of the regular rendering of a component 
