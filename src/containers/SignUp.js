@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+// import { history } from 'react-router-dom'
 import { signUp } from '../actions/auth'
 
 
@@ -10,18 +11,23 @@ import { signUp } from '../actions/auth'
 //then does something in the render: like let the user into their profile 
 
 class SignUp extends Component {
-  constructor(props) {
-    super(props) 
+  constructor() {
+    super() 
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+
     this.state = {
-    	username: "",
     	email: "",
       password: "",
+      password_confirmation: "",
+      name: ""
     } 
   }
 
   handleChange = (e) => {
   	this.setState({
-  		[e.target.name]: (e.target.value)
+  		[e.target.name]: e.target.value
   	})
   } 
 
@@ -30,48 +36,64 @@ class SignUp extends Component {
   	e.preventDefault()	
     const newUser = this.state 
     console.log("newUser: ", newUser)
-  	this.props.signUp(newUser) //state.
-  	//then what, render what page ? 
+  	this.props.signUp(newUser) 
+    // this.props.history.push('/') add once router is n 
   }
 //sending username and password to signUp Action 
   render() {
+    const { name, email, password, password_confirmation  } = this.state
     return (
     	<div className="col-md-12">
         <div className="card card-container">
           <h2>Welcome, join us. </h2>
-	      	<form className="signup-form" onSubmit={this.handleSubmit}>
-	         	 
-            <div className="form-group">
-              <label>Email </label>
+	      	<form 
+            className="signup-form" 
+            onSubmit={this.handleSubmit}
+            >
+
+        	  <div className="form-group">
+              <label> Name </label>
               <input 
                 type="text" 
                 className="form-control"  
+                name="firstname" 
+                value={name} 
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Email </label>
+              <input 
+                type="email" 
+                className="form-control"  
                 name="email" 
-                value={this.state.username} 
+                value={email} 
                 onChange={this.handleChange}                />
             </div>
 
             <div className="form-group">
-	            <label>Username </label>
-	            <input 
-                type="text" 
-                className="form-control"  
-                name="username" 
-                value={this.state.username} 
-                onChange={this.handleChange}
-              />
-	          </div>
-
-	          <div className="form-group">
-	            <label>Password </label>
-	            <input 
+              <label>Password </label>
+              <input 
                 type="password" 
                 className="form-control" 
                 name="password" 
-                value={this.state.password}
+                value={password}
                 onChange={this.handleChange} 
               />
-	          </div>
+            </div>
+   
+             <div className="form-group">
+              <label>Password Confirmation </label>
+              <input 
+                type="password" 
+                className="form-control" 
+                name="password_confirmation" 
+                value={password_confirmation}
+                onChange={this.handleChange} 
+              />
+            </div>
+
             <div className="form-group">
 	            <button 
                 className="btn btn-primary btn-block"
