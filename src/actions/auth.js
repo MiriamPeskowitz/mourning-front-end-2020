@@ -1,4 +1,4 @@
-import { SIGNUP_SUCCESS } from "./authTypes"
+import { SIGNUP_SUCCESS, SIGNUP_FAIL } from "./authTypes"
 
 export const signUp = (newUser) => {
 	// newUser.email, newUser.name, newUser.password
@@ -7,37 +7,26 @@ export const signUp = (newUser) => {
 //also, look up JWT with rails backend . 
 	return (dispatch) => {
 		fetch('/users', {
+			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      method: 'POST',
-      body: JSON.stringify(newUser)
-			})
+      body: JSON.stringify({newUser})
+			}
+		)
 		.then(response => response.json())
-		.then(account => dispatch({ 
-				type: SIGNUP_SUCCESS, //change to signup_success 
-				payload: account
-				}))
-		}
+		.then(user => {
+			console.log("user: ", user)
+			dispatch({ 
+				type: "SIGNUP_SUCCESS", 
+				payload: user
+				})
+		})
+		.catch(err => {
+			dispatch({
+				type: SIGNUP_FAIL
+			})
+		})
 	}
-
-
-// export const login = (username) => {
-// 	return ({
-// 		type: "LOGIN",
-// 		payload: {
-// 			currentUser: {
-// 				username: username,
-// 				password: 'password'
-// 			}
-// 		}
-// 	})
-// }
-
-
-// export const logout = () => {
-// 	return {
-// 		type: "LOGOUT"
-// 		}
-// 	}
+}

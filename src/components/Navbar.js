@@ -4,7 +4,7 @@ import React from 'react'
 import Story from './Story'
 // import Entries from '../containers/Entries'
 // import Mourners from '../containers/Mourners'
-// import SignUp from '../containers/SignUp'
+import SignUp from '../containers/SignUp'
 // import Login from '../containers/Login'
 // import Profile from './Profile'
 // import App from '../App'
@@ -25,6 +25,7 @@ import '../css/App.css';
 const Navbar = (props) => {
 	return (
 		<div>
+			<SignUp />
 			<Story />
 		</div>			
 	)

@@ -40,7 +40,7 @@ class SignUp extends Component {
     return (
     	<div className="col-md-12">
         <div className="card card-container">
-          <h1>SIGNUP</h1>
+          <h2>Welcome, join us. </h2>
 	      	<form className="signup-form" onSubmit={this.handleSubmit}>
 	         	 
             <div className="form-group">
