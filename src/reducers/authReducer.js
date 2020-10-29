@@ -4,6 +4,8 @@ export default(state = {currentUser: {}, loggedIn: false}, action) => {
 	switch(type) {
 		case "SIGNUP_SUCCESS":
 			return {...state, isLoggedIn: false}
+		case "SIGNUP_FAIL":
+			return {...state, isLoggedIn: false}
 
 
 		case "LOGIN":

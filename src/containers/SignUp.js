@@ -17,8 +17,8 @@ class SignUp extends Component {
     	email: "",
       password: "",
     } 
-
   }
+
   handleChange = (e) => {
   	this.setState({
   		[e.target.name]: (e.target.value)
@@ -32,8 +32,6 @@ class SignUp extends Component {
     console.log("newUser: ", newUser)
   	this.props.signUp(newUser) //state.
   	//then what, render what page ? 
-    
-
   }
 //sending username and password to signUp Action 
   render() {
@@ -44,38 +42,34 @@ class SignUp extends Component {
 	      	<form className="signup-form" onSubmit={this.handleSubmit}>
 	         	 
             <div className="form-group">
-              <label>Email</label>
+              <label>Email </label>
               <input 
                 type="text" 
                 className="form-control"  
                 name="email" 
                 value={this.state.username} 
-                onChange={this.handleChange}  
-                placeholder="email"
-              />
+                onChange={this.handleChange}                />
             </div>
 
             <div className="form-group">
-	            <label>Username</label>
+	            <label>Username </label>
 	            <input 
                 type="text" 
                 className="form-control"  
                 name="username" 
                 value={this.state.username} 
                 onChange={this.handleChange}
-                placeholder="username"
               />
 	          </div>
 
 	          <div className="form-group">
-	            <label>Password</label>
+	            <label>Password </label>
 	            <input 
                 type="password" 
                 className="form-control" 
                 name="password" 
                 value={this.state.password}
                 onChange={this.handleChange} 
-                placeholder="password"
               />
 	          </div>
             <div className="form-group">

@@ -1,4 +1,4 @@
-import { SIGNUP_SUCCESS, SIGNUP_FAIL } from "./authTypes"
+// import { SIGNUP_SUCCESS, SIGNUP_FAIL } from "./authTypes"
 
 export const signUp = (newUser) => {
 	// newUser.email, newUser.name, newUser.password
@@ -25,7 +25,7 @@ export const signUp = (newUser) => {
 		})
 		.catch(err => {
 			dispatch({
-				type: SIGNUP_FAIL
+				type: "SIGNUP_FAIL"
 			})
 		})
 	}
