@@ -1,22 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux'
-// import store from './store';
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-// ReactDOM.render(
-//   <Provider store={store}>
-// 	  <App />
-//   </Provider>,
-//   document.getElementById('root')
-// );
+import store from './store';
 
 import './css/index.css';
 import App from './App';
 
 
-ReactDOM.render(
 
-	  <App />, document.getElementById('root')
+ReactDOM.render(
+  <Provider store={store}>
+  	<Router>
+	  	<App />
+	  </Router>
+  </Provider>,
+  document.getElementById('root')
 );
 
 
