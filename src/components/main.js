@@ -1,11 +1,8 @@
-Different ways to do it. 
-
 import {BroswerRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './containers/Home'
 import Navigation from './components/Navigation'
 import IngredientsContainer from './containers/IngredientsContainer'
 import IngredientsList from './containers/IngredientsList'
-
 //wrap in Router, then add a Switch 
 //each route -- what is the path I want to match? 
 //on this path, which component shoudl show. 
@@ -32,7 +29,4 @@ function App() {
 		<Router
 		)
 }
-
-1. add Router
-2. make the Switch/Route
-3. Next: the ability to truly navigate 
+1. add Router   2. make the Switch/Route  3. Next: the ability to truly navigate 

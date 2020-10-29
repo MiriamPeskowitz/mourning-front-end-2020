@@ -45,8 +45,7 @@ const Navigation = () => (
 			activeStyle={{
 				background: 'darkblue'
 			}}
-			>ingredients
-		</NavLink>
+			>ingredients		</NavLink>
 	</div>
 )
 
