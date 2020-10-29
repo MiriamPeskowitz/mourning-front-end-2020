@@ -45,7 +45,7 @@ class SignUp extends Component {
     return (
     	<div className="col-md-12">
         <div className="card card-container">
-          <h2>Welcome, join us. </h2>
+          <h2 style={{ color: '#9400d3' }}>Welcome. Join us. </h2>
 	      	<form 
             className="signup-form" 
             onSubmit={this.handleSubmit}
