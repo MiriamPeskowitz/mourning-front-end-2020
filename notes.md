@@ -9,7 +9,14 @@
 7. Then work on number of mourners
 8. DONE get rid of bullet points in entries
 9. Then work on user auth. HERE now. Plan: These are the SignUp and Login pages 
-React/Redux Simple Auth - https://www.youtube.com/watch?v=HYVJcq7Ika8 
+React/Redux Simple Auth - https://www.youtube.com/watch?v=HYVJcq7Ika810.  
+Sprint: 
+1. signup page, done. 
+2. NEXT: make the data persist to backend
+3. build login in page
+4. build enough router so they push to new pages, home and proilfe when done. 
+
+
 https://github.com/cernanb/online-web-pt-120919-react-redux-simple-auth/tree/master/src
 Look at notes: 
 
