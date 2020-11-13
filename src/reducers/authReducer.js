@@ -7,9 +7,9 @@ export default(state = {currentUser: {}, loggedIn: false}, action) => {
 		case "SIGNUP_FAIL":
 			return {...state, isLoggedIn: false}
 
-
 		case "LOGIN":
 			return {...state, loggedIn: true, currentUser: payload}
+		
 		case "LOGOUT":
 			return {...state, loggedIn: false, currentUser: {}}
 		default:

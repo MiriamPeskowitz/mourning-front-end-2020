@@ -16,7 +16,7 @@ Sprint:
 3. build login in page
 4. build enough router so they push to new pages, home and proilfe when done. 
 
-
+read()()---)_)_$$$RR
 https://github.com/cernanb/online-web-pt-120919-react-redux-simple-auth/tree/master/src
 Look at notes: 
 

@@ -18,10 +18,10 @@ class SignUp extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
 
     this.state = {
+      username: "",
     	email: "",
       password: "",
       password_confirmation: "",
-      name: ""
     } 
   }
 
@@ -34,14 +34,22 @@ class SignUp extends Component {
  //check if this is right, what's newUser
   handleSubmit = (e) => {
   	e.preventDefault()	
-    const newUser = this.state 
-    console.log("newUser: ", newUser)
-  	this.props.signUp(newUser) 
+    // const = this.state.username, this.state.email, this.state.password
+    const newUser = {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
+    }
+    if (this.state.password === this.state.password_confirmation) {
+  	   console.log("newUser from SignUp", newUser)
+       this.props.signUp(newUser)    
+    }
+     
     // this.props.history.push('/') add once router is n 
   }
 //sending username and password to signUp Action 
   render() {
-    const { name, email, password, password_confirmation  } = this.state
+    const { username, email, password, password_confirmation  } = this.state
     return (
     	<div className="col-md-12">
         <div className="card card-container">
@@ -52,12 +60,12 @@ class SignUp extends Component {
             >
 
         	  <div className="form-group">
-              <label> Name </label>
+              <label> Username </label>
               <input 
                 type="text" 
                 className="form-control"  
-                name="firstname" 
-                value={name} 
+                name="username" 
+                value={username} 
                 onChange={this.handleChange}
               />
             </div>
@@ -117,7 +125,7 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, { signUp } )(SignUp);
-
+// export default SignUp
 
 // this.props.loggedIn ?  (
 //          	<div>"Welcome {this.props.currentUser.username}" </div> 
