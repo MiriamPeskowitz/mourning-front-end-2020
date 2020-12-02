@@ -10,7 +10,8 @@ const getUsers = () => {
 		.then(users => {			
 			dispatch({
 			  type: "MOURNERS_LOADED", 
-			  payload: users.data})
+			  payload: users.data
+			})
 		})
 	}
 }

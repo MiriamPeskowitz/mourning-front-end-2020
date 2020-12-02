@@ -6,7 +6,8 @@ const getEntries = () => {
 		.then(entries => {			
 			dispatch({
 			  type: "ENTRIES_LOADED", 
-			  payload: entries.data})
+			  payload: entries.data
+			})
 		})
 	}
 }
