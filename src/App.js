@@ -3,39 +3,44 @@ import React, { Component } from 'react'
 import Mourners from './components/Mourners'
 import Entries from './components/Entries'
 import Navbar from './components/Navbar'
+import Signup from './components/Signup'
+import Login from './components/Login'
 import './stylesheets/App.css'
-import { Route, NavLink, Switch,  Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom'
 // import history from '../history'
 
 class App extends Component {
 	
 	render() {
 	  return (
-	  	<>
-	  		
-			  	<Navbar />
+	  	<Router> 	
+	  		<div className="App">
+          <header className="App-header">	
+			  		<Navbar />
+			  	</header>
+
 			  	<Entries />
-			  	<Mourners />
-			
-		  </>
+			  	<Mourners />		
+			  </div>	
+		  </Router>
 	  )
 	}
 }
 
-//move to routing file and import 
-// const Main = () => {
-// 	return (
-// 		<>
-// 			<Switch>
-// 				<Route exact path="/" component={App} />
-// 				<Route exact path="/login" component={Login} />
-// 				<Route exact path="/signup" component={Signup} />
-// 				<Route exact path="/signout"  />
-// 		 	
-				// </Switch>
-// 		</>
-// 	)
-// }
+
+const Main = () => {
+	return (
+		<>
+			<Switch>
+				<Route exact path="/" component={App} />
+				<Route exact path="/login" component={Login} />
+				<Route exact path="/signup" component={Signup} />
+				<Route exact path="/signout"  />
+		 	
+				</Switch>
+		</>
+	)
+}
 // <Router history={history}>
 
 export default App
