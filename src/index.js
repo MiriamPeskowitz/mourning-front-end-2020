@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 import { BrowserRouter as Router } from 'react-router-dom'
 import rootReducer from './reducers/index'
 
-import './css/index.css';
+import './stylesheets/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

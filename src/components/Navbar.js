@@ -1,15 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = (props) => {
 	return (
-		<div>
-			<Link to='/main'>Main </Link>
-			<Link to='SignUp'>SignUp</Link>
-			<Link to='Login'>Login</Link>
-			<Link to='Profile'>Profile</Link>
-
-		</div>
+		<nav >
+		 	<ul>
+		    <li >
+	        <NavLink exact activeClassName="active" to="/signup">SignUp</NavLink>
+	      </li>
+	      <li>
+	        <NavLink exact activeClassName="active" to="/login">Login</NavLink>
+	      </li>
+	      <li>
+	        <NavLink exact activeClassName="active" to="/logout">Logout</NavLink>
+	      </li>
+		 	</ul>
+	 </nav>
 	)
 }
 
