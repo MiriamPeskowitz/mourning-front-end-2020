@@ -4,8 +4,10 @@ const MournersList = ( {users} ) => {
 	console.log("users:", users)
 	
 	const names = users.map((user) => (
-		<span key={user.id}> {user.attributes.name} </span>
+		<li key={user.id}> {user.attributes.username}: {user.attributes.description} </li>
 	))
-	return <div>{names}</div>	
+	return <ul>{names}</ul>	
 }
 export default MournersList
+
+// feature: change to most recent 15 

@@ -6,43 +6,35 @@ import Navbar from './components/Navbar'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import './stylesheets/App.css'
-import {  Route, NavLink, Switch } from 'react-router-dom'
+import {  Route, Switch, Redirect } from 'react-router-dom'
 // import history from '../history'
 
 class App extends Component {
 	
 	render() {
 	  return (
-
-	  		<div className="App">
-          <header className="App-header">	
-			  		<Navbar />
-			  	</header>
-
-			  	<Entries />
-			  	<Mourners />		
-			  </div>	
-
+  		<div className="App-header">    
+     		<h1 className="App-title">Mourning</h1>
+		  	
+		  		<Navbar />
+		  		<Entries />
+		  		<Mourners />
+		
+		  
+					<Switch>
+						<Route path="/signup" component={Signup} />
+						<Route path="/login" component={Login} />
+						<Route path="/logout"  />	
+						<Redirect to="/" />
+						// <Route exact path="/" component={App} />
+					</Switch>
+		  </div>	
 	  )
 	}
 }
 
-
-const Main = () => {
-	return (
-		<>
-			<Switch>
-				<Route exact path="/" component={App} />
-				<Route exact path="/login" component={Login} />
-				<Route exact path="/signup" component={Signup} />
-				<Route exact path="/signout"  />
-		 	
-				</Switch>
-		</>
-	)
-}
 // <Router history={history}>
-
+// <header className="App-header">	
 export default App
  
 
