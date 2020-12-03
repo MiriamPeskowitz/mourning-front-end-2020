@@ -20,19 +20,21 @@ class App extends Component {
 	  		<Mourners />
 	  
 				<Switch>
-					<Route path="/signup" component={Signup} />
-					<Route path="/login" component={Login} />
-					<Route path="/logout"  />	
+						<Route path="/entry/new" component={Login} />
 					<Redirect to="/" />
 				</Switch>
 		  </div>	
 	  )
 	}
 }
-					// <Route exact path="/" component={App} />
+export default App
+
+// <Route exact path="/" component={App} />
 
 // <Router history={history}>
 // <header className="App-header">	
-export default App
- 
+
+ // <Route path="/signup" component={Signup} />
+	// 				<Route path="/login" component={Login} />
+	// 				<Route path="/logout"  />	
 

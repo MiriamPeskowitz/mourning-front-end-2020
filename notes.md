@@ -8,3 +8,7 @@ Next:
 	-- Need to get the auth working 
 	-- Need to organize what shows when, 
 
+	-- actually, phase 1: just add a new entry
+
+	-- phase 2, build out auth 
+
