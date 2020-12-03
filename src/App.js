@@ -6,14 +6,14 @@ import Navbar from './components/Navbar'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import './stylesheets/App.css'
-import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom'
+import {  Route, NavLink, Switch } from 'react-router-dom'
 // import history from '../history'
 
 class App extends Component {
 	
 	render() {
 	  return (
-	  	<Router> 	
+
 	  		<div className="App">
           <header className="App-header">	
 			  		<Navbar />
@@ -22,7 +22,7 @@ class App extends Component {
 			  	<Entries />
 			  	<Mourners />		
 			  </div>	
-		  </Router>
+
 	  )
 	}
 }
