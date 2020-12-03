@@ -6,7 +6,7 @@ const MournersList = ( {users} ) => {
 	const names = users.map((user) => (
 		<li key={user.id}> {user.attributes.username}: {user.attributes.description} </li>
 	))
-	return <ul>{names}</ul>	
+	return <ul style={{color: 'pink'}}>{names}</ul>	
 }
 export default MournersList
 
