@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 // import { history } from 'react-router-dom'
-import { signUp } from '../actions/auth'
+// import { signUp } from '../actions/auth'
 
 
 //Form | Capture entries in a variable | send data to SignUP action | 
@@ -10,7 +10,7 @@ import { signUp } from '../actions/auth'
 //then the component grabs the data from the reducer 
 //then does something in the render: like let the user into their profile 
 
-class SignUp extends Component {
+class Signup extends Component {
   constructor() {
     super() 
 
@@ -103,9 +103,7 @@ class SignUp extends Component {
             </div>
 
             <div className="form-group">
-	            <button 
-                className="btn btn-primary btn-block"
-                type="submit">
+	            <button type="submit">
                 Sign Up
               </button>
 	          </div>
@@ -124,8 +122,9 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, { signUp } )(SignUp);
+export default connect(mapStateToProps,  )(Signup);
 // export default SignUp
+// { signUp }
 
 // this.props.loggedIn ?  (
 //          	<div>"Welcome {this.props.currentUser.username}" </div> 
