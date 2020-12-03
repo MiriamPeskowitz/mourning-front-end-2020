@@ -14,24 +14,22 @@ class App extends Component {
 	render() {
 	  return (
   		<div className="App-header">    
+  			<Navbar />
      		<h1 className="App-title">Mourning</h1>
-		  	
-		  		<Navbar />
-		  		<Entries />
-		  		<Mourners />
-		
-		  
-					<Switch>
-						<Route path="/signup" component={Signup} />
-						<Route path="/login" component={Login} />
-						<Route path="/logout"  />	
-						<Redirect to="/" />
-						// <Route exact path="/" component={App} />
-					</Switch>
+	  		<Entries />
+	  		<Mourners />
+	  
+				<Switch>
+					<Route path="/signup" component={Signup} />
+					<Route path="/login" component={Login} />
+					<Route path="/logout"  />	
+					<Redirect to="/" />
+				</Switch>
 		  </div>	
 	  )
 	}
 }
+					// <Route exact path="/" component={App} />
 
 // <Router history={history}>
 // <header className="App-header">	

@@ -1,18 +1,20 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
+const gray = {color: '#C0C0C0'};
+
 const Navbar = (props) => {
 	return (
-		<nav >
+		<nav>
 		 	<ul>
-		    <li >
-	        <NavLink exact activeClassName="active" to="/signup">SignUp</NavLink>
+		    <li>
+	        <NavLink style={gray}  exact to="/signup">SignUp</NavLink>
 	      </li>
 	      <li>
-	        <NavLink exact activeClassName="active" to="/login">Login</NavLink>
+	        <NavLink style={gray} exact to="/login">Login</NavLink>
 	      </li>
 	      <li>
-	        <NavLink exact activeClassName="active" to="/logout">Logout</NavLink>
+	        <NavLink style={gray} exact to="/logout">Logout</NavLink>
 	      </li>
 		 	</ul>
 	 </nav>
@@ -20,3 +22,4 @@ const Navbar = (props) => {
 }
 
 export default Navbar
+

@@ -6,7 +6,7 @@ const EntriesList = ( {entries} ) => {
 	const feelings = entries.map((entry) => (
 		<li key={entry.id}> {entry.attributes.title}: {entry.attributes.content} </li>
 	))
-	return <ul>{feelings}</ul>
+	return <ul style={{color: 'yellow'}}>{feelings}</ul>
 }
 export default EntriesList
 
