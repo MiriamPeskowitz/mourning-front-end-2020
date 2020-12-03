@@ -7,19 +7,20 @@ const Navbar = (props) => {
 	return (
 		<nav>
 		 	<ul>
-		    <li>
-	        <NavLink style={gray}  exact to="/signup">SignUp</NavLink>
-	      </li>
-	      <li>
-	        <NavLink style={gray} exact to="/login">Login</NavLink>
-	      </li>
-	      <li>
-	        <NavLink style={gray} exact to="/logout">Logout</NavLink>
-	      </li>
+		    <li> <NavLink style={gray} exact to="/signup">SignUp</NavLink> </li>
+	      
+	      <li> <NavLink style={gray} exact to="/login">Login</NavLink> </li>
+	     
+	      <li> <NavLink style={gray} exact to="/logout">Logout</NavLink> </li>     
 		 	</ul>
-	 </nav>
+	 	</nav>
 	)
 }
 
 export default Navbar
+
+//is props necessary to import? What is it? 
+//add ternary: if not signed in, then don't show logout 
+
+
 
