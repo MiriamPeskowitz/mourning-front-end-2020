@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 // import { history } from 'react-router-dom'
-// import { signUp } from '../actions/auth'
-
+import signUpNewUser from '../actions/auth.js'
+import '../stylesheets/Signup.css'
 
 //Form | Capture entries in a variable | send data to SignUP action | 
 //this function dispatches new data to the backend, then sends
@@ -20,6 +20,7 @@ class Signup extends Component {
     this.state = {
       username: "",
     	email: "",
+      description: "",
       password: "",
       password_confirmation: "",
     } 
@@ -37,103 +38,103 @@ class Signup extends Component {
     // const = this.state.username, this.state.email, this.state.password
     const newUser = {
       username: this.state.username,
+      description: this.state.description,
       email: this.state.email,
       password: this.state.password
     }
     if (this.state.password === this.state.password_confirmation) {
-  	   console.log("newUser from SignUp", newUser)
-       this.props.signUp(newUser)    
+  	   console.log("passwords match. newUser from SignUp: ", newUser)
+       this.props.signUpNewUser(newUser)    
     }
      
     // this.props.history.push('/') add once router is n 
   }
-//sending username and password to signUp Action 
+//sending username and password and description and email to signUp Action 
+ 
+ 
+
   render() {
-    const { username, email, password, password_confirmation  } = this.state
+    
+    const { username, email, description, password, password_confirmation  } = this.state
     return (
-    	<div className="col-md-12">
-        <div className="card card-container">
-          <h2 style={{ color: '#9400d3' }}>Welcome. Join us. </h2>
-	      	<form 
-            className="signup-form" 
-            onSubmit={this.handleSubmit}
-            >
+      <>
+      <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
 
-        	  <div className="form-group">
-              <label> Username </label>
-              <input 
-                type="text" 
-                className="form-control"  
-                name="username" 
-                value={username} 
-                onChange={this.handleChange}
+    	<div>
+      	<form className="input-field" onSubmit={this.handleSubmit} >
+
+      	  <div>
+            <label>Username    </label>
+            <input 
+              type="text"   
+              name="username" 
+              value={username} 
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <div>
+            <label>Email    </label>
+            <input 
+              type="email"  
+              name="email" 
+              value={email} 
+              onChange={this.handleChange}  
+              />       
+          </div>
+
+          <div>
+            <label>Whom have you lost? How? When? How are you holding up?   </label>
+            <br/>
+            <textarea cols="40" rows="10"
+              type="text"  
+              name="description" 
+              value={description} 
+              onChange={this.handleChange}                
               />
-            </div>
+          </div>
 
-            <div className="form-group">
-              <label>Email </label>
-              <input 
-                type="email" 
-                className="form-control"  
-                name="email" 
-                value={email} 
-                onChange={this.handleChange}                />
-            </div>
+          <div>
+            <label>Password     </label>
+            <input 
+              type="password"
+              name="password" 
+              value={password}
+              onChange={this.handleChange} 
+            />
+          </div>
+ 
+           <div>
+            <label>Password Confirmation   </label>
+            <input 
+              type="password"
+              name="password_confirmation" 
+              value={password_confirmation}
+              onChange={this.handleChange} 
+            />
+          </div>
 
-            <div className="form-group">
-              <label>Password </label>
-              <input 
-                type="password" 
-                className="form-control" 
-                name="password" 
-                value={password}
-                onChange={this.handleChange} 
-              />
-            </div>
-   
-             <div className="form-group">
-              <label>Password Confirmation </label>
-              <input 
-                type="password" 
-                className="form-control" 
-                name="password_confirmation" 
-                value={password_confirmation}
-                onChange={this.handleChange} 
-              />
-            </div>
-
-            <div className="form-group">
-	            <button type="submit">
-                Sign Up
-              </button>
-	          </div>
-          </form> 
-        </div> 
+          <div>
+            <button type="submit">
+             Join
+            </button>
+          </div>
+        </form> 
      	</div>
+      </>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-	console.log(state)
+	console.log("Signup state= ")
 	return {
 		loggedIn: state.loggedIn,
 		currentUser: state.currentUser
+    // WHAT DO I WANT TO RETURN? 
 	}
 }
 
-export default connect(mapStateToProps,  )(Signup);
-// export default SignUp
-// { signUp }
-
-// this.props.loggedIn ?  (
-//          	<div>"Welcome {this.props.currentUser.username}" </div> 
-//          	) : {
-//          	<div>
-//          			<label>Username</label>
-//          			<input 
-//          			  type="text"
-//          			  onChange={this.handleChange(e)}	
-
-//        	}
-
+export default connect(mapStateToProps, { signUpNewUser } )(Signup);
+ // add to db, then add to dom
+ //do it in auth reducer 

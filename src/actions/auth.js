@@ -1,5 +1,5 @@
-const signUp = () => {
-	console.log('got to signUp in actions/auth')
+const signUpNewUser = () => {
+	console.log('got to signUp in actions-auth')
 	// return (dispatch) => {
 	// 	dispatch({type: "LOADING_MOURNERS_NAMES"})
 	// 	return fetch("/users")
@@ -13,4 +13,6 @@ const signUp = () => {
 	// }
 }
 
-export default signUp
+export default signUpNewUser;
+
+// Need 
