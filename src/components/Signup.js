@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 // import { history } from 'react-router-dom'
 import signUpNewUser from '../actions/auth.js'
+import '../stylesheets/Signup.css'
 
 //Form | Capture entries in a variable | send data to SignUP action | 
 //this function dispatches new data to the backend, then sends
@@ -49,75 +50,78 @@ class Signup extends Component {
     // this.props.history.push('/') add once router is n 
   }
 //sending username and password and description and email to signUp Action 
+ 
+ 
+
   render() {
+    
     const { username, email, description, password, password_confirmation  } = this.state
     return (
-    	<div >
-        <div>
-          <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
-	      	<form 
-            className="signup-form" 
-            onSubmit={this.handleSubmit}
-            >
+      <>
+      <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
 
-        	  <div>
-              <label>Username    </label>
-              <input 
-                type="text"   
-                name="username" 
-                value={username} 
-                onChange={this.handleChange}
+    	<div>
+      	<form className="input-field" onSubmit={this.handleSubmit} >
+
+      	  <div>
+            <label>Username    </label>
+            <input 
+              type="text"   
+              name="username" 
+              value={username} 
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <div>
+            <label>Email    </label>
+            <input 
+              type="email"  
+              name="email" 
+              value={email} 
+              onChange={this.handleChange}  
+              />       
+          </div>
+
+          <div>
+            <label>Whom have you lost? How? When? How are you holding up?   </label>
+            <br/>
+            <textarea cols="40" rows="10"
+              type="text"  
+              name="description" 
+              value={description} 
+              onChange={this.handleChange}                
               />
-            </div>
+          </div>
 
-            <div>
-              <label>Email    </label>
-              <input 
-                type="email"  
-                name="email" 
-                value={email} 
-                onChange={this.handleChange}  
-                />       
-            </div>
+          <div>
+            <label>Password     </label>
+            <input 
+              type="password"
+              name="password" 
+              value={password}
+              onChange={this.handleChange} 
+            />
+          </div>
+ 
+           <div>
+            <label>Password Confirmation   </label>
+            <input 
+              type="password"
+              name="password_confirmation" 
+              value={password_confirmation}
+              onChange={this.handleChange} 
+            />
+          </div>
 
-            <div>
-              <label>Whom have you lost? How? When? How are you holding up?   </label>
-              <textarea 
-                type="text"  
-                name="description" 
-                value={description} 
-                onChange={this.handleChange}                
-                />
-            </div>
-
-            <div>
-              <label>Password     </label>
-              <input 
-                type="password"
-                name="password" 
-                value={password}
-                onChange={this.handleChange} 
-              />
-            </div>
-   
-             <div>
-              <label>Password Confirmation   </label>
-              <input 
-                type="password"
-                name="password_confirmation" 
-                value={password_confirmation}
-                onChange={this.handleChange} 
-              />
-            </div>
-
-            <div>
-	            <button type="submit">
-               Join
-              </button>
-	          </div>
-          </form> 
-        </div> 
+          <div>
+            <button type="submit">
+             Join
+            </button>
+          </div>
+        </form> 
      	</div>
+      </>
     );
   }
 }
