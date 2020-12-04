@@ -8,7 +8,9 @@ Next:
 	-- Need to get the auth working 
 	-- Need to organize what shows when, 
 
-	-- actually, phase 1: just add a new entry
+	-- fix css centering etc  
 
-	-- phase 2, build out auth 
-
+	-- build out auth 
+		-- add user
+			-- test out file? adds to db? 
+			

@@ -1,9 +1,10 @@
-export const signUpNewUser = (newUser) => {
+export const signUpNewUser = (user) => {
 	console.log('got to signUp in actions-auth')
+	console.log("user:", user)
 	return (dispatch) => {
 	return fetch(`/users`, {
 		method: 'POST',
-		body: JSON.stringify({newUser}),
+		body: JSON.stringify({user}),
 		headers: {
 		 'Content-Type': 'application/json',
 		},
@@ -12,7 +13,7 @@ export const signUpNewUser = (newUser) => {
 	.then((user) => {
 		dispatch({
 			type: 'NEW_USER_CREATED_AUTH_TOBE_ADDED_HERE',
-			payload: user.data
+			
 		})
 	})
 }

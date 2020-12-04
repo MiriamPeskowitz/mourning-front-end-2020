@@ -35,7 +35,6 @@ class Signup extends Component {
  //check if this is right, what's newUser
   handleSubmit = (e) => {
   	e.preventDefault()	
-    // const = this.state.username, this.state.email, this.state.password
     const newUser = {
       username: this.state.username,
       description: this.state.description,
