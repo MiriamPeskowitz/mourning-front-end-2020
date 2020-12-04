@@ -1,15 +1,16 @@
-export default(state = {entries: [], loading: false}, action) => {
+
+const INITIAL_STATE = {
+	// isAuthenticated: false,
+	currentUser: {}
+}
+
+export default(state = INITIAL_STATE, action) => {
 	switch(action.type){
-		case "LOADING_ENTRIES":
+		case "NEW_USER_CREATED_AUTH_TOBE_ADDED_HERE":
 			return {
 				...state,
-				loading:true
-			}
-		case "ENTRIES_LOADED":
-			return {
-				...state,
-				entries: action.payload,
-				loading: false
+				currentUser: action.user,
+				// isAuthenticated: true
 			}
 		default:
 			return state
