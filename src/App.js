@@ -5,7 +5,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
 import './stylesheets/App.css'
-import {  Route, Switch, Redirect } from 'react-router-dom'
+import {  Route, Switch } from 'react-router-dom'
 // import history from '../history'
 
 class App extends Component {
@@ -36,4 +36,8 @@ export default App
  // <Route path="/signup" component={Signup} />
 	// 				<Route path="/login" component={Login} />
 	// 				<Route path="/logout"  />	
+
+
+// should exact be on the switch routes, or on the links? 
+
 

@@ -42,82 +42,77 @@ class Signup extends Component {
       password: this.state.password
     }
     if (this.state.password === this.state.password_confirmation) {
-  	   console.log("newUser from SignUp", newUser)
+  	   console.log("passwords match. newUser from SignUp: ", newUser)
        this.props.signUpNewUser(newUser)    
     }
      
     // this.props.history.push('/') add once router is n 
   }
-//sending username and password to signUp Action 
+//sending username and password and description and email to signUp Action 
   render() {
     const { username, email, description, password, password_confirmation  } = this.state
     return (
-    	<div className="col-md-12">
-        <div className="card card-container">
-          <h2 style={{ color: '#9400d3' }}>Welcome. Join us. </h2>
+    	<div >
+        <div>
+          <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
 	      	<form 
             className="signup-form" 
             onSubmit={this.handleSubmit}
             >
 
-        	  <div className="form-group">
-              <label> Username </label>
+        	  <div>
+              <label>Username    </label>
               <input 
-                type="text" 
-                className="form-control"  
+                type="text"   
                 name="username" 
                 value={username} 
                 onChange={this.handleChange}
               />
             </div>
 
-            <div className="form-group">
-              <label>Email </label>
+            <div>
+              <label>Email    </label>
               <input 
-                type="email" 
-                className="form-control"  
+                type="email"  
                 name="email" 
                 value={email} 
                 onChange={this.handleChange}  
                 />       
             </div>
 
-            <div className="form-group">
-              <label>Whom have you lost? How? When? </label>
+            <div>
+              <label>Whom have you lost? How? When? How are you holding up?   </label>
               <textarea 
-                type="text" 
-                className="form-control"  
+                type="text"  
                 name="description" 
                 value={description} 
                 onChange={this.handleChange}                
                 />
             </div>
 
-            <div className="form-group">
-              <label>Password </label>
+            <div>
+              <label>Password     </label>
               <input 
-                type="password" 
-                className="form-control" 
+                type="password"
                 name="password" 
                 value={password}
                 onChange={this.handleChange} 
               />
             </div>
    
-             <div className="form-group">
-              <label>Password Confirmation </label>
+             <div>
+              <label>Password Confirmation   </label>
               <input 
-                type="password" 
-                className="form-control" 
+                type="password"
                 name="password_confirmation" 
                 value={password_confirmation}
                 onChange={this.handleChange} 
               />
             </div>
 
-            <div className="form-group">
+            <div>
 	            <button type="submit">
-                Sign Up
+               Join
               </button>
 	          </div>
           </form> 
