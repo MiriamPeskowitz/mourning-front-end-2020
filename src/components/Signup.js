@@ -127,7 +127,7 @@ class Signup extends Component {
 }
 
 const mapStateToProps = (state) => {
-	console.log(state)
+	console.log("Signup state= ")
 	return {
 		loggedIn: state.loggedIn,
 		currentUser: state.currentUser
@@ -136,4 +136,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, { signUpNewUser } )(Signup);
-
+ // add to db, then add to dom
+ //do it in auth reducer 
