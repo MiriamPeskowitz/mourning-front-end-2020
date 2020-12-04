@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 // import { history } from 'react-router-dom'
-import signUpNewUser from '../actions/auth.js'
+// import { signUp } from '../actions/auth'
+
 
 //Form | Capture entries in a variable | send data to SignUP action | 
 //this function dispatches new data to the backend, then sends
@@ -19,7 +20,6 @@ class Signup extends Component {
     this.state = {
       username: "",
     	email: "",
-      description: "",
       password: "",
       password_confirmation: "",
     } 
@@ -35,22 +35,21 @@ class Signup extends Component {
   handleSubmit = (e) => {
   	e.preventDefault()	
     // const = this.state.username, this.state.email, this.state.password
-    const newUser = {
+    const newEntry = {
       username: this.state.username,
-      description: this.state.description,
       email: this.state.email,
       password: this.state.password
     }
     if (this.state.password === this.state.password_confirmation) {
   	   console.log("newUser from SignUp", newUser)
-       this.props.signUpNewUser(newUser)    
+       this.props.signUp(newUser)    
     }
      
     // this.props.history.push('/') add once router is n 
   }
 //sending username and password to signUp Action 
   render() {
-    const { username, email, description, password, password_confirmation  } = this.state
+    const { username, email, password, password_confirmation  } = this.state
     return (
     	<div className="col-md-12">
         <div className="card card-container">
@@ -78,19 +77,7 @@ class Signup extends Component {
                 className="form-control"  
                 name="email" 
                 value={email} 
-                onChange={this.handleChange}  
-                />       
-            </div>
-
-            <div className="form-group">
-              <label>Whom have you lost? How? When? </label>
-              <textarea 
-                type="text" 
-                className="form-control"  
-                name="description" 
-                value={description} 
-                onChange={this.handleChange}                
-                />
+                onChange={this.handleChange}                />
             </div>
 
             <div className="form-group">
@@ -132,9 +119,7 @@ const mapStateToProps = (state) => {
 	return {
 		loggedIn: state.loggedIn,
 		currentUser: state.currentUser
-    // WHAT DO I WANT TO RETURN? 
 	}
 }
 
-export default connect(mapStateToProps, { signUpNewUser } )(Signup);
-
+export default connect(mapStateToProps,  )(Signup);
