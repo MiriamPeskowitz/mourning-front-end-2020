@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 // import { history } from 'react-router-dom'
-import signUpNewUser from '../actions/auth.js'
+import {signUpNewUser} from '../actions/auth.js'
 import '../stylesheets/Signup.css'
 
 //Form | Capture entries in a variable | send data to SignUP action | 
@@ -35,7 +35,6 @@ class Signup extends Component {
  //check if this is right, what's newUser
   handleSubmit = (e) => {
   	e.preventDefault()	
-    // const = this.state.username, this.state.email, this.state.password
     const newUser = {
       username: this.state.username,
       description: this.state.description,
@@ -43,8 +42,12 @@ class Signup extends Component {
       password: this.state.password
     }
     if (this.state.password === this.state.password_confirmation) {
-  	   console.log("passwords match. newUser from SignUp: ", newUser)
-       this.props.signUpNewUser(newUser)    
+  	 console.log("passwords match. newUser from SignUp: ", newUser)
+      this.props.signUpNewUser(newUser)  
+      this.setState({ username: '', email: '', description: '', password: '', password_confirmation: '' }) 
+      console.log("state after reset: ", this.state)
+      this.props.history.push('/login')
+
     }
      
     // this.props.history.push('/') add once router is n 
@@ -126,15 +129,6 @@ class Signup extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-	console.log("Signup state= ")
-	return {
-		loggedIn: state.loggedIn,
-		currentUser: state.currentUser
-    // WHAT DO I WANT TO RETURN? 
-	}
-}
 
-export default connect(mapStateToProps, { signUpNewUser } )(Signup);
- // add to db, then add to dom
- //do it in auth reducer 
+export default connect(null,  { signUpNewUser } )(Signup);
+

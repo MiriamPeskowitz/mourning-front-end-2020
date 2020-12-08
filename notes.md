@@ -8,7 +8,16 @@ Next:
 	-- Need to get the auth working 
 	-- Need to organize what shows when, 
 
-	-- actually, phase 1: just add a new entry
+	-- fix css centering etc  
 
-	-- phase 2, build out auth 
+	-- build out auth 
+		-- add user signup
+			-- test out file? adds to db? WORKS!!
+			-- add rest -- including history 
+		-- add login
+
+		Then add jwt 
+
+
+		-- the blue line, chrome => accessibility https://stackoverflow.com/questions/42423371/how-do-i-remove-the-blue-border-that-appears-when-clicking-on-a-uib-accordion-he
 
