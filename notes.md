@@ -11,6 +11,13 @@ Next:
 	-- fix css centering etc  
 
 	-- build out auth 
-		-- add user
-			-- test out file? adds to db? 
-			
+		-- add user signup
+			-- test out file? adds to db? WORKS!!
+			-- add rest -- including history 
+		-- add login
+
+		Then add jwt 
+
+
+		-- the blue line, chrome => accessibility https://stackoverflow.com/questions/42423371/how-do-i-remove-the-blue-border-that-appears-when-clicking-on-a-uib-accordion-he
+

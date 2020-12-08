@@ -1,47 +1,70 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { login }  from '../actions/auth'
 
-export default class Login extends Component {
+class Login extends Component {
 	state= {
 		username: "",
 		password: ""
 	}
+	
 	onChange = (e) => this.setState({[e.target.name]: e.target.value})
 
 	onSubmit = (e) => {
 		e.preventDefault()
-		console.log(this.state)
-		const {username, password, password_confirmation  } = this.state
-		const body = {username: username, password: password }
-		if (password === password_confirmation) {
-		console.log("onsubmit", body)
-		} else {
-			alert("passwords don;t match")
-		}
+		console.log("this.state: ", this.state)
+
+		// const {username, password } = this.state
+		// const user = {username: username, password: password }
+		console.log("signup done")
 			//do something
+		this.props.login(this.state).then( () => {
+			this.setState({username: "", password: ""})
+			this.props.history.push('/home')
+		})
+		
 	}
 	render() {
 		return (
-			<>
-			<h1> Signup</h1>
+			<div>
+				<h2> Welcome Back.</h2>
+				<h3>Login</h3>
 				<form onSubmit={this.onSubmit}>
 					<label>Username: 
-						<input type="text" name="username" onChange={this.onChange}
+						<input 
+							type="text" 
+							name="username" 
+							onChange={this.onChange}
 							value={this.state.username}
 						/>
 					</label>
+					<br/>
 					<label>Password: 
-						<input type="text" name="password" onChange={this.onChange}
-							value={this.state.username}
+						<input 
+							type="text" 
+							name="password" 
+							onChange={this.onChange}
+							value={this.state.password}
 						/>
 					</label>
-						<label>Password Confirm: 
-						<input type="text" name="password_comfirmation" onChange={this.onChange}
-							value={this.state.username}
-						/>
-					</label>
-					<input type="submit" value="signUp" />
+					<br/>
+					<input 
+						type="submit" 
+						value="Login" 
+					/>
 				</form>
-			</>
+			</div>
 		)
 	}
 }
+
+function mapStateToProps(state) {
+  console.log(state);
+  return { 
+  	isAuthenticated: state.loggedIn, 
+  	currentUser: state.currentUser 
+  };
+}
+
+export default connect(mapStateToProps, {login} )(Login);
+
