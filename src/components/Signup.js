@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 // import { history } from 'react-router-dom'
-import {signUpNewUser} from '../actions/auth.js'
+import { signUpNewUser } from '../actions/auth.js'
 import '../stylesheets/Signup.css'
 
 //Form | Capture entries in a variable | send data to SignUP action | 

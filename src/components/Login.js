@@ -4,6 +4,7 @@ import { login }  from '../actions/auth'
 
 class Login extends Component {
 	state= {
+		currentUser: null,
 		username: "",
 		password: ""
 	}
@@ -18,8 +19,15 @@ class Login extends Component {
 		// const user = {username: username, password: password }
 		console.log("signup done")
 			//do something
-		this.props.login(this.state).then( () => {
-			this.setState({username: "", password: ""})
+		this.props.login(this.state)
+		.then( () => {
+		// if error {alert("login didn't work")} else {}
+			this.setState({
+				// currentUser: user,
+				username: "", 
+				password: ""
+			})
+			// localStorage.setItem('token', jwt)
 			this.props.history.push('/home')
 		})
 		
