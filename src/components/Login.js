@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { login }  from '../actions/auth'
 
 class Login extends Component {
-	state= {
+	state = {
 		currentUser: null,
 		username: "",
 		password: ""

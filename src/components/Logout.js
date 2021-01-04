@@ -1,7 +1,9 @@
 import React from 'react'
 
 const Logout = ({ logout }) => {
-	return {
+
+
+	return (
 		<div className="Logout">
 			<form onSubmit={logout}>
 				<input
@@ -10,7 +12,9 @@ const Logout = ({ logout }) => {
 				/>
 			</form>
 		</div>
-	}
+	)
 }
 
 export default Logout
+
+// Feature: add the logout
