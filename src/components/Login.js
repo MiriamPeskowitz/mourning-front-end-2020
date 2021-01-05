@@ -3,31 +3,38 @@ import { connect } from 'react-redux'
 import { login }  from '../actions/auth'
 
 class Login extends Component {
-	state= {
+	state = {
+		currentUser: null,
 		username: "",
 		password: ""
 	}
 	
-	onChange = (e) => this.setState({[e.target.name]: e.target.value})
+	onChange = (e) => this.setState({
+		[e.target.name]: e.target.value}
+		)
 
 	onSubmit = (e) => {
 		e.preventDefault()
-		console.log("this.state: ", this.state)
-
-		// const {username, password } = this.state
-		// const user = {username: username, password: password }
-		console.log("signup done")
-			//do something
-		this.props.login(this.state).then( () => {
-			this.setState({username: "", password: ""})
-			this.props.history.push('/home')
-		})
+	
+		const {username, password } = this.state
+		const user = { username: username, password: password }
 		
+		this.props.login(user)
+		
+			this.setState({
+				currentUser: user,
+				username: "", 
+				password: ""
+			})
+		
+		console.log("login done -- this.state: ", this.state)
+			// localStorage.setItem('token', jwt)
+		this.props.history.push('/home')
 	}
 	render() {
 		return (
 			<div>
-				<h2> Welcome Back.</h2>
+			
 				<h3>Login</h3>
 				<form onSubmit={this.onSubmit}>
 					<label>Username: 
@@ -41,7 +48,7 @@ class Login extends Component {
 					<br/>
 					<label>Password: 
 						<input 
-							type="text" 
+							type="password" 
 							name="password" 
 							onChange={this.onChange}
 							value={this.state.password}
@@ -59,12 +66,12 @@ class Login extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
+  console.log("LoginMSPstate: ", state);
   return { 
-  	isAuthenticated: state.loggedIn, 
+  	isLoggedIn: state.isLoggedIn, 
   	currentUser: state.currentUser 
   };
 }
 
-export default connect(mapStateToProps, {login} )(Login);
+export default connect(mapStateToProps, { login } )(Login);
 

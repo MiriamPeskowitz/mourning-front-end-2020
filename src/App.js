@@ -1,43 +1,46 @@
 import React, { Component } from 'react'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
+
 import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
+import Logout from './components/Logout'
+import Profile from './components/Profile'
+
 import './stylesheets/App.css'
 import {  Route, Switch } from 'react-router-dom'
-// import history from '../history'
 
-class App extends Component {
-	
+class App extends Component {		
+
 	render() {
+
 	  return (
-  		<div className="App-header">   
-  			<Navbar />
+  		<div className="App-header">  
+
+  			
+   			<Navbar />
+  		
+   		
    			<h1 className="App-title">Mourning</h1>
 	  
 				<Switch>		
- 					<Route path="/signup" component={Signup} />
-					<Route path="/login" component={Login} />
-					<Route path="/logout"  />	
-					<Route path="/" component={Home} />	
+ 					<Route exact path="/signup" component={Signup} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/logout" component={Logout} />	
+					<Route exact path="/profile" component={Profile}/> 
+					<Route path={["/", "/home"]}  component={Home} />	
 				</Switch>
 		  </div>	
 	  )
 	}
 }
-export default App
-//would path be add or entry/new 
-// <Route exact path="/" component={App} />
 
-// <Router history={history}>
-// <header className="App-header">	
+const mapStateToProps = (state) => {
 
- // <Route path="/signup" component={Signup} />
-	// 				<Route path="/login" component={Login} />
-	// 				<Route path="/logout"  />	
+  return { 
+  	currentUser: state.currentUser
+  };
+}
 
-
-// should exact be on the switch routes, or on the links? 
-
-
+export default connect(mapStateToProps, null )(App);

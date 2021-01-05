@@ -1,7 +1,7 @@
 
 const INITIAL_STATE = {
 	loading: false,
-	isAuthenticated: false,
+	isLoggedIn: false,
 	currentUser: {}
 }
 
@@ -12,31 +12,36 @@ export default(state = INITIAL_STATE, action) => {
 			console.log("got to adding new user in reducer")
 			return {
 				...state,
-				loading:true
-			}
+				loading: true,
+				isLoggedIn: false
+		}
 
 		case "NEW_USER_CREATED":
 			console.log('got to auth reducer new user created ')
 			return {
 					...state,
-					isAuthenticated: false				
+					isLoggedIn: true,
+					currentUser: action.payload
 				}
+
+		case "CREATE_USER_ERROR": 
+				console.log('create user error') 
+			  return {
+			  	isLoggedIn: false
+			  }
 				
-				// ...state,
-				// currentUser: action.user,
-		
 		case "LOGIN_AUTHORIZATION_COMPLETE":
 			console.log('got to auth reducer login ')
 			return {
 				...state, 
-				isAuthenticated: true,
+				isLoggedIn: true,
 				currentUser: action.payload
 			}
 
 		case "LOGOUT":
 			return {
 				...state, 
-				isAuthenticated: false, 
+				isLoggedIn: false, 
 				currentUser: {}
 			}
 
