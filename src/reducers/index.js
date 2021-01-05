@@ -1,15 +1,15 @@
 import  { combineReducers }  from 'redux'
-import entryReducer from './entryReducer.js'
-import userReducer from './userReducer.js'
-import authReducer from './authReducer.js'
+import entriesReducer from './entriesReducer'
+import usersReducer from './usersReducer'
+import authReducer from './authReducer'
 
 const rootReducer = combineReducers({
 	authReducer,
-	entryReducer,
-	userReducer
+	entriesReducer,
+	usersReducer
 })
 
 export default rootReducer
 
 // export default export --import w/o curly braces 
-// named export 
+// named export -- import w/ curly braces 

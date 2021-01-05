@@ -7,7 +7,6 @@ class Mourners extends Component {
 
 	componentDidMount(){
 		this.props.getUsers()
-		console.log("ComponentDidMount/Users")
 	}
 
 	render() {		
@@ -23,17 +22,9 @@ class Mourners extends Component {
 }
 const mapStateToProps = state => {
 	return {
-		users: state.userReducer.users,
-		loading: state.userReducer.loading
+		users: state.usersReducer.users,
+		loading: state.usersReducer.loading
 	}
 }
 
-export default connect(mapStateToProps, {getUsers} )(Mourners)
-// state -- names 
-//semantic-ui-react -- make a card around this, or a section. 
-
-
-// state = {
-	// 	users: '',
-	// 	loading: false
-	// }
+export default connect(mapStateToProps, { getUsers } )(Mourners)

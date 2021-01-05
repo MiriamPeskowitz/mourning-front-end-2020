@@ -4,11 +4,6 @@ import { connect } from 'react-redux'
 import { signUpNewUser } from '../actions/auth.js'
 import '../stylesheets/Signup.css'
 
-//Form | Capture entries in a variable | send data to SignUP action | 
-//this function dispatches new data to the backend, then sends
-// the result that's returned, to the reducer 
-//then the component grabs the data from the reducer 
-//then does something in the render: like let the user into their profile 
 
 class Signup extends Component {
   constructor() {
@@ -42,93 +37,100 @@ class Signup extends Component {
       password: this.state.password
     }
     if (this.state.password === this.state.password_confirmation) {
-  	 console.log("passwords match. newUser from SignUp: ", newUser)
+  	 console.log("passwords match. newUser can SignUp: ", newUser)
+
       this.props.signUpNewUser(newUser)  
       this.setState({ username: '', email: '', description: '', password: '', password_confirmation: '' }) 
+      
       console.log("state after reset: ", this.state)
+      
       this.props.history.push('/login')
 
     }
      
-    // this.props.history.push('/') add once router is n 
+    this.props.history.push('/')  
   }
-//sending username and password and description and email to signUp Action 
  
- 
+
 
   render() {
     
     const { username, email, description, password, password_confirmation  } = this.state
     return (
       <>
-      <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
+        <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
+      	 <div>
+        	<form className="input-field" onSubmit={this.handleSubmit} >
 
-    	<div>
-      	<form className="input-field" onSubmit={this.handleSubmit} >
-
-      	  <div>
-            <label>Username    </label>
-            <input 
-              type="text"   
-              name="username" 
-              value={username} 
-              onChange={this.handleChange}
-            />
-          </div>
-
-          <div>
-            <label>Email    </label>
-            <input 
-              type="email"  
-              name="email" 
-              value={email} 
-              onChange={this.handleChange}  
-              />       
-          </div>
-
-          <div>
-            <label>Whom have you lost? How? When? How are you holding up?   </label>
-            <br/>
-            <textarea cols="40" rows="10"
-              type="text"  
-              name="description" 
-              value={description} 
-              onChange={this.handleChange}                
+        	  <div>
+              <label>Username    </label>
+              <input 
+                type="text"   
+                name="username" 
+                value={username} 
+                onChange={this.handleChange}
               />
-          </div>
+            </div>
 
-          <div>
-            <label>Password     </label>
-            <input 
-              type="password"
-              name="password" 
-              value={password}
-              onChange={this.handleChange} 
-            />
-          </div>
- 
-           <div>
-            <label>Password Confirmation   </label>
-            <input 
-              type="password"
-              name="password_confirmation" 
-              value={password_confirmation}
-              onChange={this.handleChange} 
-            />
-          </div>
+            <div>
+              <label>Email    </label>
+              <input 
+                type="email"  
+                name="email" 
+                value={email} 
+                onChange={this.handleChange}  
+              />       
+            </div>
 
-          <div>
-            <button type="submit">
-             Join
-            </button>
-          </div>
-        </form> 
-     	</div>
+            <div>
+              <label>Whom have you lost? How? When? How are you holding up?   </label>
+              <br/>
+              <textarea cols="40" rows="10"
+                type="text"  
+                name="description" 
+                value={description} 
+                onChange={this.handleChange}                
+              />
+            </div>
+
+            <div>
+              <label>Password     </label>
+              <input 
+                type="password"
+                name="password" 
+                value={password}
+                onChange={this.handleChange} 
+              />
+            </div>
+   
+            <div>
+              <label>Password Confirmation   </label>
+              <input 
+                type="password"
+                name="password_confirmation" 
+                value={password_confirmation}
+                onChange={this.handleChange} 
+              />
+            </div>
+
+            <div>
+              <button type="submit">
+               Join
+              </button>
+            </div>
+
+          </form> 
+       	</div>
       </>
     );
   }
 }
 
-
 export default connect(null,  { signUpNewUser } )(Signup);
+
+//Form | Capture entries in a variable | send data to SignUP action | 
+//this function dispatches new data to the backend, then sends
+// the result that's returned, to the reducer 
+//then the component grabs the data from the reducer 
+//then does something in the render: like let the user into their profile 
 

@@ -3,6 +3,7 @@ import Mourners from './Mourners'
 import Entries from './Entries'
 
 const Home = () => {
+
 	return (
 		<>
   		<Entries />

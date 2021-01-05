@@ -7,13 +7,14 @@ class Entries extends Component {
 	
 	componentDidMount(){
 		this.props.getEntries()
-		console.log("ComponentDidMount/Entries")
+		
 	}
 
 	render() {		
 		return (
 			<div className="entry-list">
 			 <h2>What they are saying? What do they need? </h2>
+
 			 {this.props.loading ? <h3>Loading...</h3> : <EntriesList entries={this.props.entries} />}
 			</div>
 		)
@@ -21,10 +22,10 @@ class Entries extends Component {
 }
 const mapStateToProps = state => {
 	return {
-		entries: state.entryReducer.entries,
-		loading: state.entryReducer.loading
+		entries: state.entriesReducer.entries,
+		loading: state.entriesReducer.loading
 	}
 }
 
-export default connect(mapStateToProps, {getEntries} )(Entries)
+export default connect(mapStateToProps, { getEntries } )(Entries)
 

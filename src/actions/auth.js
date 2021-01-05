@@ -1,6 +1,5 @@
 export const signUpNewUser = (user) => {
-	console.log('got to signUp in actions-auth')
-	console.log("user:", user)
+
 
 	const token = localStorage.getItem('token')
 	const config = {
@@ -17,10 +16,13 @@ export const signUpNewUser = (user) => {
 
 		return fetch( "/users", config)
 			.then(response => response.json())
+			.then((user) => console.log("payload:user: ", user))
 			.then((user) => {
+				
 				dispatch({
 					type: "NEW_USER_CREATED",
-					payload: user
+					payload: user.data
+					
 					 // localStorage.setItem('token', token)
 				})
 			})
@@ -36,10 +38,11 @@ export const signUpNewUser = (user) => {
 //         localStorage.setItem('token', token)
 //       })
 //       but I want to understand the process first 
+
+
 export const login = (user) => {
+	
 	return (dispatch) => {
-		console.log('got to login in actions-auth')
-		console.log("user:", user)
 		return fetch("/login", {
 			method: 'POST',
 			body: JSON.stringify({user}),
@@ -48,11 +51,12 @@ export const login = (user) => {
 			},
 		})
 			.then(response => response.json())
+			.then((user) => console.log("payload:user: ", user))
 			.then(user => {
-				console.log("got to LAC in auth.js")
+			
 				dispatch({
 					type: 'LOGIN_AUTHORIZATION_COMPLETE', 
-					payload: user.data	
+					payload: user	
 				})
 		})
 	}
@@ -63,35 +67,35 @@ export const logout = () => {
 	return {
 		type: 'LOGOUT'
 	}
-}
-// user/x/data 
+ }
 
-export const setCurrentUser = ({user}) => {
-	return {
-		type: "SET_CURRENT_USER",
-		user
-	}
-}
+// export const setCurrentUser = ({user}) => {
+// 	return {
+// 		type: "SET_CURRENT_USER",
+// 		user
+// 	}
+// }
 
 
-export const getCurrentUser = userCredentials => {
-	return dispatch => {
-		return fetch("/autologin", {
-			headers: {
-        "Content-Type": "application/json"
-      }
-		})
-		.then(response => response.json())
-		.then(user => {
-			if (user.error) {
-				alert(user.error)
-			} else {
-				dispatch(setCurrentUser(user))
-			}
-		})
-		.catch(console.log('error at getting Current user '))
-	}
-}
+
+// export const getCurrentUser = userCredentials => {
+// 	return dispatch => {
+// 		return fetch("/autologin", {
+// 			headers: {
+//         "Content-Type": "application/json"
+//       }
+// 		})
+// 		.then(response => response.json())
+// 		.then(user => {
+// 			if (user.error) {
+// 				alert(user.error)
+// 			} else {
+// 				dispatch(setCurrentUser(user))
+// 			}
+// 		})
+// 		.catch(console.log('error at getting Current user '))
+// 	}
+// }
 // going to add this: 
 // .then(res => res.json())
 //       .then(({ user, token }) => {

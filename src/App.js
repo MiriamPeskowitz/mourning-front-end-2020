@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
 import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
 import Logout from './components/Logout'
 import Profile from './components/Profile'
-import { getCurrentUser } from './actions/auth'
 
 import './stylesheets/App.css'
 import {  Route, Switch } from 'react-router-dom'
-// import history from '../history'
 
-class App extends Component {
+class App extends Component {		
+
 	render() {
 
 	  return (
-  		<div className="App-header">   
+  		<div className="App-header">  
 
   			
    			<Navbar />
@@ -25,11 +25,11 @@ class App extends Component {
    			<h1 className="App-title">Mourning</h1>
 	  
 				<Switch>		
- 					<Route path="/signup" component={Signup} />
-					<Route path="/login" component={Login} />
-					<Route path="/logout" component={Logout} />	
-					<Route path="/profile" component={Profile}/> 
-					<Route path="/" component={Home} />	
+ 					<Route exact path="/signup" component={Signup} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/logout" component={Logout} />	
+					<Route exact path="/profile" component={Profile}/> 
+					<Route path={["/", "/home"]}  component={Home} />	
 				</Switch>
 		  </div>	
 	  )
@@ -37,10 +37,10 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
- console.log("currentUser: ", state.currentUser)
+
   return { 
-  	currentUser: state.currentUser 
+  	currentUser: state.currentUser
   };
 }
 
-export default connect(mapStateToProps, null  )(App);
+export default connect(mapStateToProps, null )(App);

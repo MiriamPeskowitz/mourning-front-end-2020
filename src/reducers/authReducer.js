@@ -23,13 +23,13 @@ export default(state = INITIAL_STATE, action) => {
 					isLoggedIn: true,
 					currentUser: action.payload
 				}
-			case "CREATE_USER_ERROR": 
-				//add console.log or alert here? 
+
+		case "CREATE_USER_ERROR": 
+				console.log('create user error') 
 			  return {
 			  	isLoggedIn: false
 			  }
 				
-		
 		case "LOGIN_AUTHORIZATION_COMPLETE":
 			console.log('got to auth reducer login ')
 			return {
