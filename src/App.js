@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+
 
 import Signup from './components/Signup'
 import Home from './components/Home'
@@ -17,11 +17,11 @@ class App extends Component {
 
 	  return (
   		<div className="App-header">  
+				
+				<Navbar /> 
 
-  			
-   			<Navbar />
-  		
-   		
+	
+  		   		
    			<h1 className="App-title">Mourning</h1>
 	  
 				<Switch>		
@@ -36,11 +36,4 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-
-  return { 
-  	currentUser: state.currentUser
-  };
-}
-
-export default connect(mapStateToProps, null )(App);
+export default App;

@@ -2,7 +2,7 @@
 const INITIAL_STATE = {
 	loading: false,
 	isLoggedIn: false,
-	currentUser: {}
+	currentUser: {name: "miriam"}
 }
 
 export default(state = INITIAL_STATE, action) => {
