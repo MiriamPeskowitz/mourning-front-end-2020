@@ -2,7 +2,6 @@ import React from 'react'
 
 const MournersList = ( {users} ) => {
 
-	
 	const names = users.map((user) => (
 		<li key={user.id}> {user.attributes.username}: {user.attributes.description} </li>
 	))

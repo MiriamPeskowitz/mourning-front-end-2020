@@ -1,51 +1,72 @@
 
-const INITIAL_STATE = {
-	loading: false,
-	isLoggedIn: false,
-	currentUser: {name: "miriam"}
-}
-
-export default(state = INITIAL_STATE, action) => {
+export default(state = null, action) => {
 	switch(action.type){
 
 		case "ADDING_NEW_USER":
 			console.log("got to adding new user in reducer")
 			return {
 				...state,
-				loading: true,
-				isLoggedIn: false
+				
 		}
 
 		case "NEW_USER_CREATED":
-			console.log('got to auth reducer new user created ')
+			console.log('got to auth reducer new user created-- user')
 			return {
 					...state,
-					isLoggedIn: true,
 					currentUser: action.payload
 				}
 
-		case "CREATE_USER_ERROR": 
-				console.log('create user error') 
-			  return {
-			  	isLoggedIn: false
-			  }
+// login => sets current user
+			case "SET_CURRENT_USER":
+			return action.user
+		
+//case "CLEAR_CURRENT_USER";
+		// return null
+
+		
+		// case "CREATE_USER_ERROR": 
+		// 		console.log('create user error') 
+		// 	  return {
+		// 	  	isLoggedIn: false
+		// 	  }
 				
-		case "LOGIN_AUTHORIZATION_COMPLETE":
-			console.log('got to auth reducer login ')
-			return {
-				...state, 
-				isLoggedIn: true,
-				currentUser: action.payload
-			}
+		// case "LOGIN_COMPLETE":
+		// 	console.log('got to auth reducer login ', action.payload)
+		// 	return {
+		// 		...state, 
+		// 		currentUser
+		// 	}
 
 		case "LOGOUT":
 			return {
-				...state, 
-				isLoggedIn: false, 
-				currentUser: {}
+				...state
 			}
+
+		
+
 
 		default:
 			return state
 	}
 }
+
+
+
+//moved to auth, for now 
+
+// export default (state = null, action) => {
+// 	switch(action.type) {
+
+	
+
+// 		default:
+// 			return state
+// 	}
+
+// }
+
+
+
+//moved to auth for now 
+		// case "SET_CURRENT_USER":
+		// 	return action.user

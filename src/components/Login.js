@@ -29,7 +29,7 @@ class Login extends Component {
 		
 		console.log("login done -- this.state: ", this.state)
 			// localStorage.setItem('token', jwt)
-		this.props.history.push('/home')
+		this.props.history.push('/profile')
 	}
 	render() {
 		return (

@@ -4,10 +4,8 @@ import getEntries from '../actions/entries'
 import EntriesList from '../components/EntriesList'
 
 class Entries extends Component {
-	
 	componentDidMount(){
-		this.props.getEntries()
-		
+		this.props.getEntries()	
 	}
 
 	render() {		

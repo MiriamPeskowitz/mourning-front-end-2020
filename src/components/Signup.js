@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-// import { history } from 'react-router-dom'
 import { signUpNewUser } from '../actions/auth.js'
 import '../stylesheets/Signup.css'
-
 
 class Signup extends Component {
   constructor() {
@@ -27,29 +25,44 @@ class Signup extends Component {
   	})
   } 
 
- //check if this is right, what's newUser
   handleSubmit = (e) => {
   	e.preventDefault()	
+
     const newUser = {
       username: this.state.username,
       description: this.state.description,
       email: this.state.email,
       password: this.state.password
     }
+
     if (this.state.password === this.state.password_confirmation) {
-  	 console.log("passwords match. newUser can SignUp: ", newUser)
+  	   
+      console.log("passwords match. newUser can SignUp: ", newUser)
 
       this.props.signUpNewUser(newUser)  
-      this.setState({ username: '', email: '', description: '', password: '', password_confirmation: '' }) 
-      
-      console.log("state after reset: ", this.state)
+
       
       this.props.history.push('/login')
 
-    }
+      
+
+    } else {
      
-    this.props.history.push('/')  
-  }
+    this.props.history.push('/') 
+    }
+
+    this.setState({ 
+      username: '', 
+      email: '', 
+      description: '', 
+      password: '', 
+      password_confirmation: '' 
+    }) 
+      
+      console.log("state after reset: ", this.state)
+
+    }
+  
  
 
 

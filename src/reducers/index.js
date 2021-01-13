@@ -6,7 +6,8 @@ import authReducer from './authReducer'
 const rootReducer = combineReducers({
 	authReducer,
 	entriesReducer,
-	usersReducer
+	usersReducer,
+	loginForm
 })
 
 export default rootReducer

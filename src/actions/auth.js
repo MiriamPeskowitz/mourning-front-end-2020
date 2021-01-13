@@ -1,73 +1,103 @@
-export const signUpNewUser = (user) => {
+
+export const setCurrentUser = user => {
+	return {
+		type: "SET_CURRENT_USER",
+		user
+	}
+}
+
+export const resetLoginForm = () => {
+	return {
+		type: "RESET_LOGIN_FORM"
+	}
+}
+//use dispatch when thunk/async is involved 
+export const getCurrentUser = () => {
+	return dispatch => {
+		return fetch("/get_current_user", {
+			credentials: "include",
+			method: "GET",
+			headers: {
+				"Content-Type": "application/JSON"
+			},
+		})
+		.then(response => response.json())
+		.then(response => {
+			if (response.error) {
+				alert(response.error)
+			} else {
+				dispatch(setCurrentUser(response.data))
+				console.log("response.data/getCurrentUser: ", response.data)
+				//dispatch get anyother kind of data needed) 
+			}
+		})
+		.catch(err => console.log(err))
+	}
+}
 
 
-	const token = localStorage.getItem('token')
+export const signUpNewUser = (newUser) => {
+
 	const config = {
 			method: 'POST',
-			body: JSON.stringify({user}),
 			headers: {
 			 'Content-Type': 'application/json',
-			  'Authorization': token
+			  "Accept": 'application/json'
 				},
+			body: JSON.stringify({newUser})
 			}
 
 	return (dispatch) => {
 		dispatch({type: "ADDING_NEW_USER"});
 
-		return fetch( "/users", config)
+		fetch( "/users", config)
 			.then(response => response.json())
 			.then((user) => console.log("payload:user: ", user))
 			.then((user) => {
-				
-				dispatch({
-					type: "NEW_USER_CREATED",
-					payload: user.data
-					
-					 // localStorage.setItem('token', token)
-				})
-			})
-			.catch(error=> console.log("signup didn't work"))
 
+				dispatch(setCurrentUser(user.data))
+
+			})
+			.catch(error=> console.log("from actions/auth.js: signup didn't work"))
 	}
 }
 
-//or use a regular .catch(err => c)
-// NEW_USER_CREATED_AUTH_TOBE_ADDED_HERE etc: will eventually be: 
-// .then(({ user, token }) => {
-//         dispatch({ type: 'AUTH_COMPLETE', user })
-//         localStorage.setItem('token', token)
-//       })
-//       but I want to understand the process first 
 
-
-export const login = (user) => {
-	
+export const login = (credentials) => {
+	debugger
 	return (dispatch) => {
 		return fetch("/login", {
 			method: 'POST',
-			body: JSON.stringify({user}),
 			headers: {
 			 'Content-Type': 'application/json',
 			},
+			body: JSON.stringify(credentials),
 		})
 			.then(response => response.json())
-			.then((user) => console.log("payload:user: ", user))
 			.then(user => {
+				// if (user.error) {
+				// 	alert(user.error)
+				// } else {
 			
-				dispatch({
-					type: 'LOGIN_AUTHORIZATION_COMPLETE', 
-					payload: user	
+					dispatch({
+					type: 'LOGIN_COMPLETE', 
+					payload:user.data	
 				})
-		})
-	}
+				console.log("action user: ", user)
+			})
+			.catch(err => console.log(err))
+		}
 }
 
+// i think the payload needs to be more specific 
 
 export const logout = () => {
 	return {
 		type: 'LOGOUT'
 	}
  }
+//add dispatch(clearCurrentUser)  and dispatch(clearWhateverElse )
+ //logout is standard -- reducer does the work 
 
 // export const setCurrentUser = ({user}) => {
 // 	return {

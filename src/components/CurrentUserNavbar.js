@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import Logout from './Logout'
+
 
 const gray = {color: '#C0C0C0'};
 
+
+
 const CurrentUserNavbar = ({ currentUser, loggedIn }) => {	
-		return (
+	return (
 	  <ul>
 			<li> Welcome Back, {currentUser} </li>
 
@@ -18,7 +20,6 @@ const CurrentUserNavbar = ({ currentUser, loggedIn }) => {
 	   </ul> 
 	   )
 	}
-
 
 const mapStateToProps = ({currentUser}) => {
 	return {
