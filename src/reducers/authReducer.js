@@ -12,7 +12,9 @@ export default(state = null, action) => {
 
 // login => sets current user
 			case "SET_CURRENT_USER":
-			return action.user
+			return {
+				currentUser: action.user
+			}
 		
 //case "CLEAR_CURRENT_USER";
 		// return null

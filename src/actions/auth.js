@@ -1,22 +1,14 @@
-// import { resetLoginForm } from "./loginForm.js"
-import { resetSignupForm } from "./signupForm.js"
+// import { resetLoginForm, resetSignin} from other actioncreator files 
+import { resetSignupForm } from "./signupForm"
+import { resetLoginForm } from "./loginForm"
 
 export const setCurrentUser = user => {
+	console.log("user in setCurrentUser:,", user)
 	return {
 		type: "SET_CURRENT_USER",
 		payload: user
 	}
 }
-
-//add clear current user 
-
-//move to loginform action creator 
-export const resetLoginForm = () => {
-	return {
-		type: "RESET_LOGIN_FORM"
-	}
-}
-
 
 //use dispatch when thunk/async is involved 
 export const getCurrentUser = () => {
@@ -42,16 +34,9 @@ export const getCurrentUser = () => {
 	}
 }
 
-
 export const signup = (user, history) => {
 	
 	return (dispatch) => {
-			//put data into key-value format		
-
-		// const newUserInfo = {
-		// 	user: credentials
-		// }
-
 		const config = {
 			method: 'POST',
 			credentials: "include",
@@ -78,11 +63,12 @@ export const signup = (user, history) => {
 	}
 }
 
-
-export const login = (credentials) => {
+//send credentials, if good, setcurrentuser and go to profile page 
+export const login = (credentials, history) => {
 	debugger
 	return (dispatch) => {
 		return fetch("/login", {
+			credentials: "include",
 			method: 'POST',
 			headers: {
 			 'Content-Type': 'application/json',
@@ -91,19 +77,19 @@ export const login = (credentials) => {
 		})
 			.then(response => response.json())
 			.then(user => {
-				// if (user.error) {
-				// 	alert(user.error)
-				// } else {
-			
-					dispatch({
-					type: 'LOGIN_COMPLETE', 
-					payload:user.data	
-				})
-				console.log("action user: ", user)
+				if (user.error) {
+					alert(user.error)
+				} else {
+					dispatch(setCurrentUser(user))
+					console.log("action user: ", user)
+					dispatch(resetLoginForm())
+					history.push('/profile')
+				}
 			})
 			.catch(err => console.log(err))
 		}
 }
+
 
 // i think the payload needs to be more specific 
 

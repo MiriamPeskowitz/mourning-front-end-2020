@@ -5,8 +5,6 @@ import { NavLink } from 'react-router-dom'
 
 const gray = {color: '#C0C0C0'};
 
-
-
 const CurrentUserNavbar = ({ currentUser, loggedIn }) => {	
 	return (
 	  <ul>
@@ -21,6 +19,7 @@ const CurrentUserNavbar = ({ currentUser, loggedIn }) => {
 	   )
 	}
 
+//think about whether I need this, can pass it in as props 
 const mapStateToProps = ({currentUser}) => {
 	return {
 		currentUser, 

@@ -21,11 +21,10 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
       signup(signupFormData)
       console.log("passwords match. newUser can SignUp: ", signupFormData)
     } else {
-      alert("passwords don't match")
+      alert("passwords don't match; can you fix?")
     }
   }
  
-  // const {username, email, description, password, password_confirmation} = signupFormData
   return (
       <>
         <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
@@ -94,7 +93,6 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
       </>
     );
   }
-
 
 const mapStateToProps = state => {
   return {

@@ -24,7 +24,7 @@ class App extends Component {
 	  // console.log(currentUser)
 	  return (
   		<div className="App-header">  
-				{ loggedIn ? <CurrentUserNavbar /> : <NewSessionNavbar />}
+				{ loggedIn ? <CurrentUserNavbar currentUser={currentUser}/> : <NewSessionNavbar />}
 				
 	   		
    			<h1 className="App-title">Mourning</h1>
