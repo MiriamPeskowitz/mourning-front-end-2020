@@ -4,7 +4,7 @@ import { signup } from '../actions/auth.js'
 import { updateSignupForm } from '../actions/signupForm.js'
 import '../stylesheets/Signup.css'
 
-const Signup = ({updateSignupForm, history, signup}) => {
+const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
  
   const handleChange = (e) => {
   	const updatedSignupForm = {
@@ -14,17 +14,18 @@ const Signup = ({updateSignupForm, history, signup}) => {
   	updateSignupForm(updatedSignupForm)
   } 
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
   	e.preventDefault()	
 
-    if (this.state.password === this.state.password_confirmation) {
+    if (signupFormData.password === signupFormData.password_confirmation) {
       signup(signupFormData)
-      console.log("passwords match. newUser can SignUp: ", newUser)
+      console.log("passwords match. newUser can SignUp: ", signupFormData)
     } else {
       alert("passwords don't match")
     }
   }
-  
+ 
+  const {username, email, description, password, password_confirmation} = signupFormData
   return (
       <>
         <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
@@ -33,21 +34,21 @@ const Signup = ({updateSignupForm, history, signup}) => {
 
         	  <div>
               <input 
-                placeholder="Name"
+                placeholder="name"
                 type="text"   
                 name="username" 
                 value={username} 
-                onChange={this.handleChange}
+                onChange={handleChange}
               />
             </div>
 
             <div>
               <input 
-                placeholder="Email"
+                placeholder="email"
                 type="email"  
                 name="email" 
                 value={email} 
-                onChange={this.handleChange}  
+                onChange={handleChange}  
               />       
             </div>
 
@@ -58,27 +59,27 @@ const Signup = ({updateSignupForm, history, signup}) => {
                 type="text"  
                 name="description" 
                 value={description} 
-                onChange={this.handleChange}                
+                onChange={handleChange}                
               />
             </div>
 
             <div>
               <input 
-                placeholder="Password"
+                placeholder="password"
                 type="password"
                 name="password" 
                 value={password}
-                onChange={this.handleChange} 
+                onChange={handleChange} 
               />
             </div>
    
             <div>
               <input 
-                placeholder="Password Confirmation"
+                placeholder="password confirmation"
                 type="password"
                 name="password_confirmation" 
                 value={password_confirmation}
-                onChange={this.handleChange} 
+                onChange={handleChange} 
               />
             </div>
 
@@ -96,8 +97,9 @@ const Signup = ({updateSignupForm, history, signup}) => {
 
 
 const mapStateToProps = state => {
+  console.log("signupState: ",state)
   return {
-    signupFormData: state.signupForm
+    signupFormData: state.signupForm 
   }
 }
 
