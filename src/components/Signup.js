@@ -1,83 +1,39 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
-import { signUpNewUser } from '../actions/auth.js'
+import { signup } from '../actions/auth.js'
+import { updateSignupForm } from '../actions/signupForm.js'
 import '../stylesheets/Signup.css'
 
-class Signup extends Component {
-  constructor() {
-    super() 
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-
-    this.state = {
-      username: "",
-    	email: "",
-      description: "",
-      password: "",
-      password_confirmation: "",
-    } 
-  }
-
-  handleChange = (e) => {
-  	this.setState({
+const Signup = ({updateSignupForm, history, signup}) => {
+ 
+  const handleChange = (e) => {
+  	const updatedSignupForm = {
+      ...signupFormData,
   		[e.target.name]: e.target.value
-  	})
+    }
+  	updateSignupForm(updatedSignupForm)
   } 
 
   handleSubmit = (e) => {
   	e.preventDefault()	
 
-    const newUser = {
-      username: this.state.username,
-      description: this.state.description,
-      email: this.state.email,
-      password: this.state.password
-    }
-
     if (this.state.password === this.state.password_confirmation) {
-  	   
+      signup(signupFormData)
       console.log("passwords match. newUser can SignUp: ", newUser)
-
-      this.props.signUpNewUser(newUser)  
-
-      
-      this.props.history.push('/login')
-
-      
-
     } else {
-     
-    this.props.history.push('/') 
+      alert("passwords don't match")
     }
-
-    this.setState({ 
-      username: '', 
-      email: '', 
-      description: '', 
-      password: '', 
-      password_confirmation: '' 
-    }) 
-      
-      console.log("state after reset: ", this.state)
-
-    }
+  }
   
- 
-
-
-  render() {
-    
-    const { username, email, description, password, password_confirmation  } = this.state
-    return (
+  return (
       <>
         <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
       	 <div>
-        	<form className="input-field" onSubmit={this.handleSubmit} >
+        	<form className="input-field" onSubmit={handleSubmit} >
 
         	  <div>
-              <label>Username    </label>
               <input 
+                placeholder="Name"
                 type="text"   
                 name="username" 
                 value={username} 
@@ -86,8 +42,8 @@ class Signup extends Component {
             </div>
 
             <div>
-              <label>Email    </label>
               <input 
+                placeholder="Email"
                 type="email"  
                 name="email" 
                 value={email} 
@@ -96,9 +52,9 @@ class Signup extends Component {
             </div>
 
             <div>
-              <label>Whom have you lost? How? When? How are you holding up?   </label>
               <br/>
               <textarea cols="40" rows="10"
+                placeholder="Whom have you lost? How? When? How are you holding up?"
                 type="text"  
                 name="description" 
                 value={description} 
@@ -107,8 +63,8 @@ class Signup extends Component {
             </div>
 
             <div>
-              <label>Password     </label>
               <input 
+                placeholder="Password"
                 type="password"
                 name="password" 
                 value={password}
@@ -117,8 +73,8 @@ class Signup extends Component {
             </div>
    
             <div>
-              <label>Password Confirmation   </label>
               <input 
+                placeholder="Password Confirmation"
                 type="password"
                 name="password_confirmation" 
                 value={password_confirmation}
@@ -137,9 +93,15 @@ class Signup extends Component {
       </>
     );
   }
+
+
+const mapStateToProps = state => {
+  return {
+    signupFormData: state.signupForm
+  }
 }
 
-export default connect(null,  { signUpNewUser } )(Signup);
+export default connect(mapStateToProps,  { updateSignupForm, signup } )(Signup);
 
 //Form | Capture entries in a variable | send data to SignUP action | 
 //this function dispatches new data to the backend, then sends

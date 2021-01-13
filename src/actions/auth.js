@@ -1,4 +1,5 @@
 
+
 export const setCurrentUser = user => {
 	return {
 		type: "SET_CURRENT_USER",
@@ -6,11 +7,21 @@ export const setCurrentUser = user => {
 	}
 }
 
+//add clear current user 
+
+//move to loginform action creator 
 export const resetLoginForm = () => {
 	return {
 		type: "RESET_LOGIN_FORM"
 	}
 }
+
+export const resetSignupForm = () => {
+	return {
+		type: "RESET_SIGNUP_FORM"
+	}
+}
+
 //use dispatch when thunk/async is involved 
 export const getCurrentUser = () => {
 	return dispatch => {
@@ -36,27 +47,34 @@ export const getCurrentUser = () => {
 }
 
 
-export const signUpNewUser = (newUser) => {
+export const signup = (credentials, history) => {
+	//put data into key-value format		
+	const newUserInfo = {
+		user: credentials
+	}
 
 	const config = {
 			method: 'POST',
+			credentials: "include",
 			headers: {
 			 'Content-Type': 'application/json',
 			  "Accept": 'application/json'
 				},
-			body: JSON.stringify({newUser})
+			body: JSON.stringify({newUserInfo})
 			}
 
 	return (dispatch) => {
-		dispatch({type: "ADDING_NEW_USER"});
-
-		fetch( "/users", config)
+		return fetch( "/users", config)
 			.then(response => response.json())
 			.then((user) => console.log("payload:user: ", user))
 			.then((user) => {
-
-				dispatch(setCurrentUser(user.data))
-
+				if (user.error) {
+					alert(user.error)
+				} else {
+					dispatch(setCurrentUser(user.data))
+					dispatch(resetSignupForm)
+					history.push('/profile')
+				}
 			})
 			.catch(error=> console.log("from actions/auth.js: signup didn't work"))
 	}

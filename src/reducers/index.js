@@ -7,7 +7,8 @@ const rootReducer = combineReducers({
 	authReducer,
 	entriesReducer,
 	usersReducer,
-	loginForm
+	loginFormReducer,
+	signupFormReducer
 })
 
 export default rootReducer
