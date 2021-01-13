@@ -43,14 +43,14 @@ export const getCurrentUser = () => {
 }
 
 
-export const signup = (credentials, history) => {
+export const signup = (user, history) => {
 	
 	return (dispatch) => {
 			//put data into key-value format		
 
-		const newUserInfo = {
-			user: credentials
-		}
+		// const newUserInfo = {
+		// 	user: credentials
+		// }
 
 		const config = {
 			method: 'POST',
@@ -59,7 +59,7 @@ export const signup = (credentials, history) => {
 			 'Content-Type': 'application/json',
 			  "Accept": 'application/json'
 				},
-			body: JSON.stringify({newUserInfo})
+			body: JSON.stringify({user})
 			}
 
 		return fetch( "/users", config)
