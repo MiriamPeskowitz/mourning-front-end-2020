@@ -25,7 +25,7 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
     }
   }
  
-  const {username, email, description, password, password_confirmation} = signupFormData
+  // const {username, email, description, password, password_confirmation} = signupFormData
   return (
       <>
         <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
@@ -37,7 +37,7 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
                 placeholder="name"
                 type="text"   
                 name="username" 
-                value={username} 
+                value={signupFormData.username} 
                 onChange={handleChange}
               />
             </div>
@@ -47,7 +47,7 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
                 placeholder="email"
                 type="email"  
                 name="email" 
-                value={email} 
+                value={signupFormData.email} 
                 onChange={handleChange}  
               />       
             </div>
@@ -58,7 +58,7 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
                 placeholder="Whom have you lost? How? When? How are you holding up?"
                 type="text"  
                 name="description" 
-                value={description} 
+                value={signupFormData.description} 
                 onChange={handleChange}                
               />
             </div>
@@ -68,7 +68,7 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
                 placeholder="password"
                 type="password"
                 name="password" 
-                value={password}
+                value={signupFormData.password}
                 onChange={handleChange} 
               />
             </div>
@@ -78,7 +78,7 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
                 placeholder="password confirmation"
                 type="password"
                 name="password_confirmation" 
-                value={password_confirmation}
+                value={signupFormData.password_confirmation}
                 onChange={handleChange} 
               />
             </div>
@@ -97,9 +97,8 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
 
 
 const mapStateToProps = state => {
-  console.log("signupState: ",state)
   return {
-    signupFormData: state.signupForm 
+    signupFormData: state.signupFormReducer 
   }
 }
 

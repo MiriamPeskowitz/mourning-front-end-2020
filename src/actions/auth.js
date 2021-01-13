@@ -1,9 +1,10 @@
-
+// import { resetLoginForm } from "./loginForm.js"
+import { resetSignupForm } from "./signupForm.js"
 
 export const setCurrentUser = user => {
 	return {
 		type: "SET_CURRENT_USER",
-		user
+		payload: user
 	}
 }
 
@@ -16,11 +17,6 @@ export const resetLoginForm = () => {
 	}
 }
 
-export const resetSignupForm = () => {
-	return {
-		type: "RESET_SIGNUP_FORM"
-	}
-}
 
 //use dispatch when thunk/async is involved 
 export const getCurrentUser = () => {
@@ -48,12 +44,15 @@ export const getCurrentUser = () => {
 
 
 export const signup = (credentials, history) => {
-	//put data into key-value format		
-	const newUserInfo = {
-		user: credentials
-	}
+	
+	return (dispatch) => {
+			//put data into key-value format		
 
-	const config = {
+		const newUserInfo = {
+			user: credentials
+		}
+
+		const config = {
 			method: 'POST',
 			credentials: "include",
 			headers: {
@@ -63,7 +62,6 @@ export const signup = (credentials, history) => {
 			body: JSON.stringify({newUserInfo})
 			}
 
-	return (dispatch) => {
 		return fetch( "/users", config)
 			.then(response => response.json())
 			.then((user) => console.log("payload:user: ", user))
@@ -114,6 +112,19 @@ export const logout = () => {
 		type: 'LOGOUT'
 	}
  }
+
+//get to this code -- 
+// export const logout = event => {
+//   return dispatch => {
+//     dispatch(clearCurrentUser())
+//     dispatch(clearTrips())
+//     return fetch('http://localhost:3001/api/v1/logout', {
+//       credentials: "include",
+//       method: "DELETE"
+//     })
+//   }
+// }
+
 //add dispatch(clearCurrentUser)  and dispatch(clearWhateverElse )
  //logout is standard -- reducer does the work 
 
