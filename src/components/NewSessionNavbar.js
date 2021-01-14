@@ -9,10 +9,11 @@ const NewSessionNavbar = () => {
 	 		<li> <NavLink style={gray} exact to="/">Home</NavLink> </li> 
 	 		<li> <NavLink style={gray} exact to="/signup">SignUp</NavLink> </li>    
 	    <li> <NavLink style={gray} exact to="/login">Login</NavLink> </li>	   
-	  	<li> <NavLink style={gray} exact to="/logout">Logout</NavLink> </li> 			    
-
 	  </ul> 
   )
 }
 
 export default NewSessionNavbar
+
+
+// <li> <NavLink style={gray} exact to="/logout">Logout</NavLink> </li> 			    
