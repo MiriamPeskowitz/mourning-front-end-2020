@@ -134,9 +134,6 @@ export const test = () => {
 }
 
 	export const logOut = (history) => {	
-		
-			// console.log('here1')
-			// clearCurrentUser()
 			return (dispatch) => {
 					
 				return fetch("/logout", {
@@ -148,7 +145,7 @@ export const test = () => {
 		    .then(() => {
 		    	dispatch({type: 'CLEAR_CURRENT_USER'})	
 		    }) 
-		    .then(history.push('/'))
+		    .then(history.push('/login'))
 		  }
 
    } 
