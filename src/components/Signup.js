@@ -1,115 +1,84 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
-// import { history } from 'react-router-dom'
-import { signUpNewUser } from '../actions/auth.js'
+import { signup } from '../actions/auth.js'
+import { updateSignupForm } from '../actions/signupForm.js'
 import '../stylesheets/Signup.css'
 
-
-class Signup extends Component {
-  constructor() {
-    super() 
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-
-    this.state = {
-      username: "",
-    	email: "",
-      description: "",
-      password: "",
-      password_confirmation: "",
-    } 
-  }
-
-  handleChange = (e) => {
-  	this.setState({
+const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
+ 
+  const handleChange = (e) => {
+  	const updatedSignupForm = {
+      ...signupFormData,
   		[e.target.name]: e.target.value
-  	})
+    }
+  	updateSignupForm(updatedSignupForm)
   } 
 
- //check if this is right, what's newUser
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
   	e.preventDefault()	
-    const newUser = {
-      username: this.state.username,
-      description: this.state.description,
-      email: this.state.email,
-      password: this.state.password
-    }
-    if (this.state.password === this.state.password_confirmation) {
-  	 console.log("passwords match. newUser can SignUp: ", newUser)
 
-      this.props.signUpNewUser(newUser)  
-      this.setState({ username: '', email: '', description: '', password: '', password_confirmation: '' }) 
-      
-      console.log("state after reset: ", this.state)
-      
-      this.props.history.push('/login')
-
+    if (signupFormData.password === signupFormData.password_confirmation) {
+      signup(signupFormData)
+      console.log("passwords match. newUser can SignUp: ", signupFormData)
+    } else {
+      alert("passwords don't match; can you fix?")
     }
-     
-    this.props.history.push('/')  
   }
  
-
-
-  render() {
-    
-    const { username, email, description, password, password_confirmation  } = this.state
-    return (
+  return (
       <>
         <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
       	 <div>
-        	<form className="input-field" onSubmit={this.handleSubmit} >
+        	<form className="input-field" onSubmit={handleSubmit} >
 
         	  <div>
-              <label>Username    </label>
               <input 
+                placeholder="name"
                 type="text"   
                 name="username" 
-                value={username} 
-                onChange={this.handleChange}
+                value={signupFormData.username} 
+                onChange={handleChange}
               />
             </div>
 
             <div>
-              <label>Email    </label>
               <input 
+                placeholder="email"
                 type="email"  
                 name="email" 
-                value={email} 
-                onChange={this.handleChange}  
+                value={signupFormData.email} 
+                onChange={handleChange}  
               />       
             </div>
 
             <div>
-              <label>Whom have you lost? How? When? How are you holding up?   </label>
               <br/>
               <textarea cols="40" rows="10"
+                placeholder="Whom have you lost? How? When? How are you holding up?"
                 type="text"  
                 name="description" 
-                value={description} 
-                onChange={this.handleChange}                
+                value={signupFormData.description} 
+                onChange={handleChange}                
               />
             </div>
 
             <div>
-              <label>Password     </label>
               <input 
+                placeholder="password"
                 type="password"
                 name="password" 
-                value={password}
-                onChange={this.handleChange} 
+                value={signupFormData.password}
+                onChange={handleChange} 
               />
             </div>
    
             <div>
-              <label>Password Confirmation   </label>
               <input 
+                placeholder="password confirmation"
                 type="password"
                 name="password_confirmation" 
-                value={password_confirmation}
-                onChange={this.handleChange} 
+                value={signupFormData.password_confirmation}
+                onChange={handleChange} 
               />
             </div>
 
@@ -124,9 +93,14 @@ class Signup extends Component {
       </>
     );
   }
+
+const mapStateToProps = state => {
+  return {
+    signupFormData: state.signupFormReducer 
+  }
 }
 
-export default connect(null,  { signUpNewUser } )(Signup);
+export default connect(mapStateToProps,  { updateSignupForm, signup } )(Signup);
 
 //Form | Capture entries in a variable | send data to SignUP action | 
 //this function dispatches new data to the backend, then sends

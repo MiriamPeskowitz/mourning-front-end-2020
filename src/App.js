@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { getCurrentUser } from "./actions/auth.js"
 
 import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
-import Navbar from './components/Navbar'
+import CurrentUserNavbar from './components/CurrentUserNavbar'
+import NewSessionNavbar from './components/NewSessionNavbar'
 import Logout from './components/Logout'
 import Profile from './components/Profile'
 
@@ -12,16 +14,18 @@ import './stylesheets/App.css'
 import {  Route, Switch } from 'react-router-dom'
 
 class App extends Component {		
+	componentDidMount() {
+		this.props.getCurrentUser()
+	}
+				// currentUser={currentUser}
 
 	render() {
-
+		const { loggedIn, currentUser } = this.props
+	  console.log( "here2, currentuser: ", currentUser)
 	  return (
   		<div className="App-header">  
-
-  			
-   			<Navbar />
-  		
-   		
+  			{currentUser ? <CurrentUserNavbar /> : <NewSessionNavbar /> }
+   			
    			<h1 className="App-title">Mourning</h1>
 	  
 				<Switch>		
@@ -29,18 +33,23 @@ class App extends Component {
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/logout" component={Logout} />	
 					<Route exact path="/profile" component={Profile}/> 
-					<Route path={["/", "/home"]}  component={Home} />	
+					<Route exact path="/home"  component={Home} />	
+					<Route exact path="/"  component={Home} />	
 				</Switch>
+
 		  </div>	
 	  )
 	}
 }
 
 const mapStateToProps = (state) => {
-
-  return { 
-  	currentUser: state.currentUser
-  };
+	console.log("HERE1, MSP", state.authReducer.currentUser)
+	return ({
+		loggedIn: !!state.authReducer.currentUser,
+		currentUser: state.authReducer.currentUser
+	})
 }
-
-export default connect(mapStateToProps, null )(App);
+export default connect(mapStateToProps, { getCurrentUser })(App);
+// { loggedIn ? <p id="loggedIn"> Welcome, {currentUser}</p> : null } 
+				// { loggedIn ? <CurrentUserNavbar currentUser={currentUser} /> : <NewSessionNavbar />}
+	   	

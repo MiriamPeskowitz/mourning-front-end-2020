@@ -1,73 +1,173 @@
-export const signUpNewUser = (user) => {
+// import { resetLoginForm, resetSignin} from other actioncreator files
+//Needed here, but they fit into other reducer patterns, in terms of the data they control in the store 
+
+import { resetSignupForm } from "./signupForm"
+import { resetLoginForm } from "./loginForm"
+
+export const setCurrentUser = user => {
+	console.log("user in setCurrentUser:,", user)
+	return {
+		type: "SET_CURRENT_USER",
+		payload: user
+	}
+}
+
+export const clearCurrentUser = () => {
+	console.log("got to ccu")
+	return {
+		type: 'CLEAR_CURRENT_USER'
+	}
+ }
+
+//use dispatch when thunk/async is involved 
+export const getCurrentUser = () => {
+	return dispatch => {
+		return fetch("/get_current_user", {
+			credentials: "include",
+			method: "GET",
+			headers: {
+				"Content-Type": "application/JSON"
+			},
+		})
+		.then(response => response.json())
+		.then(response => {
+			if (response.error) {
+				alert(response.error)
+			} else {
+				dispatch(setCurrentUser(response.data.attributes))
+				console.log("currentUser is (response.data.attributes.username): ", response.data.attributes.username)
+			
+				// alert(`Welcome, response.data.attributes.username`)
+				//dispatch get anyother kind of data needed) 
+			}
+		})
+		.catch(err => console.log(err))
+	}
+}
 
 
-	const token = localStorage.getItem('token')
-	const config = {
+export const signup = (user, history) => {
+	
+	return (dispatch) => {
+		const config = {
 			method: 'POST',
-			body: JSON.stringify({user}),
+			credentials: "include",
 			headers: {
 			 'Content-Type': 'application/json',
-			  'Authorization': token
+			  "Accept": 'application/json'
 				},
+			body: JSON.stringify({user})
 			}
-
-	return (dispatch) => {
-		dispatch({type: "ADDING_NEW_USER"});
 
 		return fetch( "/users", config)
 			.then(response => response.json())
 			.then((user) => console.log("payload:user: ", user))
 			.then((user) => {
-				
-				dispatch({
-					type: "NEW_USER_CREATED",
-					payload: user.data
-					
-					 // localStorage.setItem('token', token)
-				})
+				if (user.error) {
+					alert(user.error)
+				} else {
+					dispatch(setCurrentUser(user.data))
+					dispatch(resetSignupForm())
+					history.push('/profile')
+				}
 			})
-			.catch(error=> console.log("signup didn't work"))
-
+			.catch(error=> console.log("from actions/auth.js: signup didn't work"))
 	}
 }
 
-//or use a regular .catch(err => c)
-// NEW_USER_CREATED_AUTH_TOBE_ADDED_HERE etc: will eventually be: 
-// .then(({ user, token }) => {
-//         dispatch({ type: 'AUTH_COMPLETE', user })
-//         localStorage.setItem('token', token)
-//       })
-//       but I want to understand the process first 
-
-
-export const login = (user) => {
-	
+//send credentials, if good, setcurrentuser and go to profile page 
+export const login = (credentials, history) => {
 	return (dispatch) => {
 		return fetch("/login", {
+			credentials: "include",
 			method: 'POST',
-			body: JSON.stringify({user}),
 			headers: {
 			 'Content-Type': 'application/json',
 			},
+			body: JSON.stringify(credentials),
 		})
 			.then(response => response.json())
-			.then((user) => console.log("payload:user: ", user))
+			.then(console.log("got here"))
 			.then(user => {
-			
-				dispatch({
-					type: 'LOGIN_AUTHORIZATION_COMPLETE', 
-					payload: user	
-				})
-		})
-	}
+				if (user.error) {
+					alert(user.error)
+				} else {
+					dispatch(setCurrentUser(user))
+					console.log("action user: ", user)
+					dispatch(resetLoginForm())
+					history.push('/profile')
+				}
+			})
+			.catch(err => console.log(err))
+		}
 }
 
 
-export const logout = () => {
-	return {
-		type: 'LOGOUT'
+
+// i think the payload needs to be more specific 
+
+// export const logOut = () => {
+// // console.log("got to actioncreator logOut")
+// debugger
+// 	return (dispatch) => {
+// 		// console.log("logged out2")
+// 		// dispatch(clearCurrentUser())
+
+// 		return fetch("/logout", {
+// 			credentials: "include",
+// 			method: 'DELETE'
+// 		})
+// 	}
+//  }
+
+
+export const test = () => {
+	console.log("Does this work now???")
+	return (dispatch) => {
+					console.log("here2")
+				return fetch("/logout", {
+		      credentials: "include",
+		      method: "DELETE"
+		    })
+		    .then(console.log("here2"))
 	}
- }
+}
+
+	export const logOut = (history) => {	
+		
+			// console.log('here1')
+			// clearCurrentUser()
+			return (dispatch) => {
+					
+				return fetch("/logout", {
+		      credentials: "include",
+		      method: "DELETE"
+		    })
+		    .then(console.log("here2"))
+		    .then(resp => resp.json())
+		    .then(() => {
+		    	dispatch({type: 'CLEAR_CURRENT_USER'})	
+		    }) 
+		    .then(history.push('/'))
+		  }
+
+   } 
+
+
+//get to this code -- 
+// export const logout = event => {
+//   return dispatch => {
+//     dispatch(clearCurrentUser())
+//     dispatch(clearTrips())
+//     return fetch('http://localhost:3001/api/v1/logout', {
+//       credentials: "include",
+//       method: "DELETE"
+//     })
+//   }
+// }
+
+//add dispatch(clearCurrentUser)  and dispatch(clearWhateverElse )
+ //logout is standard -- reducer does the work 
 
 // export const setCurrentUser = ({user}) => {
 // 	return {

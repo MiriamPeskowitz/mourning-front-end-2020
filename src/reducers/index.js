@@ -2,11 +2,15 @@ import  { combineReducers }  from 'redux'
 import entriesReducer from './entriesReducer'
 import usersReducer from './usersReducer'
 import authReducer from './authReducer'
+import loginFormReducer from './loginFormReducer'
+import signupFormReducer from './signupFormReducer'
 
 const rootReducer = combineReducers({
 	authReducer,
 	entriesReducer,
-	usersReducer
+	usersReducer,
+	loginFormReducer,
+	signupFormReducer
 })
 
 export default rootReducer

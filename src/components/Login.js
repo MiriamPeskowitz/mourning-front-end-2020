@@ -1,77 +1,67 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { login }  from '../actions/auth'
+import { login }  from '../actions/auth.js'
+import { updateLoginForm }  from '../actions/loginForm.js'
 
-class Login extends Component {
-	state = {
-		currentUser: null,
-		username: "",
-		password: ""
+const Login = ({loginFormData, updateLoginForm, login, history}) => {
+		// console.log("loginFormData: ", loginFormData)
+
+	const handleChange = (e) => {
+		const updatedFormInfo = {
+			...loginFormData,
+			[e.target.name]: e.target.value
+		}
+		updateLoginForm(updatedFormInfo)
 	}
-	
-	onChange = (e) => this.setState({
-		[e.target.name]: e.target.value}
-		)
 
-	onSubmit = (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault()
+		login(loginFormData, history)
+	}
 	
-		const {username, password } = this.state
-		const user = { username: username, password: password }
-		
-		this.props.login(user)
-		
-			this.setState({
-				currentUser: user,
-				username: "", 
-				password: ""
-			})
-		
-		console.log("login done -- this.state: ", this.state)
-			// localStorage.setItem('token', jwt)
-		this.props.history.push('/home')
-	}
-	render() {
-		return (
-			<div>
-			
-				<h3>Login</h3>
-				<form onSubmit={this.onSubmit}>
-					<label>Username: 
-						<input 
-							type="text" 
-							name="username" 
-							onChange={this.onChange}
-							value={this.state.username}
-						/>
-					</label>
-					<br/>
-					<label>Password: 
-						<input 
-							type="password" 
-							name="password" 
-							onChange={this.onChange}
-							value={this.state.password}
-						/>
-					</label>
-					<br/>
+	return (
+		<div className="login">
+			<h3>Login</h3>
+			<form onSubmit={handleSubmit}> 
+				<div>
 					<input 
-						type="submit" 
-						value="Login" 
+						placeholder="username"
+						type="text" 
+						name="username" 
+						onChange={handleChange}
+						value={loginFormData.username}
 					/>
-				</form>
-			</div>
-		)
-	}
+				</div>
+				<div>
+					<input 
+						placeholder="password"
+						type="password" 
+						name="password" 
+						onChange={handleChange}
+						value={loginFormData.password}
+					/>
+				</div>
+				<br/>
+				<input 
+					type="submit" 
+					value="Login" 
+				/>
+			</form>
+		</div>
+	)
 }
 
-function mapStateToProps(state) {
-  console.log("LoginMSPstate: ", state);
+const mapStateToProps = state => {
   return { 
-  	isLoggedIn: state.isLoggedIn, 
-  	currentUser: state.currentUser 
-  };
+  	loginFormData: state.loginFormReducer
+  }
 }
 
-export default connect(mapStateToProps, { login } )(Login);
+export default connect(mapStateToProps, { login, updateLoginForm } )(Login);
 
+// state = {
+	// 	currentUser: null,
+	// 	username: "",
+	// 	password: ""
+	// }
+	
