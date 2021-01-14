@@ -29,5 +29,55 @@ Jan 4. Figuring things out
 		-- how does a user get to their profile page? 
 		-- what is on the profile page: chance to write personal blogs, ala caringbridge, where friends can sign up to get a notice when the mourner writes a new entry. 
 -- Signup -- when successful -- goes to login page which says Welcome Back and makes you login
---DOne -- Login -- change password entry field to type=password 
+--DOne -- Login -- change password entry field to type=password. 
 --
+
+jan 5, 1.20 pm. Saved branch fix-login. Now: merge, get back to main, then create basic branch, delete everything. This will be the branch I use for the project eval. 
+Right now: main doesn't work, but it has the full everything. 
+make new branch jwt-full-login -- RETURN TO THIS or MAIN to get everything. 
+
+1.37: new branch is: basic. servers working, data comes through. 
+
+The sign-in isn't working. Why?
+
+User has Entries. User has Profile 
+
+
+Signup: 
+-get data
+--this.props.signupUser(user, () => this.props.history.push('/'))
+
+
+Wednesday: okay, try to use spacecowboy as a model, and redo/simplify mine. The focus is the profile page -- the homepage just pulls from stuff. Homepage is the currentUser 
+
+Mon Jan 11 
+Goal: be able to get current user
+Starting again. Decided to use sessions first, then change to JWT 
+-- fix sessions and applicationController -- 
+
+ Tuesday. start with getCurrentUser 
+--action -- getCurrentUser 
+-- reducer -- DONE 
+Current User -- almost,
+Do a big debug of all the login/signup stuff. 
+Start with signup 
+signup -- is new entry created? 
+----- created and fixed up signup
+
+-- DONE ALSO: something is stuck, FIXED
+--DONEALSO: signupFormData is undefined -- FIX THIS MIDNIGHT< got it. I 
+was calling signupFormData: state.signupForm when 
+it needed to be signupFormData: state.signupFormReducer. BUT I FIGURED IT OUT> 
+NOW: signup page loads. 
+NEXT: make the backend work for signup-- DONE 
+
+NEXT: Once signup works, make login work, and then 
+get current user. Then I'm done -- can make more features in profile, including entries 
+
+Thursday: 
+NEXT: Fix the logout, esp the backend. Follow the flow of data. 
+
+Thurs at 1.50. Auth is working, logout works, now: something is happening, where loginReducer is clearing Welcome user prints, then user deletes 
+Figure out why. 
+
+
