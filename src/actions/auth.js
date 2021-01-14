@@ -1,4 +1,6 @@
-// import { resetLoginForm, resetSignin} from other actioncreator files 
+// import { resetLoginForm, resetSignin} from other actioncreator files
+//Needed here, but they fit into other reducer patterns, in terms of the data they control in the store 
+
 import { resetSignupForm } from "./signupForm"
 import { resetLoginForm } from "./loginForm"
 
@@ -9,6 +11,13 @@ export const setCurrentUser = user => {
 		payload: user
 	}
 }
+
+export const clearCurrentUser = () => {
+	console.log("got to ccu")
+	return {
+		type: 'CLEAR_CURRENT_USER'
+	}
+ }
 
 //use dispatch when thunk/async is involved 
 export const getCurrentUser = () => {
@@ -25,14 +34,17 @@ export const getCurrentUser = () => {
 			if (response.error) {
 				alert(response.error)
 			} else {
-				dispatch(setCurrentUser(response.data))
-				console.log("response.data/getCurrentUser: ", response.data)
+				dispatch(setCurrentUser(response.data.attributes))
+				console.log("currentUser is (response.data.attributes.username): ", response.data.attributes.username)
+			
+				// alert(`Welcome, response.data.attributes.username`)
 				//dispatch get anyother kind of data needed) 
 			}
 		})
 		.catch(err => console.log(err))
 	}
 }
+
 
 export const signup = (user, history) => {
 	
@@ -55,7 +67,7 @@ export const signup = (user, history) => {
 					alert(user.error)
 				} else {
 					dispatch(setCurrentUser(user.data))
-					dispatch(resetSignupForm)
+					dispatch(resetSignupForm())
 					history.push('/profile')
 				}
 			})
@@ -65,7 +77,6 @@ export const signup = (user, history) => {
 
 //send credentials, if good, setcurrentuser and go to profile page 
 export const login = (credentials, history) => {
-	debugger
 	return (dispatch) => {
 		return fetch("/login", {
 			credentials: "include",
@@ -76,6 +87,7 @@ export const login = (credentials, history) => {
 			body: JSON.stringify(credentials),
 		})
 			.then(response => response.json())
+			.then(console.log("got here"))
 			.then(user => {
 				if (user.error) {
 					alert(user.error)
@@ -91,13 +103,56 @@ export const login = (credentials, history) => {
 }
 
 
+
 // i think the payload needs to be more specific 
 
-export const logout = () => {
-	return {
-		type: 'LOGOUT'
+// export const logOut = () => {
+// // console.log("got to actioncreator logOut")
+// debugger
+// 	return (dispatch) => {
+// 		// console.log("logged out2")
+// 		// dispatch(clearCurrentUser())
+
+// 		return fetch("/logout", {
+// 			credentials: "include",
+// 			method: 'DELETE'
+// 		})
+// 	}
+//  }
+
+
+export const test = () => {
+	console.log("Does this work now???")
+	return (dispatch) => {
+					console.log("here2")
+				return fetch("/logout", {
+		      credentials: "include",
+		      method: "DELETE"
+		    })
+		    .then(console.log("here2"))
 	}
- }
+}
+
+	export const logOut = (history) => {	
+		
+			// console.log('here1')
+			// clearCurrentUser()
+			return (dispatch) => {
+					
+				return fetch("/logout", {
+		      credentials: "include",
+		      method: "DELETE"
+		    })
+		    .then(console.log("here2"))
+		    .then(resp => resp.json())
+		    .then(() => {
+		    	dispatch({type: 'CLEAR_CURRENT_USER'})	
+		    }) 
+		    .then(history.push('/'))
+		  }
+
+   } 
+
 
 //get to this code -- 
 // export const logout = event => {

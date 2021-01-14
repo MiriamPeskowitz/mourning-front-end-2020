@@ -1,21 +1,33 @@
 
-export default(state = null, action) => {
+export default(state = {currentUser: ""}, action) => {
 	switch(action.type){
 
+		//check all the payloads 
 		
-		case "NEW_USER_CREATED":
-			console.log('got to auth reducer new user created-- user')
-			return {
-					...state,
-					currentUser: action.payload
-				}
-
 // login => sets current user
 			case "SET_CURRENT_USER":
 			return {
-				currentUser: action.user
+				currentUser: action.payload	
+				// currentUser: action.payload.attributes
 			}
-		
+
+		case "CLEAR_CURRENT_USER":
+			console.log("current_user_cleared")
+			return {
+				currentUser: ""
+			}
+		default:
+			return state
+	}
+}
+
+
+// const initialState={
+// 	currentUser = {
+// 		username: "",
+// 		id: 
+// 	}
+// }
 //case "CLEAR_CURRENT_USER";
 		// return null
 
@@ -32,20 +44,6 @@ export default(state = null, action) => {
 		// 		...state, 
 		// 		currentUser
 		// 	}
-
-		case "LOGOUT":
-			return {
-				...state
-			}
-
-		
-
-
-		default:
-			return state
-	}
-}
-
 
 
 //moved to auth for now 

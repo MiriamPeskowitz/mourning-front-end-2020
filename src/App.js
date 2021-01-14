@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
- 
 import { getCurrentUser } from "./actions/auth.js"
 
 import Signup from './components/Signup'
@@ -18,15 +17,15 @@ class App extends Component {
 	componentDidMount() {
 		this.props.getCurrentUser()
 	}
+				// currentUser={currentUser}
 
 	render() {
 		const { loggedIn, currentUser } = this.props
-	  // console.log(currentUser)
+	  console.log( "here2, currentuser: ", currentUser)
 	  return (
   		<div className="App-header">  
-				{ loggedIn ? <CurrentUserNavbar currentUser={currentUser}/> : <NewSessionNavbar />}
-				
-	   		
+  			{currentUser ? <CurrentUserNavbar /> : <NewSessionNavbar /> }
+   			
    			<h1 className="App-title">Mourning</h1>
 	  
 				<Switch>		
@@ -44,10 +43,13 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+	console.log("HERE1, MSP", state.authReducer.currentUser)
 	return ({
-		loggedIn: !!state.currentUser,
-		currentUser: state.currentUser
+		loggedIn: !!state.authReducer.currentUser,
+		currentUser: state.authReducer.currentUser
 	})
 }
 export default connect(mapStateToProps, { getCurrentUser })(App);
-
+// { loggedIn ? <p id="loggedIn"> Welcome, {currentUser}</p> : null } 
+				// { loggedIn ? <CurrentUserNavbar currentUser={currentUser} /> : <NewSessionNavbar />}
+	   	
