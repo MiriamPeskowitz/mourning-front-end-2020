@@ -22,7 +22,7 @@ class App extends Component {
 	render() {
 		const { loggedIn, currentUser } = this.props
 
-	  console.log( "here2, currentuser: ", currentUser)
+	  // console.log( "here2, currentuser: ", currentUser)
 	  return (
   		<div className="App-header">  
   			{ loggedIn ? <CurrentUserNavbar currentUser={currentUser}/> : <NewSessionNavbar /> }

@@ -9,8 +9,8 @@ const Logout = ({ logOut, history }) => {
 	return (
 		<div className="Logout">
 			<form onSubmit={(event) => {
-				event.preventDefault()
-				logOut(history)
+					event.preventDefault()
+					logOut(history)
 				}
 			}>
 			<input type="submit" value="Log Out" />
@@ -21,4 +21,3 @@ const Logout = ({ logOut, history }) => {
 
 export default withRouter(connect (null, { logOut} )(Logout))
 
-// Feature: add the logout
