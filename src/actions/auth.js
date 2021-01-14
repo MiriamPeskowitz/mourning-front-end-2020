@@ -35,7 +35,7 @@ export const getCurrentUser = () => {
 				alert(response.error)
 			} else {
 				dispatch(setCurrentUser(response.data.attributes))
-				console.log("currentUser is (response.data.attributes.username): ", response.data.attributes.username)
+				// console.log("currentUser is (response.data.attributes.username): ", response.data.attributes.username)
 			
 				// alert(`Welcome, response.data.attributes.username`)
 				//dispatch get anyother kind of data needed) 

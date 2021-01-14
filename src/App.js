@@ -18,13 +18,14 @@ class App extends Component {
 		this.props.getCurrentUser()
 	}
 				// currentUser={currentUser}
-
+// user={currentUser}/
 	render() {
 		const { loggedIn, currentUser } = this.props
+
 	  console.log( "here2, currentuser: ", currentUser)
 	  return (
   		<div className="App-header">  
-  			{currentUser ? <CurrentUserNavbar /> : <NewSessionNavbar /> }
+  			{ loggedIn ? <CurrentUserNavbar currentUser={currentUser}/> : <NewSessionNavbar /> }
    			
    			<h1 className="App-title">Mourning</h1>
 	  
@@ -43,7 +44,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-	console.log("HERE1, MSP", state.authReducer.currentUser)
+	// console.log("HERE1, MSP, name", state.authReducer.currentUser.attributes.username)
 	return ({
 		loggedIn: !!state.authReducer.currentUser,
 		currentUser: state.authReducer.currentUser
