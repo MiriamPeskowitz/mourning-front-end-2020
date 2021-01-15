@@ -105,4 +105,5 @@ I have the general -- now I need to add the show -- the create.
 
 
 CreateEntryForm
--- frontend 
+-- frontend WORKS, make sure addEntry action creators work 
+-- connect to backend. What is the route, to get to user.entry 
