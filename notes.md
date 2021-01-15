@@ -86,11 +86,12 @@ Thursday afternoon
 -- mostly fixed, there is an async issue that I need to figure out. 
 --star work on profile. Look at caring bridge and make a list of what should go here. 
 
-People I am mourning 
+People I am mourning. What should I call this category? 
 	name, age, relationship. date of death. notes. images 
-
-
+	Card for each one 
+	They can stack up. 
+Am I writing to me, or writing for others? 
 Entries. 
 	this is under user.entries etc 
 
-
+--small fixes, add capitalization to username 

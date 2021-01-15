@@ -9,6 +9,7 @@ import CurrentUserNavbar from './components/CurrentUserNavbar'
 import NewSessionNavbar from './components/NewSessionNavbar'
 import Logout from './components/Logout'
 import Profile from './components/Profile'
+import Story from './components/Story'
 
 import './stylesheets/App.css'
 import {  Route, Switch } from 'react-router-dom'
@@ -34,7 +35,8 @@ class App extends Component {
  					<Route exact path="/signup" component={Signup} />
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/logout" component={Logout} />	
-					<Route exact path="/profile" component={Profile}/> 
+					<Route exact path="/profile" component={Profile} /> 
+					<Route exact path="/story" component={Story} />
 					<Route exact path="/home"  component={Home} />	
 					<Route exact path="/"  component={Home} />	
 				</Switch>
