@@ -77,7 +77,20 @@ get current user. Then I'm done -- can make more features in profile, including 
 Thursday: 
 NEXT: Fix the logout, esp the backend. Follow the flow of data. 
 
+https://dev.to/mmcclure11/flatiron-final-project-rails-api-react-redux-e0g
+
 Thurs at 1.50. Auth is working, logout works, now: something is happening, where loginReducer is clearing Welcome user prints, then user deletes 
 Figure out why. 
+
+Thursday afternoon 
+-- mostly fixed, there is an async issue that I need to figure out. 
+--star work on profile. Look at caring bridge and make a list of what should go here. 
+
+People I am mourning 
+	name, age, relationship. date of death. notes. images 
+
+
+Entries. 
+	this is under user.entries etc 
 
 

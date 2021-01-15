@@ -14,21 +14,22 @@ import './stylesheets/App.css'
 import {  Route, Switch } from 'react-router-dom'
 
 class App extends Component {		
+	
 	componentDidMount() {
 		this.props.getCurrentUser()
 	}
-				// currentUser={currentUser}
-// user={currentUser}/
+				
 	render() {
 		const { loggedIn, currentUser } = this.props
-
-	  // console.log( "here2, currentuser: ", currentUser)
+		console.log(currentUser)
 	  return (
   		<div className="App-header">  
-  			{ loggedIn ? <CurrentUserNavbar currentUser={currentUser}/> : <NewSessionNavbar /> }
+  			<h1 className="App-title">Mourning</h1>
+
+  			{ loggedIn ? <p>LOGGEDIN</p> : <p>NOT LOGGED IN</p>}
+  			{ loggedIn ? <CurrentUserNavbar currentUser={currentUser} /> : <NewSessionNavbar /> }
    			
-   			<h1 className="App-title">Mourning</h1>
-	  
+  
 				<Switch>		
  					<Route exact path="/signup" component={Signup} />
 					<Route exact path="/login" component={Login} />
@@ -44,13 +45,10 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-	// console.log("HERE1, MSP, name", state.authReducer.currentUser.attributes.username)
 	return ({
 		loggedIn: !!state.authReducer.currentUser,
 		currentUser: state.authReducer.currentUser
 	})
 }
+
 export default connect(mapStateToProps, { getCurrentUser })(App);
-// { loggedIn ? <p id="loggedIn"> Welcome, {currentUser}</p> : null } 
-				// { loggedIn ? <CurrentUserNavbar currentUser={currentUser} /> : <NewSessionNavbar />}
-	   	

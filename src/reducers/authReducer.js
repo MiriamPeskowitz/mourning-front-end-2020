@@ -8,7 +8,7 @@ export default(state = { currentUser: "" }, action) => {
 			return {
 				currentUser: action.payload	
 			}
-
+//logout => clears current user on front end 
 		case "CLEAR_CURRENT_USER":
 			console.log("current_user_cleared")
 			return {
