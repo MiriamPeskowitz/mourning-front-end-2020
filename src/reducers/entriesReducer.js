@@ -15,10 +15,10 @@ export default(state = {entries: [], loading: false}, action) => {
 				loading: false
 			}
 
-		case "ADD_ENTRY":
-			return {
-				state.concat(action.entry)
-			}
+		case "ADD_NEW_ENTRY":
+		console.log("reducer new Entry: ", action.newEntry)
+			return 	state.concat(action.newEntry)
+			
 	//...state, action.entry ??
 		default:
 			return state

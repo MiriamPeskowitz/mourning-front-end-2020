@@ -107,3 +107,13 @@ I have the general -- now I need to add the show -- the create.
 CreateEntryForm
 -- frontend WORKS, make sure addEntry action creators work 
 -- connect to backend. What is the route, to get to user.entry 
+	-- fixed action-creator DONE
+	-- made reducer add entry DONE
+	-- routes? should be part of RESTFUl 
+	-- create
+	-- transmit user id from front-end, OR 
+	capture current_user, since only current_user will make an entry 
+j_all = j.entries.all
+j_all.map {|entry| entry.title}
+	way to get titles, for a frontend list 
+http://localhost:3001/api/v1/users/31

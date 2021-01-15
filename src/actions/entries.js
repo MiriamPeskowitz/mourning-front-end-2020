@@ -1,9 +1,25 @@
 import { resetEntryForm } from "./entryForm"
 
-export const addEntry = entry => {
+
+export const entriesLoading = () => {
+	console.log('got to LOADING_ENTRIES')
 	return {
-		type: "ADD_ENTRY",
-		action: entry
+		type: "LOADING_ENTRIES",
+	}
+}
+
+export const setEntries = (entries) => {
+		return	{
+			  type: "ENTRIES_LOADED", 
+			  payload: entries.data
+			}
+}
+
+export const addNewEntry = newEntry => {
+	console.log('got to Addnewentry actioncreator')
+	return {
+		type: "ADD_NEW_ENTRY",
+		newEntry
 	}
 }
 //  add setMyEntries, clearEntries, deleteEntrySuccess
@@ -12,21 +28,29 @@ export const addEntry = entry => {
 
 //refactor this so it fits the newer design pattern,use sync action
 //creator setEntries for Entries Loaded
-const getEntries = () => {
+export const getEntries = () => {
 	return (dispatch) => {
-		dispatch({type: "LOADING_ENTRIES"})
-		return fetch("/entries")
+		return fetch("/entries", {
+      credentials: "include",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+		.then(dispatch(entriesLoading()))
 		.then(res => res.json())
-		.then(entries => {			
-			dispatch({
-			  type: "ENTRIES_LOADED", 
-			  payload: entries.data
-			})
+		.then(entries => {
+			if (entries.error) {
+			alert(entries.error)
+			} else {		
+			dispatch(setEntries(entries))
+			dispatch(resetEntryForm())
+			}
 		})
 		.catch(err => console.log(err))
 	}
 }
-export default getEntries
+
 //does this GET request need config? 
 // return fetch("/entries", {
 //       credentials: "include",
@@ -37,14 +61,14 @@ export default getEntries
 //     })
 
 //create a single entry, linked to currentUser
-export const createEntry = (formData, history) => {
+export const createEntry = (formData, currentUser, id, history) => {
 	console.log("New Entry: ", formData)
 	return (dispatch) => {
 		//create object of data in rails format? 
 		const newEntryData = {
 	      title: formData.title,
   			content: formData.content,
-        user_id: formData.userId
+        user_id: currentUser.id
   			 // public: formData.public
   			 //date? or take from date-create on the back end 	
   		}
@@ -57,23 +81,27 @@ export const createEntry = (formData, history) => {
 				},
 			body: JSON.stringify(newEntryData)
 			}
-		return fetch( "/entry", config)
+debugger
+		return fetch( "/entries", config)
 		.then(response => response.json())
-		.then((entry) => console.log("payload:newEntry: ", entry))
-		.then((entry) => {
-			if (entry.error) {
-				alert(entry.error)
-			} else {
-				console.log("New Entry from backend, ready to be sent to store: ", entry.data)
-				dispatch(addEntry(entry.data))
-				//decide what I want to do with it -- send to reducer  to add to the store/
-				//so that it can be called and put on DOM  
+		.then(res => console.log("full response: ", res))
+		.then(res => {
+			dispatch(addNewEntry(res.data))
+			console.log("res.data:",res.data)
+			})
+			 //goes to EntriesReducer 
+		// .then(data => console.log("payload:newEntry.title: ", data.attributes.entries[0].title))
+		
+		// 		console.log("New Entry: ", ent)
+		// 		// dispatch(addEntry(entry.data))
+		// 		//decide what I want to do with it -- send to reducer  to add to the store/
+		// 		//so that it can be called and put on DOM  
 			
-				dispatch(resetEntryForm())
-				history.push('/profile')
-				// history.push('/entries/${entry.data.id')
-			}
-		})
+		// 		// dispatch(resetEntryForm())
+		// 		// history.push('/profile')
+		// 		// history.push('/entries/${entry.data.id')
+		// 	})
+		// })
 		.catch(console.log("from actions/entryForm.js: createEntry didn't work"))
 	}
 }
