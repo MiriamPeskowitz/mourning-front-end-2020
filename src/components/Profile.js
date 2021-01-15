@@ -1,25 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import MemoryCard from './components/MemoryCard'
-import Entry from './components/Entry'
+import MemoryCard from './MemoryCard'
+import Entry from './Entry'
+import CreateEntryForm from './CreateEntryForm'
 //my name 
 //card with data: who died, when, their story
 
 const Profile = ({currentUser}) => {
 	return (
-		<h2>{currentUser.username}</h2>
-		<div>
-			<h3>Entries</h3>
-				<Entry />
-		</div>
-		<div>
-			<h3>People I Remember</h3>
-				<MemoryCard />
+		<div className="profile">
+			<h2>{currentUser.username}</h2>
+			<div>
+				<h3>My Entries</h3>
+					<CreateEntryForm />
+					<Entry />
+					
+			</div>
+			<div>
+				<h3>People I Remember</h3>
+					<MemoryCard />
 
-		</div>	
+			</div>	
+		</div>
+
 		//cards -- with data of each person <
 		//jane.people -- need new model 
 		//start with one. 
+		//will show all the entries of a single user 
 		//two sections. 1 is the alter 2. is the entries. currentUser.entries
 	 )
 }

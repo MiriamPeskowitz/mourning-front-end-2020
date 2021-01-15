@@ -95,3 +95,14 @@ Entries.
 	this is under user.entries etc 
 
 --small fixes, add capitalization to username 
+Profile --new build out from here. 
+	EntryForm
+	PersonalEntries
+	AllEntries
+
+actions/entries.js
+I have the general -- now I need to add the show -- the create.
+
+
+CreateEntryForm
+-- frontend 

@@ -3,8 +3,7 @@ import React from 'react'
 
 const Entry = () => {
 	return (
-		Entry card title, content, from Profile 
-		Will need a form for composing a new entry,
+		<p>entry card:title, content</p>
 		)
 }
 
@@ -17,3 +16,6 @@ const Entry = () => {
 
 // export default connect(mapStateToProps, {} )(Profile);
 export default Entry
+
+// Entry card title, content, from Profile 
+		// Will need a form for composing a new entry,

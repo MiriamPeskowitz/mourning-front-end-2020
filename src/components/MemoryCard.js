@@ -3,7 +3,7 @@ import React from 'react'
 
 const MemoryCard = () => {
 	return (
-		needs new model, the deceased: name, age, dod, picture, description, who they are to the user 
+		<p>needs new model, the deceased: name, age, dod, picture, description, who they are to the user </p>
 		)
 }
 
