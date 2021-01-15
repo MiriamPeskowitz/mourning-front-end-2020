@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-const Entry = () => {
+const EntryForm = () => {
 	return (
-		Entry card title, content, from Profile 
-		Will need a form for composing a new entry,
+		
+	a form for composing a new entry,
 		)
 }
 
@@ -16,4 +16,4 @@ const Entry = () => {
 // }
 
 // export default connect(mapStateToProps, {} )(Profile);
-export default Entry
+export default EntryForm
