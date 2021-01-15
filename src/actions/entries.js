@@ -16,7 +16,7 @@ export const setEntries = (entries) => {
 }
 
 export const addNewEntry = newEntry => {
-	console.log('got to Addnewentry actioncreator')
+	console.log('got to Addnewentry actioncreator', newEntry)
 	return {
 		type: "ADD_NEW_ENTRY",
 		newEntry
@@ -43,6 +43,7 @@ export const getEntries = () => {
 			if (entries.error) {
 			alert(entries.error)
 			} else {		
+				console.log("got to dispatch setEntries")
 			dispatch(setEntries(entries))
 			dispatch(resetEntryForm())
 			}
@@ -81,13 +82,13 @@ export const createEntry = (formData, currentUser, id, history) => {
 				},
 			body: JSON.stringify(newEntryData)
 			}
-debugger
+
 		return fetch( "/entries", config)
 		.then(response => response.json())
 		.then(res => console.log("full response: ", res))
 		.then(res => {
-			dispatch(addNewEntry(res.data))
-			console.log("res.data:",res.data)
+			dispatch(addNewEntry(res))
+			// console.log("res.data:",res.data.attributes)
 			})
 			 //goes to EntriesReducer 
 		// .then(data => console.log("payload:newEntry.title: ", data.attributes.entries[0].title))

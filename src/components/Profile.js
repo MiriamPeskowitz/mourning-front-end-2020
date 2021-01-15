@@ -6,7 +6,11 @@ import CreateEntryForm from './CreateEntryForm'
 //my name 
 //card with data: who died, when, their story
 
-const Profile = ({currentUser}) => {
+const Profile = ({currentUser, entryData}) => {
+	// console.log("entries: ", entryData)
+	const entriesDisplay = entryData.entries.map(e => <p>{e.title}--{e.content}</p>)
+	console.log("entriesDisplay:", entriesDisplay)
+
 	return (
 		<div className="profile">
 			<h2>{currentUser.username}</h2>
@@ -15,6 +19,9 @@ const Profile = ({currentUser}) => {
 					<CreateEntryForm />
 					<Entry />
 					
+			</div>
+			<div>
+			 {entriesDisplay}
 			</div>
 			<div>
 				<h3>People I Remember</h3>
@@ -32,9 +39,10 @@ const Profile = ({currentUser}) => {
 }
 
 const mapStateToProps = state => {
+
 return ({
-		currentUser: state.authReducer.currentUser
-// 		userdata here for profile, currentUser.entries. 
+		currentUser: state.authReducer.currentUser,
+		entryData: state.authReducer.currentUser
 	})
 }
 

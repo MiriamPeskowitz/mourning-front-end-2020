@@ -9,6 +9,8 @@ export default(state = {entries: [], loading: false}, action) => {
 			}
 	
 		case "ENTRIES_LOADED":
+			console.log("got to dispatch getEntries")
+
 			return {
 				...state,
 				entries: action.payload,
@@ -16,7 +18,6 @@ export default(state = {entries: [], loading: false}, action) => {
 			}
 
 		case "ADD_NEW_ENTRY":
-		console.log("reducer new Entry: ", action.newEntry)
 			return 	state.concat(action.newEntry)
 			
 	//...state, action.entry ??
