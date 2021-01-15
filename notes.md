@@ -109,11 +109,28 @@ CreateEntryForm
 -- connect to backend. What is the route, to get to user.entry 
 	-- fixed action-creator DONE
 	-- made reducer add entry DONE
-	-- routes? should be part of RESTFUl 
-	-- create
-	-- transmit user id from front-end, OR 
+	-- routes? should be part of RESTFUl - DONE 
+	-- create DONE
+	-- transmit user id from front-end, OR DONE
 	capture current_user, since only current_user will make an entry 
 j_all = j.entries.all
 j_all.map {|entry| entry.title}
 	way to get titles, for a frontend list 
 http://localhost:3001/api/v1/users/31
+
+Works!!! Entries appear on the profile page! 
+
+-- next: 
+ -- clean up current code
+ -- make sure everything works as is
+ -- then: 
+   -- do the profile - entry - entry card components
+
+ -- then do Bootstrap
+
+-- change home page -- make names a separate category, separate from the
+descriptions, so home page has three colored sections 
+
+-- Stretch: do the People I remember cards. 
+Model: dead_people -- user has_many my_people
+dead_people attributes: name, age at death, date of death, relationship, image, add as many notes or memories as you want. 
