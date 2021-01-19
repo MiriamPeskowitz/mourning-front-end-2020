@@ -120,6 +120,7 @@ http://localhost:3001/api/v1/users/31
 
 Works!!! Entries appear on the profile page! 
 
+Monday 
 -- next: 
  -- clean up current code
  -- make sure everything works as is

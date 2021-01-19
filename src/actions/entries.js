@@ -19,7 +19,7 @@ export const addNewEntry = newEntry => {
 	console.log('got to Addnewentry actioncreator', newEntry)
 	return {
 		type: "ADD_NEW_ENTRY",
-		newEntry
+		payload: newEntry
 	}
 }
 //  add setMyEntries, clearEntries, deleteEntrySuccess
@@ -52,18 +52,12 @@ export const getEntries = () => {
 	}
 }
 
-//does this GET request need config? 
-// return fetch("/entries", {
-//       credentials: "include",
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//     })
+
 
 //create a single entry, linked to currentUser
 export const createEntry = (formData, currentUser, id, history) => {
 	console.log("New Entry: ", formData)
+	//clear -- have currentUser (id) and also id
 	return (dispatch) => {
 		//create object of data in rails format? 
 		const newEntryData = {

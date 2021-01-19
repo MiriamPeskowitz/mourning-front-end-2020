@@ -12,7 +12,7 @@ import Profile from './components/Profile'
 import Story from './components/Story'
 
 import './stylesheets/App.css'
-import {  Route, Switch } from 'react-router-dom'
+import {  Route, Switch, withRouter } from 'react-router-dom'
 
 class App extends Component {		
 	
@@ -21,13 +21,15 @@ class App extends Component {
 	}
 				
 	render() {
-		const { loggedIn, currentUser } = this.props
-		console.log(currentUser)
+	
+			const { loggedIn, currentUser } = this.props
+			// console.log("App currentUser:", currentUser)	
 	  return (
+	  	
   		<div className="App-header">  
   			<h1 className="App-title">Mourning</h1>
 
-  			{ loggedIn ? <p>LOGGEDIN</p> : <p>NOT LOGGED IN</p>}
+  			{ loggedIn ? <p>LOGGEDIN</p> : <p>NOT LOGGED IN</p> }
   			{ loggedIn ? <CurrentUserNavbar currentUser={currentUser} /> : <NewSessionNavbar /> }
    			
   
@@ -37,7 +39,6 @@ class App extends Component {
 					<Route exact path="/logout" component={Logout} />	
 					<Route exact path="/profile" component={Profile} /> 
 					<Route exact path="/story" component={Story} />
-					<Route exact path="/home"  component={Home} />	
 					<Route exact path="/"  component={Home} />	
 				</Switch>
 
@@ -49,8 +50,10 @@ class App extends Component {
 const mapStateToProps = (state) => {
 	return ({
 		loggedIn: !!state.authReducer.currentUser,
-		currentUser: state.authReducer.currentUser
+		currentUser: state.authReducer.currentUser,
 	})
 }
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
+
+//delete one of the home paths 
