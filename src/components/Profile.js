@@ -3,31 +3,22 @@ import { connect } from 'react-redux'
 import MemoryCard from './MemoryCard'
 import ProfileEntryCards from './ProfileEntryCards'
 import CreateEntryForm from './CreateEntryForm'
-//my name 
-//card with data: who died, when, their story
-
-// const entryCards = entryData.length > 0 ? 
-// 					entries.map((e => <p>{e.title}--{e.content}</p>))
-// 					: <p>No entries yet.</p>
 
 const Profile = ({currentUser, entryData}) => {
 
 	console.log("Profile currentUser: ", currentUser)
-
 	const data = entryData.entries
 	console.log("entries: ", data)
 
-	// const myEntries = data.map(entry => (<p key={entry.id}>{entry.title}--{entry.content}</p>))
+
+		// {data.map(entry => (<p key={entry.id}>{entry.title}--{entry.content}</p>))}
 
 	return (
-		
 		<div className="profile">
 			<h2>{currentUser.username}</h2>
 			<div>
 				<CreateEntryForm />
-				<h3>My Entries</h3>
-			{data.map(entry => (<p key={entry.id}>{entry.title}--{entry.content}</p>))}
-	
+				<ProfileEntryCards />
 				
 		
 			</div>
@@ -43,7 +34,6 @@ const Profile = ({currentUser, entryData}) => {
 
 
 const mapStateToProps = state => {
-
 	return ({
 			currentUser: state.authReducer.currentUser,
 			entryData: state.authReducer.currentUser
