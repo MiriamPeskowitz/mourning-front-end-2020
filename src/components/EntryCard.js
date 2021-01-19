@@ -1,16 +1,16 @@
 import React from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 	
-const EntryCard= ({entry}) => {
+const EntryCard= (entry) => {
+	console.log("entry:", entry)
 	return (		
-		entry ? 
+		
 			<div>
-				 <h3>{entry.attributes.title}</h3>
-	        <p>{entry.attributes.content}</p>
-	        <Link to={`/entries/${entry.id}/edit`}>Edit this entry</Link>
-	      </div> :
-	      <p>nothing to edit</p>	
+				<h3>{entry.title}</h3>
+	      <p>{entry.content}</p>
+	      <Link to={`/entries/${entry.id}/edit`}>Edit this entry</Link>
+	     </div> 
 	)
 }
 
