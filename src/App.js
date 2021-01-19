@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import CurrentUserNavbar from './components/CurrentUserNavbar'
 import NewSessionNavbar from './components/NewSessionNavbar'
+import EntryCard from './components/EntryCard'
 import Logout from './components/Logout'
 import Profile from './components/Profile'
 import Story from './components/Story'
@@ -22,10 +23,9 @@ class App extends Component {
 				
 	render() {
 	
-			const { loggedIn, currentUser } = this.props
+			const { loggedIn, currentUser, entries } = this.props
 			// console.log("App currentUser:", currentUser)	
 	  return (
-	  	
   		<div className="App-header">  
   			<h1 className="App-title">Mourning</h1>
 
@@ -38,6 +38,12 @@ class App extends Component {
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/logout" component={Logout} />	
 					<Route exact path="/profile" component={Profile} /> 
+					<Route exact path='/entry/:id' render={ (props) => {
+						const entry = entries.find(entry => entry.id === props.match.params.id)
+						console.log(entry)
+						return (<EntryCard entry={entry} {...props} />)
+							}
+						} />
 					<Route exact path="/story" component={Story} />
 					<Route exact path="/"  component={Home} />	
 				</Switch>
@@ -51,6 +57,7 @@ const mapStateToProps = (state) => {
 	return ({
 		loggedIn: !!state.authReducer.currentUser,
 		currentUser: state.authReducer.currentUser,
+		entries: state.authReducer.currentUser.entries
 	})
 }
 

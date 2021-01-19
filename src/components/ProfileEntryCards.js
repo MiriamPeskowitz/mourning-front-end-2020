@@ -1,14 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-	// const entriesDisplay = data.entries.map(e => <p>{e.title}--{e.content}</p>)
-
+import { Link } from 'react-router-dom'
+	
+// fix: needs to come rightfrom app/hpme, or errors out when refreshed from profile  
 
 const ProfileEntryCards = ({entryData}) => {
 	const {entries} = entryData
 	console.log("entries: ", entries)
-	// const entriesDisplay = entries.map((e => <p>{e.title}--{e.content}</p>))
-	const myEntryCards = entries.map((entry) => <li key={entry.id}>{entry.title}--{entry.content}</li>)
+	
+	const myEntryCards = entries.length > 0 ? entries.map((entry) => <li key={entry.id}><Link to={`/entry/${entry.id}`}>{entry.title}--{entry.content}</Link></li>) : <p>no entries yet</p>
 
+	// const myEntryCards = entries.map((entry) => <li key={entry.id}><Link to={`/entry/${entry.id}`}>{entry.title}--{entry.content}</Link></li>)
 	return (	
 		<div className="profile-entry-cards">
 			<h3>My Entries</h3>
@@ -22,12 +24,8 @@ const mapStateToProps = state => {
 	return ({
 			currentUser: state.authReducer.currentUser,
 			entryData: state.authReducer.currentUser
-	// 		userdata here for profile, currentUser.entries. 
 		})
 }
-	// const entriesDisplay = entries.map(e => <p>{e.title}--{e.content}</p>)
-	// const PersonalEntryCard = props.personalEntries.length
-// export default connect(mapStateToProps, {} )(Profile);
+	
 export default connect(mapStateToProps, null )(ProfileEntryCards)
-// Entry card title, content, from Profile 
-		// Will need a form for composing a new entry,
+
