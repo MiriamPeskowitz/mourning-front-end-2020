@@ -42,6 +42,7 @@ class App extends Component {
 					<Route exact path='/entry/:id' render={ ( props) => {
 						console.log(props)
 						const entry = entries.find(ent=> ent.id === props.match.params.id)
+						// id in params.match is a string 
 						console.log("entry in ROute/App: ", entry)
 						return (<EntryCard entry={entry} {...props} />)
 							}

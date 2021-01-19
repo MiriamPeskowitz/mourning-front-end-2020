@@ -122,10 +122,29 @@ Works!!! Entries appear on the profile page!
 
 Monday 
 -- next: 
- -- clean up current code
- -- make sure everything works as is
+ -- clean up current code OKAY
+ -- make sure everything works as is OKAY
  -- then: 
-   -- do the profile - entry - entry card components
+   -- do the profile - entry - entry card components OKAy
+   -- profile routing -- profile should be users/1, etc 
+  Monday night: added cards, can click on an entry to edit (and eventually delete) NEXT: the data doesn't go through. I can get from profile to http://localhost:3000/entry/14 -- but what shows up is the null part of the ternary, as if data isn't coming through yet  `
+
+entry on Entry card is undefined -- not getting passed through 
+match.params.id is a string not integer --> 
+
+{history: {…}, location: {…}, match: {…}, staticContext: undefined}
+history: {length: 50, action: "PUSH", location: {…}, createHref: ƒ, push: ƒ, …}
+location: {pathname: "/entry/9", search: "", hash: "", state: undefined, key: "66cojz"}
+match:
+isExact: true
+params:
+id: "9"
+__proto__: Object
+path: "/entry/:id"
+url: "/entry/9"
+__proto__: Object
+staticContext: undefined
+__proto__: Object
 
  -- then do Bootstrap
 
