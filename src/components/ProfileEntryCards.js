@@ -8,7 +8,7 @@ const ProfileEntryCards = ({entryData}) => {
 	const {entries} = entryData
 	console.log("entries: ", entries)
 	
-	const myEntryCards = entries.length > 0 ? entries.map((entry) => <li key={entry.id}><Link to={`/entry/${entry.id}`}>{entry.title}--{entry.content}</Link></li>) : <p>no entries yet</p>
+	const myEntryCards = entries.length > 0 ? entries.map((entry) => 	<li key={entry.id}><Link to={`/entry/${entry.id}`}>{entry.title}--{entry.content}</Link></li>) : <p>No entries</p> 
 
 	return (	
 		<div className="profile-entry-cards">
@@ -20,7 +20,6 @@ const ProfileEntryCards = ({entryData}) => {
 
 const mapStateToProps = state => {
 	return ({
-			currentUser: state.authReducer.currentUser,
 			entryData: state.authReducer.currentUser
 		})
 }

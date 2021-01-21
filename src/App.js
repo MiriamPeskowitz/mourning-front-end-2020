@@ -23,7 +23,7 @@ class App extends Component {
 	render() {
 			const { loggedIn, currentUser, entries } = this.props
 			// const entries = currentUser.entries
-			console.log("App entries:", entries)	
+			console.log("In App.js- entries:", entries)	
 			// console.log("eee:", eee)
 	  return (
   		<div className="App-header">  
@@ -37,14 +37,7 @@ class App extends Component {
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/logout" component={Logout} />	
 					<Route exact path="/profile" component={Profile} /> 
-					<Route exact path='/entry/:id' render={ ( props) => {
-						console.log(props)
-						const entry = entries.find(ent=> ent.id === props.match.params.id)
-						// id in params.match is a string 
-						console.log("entry in ROute/App: ", entry)
-						return (<EntryCard entry={entry} {...props} />)
-							}
-						} />
+					
 					<Route exact path="/story" component={Story} />
 					<Route exact path="/"  component={Home} />	
 				</Switch>
@@ -62,6 +55,16 @@ const mapStateToProps = (state) => {
 }
 
 export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
+  		
+// <Route exact path='/entry/:id' render={ ( props) => {
+					// 	console.log(props)
+					// 	const entry = entries.find(ent=> ent.id === props.match.params.id)
+					// 	// id in params.match is a string 
+					// 	console.log("entry in ROute/App: ", entry)
+					// 	return (<EntryCard entry={entry} {...props} />)
+					// 		}
+					// 	} />
+
   			// { loggedIn ? <p>LOGGEDIN</p> : <p>NOT LOGGED IN</p> }
 
 //delete one of the home paths 

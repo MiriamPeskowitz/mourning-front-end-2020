@@ -17,6 +17,8 @@ const CurrentUserNavbar = ( {currentUser} ) => {
 	 		<li> <NavLink style={gray} exact to="/profile">Profile</NavLink> </li> 
 	    <li> <NavLink style={gray} exact to="/logout">Logout</NavLink> </li> 			    
 	  </ul> 
+
+	  
 	   )
 	}
 

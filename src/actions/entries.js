@@ -8,7 +8,7 @@ export const entriesLoading = () => {
 	}
 }
 
-export const setEntries = (entries) => {
+export const setEntries = entries => {
 		return	{
 			  type: "ENTRIES_LOADED", 
 			  payload: entries.data
@@ -25,6 +25,12 @@ export const addNewEntry = newEntry => {
 //  add setMyEntries, clearEntries, deleteEntrySuccess
 //updateEntrySuccess
 
+// export const updateEntry = entry => {
+// 	return {
+//     type: "UPDATE_ENTRY",
+//     action: updatedEntry
+//   }
+// }
 
 //refactor this so it fits the newer design pattern,use sync action
 //creator setEntries for Entries Loaded
@@ -94,9 +100,7 @@ export const createEntry = (formData, id, history) => {
 					dispatch(resetEntryForm())
 					
 	
-					//now, need to add the new entry 
-					//may need something added, like, where to go. to show page 
-				// }  history.push(`/trips/${resp.data.id}`)
+				
 			})
 		.catch(err => console.log(err))
 			 //goes to EntriesReducer 
@@ -114,6 +118,8 @@ export const createEntry = (formData, id, history) => {
 		// })
 	}
 }
+
+
 
 // const updateEntry
 //const deleteEntry

@@ -7,7 +7,7 @@ export default(state = {entries: [], loading: false}, action) => {
 				...state,
 				// loading: true
 			}
-	
+		
 		case "ENTRIES_LOADED":
 			console.log("got to dispatch getEntries")
 
@@ -17,14 +17,23 @@ export default(state = {entries: [], loading: false}, action) => {
 				loading: false
 			}
 
+		case "SET_CURRENT_USER":
+			return  {
+				entries: action.payload.entries
+		}
+
+//this gets the entries values 
+//action.payload.entries 
 		case "ADD_NEW_ENTRY":
 			console.log("add new entry reducer:", action.payload);
 			return 	{
 				...state, 
 				entries: action.payload
 			}
-			//state.concat(action.payload)
-	//...state, action.entry ??
+		// case "UPDATE_ENTRY":
+		// 	return {
+		// 		entries: state.map(entry => entry.id === action.updatedEntry.id ? action.updatedEntry : entry)
+		// 	}
 		default:
 			return state
 	}
