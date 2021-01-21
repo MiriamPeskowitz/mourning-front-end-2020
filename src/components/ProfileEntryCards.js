@@ -10,7 +10,6 @@ const ProfileEntryCards = ({entryData}) => {
 	
 	const myEntryCards = entries.length > 0 ? entries.map((entry) => <li key={entry.id}><Link to={`/entry/${entry.id}`}>{entry.title}--{entry.content}</Link></li>) : <p>no entries yet</p>
 
-	// const myEntryCards = entries.map((entry) => <li key={entry.id}><Link to={`/entry/${entry.id}`}>{entry.title}--{entry.content}</Link></li>)
 	return (	
 		<div className="profile-entry-cards">
 			<h3>My Entries</h3>
@@ -18,7 +17,6 @@ const ProfileEntryCards = ({entryData}) => {
 		</div>
 		)
 }
-
 
 const mapStateToProps = state => {
 	return ({

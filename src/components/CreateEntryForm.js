@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { createEntry } from '../actions/entries.js'
 import { updateEntryForm }  from '../actions/entryForm.js'
 
-const createEntryForm = ({ id, entryFormData, createEntry, updateEntryForm, history }) => {
+const createEntryForm = ({ currentUser, entryFormData, createEntry, updateEntryForm, history }) => {
 	//now id/curremtUser.id is doubled; fix 
+
 	const handleChange = (e) => {
 		const updatedFormInfo = {
 			...entryFormData,
@@ -15,7 +16,7 @@ const createEntryForm = ({ id, entryFormData, createEntry, updateEntryForm, hist
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		createEntry(entryFormData, id, history)
+		createEntry(entryFormData, currentUser.id, history)
 	}
 	
 	return (
@@ -54,7 +55,7 @@ const createEntryForm = ({ id, entryFormData, createEntry, updateEntryForm, hist
 const mapStateToProps = state => {
   return { 
   	entryFormData: state.entryFormReducer,
-  	id: state.authReducer.currentUser
+  	currentUser: state.authReducer.currentUser
   }
 }
 

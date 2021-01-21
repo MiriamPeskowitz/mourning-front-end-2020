@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 const gray = {color: '#C0C0C0'};
 
 const CurrentUserNavbar = ( {currentUser} ) => {	
-	console.log("CurrentUserNavbar/user: ", currentUser.username)
+	// console.log("CurrentUserNavbar/user: ", currentUser.username)
 	// const user = currentUser.data.attributes.username
 	const user = currentUser.username
 

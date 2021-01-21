@@ -16,13 +16,11 @@ import './stylesheets/App.css'
 import {  Route, Switch, withRouter } from 'react-router-dom'
 
 class App extends Component {		
-	
 	componentDidMount() {
 		this.props.getCurrentUser()
 	}
-				
+			
 	render() {
-	
 			const { loggedIn, currentUser, entries } = this.props
 			// const entries = currentUser.entries
 			console.log("App entries:", entries)	

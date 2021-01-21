@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 import MemoryCard from './MemoryCard'
 import ProfileEntryCards from './ProfileEntryCards'
 import CreateEntryForm from './CreateEntryForm'
+import { withRouter } from 'react-router-dom'
 
-const Profile = ({currentUser, entryData}) => {
+const Profile = ({currentUser}) => {
 
-	console.log("Profile currentUser: ", currentUser)
-	const data = entryData.entries
+	console.log("Profile currentUser: ", currentUser.id)
+	const data = currentUser.entries
 	console.log("entries: ", data)
 
 
@@ -35,13 +36,10 @@ const Profile = ({currentUser, entryData}) => {
 
 const mapStateToProps = state => {
 	return ({
-			currentUser: state.authReducer.currentUser,
-			entryData: state.authReducer.currentUser
-		})
+			currentUser: state.authReducer.currentUser		})
 	}
 
-export default connect(mapStateToProps, {} )(Profile);
-
+export default withRouter(connect(mapStateToProps, {} )(Profile));
 
 	// const entriesDisplay = entries.map(e => <p>{e.title}--{e.content}</p>)
 	// const PersonalEntryCard = props.personalEntries.length

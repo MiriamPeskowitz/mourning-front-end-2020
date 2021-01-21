@@ -5,7 +5,7 @@ export default(state = {entries: [], loading: false}, action) => {
 		case "LOADING_ENTRIES":
 			return {
 				...state,
-				loading: true
+				// loading: true
 			}
 	
 		case "ENTRIES_LOADED":
@@ -18,9 +18,12 @@ export default(state = {entries: [], loading: false}, action) => {
 			}
 
 		case "ADD_NEW_ENTRY":
-		console.log("reducer:")
-			return 	state.concat(action.payload)
-			
+			console.log("add new entry reducer:", action.payload);
+			return 	{
+				...state, 
+				entries: action.payload
+			}
+			//state.concat(action.payload)
 	//...state, action.entry ??
 		default:
 			return state

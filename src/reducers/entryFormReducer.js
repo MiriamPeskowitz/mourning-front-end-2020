@@ -1,8 +1,8 @@
 //keeps entryform data in store, not local data 
 const initialState={
 	title: "", 
-	content: "", 
-	public: "no" }
+	content: ""
+	}
 
 export default(state=initialState, action) => {
 	switch (action.type) {

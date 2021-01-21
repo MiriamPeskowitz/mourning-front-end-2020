@@ -16,10 +16,10 @@ export const setEntries = (entries) => {
 }
 
 export const addNewEntry = newEntry => {
-	console.log('got to Addnewentry actioncreator', newEntry)
+	console.log('got to addNewEntry this is the payload', newEntry.data.attributes)
 	return {
 		type: "ADD_NEW_ENTRY",
-		payload: newEntry
+		payload: newEntry.data.attributes
 	}
 }
 //  add setMyEntries, clearEntries, deleteEntrySuccess
@@ -43,7 +43,6 @@ export const getEntries = () => {
 			if (entries.error) {
 			alert(entries.error)
 			} else {		
-				console.log("got to dispatch setEntries")
 			dispatch(setEntries(entries))
 			dispatch(resetEntryForm())
 			}
@@ -52,19 +51,20 @@ export const getEntries = () => {
 	}
 }
 
-
-
+// createEntry(entryFormData, id, history)//f//currentser.id is int
 //create a single entry, linked to currentUser
-export const createEntry = (formData, currentUser, id, history) => {
-	console.log("New Entry: ", formData)
+// createEntry(entryFormData, currentUser.id, history)
+export const createEntry = (formData, id, history) => {
+	console.log("ACNew Entry formData: ", formData)
+	console.log("ACcurrentUser.id: ", id)
 	//clear -- have currentUser (id) and also id
 	return (dispatch) => {
 		//create object of data in rails format? 
-		const newEntryData = {
-	      title: formData.title,
-  			content: formData.content,
-        user_id: currentUser.id
-  			 // public: formData.public
+		const sendableEntryData = {
+      title: formData.title,
+			content: formData.content,
+      user_id: id
+			 // public: formData.public
   			 //date? or take from date-create on the back end 	
   		}
 		const config = {
@@ -74,16 +74,31 @@ export const createEntry = (formData, currentUser, id, history) => {
 			 'Content-Type': 'application/json',
 			  "Accept": 'application/json'
 				},
-			body: JSON.stringify(newEntryData)
+			body: JSON.stringify(sendableEntryData)
 			}
-
-		return fetch( "/entries", config)
-		.then(response => response.json())
-		.then(res => console.log("full response: ", res))
-		.then(res => {
-			dispatch(addNewEntry(res))
-			// console.log("res.data:",res.data.attributes)
+			// console.log("SendableEntryData: ", sendableEntryData)
+			return fetch( "/entries", config)
+			//what comes back-- the new entry -- add that to state 
+			//then the page loads and gets all of them 
+			.then(response => response.json())
+			.then(entry => {
+				console.log("full response: ", entry)
+				console.log("history: ", history)
+			
+				// if (entry.error) {
+				// 	alert(entry.error)
+				// } else {
+				
+					dispatch(addNewEntry(entry))
+				
+					dispatch(resetEntryForm())
+					
+	
+					//now, need to add the new entry 
+					//may need something added, like, where to go. to show page 
+				// }  history.push(`/trips/${resp.data.id}`)
 			})
+		.catch(err => console.log(err))
 			 //goes to EntriesReducer 
 		// .then(data => console.log("payload:newEntry.title: ", data.attributes.entries[0].title))
 		
@@ -97,7 +112,6 @@ export const createEntry = (formData, currentUser, id, history) => {
 		// 		// history.push('/entries/${entry.data.id')
 		// 	})
 		// })
-		.catch(console.log("from actions/entryForm.js: createEntry didn't work"))
 	}
 }
 
