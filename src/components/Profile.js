@@ -7,6 +7,8 @@ import { withRouter } from 'react-router-dom'
 
 const Profile = ({currentUser}) => {
 
+
+
 	console.log("Profile currentUser: ", currentUser.id)
 	const data = currentUser.entries
 	console.log("entries: ", data)

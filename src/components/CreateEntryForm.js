@@ -34,7 +34,7 @@ const createEntryForm = ({ currentUser, entryFormData, createEntry, updateEntryF
 				</div>
 				<div>
 					<input 
-						placeholder="content"
+						placeholder="How are you feeling?"
 						type="text" 
 						name="content" 
 						onChange={handleChange}
