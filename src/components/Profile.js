@@ -6,47 +6,33 @@ import CreateEntryForm from './CreateEntryForm'
 import EntryCard from './EntryCard'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
-const Profile = ({ currentUser}) => {
+const Profile = ({ currentUser, history}) => {
+	// console.log("Profile currentUser: ", currentUser.id)
+	const data = currentUser.entries
+	// console.log("entries: ", data)
 
-//1`
-//how to manage the update of ProfileEntryCards, after new one is added? 
-//ComponentDidMount? 
-// Make it a class component? 
-
-//Why does this Profile page 
-//come in blanck when not accessed from 
-//App? 
-
-//2 -- getting the data to the Entry card/for show page to edit/delete 
-
-		console.log("Profile currentUser: ", currentUser.id)
-	
-
-		const data = currentUser.entries
-			console.log("entries: ", data)
-
-		return (
-			<>
-			<div className="profile">
-				<h2>{currentUser.username}</h2>
-				<div>
-					<CreateEntryForm />
-					<ProfileEntryCards />
-					
-			
-				</div>
-				<MemoryCard />	
-			</div>
+	return (
+		<>
+		<div className="profile">
+			<h2>{currentUser.username}</h2>
+			<div>
+				<CreateEntryForm history={history} />
+				<ProfileEntryCards />
+				
 		
-		<Switch>
-			<Route exact path='/entry/:id' render={ ( data) => {
-					console.log(data)
-					const entry = data.find(ent=> ent.id === ent.match.params.id)
-					// id in params.match is a string 
-					console.log("entry in ROute/App: ", entry)
-					return (<EntryCard entry={entry} {...data} />)
-						}
-					} />
+			</div>
+			<MemoryCard />	
+		</div>
+	
+	<Switch>
+		<Route exact path='/entry/:id' render={ ( data) => {
+				console.log(data)
+				const entry = data.find(ent=> ent.id === ent.match.params.id)
+				// id in params.match is a string 
+				console.log("entry in ROute/App: ", entry)
+				return (<EntryCard entry={entry} {...data} />)
+					}
+				} />
 		</Switch>
 		</>
 	)

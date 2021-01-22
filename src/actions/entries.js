@@ -61,11 +61,7 @@ export const getEntries = () => {
 //create a single entry, linked to currentUser
 // createEntry(entryFormData, currentUser.id, history)
 export const createEntry = (formData, id, history) => {
-	console.log("ACNew Entry formData: ", formData)
-	console.log("ACcurrentUser.id: ", id)
-	//clear -- have currentUser (id) and also id
 	return (dispatch) => {
-		//create object of data in rails format? 
 		const sendableEntryData = {
       title: formData.title,
 			content: formData.content,
@@ -82,28 +78,28 @@ export const createEntry = (formData, id, history) => {
 				},
 			body: JSON.stringify(sendableEntryData)
 			}
-			// console.log("SendableEntryData: ", sendableEntryData)
-			return fetch( "/entries", config)
-			//what comes back-- the new entry -- add that to state 
-			//then the page loads and gets all of them 
-			.then(response => response.json())
-			.then(entry => {
-				console.log("full response: ", entry)
-				console.log("history: ", history)
+		return fetch( "/entries", config)
+		.then(response => response.json())
+		.then(entry => {		
+		
+		
+			dispatch(addNewEntry(entry))
+			dispatch(resetEntryForm())
+			history.push(`/entries/${entry.data.id}`)
 			
-				// if (entry.error) {
-				// 	alert(entry.error)
-				// } else {
-				
-					dispatch(addNewEntry(entry))
-				
-					dispatch(resetEntryForm())
-					
-	
-				
-			})
-		.catch(err => console.log(err))
-			 //goes to EntriesReducer 
+		})
+	.catch(err => console.log(err))
+	}
+}
+
+	// if (entry.error) {
+			// 	alert(entry.error)
+			// } else {
+
+// const updateEntry
+//const deleteEntry
+
+		 //goes to EntriesReducer 
 		// .then(data => console.log("payload:newEntry.title: ", data.attributes.entries[0].title))
 		
 		// 		console.log("New Entry: ", ent)
@@ -116,15 +112,6 @@ export const createEntry = (formData, id, history) => {
 		// 		// history.push('/entries/${entry.data.id')
 		// 	})
 		// })
-	}
-}
-
-
-
-// const updateEntry
-//const deleteEntry
-
-
 
 // samples from Globetrotter, for update and delete 
 // export const clearTrips = () => {
@@ -177,38 +164,6 @@ export const createEntry = (formData, id, history) => {
 //   }
 // }
 
-// export const createTrip = (tripData, history) => {
-//   return dispatch => {
-//     const sendableTripData = {
-//       start_date: tripData.startDate,
-//       end_date: tripData.endDate,
-//       name: tripData.name,
-//       user_id: tripData.userId
-//     }
-//     return fetch("http://localhost:3001/api/v1/trips", {
-//       credentials: "include",
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify(sendableTripData)
-//     })
-//       .then(r => r.json())
-//       .then(resp => {
-//         if (resp.error) {
-//           alert(resp.error)
-//         } else {
-//           dispatch(addTrip(resp.data))
-//           dispatch(resetTripForm())
-//           history.push(`/trips/${resp.data.id}`)
-//           // go somewhere else --> trip show?
-//           // add the new trip to the store
-//         }
-//       })
-//       .catch(console.log)
-
-//   }
-// }
 
 // export const updateTrip = (tripData, history) => {
 //   return dispatch => {
