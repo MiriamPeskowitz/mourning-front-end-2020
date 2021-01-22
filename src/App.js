@@ -29,15 +29,21 @@ class App extends Component {
   		<div className="App-header">  
   			<h1 className="App-title">Mourning</h1>
 
-  			{ loggedIn ? <CurrentUserNavbar currentUser={currentUser} /> : <NewSessionNavbar /> }
-   			
+  			{ loggedIn ? <CurrentUserNavbar currentUser={currentUser} /> : <NewSessionNavbar /> } 			
   
 				<Switch>		
  					<Route exact path="/signup" component={Signup} />
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/logout" component={Logout} />	
 					<Route exact path="/profile" component={Profile} /> 
-					
+					<Route exact path='/entry/:id' render={ ( props) => {
+						console.log("data passed in render: " , props)
+						const entry = entries.find(entry=> entry.id === props.match.params.id)
+						// id in params.match is a string 
+						console.log("entry in Route/App : ", entry)
+						return (<EntryCard entry={entry} {...props} />)
+						}
+					}/>
 					<Route exact path="/story" component={Story} />
 					<Route exact path="/"  component={Home} />	
 				</Switch>

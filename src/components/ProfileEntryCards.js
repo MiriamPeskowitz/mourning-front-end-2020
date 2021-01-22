@@ -8,7 +8,7 @@ const ProfileEntryCards = ({entryData}) => {
 	const {entries} = entryData
 	console.log("entries: ", entries)
 	
-	const myEntryCards = entries.length > 0 ? entries.map((entry) => 	<li key={entry.id}><Link to={`/entry/${entry.id}`}>{entry.title}--{entry.content}</Link></li>) : <p>No entries</p> 
+	const myEntryCards = entries.length > 0 ? entries.map((entry) => 	<li key={entry.id}><Link to={`/entry/${entry.id}`}>{entry.title}--{entry.content}</Link></li>) : <p>No entries</p>
 
 	return (	
 		<div className="profile-entry-cards">
