@@ -23,7 +23,7 @@ class App extends Component {
 			
 	render() {
 		const { loggedIn, currentUser, entries } = this.props
-		console.log("In App.js- entries:", entries)	
+		// console.log("In App.js- entries:", entries)	
 	  return (
 	  	<>
 	  		<div className="App-header">  
@@ -37,10 +37,8 @@ class App extends Component {
 						<Route exact path="/logout" component={Logout} />
 						<Route exact path="/profile" component={Profile} />
 						<Route exact path='/entries/:id' render={ props => {
-							// console.log("data passed in render: ", props)
-							const entry = entries.find(entry => entry.id === props.match.params.id)
-							// console.log("entry in Route/App : ", entry)
-							return (<EditCard entry={entry} {...props} />)
+							// const entry = entries.find(entry => entry.id === props.match.params.id)							// console.log("entry in Route/App : ", entry)
+							return (<EditCard  {...props} />)
 							}
 						}/>
 						<Route exact path='/entries/:id/edit' render={ props => {
@@ -57,7 +55,7 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return ({
 		loggedIn: !!state.authReducer.currentUser,
 		currentUser: state.authReducer.currentUser,
@@ -65,4 +63,4 @@ const mapStateToProps = state => {
 	})
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
+export default connect(mapStateToProps, { getCurrentUser })(App);

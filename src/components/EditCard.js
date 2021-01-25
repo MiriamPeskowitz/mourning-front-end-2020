@@ -4,16 +4,21 @@ import { Link, withRouter } from 'react-router-dom'
 // ?change to editCard
 	//purpose of this page: to edit or delete 
 
-const EntryCard= ( { entry, entryData  }) => {
+const EntryCard = ( {entries, match} ) => {
 	//user match.params to get id? 
-	console.log("EntryCard.js entry:", entryData)
-	console.log("EntryCard.js passed data from route ", entry)
+	console.log("EntryCard.js entry:", entries)
+	// console.log("EntryCard.js match.params.id:", match.params.id)
+
+
+	const entry = entries.filter(e => e.id === match.params.id)							
+	 console.log("entry in Route/App : ", entry)
+
 	return (	
 			<div>
-				<p>Will be entry card / show page {entryData.username}</p>
+				<p>Will be entry card / show page {entry.username}</p>
 
-				<h3>{entryData.title}</h3>
-	      <p>{entryData.content}</p>
+				<h3>{entry.title}</h3>
+	      <p>{entry.content}</p>
 	      <p>EditCard.js</p>
 	      <button>Edit</button> | <button>Delete</button>
 	   	</div> 
@@ -25,7 +30,7 @@ const EntryCard= ( { entry, entryData  }) => {
 // link should be a button that opens up the form -onClick, open editForm
 const mapStateToProps = state => {
 	return ({
-		entryData: state.authReducer.currentUser
+		entries: state.authReducer.currentUser.entries
 	})
 }
 export default withRouter(connect(mapStateToProps, {} )(EntryCard))

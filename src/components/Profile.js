@@ -15,7 +15,6 @@ const Profile = ({ currentUser, history}) => {
 		<div className="profile">
 			<h2>{currentUser.username}</h2>
 			<div>
-				<p>Testing</p>
 				<CreateEntryForm history={history} />
 				<ProfileEntryCards />
 			</div>
