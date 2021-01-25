@@ -5,25 +5,13 @@ import { Link, withRouter } from 'react-router-dom'
 	//purpose of this page: to edit or delete 
 
 const EntryCard = ( {entries, match} ) => {
-	//user match.params to get id? 
-	console.log("EntryCard.js entries:", entries)
-	console.log("EntryCard.js match.params.id:", match.params.id)
-	const idString = match.params.id
-	
-	const id = parseInt(idString)
-	console.log("id", id)
-
+	const id = parseInt(match.params.id)
 	const entry = entries.find(e => e.id === id)
-							
-	 console.log("entry : ", entry)
+	console.log("entry: ", entry)
 
 	return (	
 			<div>
-				<p>Will be entry card / show page {entry.username}</p>
-
-				<h3>{entry.title}</h3>
-	      <p>{entry.content}</p>
-	      <p>EditCard.js</p>
+				<p>{entry.title} -- {entry.content}</p>
 	      <button>Edit</button> | <button>Delete</button>
 	   	</div> 
 	
