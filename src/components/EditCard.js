@@ -6,12 +6,16 @@ import { Link, withRouter } from 'react-router-dom'
 
 const EntryCard = ( {entries, match} ) => {
 	//user match.params to get id? 
-	console.log("EntryCard.js entry:", entries)
-	// console.log("EntryCard.js match.params.id:", match.params.id)
+	console.log("EntryCard.js entries:", entries)
+	console.log("EntryCard.js match.params.id:", match.params.id)
+	const idString = match.params.id
+	
+	const id = parseInt(idString)
+	console.log("id", id)
 
-
-	const entry = entries.filter(e => e.id === match.params.id)							
-	 console.log("entry in Route/App : ", entry)
+	const entry = entries.find(e => e.id === id)
+							
+	 console.log("entry : ", entry)
 
 	return (	
 			<div>
