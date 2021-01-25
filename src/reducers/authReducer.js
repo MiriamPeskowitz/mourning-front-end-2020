@@ -5,7 +5,6 @@ export default(state = { currentUser: { entries: []} }, action) => {
 
 // login => sets current user
 			case "SET_CURRENT_USER":
-			console.log("reducer currentUser: ", action.payload)
 			return {
 				currentUser: action.payload	
 			}
@@ -16,9 +15,7 @@ export default(state = { currentUser: { entries: []} }, action) => {
 			return {
 				currentUser: ""
 			}
-		case "ADD_NEW_ENTRY":
-			console.log("add new entry reducer:", action.payload);
-		
+		case "ADD_NEW_ENTRY":		
 			return {
 				...state,
 				entries: [...state.currentUser.entries, action.payload]

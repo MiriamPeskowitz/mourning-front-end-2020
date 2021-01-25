@@ -1,29 +1,34 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+// ?change to editCard
 	//purpose of this page: to edit or delete 
 
-const EntryCard= ({entryData, entry}) => {
+const EntryCard= ( { entry, entryData  }) => {
+	//user match.params to get id? 
 	console.log("EntryCard.js entry:", entryData)
+	console.log("EntryCard.js passed data from route ", entry)
 	return (	
-		<p>WIll be entry card / show page </p>
-			// <div>
-			// 	<h3>{entryData.title}</h3>
-	  //     <p>{entryData.content}</p>
-	  //     <button>Edit</button> || <button>Delete</button>
-	  //    </div> 
+			<div>
+				<p>Will be entry card / show page {entryData.username}</p>
+
+				<h3>{entryData.title}</h3>
+	      <p>{entryData.content}</p>
+	      <p>EditCard.js</p>
+	      <button>Edit</button> | <button>Delete</button>
+	   	</div> 
 	
 	)
 }
 // <Link to={`/entries/${entry.id}/edit`}>Edit this entry</Link>
-// 
+// edit goes to EditEntryFrom
 // link should be a button that opens up the form -onClick, open editForm
 const mapStateToProps = state => {
 	return ({
 		entryData: state.authReducer.currentUser
 	})
 }
-export default connect(mapStateToProps, {} )(EntryCard)
+export default withRouter(connect(mapStateToProps, {} )(EntryCard))
 
 // import { connect } from 'react-redux'
 // import { createEntry } from '../actions/entries.js'

@@ -1,39 +1,27 @@
-import React, { Component } from 'react'
+import React  from 'react'
 import { connect } from 'react-redux'
 import MemoryCard from './MemoryCard'
 import ProfileEntryCards from './ProfileEntryCards'
 import CreateEntryForm from './CreateEntryForm'
-import EntryCard from './EntryCard'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 const Profile = ({ currentUser, history}) => {
 	// console.log("Profile currentUser: ", currentUser.id)
-	const data = currentUser.entries
-	// console.log("entries: ", data)
+	const entries = currentUser.entries
+	console.log("entries in Profile.js: ", entries)
 
 	return (
 		<>
 		<div className="profile">
 			<h2>{currentUser.username}</h2>
 			<div>
+				<p>Testing</p>
 				<CreateEntryForm history={history} />
 				<ProfileEntryCards />
-				
-		
 			</div>
 			<MemoryCard />	
 		</div>
-	
-	<Switch>
-		<Route exact path='/entry/:id' render={ ( data) => {
-				console.log(data)
-				const entry = data.find(ent=> ent.id === ent.match.params.id)
-				// id in params.match is a string 
-				console.log("entry in ROute/App: ", entry)
-				return (<EntryCard entry={entry} {...data} />)
-					}
-				} />
-		</Switch>
+		
 		</>
 	)
 }
@@ -50,6 +38,9 @@ const mapStateToProps = state => {
 	}
 
 export default withRouter(connect(mapStateToProps, null )(Profile));
+
+
+
 
 	// const entriesDisplay = entries.map(e => <p>{e.title}--{e.content}</p>)
 	// const PersonalEntryCard = props.personalEntries.length
