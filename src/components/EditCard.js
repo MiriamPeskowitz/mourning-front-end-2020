@@ -4,7 +4,11 @@ import { withRouter } from 'react-router-dom'
 // ?change to editCard
 	//purpose of this page: to edit or delete 
 
-const EditCard = ( {entries, match} ) => {
+const EntryCard = ({currentUser, entries, match}) => {
+
+	console.log("entries in EditCard", entries)
+	console.log("currentUser in EditCard", currentUser)
+
 	const id = parseInt(match.params.id)
 	const entry = entries.find(e => e.id === id)
 	console.log("entry: ", entry)
@@ -25,7 +29,7 @@ const mapStateToProps = state => {
 		entries: state.authReducer.currentUser.entries
 	})
 }
-export default withRouter(connect(mapStateToProps, {} )(EditCard))
+export default withRouter(connect(mapStateToProps, {} )(EntryCard))
 
 // import { connect } from 'react-redux'
 // import { createEntry } from '../actions/entries.js'
