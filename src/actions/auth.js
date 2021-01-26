@@ -3,6 +3,7 @@
 
 import { resetSignupForm } from "./signupForm"
 import { resetLoginForm } from "./loginForm"
+import { clearEntries } from "./entries"
 
 export const setCurrentUser = user => {
 	console.log("user in setCurrentUser:,", user)
@@ -19,9 +20,18 @@ export const clearCurrentUser = () => {
 	}
  }
 
+export const currentUserLoading = () => {
+	console.log('got to currentUserLoading')
+	return {
+		type: "LOADING_CURRENT_USER",
+	}
+}
+
 //use dispatch when thunk/async is involved 
 export const getCurrentUser = () => {
+	console.log('first')
 	return dispatch => {
+		dispatch(currentUserLoading())
 		return fetch("/get_current_user", {
 			credentials: "include",
 			method: "GET",
@@ -91,8 +101,7 @@ export const login = (credentials, history) => {
 				alert(user.error)
 			} else {
 				dispatch(setCurrentUser(user))
-				console.log("action user: ", user)
-				
+				console.log("user(action): ", user)
 				history.push('/profile')
 			}
 		})
@@ -101,20 +110,15 @@ export const login = (credentials, history) => {
 	}
 }
 
-//line 114 -- refactor with dispatch(learCurrentUser()
-export const logOut = (history) => {	
-	return (dispatch) => {		
+export const logOut = (event) => {	
+	console.log("got to logOut action creator")
+	return (dispatch) => {	
+		dispatch(clearCurrentUser)	
+		dispatch(clearEntries)
 		return fetch("/logout", {
       credentials: "include",
       method: "DELETE"
     })
-    .then(console.log("here2"))
-    .then(resp => resp.json())
-    .then(() => {
-    	dispatch({type: 'CLEAR_CURRENT_USER'})	
-    }) 
-    .then(history.push('/'))
-    .catch(err => console.log(err))
   }
 }
 

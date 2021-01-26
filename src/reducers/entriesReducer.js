@@ -13,7 +13,6 @@ export default(state = {entries: [], loading: false}, action) => {
 				entries: action.payload,
 				loading: false
 			}
-
 		default:
 			return state
 	}

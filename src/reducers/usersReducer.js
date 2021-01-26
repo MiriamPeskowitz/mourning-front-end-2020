@@ -8,14 +8,12 @@ export default(state = {users: [], loading: false}, action) => {
 				...state,
 				loading: true
 			}
-
 		case "MOURNERS_LOADED":
 			return {
 				...state,
 				users: action.payload,
 				loading: false
 			}
-
 		default:
 			return state
 	}

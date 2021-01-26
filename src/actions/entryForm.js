@@ -9,14 +9,14 @@ export const updateEntryForm = formData => {
 	}
 }
 
-//called in 
+
 export const resetEntryForm = () => {
 	return {
 		type: "RESET_ENTRY_FORM",
 	}
-} //where am I calling this? 
+} 
 
-//add editFormData 
+
 
 
 // export const setFormDataForEdit = trip => {

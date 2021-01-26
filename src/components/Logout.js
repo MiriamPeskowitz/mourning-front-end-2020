@@ -3,21 +3,19 @@ import { connect } from 'react-redux'
 import { logOut } from "../actions/auth.js"
 import { withRouter } from 'react-router-dom'
 
-// add history as prop
-const Logout = ({ logOut, history }) => {
+const Logout = ({ logOut, history}) => {
 
-	const logout = (event) => {
-	 	event.preventDefault()
-		logOut(history)
-	}
 	return (
-		<div className="Logout">
-			<form onSubmit={logout}>
-			<input type="submit" value="Log Out" />
-			</form>	
-		</div>	
+		<form onSubmit = {(event) => {
+			event.preventDefault()
+			logOut()
+			history.push('/exit')
+			}
+		}>
+				<input type="submit" value="Log Out" />
+		</form>	
 	)
 }
 
-export default withRouter(connect (null, { logOut} )(Logout))
+export default withRouter(connect(null, { logOut} )(Logout))
 
