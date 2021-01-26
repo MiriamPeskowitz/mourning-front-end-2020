@@ -5,14 +5,14 @@ import { withRouter } from 'react-router-dom'
 
 // add history as prop
 const Logout = ({ logOut, history }) => {
-//build with function inline 
+
+	const logout = (event) => {
+	 	event.preventDefault()
+		logOut(history)
+	}
 	return (
 		<div className="Logout">
-			<form onSubmit={(event) => {
-					event.preventDefault()
-					logOut(history)
-				}
-			}>
+			<form onSubmit={logout}>
 			<input type="submit" value="Log Out" />
 			</form>	
 		</div>	

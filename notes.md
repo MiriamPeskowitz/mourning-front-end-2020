@@ -77,7 +77,80 @@ get current user. Then I'm done -- can make more features in profile, including 
 Thursday: 
 NEXT: Fix the logout, esp the backend. Follow the flow of data. 
 
+https://dev.to/mmcclure11/flatiron-final-project-rails-api-react-redux-e0g
+
 Thurs at 1.50. Auth is working, logout works, now: something is happening, where loginReducer is clearing Welcome user prints, then user deletes 
 Figure out why. 
 
+Thursday afternoon 
+-- mostly fixed, there is an async issue that I need to figure out. 
+--star work on profile. Look at caring bridge and make a list of what should go here. 
 
+People I am mourning. What should I call this category? 
+	name, age, relationship. date of death. notes. images 
+	Card for each one 
+	They can stack up. 
+Am I writing to me, or writing for others? 
+Entries. 
+	this is under user.entries etc 
+
+--small fixes, add capitalization to username 
+Profile --new build out from here. 
+	EntryForm
+	PersonalEntries
+	AllEntries
+
+actions/entries.js
+I have the general -- now I need to add the show -- the create.
+
+
+CreateEntryForm
+-- frontend WORKS, make sure addEntry action creators work 
+-- connect to backend. What is the route, to get to user.entry 
+	-- fixed action-creator DONE
+	-- made reducer add entry DONE
+	-- routes? should be part of RESTFUl - DONE 
+	-- create DONE
+	-- transmit user id from front-end, OR DONE
+	capture current_user, since only current_user will make an entry 
+j_all = j.entries.all
+j_all.map {|entry| entry.title}
+	way to get titles, for a frontend list 
+http://localhost:3001/api/v1/users/31
+
+Works!!! Entries appear on the profile page! 
+
+Monday 
+-- next: 
+ -- clean up current code OKAY
+ -- make sure everything works as is OKAY
+ -- then: 
+   -- do the profile - entry - entry card components OKAy
+   -- profile routing -- profile should be users/1, etc 
+  Monday night: added cards, can click on an entry to edit (and eventually delete) NEXT: the data doesn't go through. I can get from profile to http://localhost:3000/entry/14 -- but what shows up is the null part of the ternary, as if data isn't coming through yet  `
+
+entry on Entry card is undefined -- not getting passed through 
+match.params.id is a string not integer --> 
+
+{history: {…}, location: {…}, match: {…}, staticContext: undefined}
+history: {length: 50, action: "PUSH", location: {…}, createHref: ƒ, push: ƒ, …}
+location: {pathname: "/entry/9", search: "", hash: "", state: undefined, key: "66cojz"}
+match:
+isExact: true
+params:
+id: "9"
+__proto__: Object
+path: "/entry/:id"
+url: "/entry/9"
+__proto__: Object
+staticContext: undefined
+__proto__: Object
+
+ -- then do Bootstrap
+
+-- change home page -- make names a separate category, separate from the
+descriptions, so home page has three colored sections 
+
+-- Stretch: do the People I remember cards. 
+Model: dead_people -- user has_many my_people
+dead_people attributes: name, age at death, date of death, relationship, image, add as many notes or memories as you want. 

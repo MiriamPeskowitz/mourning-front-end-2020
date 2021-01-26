@@ -101,7 +101,7 @@ export const login = (credentials, history) => {
 	}
 }
 
-
+//line 114 -- refactor with dispatch(learCurrentUser()
 export const logOut = (history) => {	
 	return (dispatch) => {		
 		return fetch("/logout", {
@@ -114,6 +114,7 @@ export const logOut = (history) => {
     	dispatch({type: 'CLEAR_CURRENT_USER'})	
     }) 
     .then(history.push('/'))
+    .catch(err => console.log(err))
   }
 }
 

@@ -4,7 +4,6 @@ import { login }  from '../actions/auth.js'
 import { updateLoginForm }  from '../actions/loginForm.js'
 
 const Login = ({loginFormData, updateLoginForm, login, history}) => {
-		// console.log("loginFormData: ", loginFormData)
 
 	const handleChange = (e) => {
 		const updatedFormInfo = {
@@ -59,9 +58,4 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, { login, updateLoginForm } )(Login);
 
-// state = {
-	// 	currentUser: null,
-	// 	username: "",
-	// 	password: ""
-	// }
 	

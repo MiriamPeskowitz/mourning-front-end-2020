@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import getEntries from '../actions/entries'
+import { getEntries }  from '../actions/entries'
 import EntriesList from '../components/EntriesList'
 
 class Entries extends Component {
