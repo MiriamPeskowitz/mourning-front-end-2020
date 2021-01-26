@@ -5,11 +5,10 @@ import Navbar from './Navbar'
 import Mourners from './Mourners'
 import Entries from './Entries'
 
-// maybe change to class and ComponentDidMount
-const Home = ({ getCurrentUser, currentUser, loading, loggedIn }) => {
+const Home = ({ getCurrentUser, currentUser, loggedIn }) => {
 	return (
 		<div className="Home">
-			<Navbar  />
+			<Navbar />
   		<Entries />
   		<Mourners />
 	  </div>
@@ -20,9 +19,10 @@ const mapStateToProps = (state) => {
 	return ({
 		loggedIn: !!state.authReducer.currentUser,
 		currentUser: state.authReducer.currentUser,
-		loading: state.authReducer.loading
+		
 	})
 }
+
 export default connect(mapStateToProps, { getCurrentUser })(Home);
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getCurrentUser } from "./actions/auth.js"
+import { getCurrentUser } from "./actions/auth"
 import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
@@ -15,11 +15,12 @@ import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {		
 	componentDidMount() {
+		console.log("got to componentDidMount")
 		this.props.getCurrentUser()
 	}
 	
 	render() {
-		const { currentUser, entries, getCurrentUser } = this.props
+		const { currentUser, entries } = this.props
 	
 	  return (
 	  	<>

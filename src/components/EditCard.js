@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 // ?change to editCard
 	//purpose of this page: to edit or delete 
 
-const EntryCard = ( {entries, match} ) => {
+const EditCard = ( {entries, match} ) => {
 	const id = parseInt(match.params.id)
 	const entry = entries.find(e => e.id === id)
 	console.log("entry: ", entry)
@@ -21,10 +21,11 @@ const EntryCard = ( {entries, match} ) => {
 // link should be a button that opens up the form -onClick, open editForm
 const mapStateToProps = state => {
 	return ({
+		currentUser: state.authReducer.currentUser,
 		entries: state.authReducer.currentUser.entries
 	})
 }
-export default withRouter(connect(mapStateToProps, {} )(EntryCard))
+export default withRouter(connect(mapStateToProps, {} )(EditCard))
 
 // import { connect } from 'react-redux'
 // import { createEntry } from '../actions/entries.js'

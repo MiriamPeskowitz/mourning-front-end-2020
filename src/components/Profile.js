@@ -15,7 +15,7 @@ const Profile = ({ currentUser, history}) => {
 		<>
 		<div className="profile">
 			<CurrentUserNavBar currentUser={currentUser} />
-			<h2>{currentUser.username}</h2>
+			<h2>{currentUser.username}'s page</h2>
 			<div>
 				<CreateEntryForm history={history} />
 				<ProfileEntryCards />

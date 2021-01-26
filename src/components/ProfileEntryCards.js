@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom' 
 
 const ProfileEntryCards = ({entries, history}) => {
-
-	
-
 	const myEntryCards = entries.length > 0 ? entries.map
 			(entry => (<li key={entry.id}>{entry.title}--{entry.content} <Link to={`/entries/${entry.id}`}>Edit</Link></li>)) : <p>No entries</p>
 	return (	
