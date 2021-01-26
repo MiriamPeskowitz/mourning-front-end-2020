@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom'
 
 const ProfileEntryCards = ({entries, history}) => {
 
-	// console.log("ProfileEntryCards.js entries: ", entries)
 	
+
 	const myEntryCards = entries.length > 0 ? entries.map
 			(entry => (<li key={entry.id}>{entry.title}--{entry.content} <Link to={`/entries/${entry.id}`}>Edit</Link></li>)) : <p>No entries</p>
 	return (	

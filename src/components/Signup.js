@@ -102,9 +102,3 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps,  { updateSignupForm, signup } )(Signup);
 
-//Form | Capture entries in a variable | send data to SignUP action | 
-//this function dispatches new data to the backend, then sends
-// the result that's returned, to the reducer 
-//then the component grabs the data from the reducer 
-//then does something in the render: like let the user into their profile 
-

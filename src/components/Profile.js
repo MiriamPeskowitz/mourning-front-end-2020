@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import MemoryCard from './MemoryCard'
 import ProfileEntryCards from './ProfileEntryCards'
 import CreateEntryForm from './CreateEntryForm'
+import CurrentUserNavBar from './CurrentUserNavbar'
 import { withRouter } from 'react-router-dom'
 
 const Profile = ({ currentUser, history}) => {
@@ -13,6 +14,7 @@ const Profile = ({ currentUser, history}) => {
 	return (
 		<>
 		<div className="profile">
+			<CurrentUserNavBar currentUser={currentUser} />
 			<h2>{currentUser.username}</h2>
 			<div>
 				<CreateEntryForm history={history} />

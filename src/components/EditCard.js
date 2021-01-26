@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 // ?change to editCard
 	//purpose of this page: to edit or delete 
 
@@ -17,8 +17,7 @@ const EntryCard = ( {entries, match} ) => {
 	
 	)
 }
-// <Link to={`/entries/${entry.id}/edit`}>Edit this entry</Link>
-// edit goes to EditEntryFrom
+
 // link should be a button that opens up the form -onClick, open editForm
 const mapStateToProps = state => {
 	return ({

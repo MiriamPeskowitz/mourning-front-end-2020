@@ -22,6 +22,13 @@ export const addNewEntry = newEntry => {
 		payload: newEntry.data.attributes
 	}
 }
+
+export const clearEntries = () => {
+	console.log("got to clearEntries")
+	return {
+		type: "CLEAR_ENTRIES"
+	}
+}
 //  add setMyEntries, clearEntries, deleteEntrySuccess
 //updateEntrySuccess
 
@@ -32,8 +39,6 @@ export const addNewEntry = newEntry => {
 //   }
 // }
 
-//refactor this so it fits the newer design pattern,use sync action
-//creator setEntries for Entries Loaded
 export const getEntries = () => {
 	return (dispatch) => {
 		return fetch("/entries", {
@@ -57,9 +62,7 @@ export const getEntries = () => {
 	}
 }
 
-// createEntry(entryFormData, id, history)//f//currentser.id is int
-//create a single entry, linked to currentUser
-// createEntry(entryFormData, currentUser.id, history)
+
 export const createEntry = (formData, id, history) => {
 	return (dispatch) => {
 		const sendableEntryData = {
@@ -83,9 +86,9 @@ export const createEntry = (formData, id, history) => {
 		.then(entry => {
 			dispatch(addNewEntry(entry))
 			dispatch(resetEntryForm())
-			history.push(`/entries/${entry.data.id}`)
-			
-		})
+			history.push(`/entries/${entry.data.id}`)	
+		}
+	)
 	.catch(err => console.log(err))
 	}
 }
