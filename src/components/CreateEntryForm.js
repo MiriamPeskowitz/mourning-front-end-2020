@@ -12,11 +12,13 @@ const createEntryForm = ({ currentUser, entryFormData, createEntry, updateEntryF
 			[e.target.name]: e.target.value
 		}
 		updateEntryForm(updatedFormInfo)
+
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		createEntry(entryFormData, currentUser.id, history)
+	
 	}
 	
 	return (
