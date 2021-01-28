@@ -34,21 +34,11 @@ class App extends Component {
 						<Route exact path="/logout" component={Logout} />
 						<Route exact path="/profile" component={Profile} />
 						<Route exact path="/entries/new" component={CreateEntryForm} />
-						<Route exact path='/entries/:id' render={ props => {
-							console.log("App-entries-- route:", entries)	
-							console.log("props.match.params.id-- route:", props.match.params.id)	
-							
-							const entry = props.entries.find(entry => entry.id === props.match.params.id)		
-							console.log("entry in Route/App : ", entry)
-							return (<EntryCard  entry={entry} {...props} />) 
-							
-							}
-						}/>
+						
 						<Route exact path='/entries/:id/edit' render={ props => {
 	              const entry = entries.find(entry => entry.id === props.match.params.id)
 	              return (<EditEntryForm entry={entry} {...props} />)
-	            }
-	          }/>
+	            }}/>
 						<Route exact path="/story" component={Story} />
 						<Route exact path="/exit"  component={ExitPage} />
 						<Route exact path="/" component={Home} />	
@@ -59,6 +49,16 @@ class App extends Component {
 	}
 }
 
+// <Route exact path="/entries/:id" render={ props => {
+						// 	console.log("App-entries-- route:", entries)	
+						// 	console.log("props.match.params.id-- route:", props.match.params.id)	
+							
+						// 	const entry = props.entries.find(entry => entry.id === props.match.params.id)		
+						// 	console.log("entry in Route/App : ", entry)
+						// 	return (<EntryCard  entry={entry} {...props} />) 
+							
+						// 	}
+						// }/>
 const mapStateToProps = (state) => {
 	return ({
 		// loggedIn: !!state.authReducer.currentUser,

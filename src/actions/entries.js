@@ -63,14 +63,15 @@ export const getEntries = () => {
 }
 
 
-export const createEntry = (formData, id, history) => {
-	console.log(formData, id)
+export const createEntry = (entryData, history) => {
+
 	return (dispatch) => {
 		const sendableEntryData = {
-      title: formData.title,
-			content: formData.content,
-      user_id: id
+      title: entryData.entryFormData.title,
+			content: entryData.entryFormData.content,
+      user_id: entryData.currentUserId
     }
+   
 			 // public: formData.public
   			 //date? or take from date-create on the back end 	
   	
@@ -92,7 +93,8 @@ export const createEntry = (formData, id, history) => {
 			dispatch(resetEntryForm())
 			// history.push(`/entries/${entry.data.id}`)
 			//where do I want it to go? this will take it to EntryCard 
-			history.push(`/entries/${entry.id}`)
+			// history.push(`/entries/${entry.id}`)
+			history.push('/profile')
 		}
 	)
 	.catch(err => console.log(err))

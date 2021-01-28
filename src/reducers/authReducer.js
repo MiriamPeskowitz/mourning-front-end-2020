@@ -36,11 +36,35 @@ export default(state = initialState, action) => {
 			// 		} 
 			// 	}
 			return {
-				...state.concat({
-					entries: [...state.currentUser.entries, action.payload]
-				})
+					...state, 
+						entries: 
+							{...state.entries, ...action.payload}
+	
+					}
+
+// return {
+// 				...state,
+// 				entries: action.payload,
+// 				loading: false
+// 			}
+				// state is not iterable: entries: [...state, action.payload ]
+
 			
-			}
+			
+			
+
+			
+
+			// return { this returned just one entry 
+			// 	...state, entries: {...state.entries, ...action.payload }
+			// }
+
+			 // {
+			// 	...state.concat({
+			// 		entries: [...state.currentUser.entries, action.payload]
+			// 	})
+			
+			// }
 				
 					// .concat({
 					// 	id: newEntry.id,
