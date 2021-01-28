@@ -25,11 +25,33 @@ export default(state = initialState, action) => {
 			return {
 				currentUser: ""
 			}
-		case "ADD_NEW_ENTRY":		
+
+		case "ADD_NEW_ENTRY":	
+		console.log("entry.id in reducer:", action.payload.id)	
+		console.log("entry in reducer:", action.payload)	
+		console.log("entry.content in reducer:", action.payload.content)	
+			// return {
+			// 	currentUser: 
+			// 		{ entries: [...state, currentUser.entries.action.payload]
+			// 		} 
+			// 	}
 			return {
-				...state,
-				entries: [...state.currentUser.entries, action.payload]
+				...state.concat({
+					entries: [...state.currentUser.entries, action.payload]
+				})
+			
 			}
+				
+					// .concat({
+					// 	id: newEntry.id,
+					// 	title:newEntry..title,
+					// 	content:newEntry..content
+					// 	// user_id: action.con
+					// })
+				
+			
+				// entries: [...state.currentUser.entries, action.payload]
+			
 			case "CLEAR_ENTRIES":
 			console.log("entries cleared")
 			return initialState
@@ -46,5 +68,20 @@ export default(state = initialState, action) => {
 		// 	return {
 		// 		entries: state.map(entry => entry.id === action.updatedEntry.id ? action.updatedEntry : entry)
 		// 	}	
+// const initialState = []
 
-
+// export default (state = initialState, action) => {
+//   switch (action.type) {
+//     case "SET_MY_TRIPS":
+//       return action.trips
+//     case "ADD_TRIP":
+//       return state.concat(action.trip)
+//     case "UPDATE_TRIP":
+//       return state.map(trip => trip.id === action.trip.id ? action.trip : trip)
+//     case "DELETE_TRIP":
+//       //console.log( "action.tripId is ", action.tripId)
+//       return state.filter(trip => trip.id === action.tripId ? false : true)
+//     case "CLEAR_TRIPS":
+//       return initialState
+//     default:
+//       return state

@@ -4,8 +4,9 @@ import { getCurrentUser } from "./actions/auth"
 import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
-import EditCard from './components/EditCard'
+import EntryCard from './components/EntryCard'
 import Profile from './components/Profile'
+import CreateEntryForm from './components/CreateEntryForm'
 import EditEntryForm from './components/EditEntryForm'
 import Logout from './components/Logout'
 import Story from './components/Story'
@@ -21,7 +22,7 @@ class App extends Component {
 	
 	render() {
 		const { currentUser, entries } = this.props
-	
+		console.log("app, entries:", entries )
 	  return (
 	  	<>
 	  		<div className="App-header">  
@@ -32,9 +33,15 @@ class App extends Component {
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/logout" component={Logout} />
 						<Route exact path="/profile" component={Profile} />
+						<Route exact path="/entries/new" component={CreateEntryForm} />
 						<Route exact path='/entries/:id' render={ props => {
-							// const entry = entries.find(entry => entry.id === props.match.params.id)							// console.log("entry in Route/App : ", entry)
-							return (<EditCard  {...props} />)
+							console.log("App-entries-- route:", entries)	
+							console.log("props.match.params.id-- route:", props.match.params.id)	
+							
+							const entry = props.entries.find(entry => entry.id === props.match.params.id)		
+							console.log("entry in Route/App : ", entry)
+							return (<EntryCard  entry={entry} {...props} />) 
+							
 							}
 						}/>
 						<Route exact path='/entries/:id/edit' render={ props => {
@@ -60,3 +67,15 @@ const mapStateToProps = (state) => {
 	})
 }
 export default connect(mapStateToProps, { getCurrentUser })(App);
+
+// former version of entries/:id
+//render={ (entries, props) => {
+						// 	//working here to fix what's coming in -- and how will it 
+						// 	//get to the Entry Card 
+							
+						// 	const entry = entries.find(entry => entry.id === props.match.params.id)		
+						// 	console.log("routes-entry:", entry)					// console.log("entry in Route/App : ", entry)
+						// 	return (<EntryCard  entry={entry} {...props} />) 
+							
+						// 	}
+						// }/>

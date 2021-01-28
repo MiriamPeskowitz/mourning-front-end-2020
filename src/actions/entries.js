@@ -16,10 +16,10 @@ export const setEntries = entries => {
 }
 
 export const addNewEntry = newEntry => {
-	console.log('got to addNewEntry this is the payload', newEntry.data.attributes)
+	console.log('got to addNewEntry this is the payload', newEntry)
 	return {
 		type: "ADD_NEW_ENTRY",
-		payload: newEntry.data.attributes
+		payload: newEntry
 	}
 }
 
@@ -64,6 +64,7 @@ export const getEntries = () => {
 
 
 export const createEntry = (formData, id, history) => {
+	console.log(formData, id)
 	return (dispatch) => {
 		const sendableEntryData = {
       title: formData.title,
@@ -86,10 +87,12 @@ export const createEntry = (formData, id, history) => {
 		return fetch( "/entries", config)
 		.then(response => response.json())
 		.then(entry => {
-			dispatch(addNewEntry(entry))
+			console.log('entry in addNewEntry.data', entry.data.attributes)
+			dispatch(addNewEntry(entry.data.attributes))
 			dispatch(resetEntryForm())
 			// history.push(`/entries/${entry.data.id}`)
-			history.push('/entries/:id')
+			//where do I want it to go? this will take it to EntryCard 
+			history.push(`/entries/${entry.id}`)
 		}
 	)
 	.catch(err => console.log(err))

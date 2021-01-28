@@ -3,11 +3,10 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom' 
 
-const ProfileEntryCards = ({entries, history}) => {
+const ProfileEntryCards = (props) => {
 
-	const myEntryCards = entries.length > 0 ? entries.map
-			(entry => (<li key={entry.id}><Link to={`/entries/${entry.id}`}>{entry.title}--{entry.content} </Link></li>)) : <p>No entries</p>
-	
+	const myEntryCards = props.entries.length > 0 ? props.entries.map(entry => (<li key={entry.id}><Link to={`/entries/${entry.id}`}>{entry.title}--{entry.content} </Link></li>)) : <p>No entries</p>
+
 	return (	
 		<div className="profile-entry-cards">
 			<h3>My Entries</h3>

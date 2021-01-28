@@ -4,20 +4,22 @@ import MemoryCard from './MemoryCard'
 import ProfileEntryCards from './ProfileEntryCards'
 import CreateEntryForm from './CreateEntryForm'
 import CurrentUserNavBar from './CurrentUserNavbar'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 const Profile = ({ currentUser, history}) => {
 	// console.log("Profile currentUser: ", currentUser.id)
 	const entries = currentUser.entries
 	console.log("entries in Profile.js: ", entries)
 
+
+// createEntryForm should be a link -- to /entries/new, then history is part of it 
 	return (
 		<>
 		<div className="profile">
 			<CurrentUserNavBar currentUser={currentUser} />
 			<h2>{currentUser.username}'s page</h2>
 			<div>
-				<CreateEntryForm history={history} />
+				<Link to="entries/new" >Create a new entry </Link>
 				<ProfileEntryCards />
 			</div>
 			<MemoryCard />	
@@ -40,7 +42,7 @@ const mapStateToProps = state => {
 
 export default withRouter(connect(mapStateToProps, null )(Profile));
 
-
+	// <CreateEntryForm history={history} />
 
 
 	// const entriesDisplay = entries.map(e => <p>{e.title}--{e.content}</p>)
