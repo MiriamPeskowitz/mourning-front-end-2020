@@ -40,9 +40,11 @@ class App extends Component {
        			console.log("props:", props)
        			console.log("entries:", entries)
        			console.log("match params id:", props.match.params.id)
-              const entry = entries.find(entry => entry.id === props.match.params.id)
+       			const id = parseInt(props.match.params.id)
+       			console.log("id-parseInt:", id)
+              const entry = entries.find(entry => entry.id === id)
               console.log(entry)
-              return (<EntryCard entry={entry} match={this.props.match} />)
+              return (<EntryCard entry={entry} {...props} />)
             	}}/>
 						<Route exact path='/entries/:id/edit' render={ props => {
 	              const entry = props.entries.find(entry => entry.id === props.match.params.id)
