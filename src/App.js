@@ -41,8 +41,7 @@ class App extends Component {
               const entry = entries.find(entry => entry.id === props.match.params.id)
               console.log(entry)
               return <EntryCard entry={entry} match={props.match} />
-            	}
-          	}/>
+            	}}/>
 						<Route exact path='/entries/:id/edit' render={ props => {
 	              const entry = entries.find(entry => entry.id === props.match.params.id)
 	              return (<EditEntryForm entry={entry} {...props} />)

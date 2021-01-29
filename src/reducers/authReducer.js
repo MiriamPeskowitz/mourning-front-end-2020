@@ -1,8 +1,15 @@
 //holds login/logout and actions related to current user 
 //adding, updating, deleting pieces of their profile 
 const initialState = { 
-	currentUser: 
-		{ entries: [], loading: false} }
+	currentUser: {
+		username: '',
+		email: '',
+		description: '',
+		id: '',
+		entries: [],
+		// loading: false
+	 }
+	}
 
 export default(state = initialState, action) => {
 	switch(action.type){
@@ -11,12 +18,12 @@ export default(state = initialState, action) => {
 		case "SET_CURRENT_USER":
 			return {
 				currentUser: action.payload,
-				loading: false
+				// loading: false
 			}
 		case "LOADING_CURRENT_USER":
 			return {
 				...state, 
-				loading: true
+				// loading: true
 			}
 
 //logout => clears current user on front end 
@@ -30,17 +37,28 @@ export default(state = initialState, action) => {
 		console.log("entry.id in reducer:", action.payload.id)	
 		console.log("entry in reducer:", action.payload)	
 		console.log("entry.content in reducer:", action.payload.content)	
-			// return {
-			// 	currentUser: 
-			// 		{ entries: [...state, currentUser.entries.action.payload]
-			// 		} 
-			// 	}
+			
+			const entry = {
+				id: action.payload.id,
+				title: action.payload.title,
+				content: action.payload.content,
+			}
 			return {
-					...state, 
-						entries: 
-							{...state.entries, ...action.payload}
-	
-					}
+				...state, 
+				currentUser: {
+					...state.currentUser,
+					entries: state.currentUser.entries.concat(entry)
+				}
+				
+			}
+				// 			{
+				// currentUser: action.payload,
+				// loading: false
+			// }
+							// currentuser.entries: [action.payload]
+
+									// [...state.currentUser.entries, action.payload]
+					
 
 // return {
 // 				...state,
@@ -49,7 +67,11 @@ export default(state = initialState, action) => {
 // 			}
 				// state is not iterable: entries: [...state, action.payload ]
 
-			
+			// return {
+			// 	currentUser: 
+			// 		{ entries: [...state, currentUser.entries.action.payload]
+			// 		} 
+			// 	}
 			
 			
 
