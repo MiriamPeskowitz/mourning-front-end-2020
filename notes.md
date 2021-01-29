@@ -156,7 +156,9 @@ Model: dead_people -- user has_many my_people
 dead_people attributes: name, age at death, date of death, relationship, image, add as many notes or memories as you want. 
 
 Friday
+-- route in App.js DONE 
 -- change profiles colors to match the front yellow and blue 
 --make jane's page not have an a:visited feature
-
+-- create new entry -- make sure this works 
+-- edit entry - 
 

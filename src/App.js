@@ -36,14 +36,16 @@ class App extends Component {
 						<Route exact path="/profile" component={Profile} />
 						<Route exact path="/entries/new" component={CreateEntryForm} />
 						
-						<Route exact path='/entries/:id' render={props => {
-       
+						<Route path='/entries/:id' render={ (props) => {
+       			console.log("props:", props)
+       			console.log("entries:", entries)
+       			console.log("match params id:", props.match.params.id)
               const entry = entries.find(entry => entry.id === props.match.params.id)
               console.log(entry)
-              return <EntryCard entry={entry} match={props.match} />
+              return (<EntryCard entry={entry} match={this.props.match} />)
             	}}/>
 						<Route exact path='/entries/:id/edit' render={ props => {
-	              const entry = entries.find(entry => entry.id === props.match.params.id)
+	              const entry = props.entries.find(entry => entry.id === props.match.params.id)
 	              return (<EditEntryForm entry={entry} {...props} />)
 	            }}/>
 						<Route exact path="/story" component={Story} />

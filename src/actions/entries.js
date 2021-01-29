@@ -93,8 +93,8 @@ export const createEntry = (entryData, history) => {
 			dispatch(resetEntryForm())
 			// history.push(`/entries/${entry.data.id}`)
 			//where do I want it to go? this will take it to EntryCard 
-			// history.push(`/entries/${entry.id}`)
-			history.push('/entries/${entry.data.id}')
+			console.log('entry.id:', entry.id)
+			history.push(`/entries/${entry.data.id}`)
 		}
 	)
 	.catch(err => console.log(err))
