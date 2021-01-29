@@ -24,6 +24,7 @@ class App extends Component {
 		const { currentUser, entries } = this.props
 		console.log("app, entries:", entries )
 	  return (
+
 	  	<>
 	  		<div className="App-header">  
 	  			<h1 className="App-title">Mourning</h1>
@@ -35,6 +36,13 @@ class App extends Component {
 						<Route exact path="/profile" component={Profile} />
 						<Route exact path="/entries/new" component={CreateEntryForm} />
 						
+						<Route exact path='/entries/:id' render={props => {
+       
+              const entry = entries.find(entry => entry.id === props.match.params.id)
+              console.log(entry)
+              return <EntryCard entry={entry} match={props.match} />
+            	}
+          	}/>
 						<Route exact path='/entries/:id/edit' render={ props => {
 	              const entry = entries.find(entry => entry.id === props.match.params.id)
 	              return (<EditEntryForm entry={entry} {...props} />)
@@ -49,33 +57,12 @@ class App extends Component {
 	}
 }
 
-// <Route exact path="/entries/:id" render={ props => {
-						// 	console.log("App-entries-- route:", entries)	
-						// 	console.log("props.match.params.id-- route:", props.match.params.id)	
-							
-						// 	const entry = props.entries.find(entry => entry.id === props.match.params.id)		
-						// 	console.log("entry in Route/App : ", entry)
-						// 	return (<EntryCard  entry={entry} {...props} />) 
-							
-						// 	}
-						// }/>
 const mapStateToProps = (state) => {
 	return ({
-		// loggedIn: !!state.authReducer.currentUser,
+		loggedIn: !!state.authReducer.currentUser,
 		currentUser: state.authReducer.currentUser,
 		entries: state.authReducer.currentUser.entries,
 	})
 }
 export default connect(mapStateToProps, { getCurrentUser })(App);
 
-// former version of entries/:id
-//render={ (entries, props) => {
-						// 	//working here to fix what's coming in -- and how will it 
-						// 	//get to the Entry Card 
-							
-						// 	const entry = entries.find(entry => entry.id === props.match.params.id)		
-						// 	console.log("routes-entry:", entry)					// console.log("entry in Route/App : ", entry)
-						// 	return (<EntryCard  entry={entry} {...props} />) 
-							
-						// 	}
-						// }/>

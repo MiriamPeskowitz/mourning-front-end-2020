@@ -18,12 +18,16 @@ const EntryCard = (entry, props) => {
 	// console.log("entry: ", entry)
 
 	return (	
+			entry ?
 			<div>
-				<p>{entry.title} -- {entry.content}</p>
+				<p>{entry.title}</p>
+				<p>{entry.content}</p>
+				<div>
 	      <Link to={`entries/${entry.id}/edit`}>Edit</Link> 
 	      | <button>Delete</button> 
 	      | <Link to={'/profile'} >Back to my profile</Link>
-	   	</div> 
+	   		</div>
+	   	</div> : null
 	
 	)
 }

@@ -94,7 +94,7 @@ export const createEntry = (entryData, history) => {
 			// history.push(`/entries/${entry.data.id}`)
 			//where do I want it to go? this will take it to EntryCard 
 			// history.push(`/entries/${entry.id}`)
-			history.push('/profile')
+			history.push('/entries/${entry.data.id}')
 		}
 	)
 	.catch(err => console.log(err))
@@ -104,6 +104,19 @@ export const createEntry = (entryData, history) => {
 	// if (entry.error) {
 			// 	alert(entry.error)
 			// } else {
+
+				// .then(resp => {
+    //     if (resp.error) {
+    //       alert(resp.error)
+    //     } else {
+    //       dispatch(addTrip(resp.data))
+    //       dispatch(resetTripForm())
+    //       history.push(`/trips/${resp.data.id}`)
+    //       // go somewhere else --> trip show?
+    //       // add the new trip to the store
+    //     }
+    //   })
+    //   .catch(console.log)
 
 // const updateEntry
 //const deleteEntry
