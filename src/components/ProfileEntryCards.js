@@ -1,11 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { withRouter } from 'react-router-dom' 
+import { NavLink, withRouter } from 'react-router-dom' 
 
 const ProfileEntryCards = (props) => {
 
-	const myEntryCards = props.entries.length > 0 ? props.entries.map(entry => (<li key={entry.id}><Link to={`/entries/${entry.id}`}>{entry.title}--{entry.content} </Link></li>)) : <p>No entries</p>
+	const myEntryCards = props.entries.length > 0 ? props.entries.map(entry => (<li key={entry.id}><NavLink to={`/entries/${entry.id}`} activeStyle={{color: "white"}}>{entry.title}--{entry.content} </NavLink></li>)) : <p>No entries</p>
 
 	return (	
 		<div className="profile-entry-cards">
