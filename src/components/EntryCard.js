@@ -1,4 +1,5 @@
 import React from 'react'
+import { deleteEntry } from '../actions/entries.js'
 
 import { Link } from 'react-router-dom'
 
@@ -17,7 +18,8 @@ const EntryCard = (data) => {
 			<p>{data.entry.content}</p>
 			<div>
 	      <Link to={`/entries/${data.entry.id}/edit`}>Edit</Link> 
-  	      |  <button>Delete</button> 
+  	      |  
+  	         <button style={{color: "yellow"}} onClick={()=>deleteEntry(data.entry.id)}>Delete </button>
    	  	<br/>
     	  <Link to={'/profile'} >Back to my profile</Link>
    		</div>

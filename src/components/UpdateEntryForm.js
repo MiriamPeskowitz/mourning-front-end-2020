@@ -5,8 +5,8 @@ import { updateEntry } from '../actions/entries.js'
 import { updateEntryForm }  from '../actions/entryForm.js'
 
 
-const UpdateEntryForm = ({ props, entryFormData, currentUserId, updateEntry, updateEditEntryForm, history }) => {
-	console.log("editEntryForm")
+const UpdateEntryForm = ({ entry, props, entryFormData, currentUserId, updateEntry, updateEditEntryForm, history }) => {
+	console.log("editEntryForm entry", entry)
 
 // const constreateEntryForm = ({ currentUserId, entryFormData, createEntry, updateEntryForm, history }) => {
 
@@ -32,7 +32,7 @@ const UpdateEntryForm = ({ props, entryFormData, currentUserId, updateEntry, upd
 			<form onSubmit={handleSubmit}> 
 				<div>
 					<input 
-						placeholder="title"
+						placeholder={entry.title}
 						type="text" 
 						name="title" 
 						onChange={handleChange}
@@ -41,7 +41,7 @@ const UpdateEntryForm = ({ props, entryFormData, currentUserId, updateEntry, upd
 				</div>
 				<div>
 					<input 
-						placeholder="How are you feeling?"
+						placeholder={entry.content}
 						type="text" 
 						name="content" 
 						onChange={handleChange}
