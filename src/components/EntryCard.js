@@ -1,27 +1,26 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { Link } from 'react-router-dom'
-// ?change to editCard
-	//purpose of this page: to edit or delete 
 
-const EntryCard = (entry) => {
+	//purpose of this page: show entry, with option 
+	// to edit or delete 
 
-	console.log("EntryCard entry", entry)
-	console.log("EntryCard id", entry.id)
-	console.log("EntryCard title", entry.title)
+const EntryCard = (data) => {
 
-	return (	
-			entry ?
+	console.log("EntryCard entry", data)
+	console.log("EntryCard id", data.entry.id)
+	console.log("EntryCard title", data.entry.title)
+
+	return (		
+		<div className="entry-card">
+			<p>{data.entry.title}</p>
+			<p>{data.entry.content}</p>
 			<div>
-				<p>{entry.title}</p>
-				<p>{entry.content}</p>
-				<div>
-	      <Link to={`entries/${entry.id}/edit`}>Edit</Link> 
-	      | <button>Delete</button> 
-	      | <Link to={'/profile'} >Back to my profile</Link>
-	   		</div>
-	   	</div> : "show page"
-	
+      <Link to={`entries/${data.entry.id}/edit`}>Edit</Link> 
+      | <button>Delete</button> 
+      | <Link to={'/profile'} >Back to my profile</Link>
+   		</div>
+   	</div> 
 	)
 }
 export default EntryCard
