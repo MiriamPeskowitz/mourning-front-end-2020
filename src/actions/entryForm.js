@@ -9,7 +9,6 @@ export const updateEntryForm = formData => {
 	}
 }
 
-
 export const resetEntryForm = () => {
 	return {
 		type: "RESET_ENTRY_FORM",

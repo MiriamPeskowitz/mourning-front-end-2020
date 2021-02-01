@@ -14,3 +14,5 @@ export default(state=initialState, action) => {
 			return state
 	}
 }
+
+//combine updateentry and updateEditEntry if the same thing 

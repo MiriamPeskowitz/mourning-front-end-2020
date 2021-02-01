@@ -7,7 +7,7 @@ import Login from './components/Login'
 import EntryCard from './components/EntryCard'
 import Profile from './components/Profile'
 import CreateEntryForm from './components/CreateEntryForm'
-import EditEntryForm from './components/EditEntryForm'
+import UpdateEntryForm from './components/UpdateEntryForm'
 import Logout from './components/Logout'
 import Story from './components/Story'
 import ExitPage from './components/ExitPage'
@@ -36,19 +36,21 @@ class App extends Component {
 						<Route exact path="/profile" component={Profile} />
 						<Route exact path="/entries/new" component={CreateEntryForm} />
 						
-						<Route path='/entries/:id' render={ (props) => {
-       			console.log("props:", props)
-       			console.log("entries:", entries)
-       			console.log("match params id:", props.match.params.id)
-       			const id = parseInt(props.match.params.id)
-       			console.log("id-parseInt:", id)
+						<Route exact path='/entries/:id' render={ (props) => {
+       			// console.log("props:", props)
+       			// console.log("entries:", entries)
+       			// console.log("match params id:", props.match.params.id)
+       				const id = parseInt(props.match.params.id)
+       			// console.log("id-parseInt:", id)
               const entry = entries.find(entry => entry.id === id)
-              console.log(entry)
+              // console.log(entry)
               return (<EntryCard entry={entry} {...props} />)
             	}}/>
-						<Route exact path='/entries/:id/edit' render={ props => {
-	              const entry = props.entries.find(entry => entry.id === props.match.params.id)
-	              return (<EditEntryForm entry={entry} {...props} />)
+						<Route exact strict path='/entries/:id/edit' render={ (props) => {
+	              const id = parseInt(props.match.params.id)
+	              const entry = entries.find(entry => entry.id === id)
+	              console.log("edit-route-entry:", entry)
+	              return (<UpdateEntryForm entry={entry} {...props} />)
 	            }}/>
 						<Route exact path="/story" component={Story} />
 						<Route exact path="/exit"  component={ExitPage} />
