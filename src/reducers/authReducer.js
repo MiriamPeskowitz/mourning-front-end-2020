@@ -34,9 +34,9 @@ export default(state = initialState, action) => {
 			}
 
 		case "ADD_NEW_ENTRY":	
-		console.log("entry.id in reducer:", action.payload.id)	
-		console.log("entry in reducer:", action.payload)	
-		console.log("entry.content in reducer:", action.payload.content)	
+		// console.log("entry.id in reducer:", action.payload.id)	
+		// console.log("entry in reducer:", action.payload)	
+		// console.log("entry.content in reducer:", action.payload.content)	
 			
 			const entry = {
 				id: action.payload.id,
@@ -51,6 +51,12 @@ export default(state = initialState, action) => {
 				}
 				
 			}
+//may need to change, simi to addNewEntry currentUser : {}
+			case "UPDATE_TRIP":
+				return state.map(entry => entry.id === action.entryIdd ? action.entry : entry)
+			
+			case "DELETE_ENTRY":
+				return state.filter(entry => entry.id === action.entryId ? false: true)
 				// 			{
 				// currentUser: action.payload,
 				// loading: false

@@ -9,23 +9,26 @@ export const updateEntryForm = formData => {
 	}
 }
 
+// export const changeUpdatedEntryForm = formData => {
+// 	type: "CHANGE_UPDATED_ENTRY_FORM", 
+// 	formData
+// }
+
 export const resetEntryForm = () => {
 	return {
 		type: "RESET_ENTRY_FORM",
 	}
 } 
 
-
-
-
-// export const setFormDataForEdit = trip => {
-//   const tripFormData = {
-//     name: trip. .attributes.name,
-//     startDate: trip.attributes.start_date,
-//     endDate: trip.attributes.end_date
-//   }
-//   return {
-//     type: "SET_FORM_DATA_FOR_EDIT",
-//     tripFormData
-//   }
-// }
+export const setFormDataForEdit = entry  => {
+	const entryFormData = {
+		title: entry.title,
+		content: entry.content,
+		id: entry.id,
+		userid: entry.userId
+	}
+	return {
+		type: "SET_FORM_DATA_FOR_EDIT",
+		entryFormData
+	}
+}

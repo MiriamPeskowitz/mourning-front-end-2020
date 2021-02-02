@@ -24,6 +24,22 @@ export const addEntry = newEntry => {
 	}
 }
 
+// fix this
+export const entryUpdateIsSuccessful = entryId => {
+	return {
+		type: "UPDATE_ENTRY",
+		entryId
+	}
+}
+
+export const deleteEntryIsSuccessful = (entryId) => {
+	return {
+		type: "DELETE_ENTRY",
+		entryId
+	}
+}
+
+
 export const clearEntries = () => {
 	console.log("got to clearEntries")
 	return {
@@ -135,7 +151,7 @@ export const updateEntry = (entryData, history ) => {
 			body: JSON.stringify(sendableEntryData)
 		}
 
-		return fetch( `/${entryData.id}`, config)
+		return fetch( `entries/${entryData.id}`, config)
 		.then(response => response.json())
 		.then(entry => {
 			if (entry.error) {
@@ -143,6 +159,7 @@ export const updateEntry = (entryData, history ) => {
 			} else {
 			console.log('updateEntry.data', entry.data.attributes)
 			dispatch(addEntry(entry.data.attributes))
+			dispatch(entryUpdateIsSuccessful(entry.data))
 			dispatch(resetEntryForm())
 			history.push(`/entries/${entry.data.id}`)
 			}
@@ -151,138 +168,30 @@ export const updateEntry = (entryData, history ) => {
 	}
 }
 
-export const deleteEntry = (entryId) => {
-	console.log("got to deleteEntry")
-}
-// export const updateTrip = (tripData, history) => {
-//   return dispatch => {
-//     const sendableTripData = {
-//       start_date: tripData.startDate,
-//       end_date: tripData.endDate,
-//       name: tripData.name
-//     }
-//     return fetch(`http://localhost:3001/api/v1/trips/${tripData.tripId}`, {
-//       credentials: "include",
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify(sendableTripData)
-//     })
-//       .then(r => r.json())
-//       .then(resp => {
-//         if (resp.error) {
-//           alert(resp.error)
-//         } else {
-//           dispatch(updateTripSuccess(resp.data))
-//           history.push(`/trips/${resp.data.id}`)
-//           // go somewhere else --> trip show?
-//           // add the new trip to the store
-//         }
-//       })
-//       .catch(console.log)
+export const deleteEntry = (entryId, history) => {
+	return dispatch => {
+		const config = {
+			method: "DELETE",
+			credentials: "include",	
+			headers: {
+				"Content-Type": "application/json"
+			},
+		}
 
-//   }
-// }
-
-// const updateEntry
-//const deleteEntry
-
-		 //goes to EntriesReducer 
-		// .then(data => console.log("payload:newEntry.title: ", data.attributes.entries[0].title))
-		
-		// 		console.log("New Entry: ", ent)
-		// 		// dispatch(addEntry(entry.data))
-		// 		//decide what I want to do with it -- send to reducer  to add to the store/
-		// 		//so that it can be called and put on DOM  
-			
-		// 		// dispatch(resetEntryForm())
-		// 		// history.push('/profile')
-		// 		// history.push('/entries/${entry.data.id')
-		// 	})
-		// })
-
-// samples from Globetrotter, for update and delete 
-// export const clearTrips = () => {
-//   return {
-//     type: "CLEAR_TRIPS"
-//   }
-// }
-
-// export const addTrip = trip => {
-//   return {
-//     type: "ADD_TRIP",
-//     trip
-//   }
-// }
-
-// export const deleteTripSuccess = tripId => {
-//   return {
-//     type: "DELETE_TRIP",
-//     tripId
-//   }
-// }
-
-// export const updateTripSuccess = trip => {
-//   return {
-//     type: "UPDATE_TRIP",
-//     trip
-//   }
-// }
-
-// // async actions
-
-// export const getMyTrips = () => {
-//   return dispatch => {
-//     return fetch("http://localhost:3001/api/v1/trips", {
-//       credentials: "include",
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//     })
-//       .then(r => r.json())
-//       .then(response => {
-//         if (response.error) {
-//           alert(response.error)
-//         } else {
-//           dispatch(setMyTrips(response.data))
-//         }
-//       })
-//       .catch(console.log)
-//   }
-// }
-
-
-// export const updateTrip = (tripData, history) => {
-//   return dispatch => {
-//     const sendableTripData = {
-//       start_date: tripData.startDate,
-//       end_date: tripData.endDate,
-//       name: tripData.name
-//     }
-//     return fetch(`http://localhost:3001/api/v1/trips/${tripData.tripId}`, {
-//       credentials: "include",
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify(sendableTripData)
-//     })
-//       .then(r => r.json())
-//       .then(resp => {
-//         if (resp.error) {
-//           alert(resp.error)
-//         } else {
-//           dispatch(updateTripSuccess(resp.data))
-//           history.push(`/trips/${resp.data.id}`)
-//           // go somewhere else --> trip show?
-//           // add the new trip to the store
-//         }
-//       })
-//       .catch(console.log)
-
-//   }
-// }
-
-
+		return fetch(`/entries/${entryId}`, {
+			method: "DELETE",
+			credentials: "include",	
+			headers: {
+				"Content-Type": "application/json"
+			}
+		})
+		.then(response => response.json())
+		.then(resp => {
+		// 	if (resp.error) {
+		// 		alert(resp.error)
+		// 	} else {
+				dispatch(deleteEntryIsSuccessful(entryId))
+				history.push('/profile')
+			})
+		}
+	}
