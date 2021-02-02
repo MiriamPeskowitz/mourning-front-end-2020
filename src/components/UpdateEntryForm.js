@@ -7,7 +7,9 @@ import { setFormDataForEdit, updateEntryForm, resetEntryForm }  from '../actions
 // changeUpdatedEntryForm 
 class UpdateEntryForm extends Component {
 	componentDidMount() {
-		this.props.entry && this.props.setFormDataToEdit(this.props.entry)
+		const { entryFormData } = this.props
+		console.log("CDM setFormDataForEdit", this.props.entryFormData )
+		this.props.setFormDataForEdit(entryFormData)
 	}
 
 	componentDidUpdate(previousProps) {
@@ -43,7 +45,8 @@ class UpdateEntryForm extends Component {
 	
 	render()  {
 		const { entry, history, deleteEntry } = this.props
-		const entryid = entry ? entry.id : null
+	
+
 		return (
 			<div className="UpdateEntryForm">
 				<h3>Form for Editing an Entry</h3>

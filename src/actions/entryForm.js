@@ -20,7 +20,7 @@ export const resetEntryForm = () => {
 	}
 } 
 
-export const setFormDataForEdit = entry  => {
+export const setFormDataForEdit = (entry)  => {
 	const entryFormData = {
 		title: entry.title,
 		content: entry.content,
