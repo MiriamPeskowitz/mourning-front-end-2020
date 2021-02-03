@@ -19,7 +19,7 @@ const EntryCard = (data) => {
 			<div>
 	      <Link to={`/entries/${data.entry.id}/edit`}>Edit</Link> 
   	      |  
-  	         <button style={{color: "yellow"}} onClick={()=>deleteEntry(data.entry.id)}>Delete </button>
+  	         <button onClick={()=>deleteEntry(data.entry.id)}>Delete </button>
    	  	<br/>
     	  <Link to={'/profile'} >Back to my profile</Link>
    		</div>
@@ -27,3 +27,5 @@ const EntryCard = (data) => {
 	)
 }
 export default EntryCard
+
+// style={{color: "yellow"}}

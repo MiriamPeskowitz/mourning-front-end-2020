@@ -5,6 +5,7 @@ import authReducer from './authReducer'
 import loginFormReducer from './loginFormReducer'
 import signupFormReducer from './signupFormReducer'
 import entryFormReducer from './entryFormReducer'
+import updateFormReducer from './updateFormReducer'
 
 const rootReducer = combineReducers({
 	authReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
 	usersReducer,
 	loginFormReducer,
 	signupFormReducer,
-	entryFormReducer
+	entryFormReducer,
+	updateFormReducer
 })
 
 export default rootReducer

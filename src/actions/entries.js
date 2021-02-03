@@ -151,14 +151,14 @@ export const updateEntry = (entryData, history ) => {
 			body: JSON.stringify(sendableEntryData)
 		}
 
-		return fetch( `entries/${entryData.id}`, config)
+		return fetch( `/entries/${entryData.id}`, config)
 		.then(response => response.json())
 		.then(entry => {
 			if (entry.error) {
 				alert(entry.error)
 			} else {
 			console.log('updateEntry.data', entry.data.attributes)
-			dispatch(addEntry(entry.data.attributes))
+			// dispatch(addEntry(entry.data.attributes))
 			dispatch(entryUpdateIsSuccessful(entry.data))
 			dispatch(resetEntryForm())
 			history.push(`/entries/${entry.data.id}`)

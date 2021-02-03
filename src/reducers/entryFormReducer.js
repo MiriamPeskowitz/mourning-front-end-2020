@@ -1,5 +1,5 @@
 //keeps entryform data in store, not local data 
-const initialState={
+const initialState = {
 	title: "", 
 	content: ""
 	}
@@ -13,9 +13,6 @@ export default(state=initialState, action) => {
 		case "RESET_ENTRY_FORM":
 		  return initialState
 
-		case "SET_FORM_DATA_FOR_EDIT":
-			console.log('reducer: entryFormData', action.entryFormData)
-			return action.entryFormData
 		default:
 			return state
 	}

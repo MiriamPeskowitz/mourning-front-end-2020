@@ -162,3 +162,39 @@ Friday
 -- create new entry -- make sure this works 
 -- edit entry - 
 
+Monday 
+-- next: update form, fields don't change 
+-- deleteEntry -- where shouyld it push == 
+
+handleChange = () 
+ const { name, value } = event.target
+    updateTripForm(name, value)
+what does updateTripForm do 
+
+How to populate the form 
+What props does it need? 
+ value needs to be populated" 
+
+ The problem with getting the trip values --
+ Trip object is passed to the form... 
+ It was supposed to start empty -- 
+ but for this updateForm
+ Tell redux what the form data shuold be 
+
+ action that updates the whole form 
+ setFormDataForEdit() = trip => {
+ set up the data exactly to fit the form 
+ const tripFormData = {
+ 	name: trip.attributes.name
+ ,	title: 
+}
+ return {
+ tripFormData 
+ 	type: "SET_FORM_DATA_FOR_EDIT",
+ 	trip
+}
+return action.tripFormData
+ editmode=true 
+ same as 
+ editmode == assumes boolean and true 
+}
