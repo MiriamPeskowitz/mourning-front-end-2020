@@ -12,7 +12,6 @@ class UpdateEntryForm extends Component {
 	// from the store to fill the fields. 
 
 	componentDidMount() {
-		const { entry } = this.props
 		// console.log("CDM setFormDataForEdit", this.props.entry )
 		this.props.entry && this.props.setFormDataForEdit(this.props.entry)
 	}
@@ -25,19 +24,26 @@ class UpdateEntryForm extends Component {
 		this.props.resetEditForm()
 	}
 	
-	handleChange = (e) => {
-			const { name, value } = e.target
-			const { updateFormData } = this.props
-			const { updateEditedEntryToReducer } = this.props
-			console.log("name, value in handleChange:", name, value)
-			
-			const formInfo = {
-			...updateFormData,
-				name: value
-			}
-			console.log('formInfo', formInfo)
-			updateEditedEntryToReducer(formInfo) 
+	handleChange=(event) => {
+		event.preventDefault()
+		const { updateFormData } = this.props
+		const { updateEditedEntryToReducer } = this.props
+		const {name, value } = event.target
+		updateEditedEntryToReducer(name, value)
 	}
+	// handleChange = (e) => {
+	// 		const { name, value } = e.target
+	// 		const { updateFormData } = this.props
+	// 		const { updateEditedEntryToReducer } = this.props
+	// 		// console.log("name, value in handleChange:", name, value)
+			
+	// 		const formInfo = {
+	// 		...updateFormData,
+	// 			[name]: value
+	// 		}
+	// 		// console.log('formInfo', formInfo)
+	// 		updateEditedEntryToReducer(formInfo) 
+	// }
 //so, cl in action/reducer says ok, but not changing value field 
 
 	// const handleChange = (e) => {
@@ -48,8 +54,8 @@ class UpdateEntryForm extends Component {
 	// 	updateLoginForm(updatedFormInfo)
 	// }
 
-	handleSubmit = (e, updateFormData, currentUserId, history) => {
-		const {updateEntryForm, entry } = this.props
+	handleSubmit = (e, updateFormData) => {
+		const { updateEntryForm, entry, history, currentUserId } = this.props
 		
 		e.preventDefault()
 

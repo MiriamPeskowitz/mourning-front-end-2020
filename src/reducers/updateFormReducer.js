@@ -17,14 +17,20 @@ export default(state = initialState, action) => {
 			//add what I need here. state, plus the changes
 		case "UPDATE_EDITED_ENTRY":
 			console.log("Got to REDUCER state", state)
-			console.log("Got to REDUCER name", action.payload.name)
-			console.log("Got to REDUCER value", action.payload.value)
-		  const val=  {
-	 			
-        [action.payload.name]: action.payload.value
+			console.log("Got to REDUCER name", action.formData.name)
+			console.log("Got to REDUCER value", action.formData.value)
+		  // const val =  {
+				// ...state,
+    //     action.formData.name], action.formData.value
+    //   }
+    //   console.log("val", val)
+    //   return val
+      const returnVal = {
+       ...state,
+        [action.formData.name]: action.formData.value
       }
-      console.log("val", val)
-      return val
+      console.log("reducer returnVal", returnVal)
+      return returnVal
 		case "RESET_EDIT_FORM":
 			return initialState
 		default: 

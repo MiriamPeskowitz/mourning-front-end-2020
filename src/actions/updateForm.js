@@ -17,11 +17,15 @@ export const setFormDataForEdit = (entry)  => {
 }
 
 //make sure this is doing what i want" 
-export const updateEditedEntryToReducer = formData => {
-	console.log("ACTION got to updateEditEntryToReducer, formData:", formData)
+export const updateEditedEntryToReducer = (name, value) => {
+	console.log("ACTION got to updateEditEntryToReducer, name, value:", name, value)
+	const formData = {
+			name: name,
+			value: value
+		}
 	return {
 		type: "UPDATE_EDITED_ENTRY",
-		payload: formData
+		formData
 	}
 }
 
