@@ -20,9 +20,10 @@ export default(state = initialState, action) => {
 			console.log("Got to REDUCER name", action.payload.name)
 			console.log("Got to REDUCER value", action.payload.value)
 		  const val=  {
-	 			 ...state,
+	 			
         [action.payload.name]: action.payload.value
       }
+      console.log("val", val)
       return val
 		case "RESET_EDIT_FORM":
 			return initialState
