@@ -31,28 +31,6 @@ class UpdateEntryForm extends Component {
 		const {name, value } = event.target
 		updateEditedEntryToReducer(name, value)
 	}
-	// handleChange = (e) => {
-	// 		const { name, value } = e.target
-	// 		const { updateFormData } = this.props
-	// 		const { updateEditedEntryToReducer } = this.props
-	// 		// console.log("name, value in handleChange:", name, value)
-			
-	// 		const formInfo = {
-	// 		...updateFormData,
-	// 			[name]: value
-	// 		}
-	// 		// console.log('formInfo', formInfo)
-	// 		updateEditedEntryToReducer(formInfo) 
-	// }
-//so, cl in action/reducer says ok, but not changing value field 
-
-	// const handleChange = (e) => {
-	// 	const updatedFormInfo = {
-	// 		...loginFormData,
-	// 		[e.target.name]: e.target.value
-	// 	}
-	// 	updateLoginForm(updatedFormInfo)
-	// }
 
 	handleSubmit = (e, updateFormData) => {
 		const { updateEntryForm, entry, history, currentUserId } = this.props

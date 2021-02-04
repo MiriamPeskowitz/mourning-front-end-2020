@@ -201,3 +201,9 @@ return action.tripFormData
  Thursday: 
  getting there. 
  Figuring out now: how to get the updated data back in the field d 
+
+ Still- field not updating
+ reducer not triggering
+ gets to the action, but the action creator doesn't call the reducer 
+ Fixed the handleChange problem -- make sure to pull reduxified version of functions into the handleChange function 
+ 
