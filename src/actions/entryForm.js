@@ -2,13 +2,14 @@
 //see actions/entries.js for REST actionCreators 
 
 //called in CreateEntryForm/handleChange
-export const updateEntryForm = (formData, history) => {
-	console.log("got to actions/updateEntryForm", formData)
+export const updateNewEntryToReducer = formData => {
+	console.log("got to updateNewEntryToReducer, entryId:", formData)
 	return {
 		type: "UPDATE_ENTRY_FORM",
 		formData
 	}
 }
+
 
 export const resetEntryForm = () => {
 	return {

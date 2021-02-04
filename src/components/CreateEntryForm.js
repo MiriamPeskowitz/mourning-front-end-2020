@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createEntry } from '../actions/entries.js'
-import { updateEntryForm }  from '../actions/entryForm.js'
+import { updateNewEntryToReducer }  from '../actions/entryForm.js'
 
 const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateEntryForm, history }) => {
 
@@ -10,7 +10,7 @@ const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateEntr
 			...entryFormData,
 			[e.target.name]: e.target.value
 		}
-		updateEntryForm(updatedFormInfo)
+		updateNewEntryToReducer(updatedFormInfo)
 	}
 
 	const handleSubmit = (e) => {
@@ -61,7 +61,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { createEntry, updateEntryForm  })(createEntryForm)
+export default connect(mapStateToProps, { createEntry, updateNewEntryToReducer })(createEntryForm)
 
 
 

@@ -26,6 +26,7 @@ export const addEntry = newEntry => {
 
 // fix this
 export const entryUpdateIsSuccessful = entryId => {
+	console.log("got to entryUpdateIsSuccessful, entryId:", entryId)
 	return {
 		type: "UPDATE_ENTRY",
 		entryId
@@ -33,6 +34,7 @@ export const entryUpdateIsSuccessful = entryId => {
 }
 
 export const deleteEntryIsSuccessful = (entryId) => {
+		console.log("got to deleteEntryIsSuccessful")
 	return {
 		type: "DELETE_ENTRY",
 		entryId
@@ -46,15 +48,6 @@ export const clearEntries = () => {
 		type: "CLEAR_ENTRIES"
 	}
 }
-//  add setMyEntries, clearEntries, deleteEntrySuccess
-//updateEntrySuccess
-
-// export const updateEntry = entry => {
-// 	return {
-//     type: "UPDATE_ENTRY",
-//     action: updatedEntry
-//   }
-// }
 
 export const getEntries = () => {
 	return (dispatch) => {
@@ -115,25 +108,7 @@ export const createEntry = (entryData, history) => {
 	}
 }
 
-	// if (entry.error) {
-			// 	alert(entry.error)
-			// } else {
-
-				// .then(resp => {
-    //     if (resp.error) {
-    //       alert(resp.error)
-    //     } else {
-    //       dispatch(addTrip(resp.data))
-    //       dispatch(resetTripForm())
-    //       history.push(`/trips/${resp.data.id}`)
-    //       // go somewhere else --> trip show?
-    //       // add the new trip to the store
-    //     }
-    //   })
-    //   .catch(console.log)
-
-
-export const updateEntry = (entryData, history ) => {
+export const updateEntryForm = (entryData, history ) => {
 	return dispatch => {
 		const sendableEntryData = {
       title: entryData.entryFormData.title,
@@ -157,11 +132,13 @@ export const updateEntry = (entryData, history ) => {
 			if (entry.error) {
 				alert(entry.error)
 			} else {
-			console.log('updateEntry.data', entry.data.attributes)
+			// console.log('updateEntry.data', entry.data.attributes)
 			// dispatch(addEntry(entry.data.attributes))
-			dispatch(entryUpdateIsSuccessful(entry.data))
+			dispatch(entryUpdateIsSuccessful(entry.id))
 			dispatch(resetEntryForm())
 			history.push(`/entries/${entry.data.id}`)
+			// console.log(entry.data.id)
+			// console.log(entry.data.attributes.id)
 			}
 		})
 	.catch(err => console.log(err))
@@ -178,13 +155,7 @@ export const deleteEntry = (entryId, history) => {
 			},
 		}
 
-		return fetch(`/entries/${entryId}`, {
-			method: "DELETE",
-			credentials: "include",	
-			headers: {
-				"Content-Type": "application/json"
-			}
-		})
+		return fetch(`/entries/${entryId}`, config)
 		.then(response => response.json())
 		.then(resp => {
 		// 	if (resp.error) {

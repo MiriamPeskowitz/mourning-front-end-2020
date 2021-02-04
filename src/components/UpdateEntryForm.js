@@ -1,36 +1,44 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 
-import { updateEntry, entryUpdateIsSuccessful, deleteEntry } from '../actions/entries.js'
-import { updateEntryForm, resetEntryForm }  from '../actions/entryForm.js'
-import { setFormDataForEdit}  from '../actions/updateForm.js'
+import { updateEntryForm, deleteEntry } from '../actions/entries.js'
+import { setFormDataForEdit, updateEditedEntryToReducer, resetEditForm }  from '../actions/updateForm.js'
 
 // changeUpdatedEntryForm 
 class UpdateEntryForm extends Component {
+	// take the data sent over by the router -- entry -- 
+	//and send it to setFormDataForEntry, to load the reducer
+	//which then lets us call mapstatetoprops and get data
+	// from the store to fill the fields. 
+
 	componentDidMount() {
-		const { entryFormData } = this.props
-		console.log("CDM setFormDataForEdit", this.props.entryFormData )
-		this.props.setFormDataForEdit(this.props.updateFormData)
+		const { entry } = this.props
+		// console.log("CDM setFormDataForEdit", this.props.entry )
+		this.props.entry && this.props.setFormDataForEdit(this.props.entry)
 	}
 
-	// componentDidUpdate(previousProps) {
-	// 	this.props.entry && !previousProps.entry && this.props.setFormDataForEdit(this.props.entry)
-	// }
+	componentDidUpdate(previousProps) {
+		this.props.entry && !previousProps.entry && this.props.setFormDataForEdit(this.props.entry)
+	}
 
-	// componentWillUnmount() {
-	// 	this.props.resetEntryForm()
-	// }
+	componentWillUnmount() {
+		this.props.resetEditForm()
+	}
 	
 	handleChange = (e) => {
 			const { name, value } = e.target
-			const updateFormData = this.props
-			const updatedFormInfo = {
-				...updateFormData,
-				[name]: value
+			const { updateFormData } = this.props
+			const { updateEditedEntryToReducer } = this.props
+			console.log("name, value in handleChange:", name, value)
+			
+			const formInfo = {
+			...updateFormData,
+				name: value
 			}
-			updateEntryForm(updatedFormInfo) 
+			console.log('formInfo', formInfo)
+			updateEditedEntryToReducer(formInfo) 
 	}
-
+//so, cl in action/reducer says ok, but not changing value field 
 
 	// const handleChange = (e) => {
 	// 	const updatedFormInfo = {
@@ -40,66 +48,75 @@ class UpdateEntryForm extends Component {
 	// 	updateLoginForm(updatedFormInfo)
 	// }
 
-	handleSubmit = (e) => {
-		const {updateEntry, entryFormData, history } = this.props
+	handleSubmit = (e, updateFormData, currentUserId, history) => {
+		const {updateEntryForm, entry } = this.props
 		
 		e.preventDefault()
 
-		updateEntry({    
-			...entryFormData
+		updateEntryForm({    
+			...updateFormData,
+			entryId: entry.id,
+			currentUserId
 		}, history)
 	}
 	
 	render()  {
-		const { entry, entryFormData, history, deleteEntry } = this.props
-		console.log("entry in render:", entry)
-		console.log("entry.content in render:", entry.content)
-		console.log("entryFormData.title in render:", entry.title)
-		console.log("entry.id in render:", entry.id)
-		console.log("entryFormData in render:", entryFormData)
+		const { updateFormData,  deleteEntry, history } = this.props
+		// console.log("entry in render:", entry)
+		// console.log("updateFormData.content in render:", updateFormData.content)
+		// console.log("updateFormData.title in render:", updateFormData.title)
+		// console.log("updateFormData.id in render:", updateFormData.id)
+		// console.log("updateFormData in render:", updateFormData)
 
+		const {title, content, id } = updateFormData
+		// console.log("title, content in render, destructred", title, content)
 		return (
 			<div className="UpdateEntryForm">
 				<h3>Form for Editing an Entry</h3>
 				<form onSubmit={this.handleSubmit}> 
 					<div>
 						<input 
-							placeholder={entry.title}
+							placeholder={title}
 							type="text"
 							name="title" 
-							onChange={this.handleChange}
-							value={entryFormData.title}
+							value={title}
+						 	onChange={this.handleChange}
+	
 						/>
 					</div>
 					<div>
 						<input 
-							placeholder={entry.content}
+							placeholder={content}
 							type="text" 
 							name="content" 
 							onChange={this.handleChange}
-							value={entry.content}
+							value={content}
+							
+							
 						/>
 					</div>
+
 					<br/>
 					<input 
 						type="submit" 
 						value="Save changes" 
 					/>
 				</form>
-				<button onClick={()=>deleteEntry(entry.id, history)}>Delete entry</button>
+				<button onClick={()=>deleteEntry(id, history)}>Delete entry</button>
 			</div>
 		)
 	}
 }
 
 const mapStateToProps = state => {
+
   return { 
   	updateFormData: state.updateFormReducer,
   	currentUserId: state.authReducer.currentUser.id
   	}
 	}
 
-export default connect(mapStateToProps, { setFormDataForEdit, updateEntryForm, deleteEntry, resetEntryForm, updateEntry, entryUpdateIsSuccessful })(UpdateEntryForm)
+export default connect(mapStateToProps, { setFormDataForEdit, updateEditedEntryToReducer, updateEntryForm, deleteEntry, resetEditForm })(UpdateEntryForm)
 
 
 

@@ -198,3 +198,6 @@ return action.tripFormData
  same as 
  editmode == assumes boolean and true 
 }
+ Thursday: 
+ getting there. 
+ Figuring out now: how to get the updated data back in the field d 
