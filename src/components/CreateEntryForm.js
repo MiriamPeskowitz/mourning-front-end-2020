@@ -7,9 +7,7 @@ const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateNewE
 
 	const handleChange = (event) => {
 		event.preventDefault()
-		
 		const { name, value } = event.target
-	
 		updateNewEntryForm(name, value)
 	}
 
