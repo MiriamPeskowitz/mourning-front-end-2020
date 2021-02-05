@@ -1,16 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createEntry } from '../actions/entries.js'
-import { updateNewEntryToReducer }  from '../actions/entryForm.js'
+import { updateNewEntryForm }  from '../actions/entryForm.js'
 
-const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateEntryForm, history }) => {
+const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateNewEntryForm, history }) => {
 
-	const handleChange = (e) => {
-		const updatedFormInfo = {
-			...entryFormData,
-			[e.target.name]: e.target.value
-		}
-		updateNewEntryToReducer(updatedFormInfo)
+	const handleChange = (event) => {
+		event.preventDefault()
+		const { name, value } = event.target
+		updateNewEntryForm(name, value)
 	}
 
 	const handleSubmit = (e) => {
@@ -39,8 +37,9 @@ const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateEntr
 						placeholder="How are you feeling?"
 						type="text" 
 						name="content" 
-						onChange={handleChange}
 						value={entryFormData.content}
+						onChange={handleChange}
+						
 					/>
 				</div>
 				<br/>
@@ -61,7 +60,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { createEntry, updateNewEntryToReducer })(createEntryForm)
+export default connect(mapStateToProps, { createEntry, updateNewEntryForm })(createEntryForm)
 
 
 
