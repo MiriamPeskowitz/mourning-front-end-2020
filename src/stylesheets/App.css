@@ -5,6 +5,7 @@ body {
 .App {
   text-align: center;
 }
+
 .App-header {
   padding: 1em;
   background-color: #282c34;
@@ -38,6 +39,17 @@ ul {
 .nav-bar {
   display: inline-block;  
   padding: 1em; 
+}
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover, a:active {
+  color: white;  
 }
 
 .center {

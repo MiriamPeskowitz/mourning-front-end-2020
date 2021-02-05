@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getCurrentUser } from "./actions/auth.js"
+import { getCurrentUser } from "./actions/auth"
 import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
-import EditCard from './components/EditCard'
+import EntryCard from './components/EntryCard'
 import Profile from './components/Profile'
-import EditEntryForm from './components/EditEntryForm'
+import CreateEntryForm from './components/CreateEntryForm'
+import UpdateEntryForm from './components/UpdateEntryForm'
 import Logout from './components/Logout'
 import Story from './components/Story'
 import ExitPage from './components/ExitPage'
@@ -15,13 +16,15 @@ import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {		
 	componentDidMount() {
+		console.log("got to componentDidMount")
 		this.props.getCurrentUser()
 	}
 	
 	render() {
-		const { currentUser, entries, getCurrentUser } = this.props
-	
+		const { currentUser, entries } = this.props
+		console.log("app, entries:", entries )
 	  return (
+
 	  	<>
 	  		<div className="App-header">  
 	  			<h1 className="App-title">Mourning</h1>
@@ -31,16 +34,24 @@ class App extends Component {
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/logout" component={Logout} />
 						<Route exact path="/profile" component={Profile} />
-						<Route exact path='/entries/:id' render={ props => {
-							// const entry = entries.find(entry => entry.id === props.match.params.id)							// console.log("entry in Route/App : ", entry)
-							return (<EditCard  {...props} />)
-							}
-						}/>
-						<Route exact path='/entries/:id/edit' render={ props => {
-	              const entry = entries.find(entry => entry.id === props.match.params.id)
-	              return (<EditEntryForm entry={entry} {...props} />)
-	            }
-	          }/>
+						<Route exact path="/entries/new" component={CreateEntryForm} />
+						
+						<Route exact path='/entries/:id' render={ (props) => {
+       			// console.log("props:", props)
+       			// console.log("entries:", entries)
+       			// console.log("match params id:", props.match.params.id)
+       				const id = parseInt(props.match.params.id)
+       			// console.log("id-parseInt:", id)
+              const entry = entries.find(entry => entry.id === id)
+              // console.log(entry)
+              return (<EntryCard entry={entry} {...props} />)
+            	}}/>
+						<Route exact strict path='/entries/:id/edit' render={ (props) => {
+	              const id = parseInt(props.match.params.id)
+	              const entry = entries.find(entry => entry.id === id)
+	              console.log("edit-route-entry:", entry)
+	              return (<UpdateEntryForm entry={entry} {...props} />)
+	            }}/>
 						<Route exact path="/story" component={Story} />
 						<Route exact path="/exit"  component={ExitPage} />
 						<Route exact path="/" component={Home} />	
@@ -53,9 +64,10 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
 	return ({
-		// loggedIn: !!state.authReducer.currentUser,
+		loggedIn: !!state.authReducer.currentUser,
 		currentUser: state.authReducer.currentUser,
 		entries: state.authReducer.currentUser.entries,
 	})
 }
 export default connect(mapStateToProps, { getCurrentUser })(App);
+

@@ -1,22 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createEntry } from '../actions/entries.js'
-import { updateEntryForm }  from '../actions/entryForm.js'
+import { updateNewEntryToReducer }  from '../actions/entryForm.js'
 
-const createEntryForm = ({ currentUser, entryFormData, createEntry, updateEntryForm, history }) => {
-	//now id/curremtUser.id is doubled; fix 
+const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateEntryForm, history }) => {
 
 	const handleChange = (e) => {
 		const updatedFormInfo = {
 			...entryFormData,
 			[e.target.name]: e.target.value
 		}
-		updateEntryForm(updatedFormInfo)
+		updateNewEntryToReducer(updatedFormInfo)
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		createEntry(entryFormData, currentUser.id, history)
+		createEntry({
+			entryFormData, 
+			currentUserId,
+		}, history)
 	}
 	
 	return (
@@ -55,11 +57,11 @@ const createEntryForm = ({ currentUser, entryFormData, createEntry, updateEntryF
 const mapStateToProps = state => {
   return { 
   	entryFormData: state.entryFormReducer,
-  	currentUser: state.authReducer.currentUser
+  	currentUserId: state.authReducer.currentUser.id
   }
 }
 
-export default connect(mapStateToProps, { createEntry, updateEntryForm  })(createEntryForm)
+export default connect(mapStateToProps, { createEntry, updateNewEntryToReducer })(createEntryForm)
 
 
 

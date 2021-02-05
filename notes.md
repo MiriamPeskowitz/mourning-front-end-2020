@@ -154,3 +154,56 @@ descriptions, so home page has three colored sections
 -- Stretch: do the People I remember cards. 
 Model: dead_people -- user has_many my_people
 dead_people attributes: name, age at death, date of death, relationship, image, add as many notes or memories as you want. 
+
+Friday
+-- route in App.js DONE 
+-- change profiles colors to match the front yellow and blue 
+--make jane's page not have an a:visited feature
+-- create new entry -- make sure this works 
+-- edit entry - 
+
+Monday 
+-- next: update form, fields don't change 
+-- deleteEntry -- where shouyld it push == 
+
+handleChange = () 
+ const { name, value } = event.target
+    updateTripForm(name, value)
+what does updateTripForm do 
+
+How to populate the form 
+What props does it need? 
+ value needs to be populated" 
+
+ The problem with getting the trip values --
+ Trip object is passed to the form... 
+ It was supposed to start empty -- 
+ but for this updateForm
+ Tell redux what the form data shuold be 
+
+ action that updates the whole form 
+ setFormDataForEdit() = trip => {
+ set up the data exactly to fit the form 
+ const tripFormData = {
+ 	name: trip.attributes.name
+ ,	title: 
+}
+ return {
+ tripFormData 
+ 	type: "SET_FORM_DATA_FOR_EDIT",
+ 	trip
+}
+return action.tripFormData
+ editmode=true 
+ same as 
+ editmode == assumes boolean and true 
+}
+ Thursday: 
+ getting there. 
+ Figuring out now: how to get the updated data back in the field d 
+
+ Still- field not updating
+ reducer not triggering
+ gets to the action, but the action creator doesn't call the reducer 
+ Fixed the handleChange problem -- make sure to pull reduxified version of functions into the handleChange function 
+ 
