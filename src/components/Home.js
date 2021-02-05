@@ -14,7 +14,7 @@ const Home = ({ getCurrentUser, currentUser, loggedIn }) => {
 	  </div>
 	 )
 }
-
+//think abt whether this msp is needed any more. 
 const mapStateToProps = (state) => {
 	return ({
 		loggedIn: !!state.authReducer.currentUser,

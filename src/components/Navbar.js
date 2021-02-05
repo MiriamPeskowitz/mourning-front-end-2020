@@ -6,14 +6,13 @@ import NewSessionNavbar from './NewSessionNavbar'
 
 
 const Navbar = ({ currentUser }) => {	
-	console.log("currentUser", currentUser)
-	// console.log("navbar loggedIn", loggedIn)
-	
 	// const loggedIn = !!currentUser
-	// console.log("currentUser?", loggedIn)
+	const loggedIn = currentUser.username !== ""
+	// this feels kind of hacky, )
+	console.log("currentUser?", loggedIn)
 	return ( 
 		<>
-		{ currentUser ? <CurrentUserNavbar /> : <NewSessionNavbar /> }
+		{ loggedIn ? <CurrentUserNavbar /> : <NewSessionNavbar /> }
 		</>
 	)
 }
@@ -21,7 +20,6 @@ const Navbar = ({ currentUser }) => {
 
 const mapStateToProps = (state ) => {
 	return {
-		// loggedIn: !!state.authReducer.currentUser,
 		currentUser: state.authReducer.currentUser,
 		// loading: state.authReducer.loading
 	}
