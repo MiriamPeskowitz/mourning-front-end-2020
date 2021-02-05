@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { updateEntryForm, deleteEntry } from '../actions/entries.js'
 import { setFormDataForEdit, updateEditedEntryToReducer, resetEditForm }  from '../actions/updateForm.js'
 
-// changeUpdatedEntryForm 
+
 class UpdateEntryForm extends Component {
 	// take the data sent over by the router -- entry -- 
 	//and send it to setFormDataForEntry, to load the reducer
@@ -48,14 +48,7 @@ class UpdateEntryForm extends Component {
 	
 	render()  {
 		const { updateFormData,  deleteEntry, history } = this.props
-		// console.log("entry in render:", entry)
-		// console.log("updateFormData.content in render:", updateFormData.content)
-		// console.log("updateFormData.title in render:", updateFormData.title)
-		// console.log("updateFormData.id in render:", updateFormData.id)
-		// console.log("updateFormData in render:", updateFormData)
-
 		const {title, content, id } = updateFormData
-		// console.log("title, content in render, destructred", title, content)
 		return (
 			<div className="UpdateEntryForm">
 				<h3>Form for Editing an Entry</h3>

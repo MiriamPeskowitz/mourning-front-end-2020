@@ -52,7 +52,17 @@ export default(state = initialState, action) => {
 //look through all --map
 		case "UPDATE_ENTRY":
 			console.log("REDucer-- entry", action.entry);
-		 return state.currentUser.entries.map(entry => entry.id === action.entry.id ? action.entry : entry)
+		 const returnVal =  state.currentUser.entries.map(entry => entry.id === action.entry.id ? action.entry : entry)
+		 	
+		 return {
+		 	...state, 
+		 		currentUser: {
+		 			...state.currentUser,
+		 			entries: returnVal
+		 		}
+		 }
+
+
 		 	// console.log("reducer --:", state.currentUser.entries.map(entry => entry.id === action.entryId ? action.entry : entry))
 		  
 		 		// ? action.entry : entry))
