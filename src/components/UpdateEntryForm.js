@@ -34,6 +34,7 @@ class UpdateEntryForm extends Component {
 	}
 
 	handleSubmit = (e, ) => {
+		console.log("got to handle submit")
 		const { updateFormData, updateEntryForm, entry, history, currentUserId } = this.props
 		
 		e.preventDefault()
@@ -66,7 +67,6 @@ class UpdateEntryForm extends Component {
 							name="title" 
 							value={title}
 						 	onChange={this.handleChange}
-	
 						/>
 					</div>
 					<div>
@@ -76,8 +76,6 @@ class UpdateEntryForm extends Component {
 							name="content" 
 							onChange={this.handleChange}
 							value={content}
-							
-							
 						/>
 					</div>
 

@@ -40,3 +40,13 @@ const 'EDIT_TODO':
 	}
 
 
+
+
+//may need to change, simi to addNewEntry currentUser : {}
+			// case "UPDATE_ENTRY":
+			// 		...state,
+			// 		currentUser: {
+			// 			state.currentuser,
+			// 		}
+			// 	return state.map(entry => entry.id === action.entryIdd ? action.entry : entry)
+			

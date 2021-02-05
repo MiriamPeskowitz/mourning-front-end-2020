@@ -15,6 +15,8 @@ export default(state = initialState, action) => {
 			console.log('got to reducer for Set Form Data  entryFormData', action.payload)
 			return action.payload
 			//add what I need here. state, plus the changes
+		
+
 		case "UPDATE_EDITED_ENTRY":
 			console.log("Got to REDUCER state", state)
 			console.log("Got to REDUCER name", action.formData.name)
@@ -30,7 +32,8 @@ export default(state = initialState, action) => {
         [action.formData.name]: action.formData.value
       }
       console.log("reducer returnVal", returnVal)
-      return returnVal
+      return returnVal;
+
 		case "RESET_EDIT_FORM":
 			return initialState
 		default: 

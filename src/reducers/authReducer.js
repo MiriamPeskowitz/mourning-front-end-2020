@@ -51,16 +51,23 @@ export default(state = initialState, action) => {
 //think about what I'm sending to update_entry, and how to structure 
 
 //may need to change, simi to addNewEntry currentUser : {}
-			case "UPDATE_ENTRY":
-				const newEntries = state.map(entry => entry.id === action.entryIdd ? action.entry : entry)
-				console.log("reducer-- ChangedEntry: ", newEntries)
-				return {
-					...state,
-					currentUser: {
-						...state.currentuser,
-						entries: newEntries
-					}
+		case "UPDATE_ENTRY":
+			console.log('got to REDUCER update_entry', state.currentUser.entries.find(entry => entry.id = action.entryId) )
+			const newEntries = state.currentUser.entries.map(entry => entry.id === action.entryId ? action.entry : entry)
+			console.log("reducer-- ChangedEntry: ", newEntries)
+			return {
+				...state,
+				currentUser: {
+					...state.currentuser,
+					entries: newEntries
 				}
+			}
+
+// currentUser: {
+// 		entries: [],
+
+		
+
 			
 			// case "DELETE_ENTRY":
 			// 	return state.filter(entry => entry.id === action.entryId ? false: true)

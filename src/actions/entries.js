@@ -41,7 +41,7 @@ export const deleteEntryIsSuccessful = (entryId) => {
 	}
 }
 
-
+// refactor? same as resetEntries ? 
 export const clearEntries = () => {
 	console.log("got to clearEntries")
 	return {
@@ -110,7 +110,7 @@ export const createEntry = (entryData, history) => {
 
 
 export const updateEntryForm = (entryData, history ) => {
-	console.log("entryData: ", entryData)
+	console.log("got to action creator, entryData: ", entryData)
 	return dispatch => {
 		const sendableEntryData = {
       title: entryData.title,
@@ -139,9 +139,11 @@ export const updateEntryForm = (entryData, history ) => {
 			// dispatch(addEntry(entry.data.attributes))
 			dispatch(entryUpdateIsSuccessful(entry.data.attributes))
 			dispatch(resetEntryForm())
-			history.push(`/entries/${entry.data.id}`)
+			//figure out which is string or int, use int 
 			// console.log(entry.data.id)
 			// console.log(entry.data.attributes.id)
+			history.push(`/entries/${entry.data.attributes.id}`)
+			
 			}
 		})
 	.catch(err => console.log(err))
