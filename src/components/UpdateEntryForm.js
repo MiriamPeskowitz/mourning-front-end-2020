@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { updateEntryForm, deleteEntry } from '../actions/entries.js'
 import { setFormDataForEdit, updateEditedEntryToReducer, resetEditForm }  from '../actions/updateForm.js'
 
-
+// changeUpdatedEntryForm 
 class UpdateEntryForm extends Component {
 	// take the data sent over by the router -- entry -- 
 	//and send it to setFormDataForEntry, to load the reducer
