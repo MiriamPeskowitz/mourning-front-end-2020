@@ -136,14 +136,9 @@ export const updateEntryForm = (entryData, history ) => {
 				alert(entry.error)
 			} else {
 			console.log('updatedEntry.data', entry.data.attributes)
-			// dispatch(addEntry(entry.data.attributes))
 			dispatch(entryUpdateIsSuccessful(entry.data.attributes))
 			dispatch(resetEntryForm())
-			//figure out which is string or int, use int 
-			// console.log(entry.data.id)
-			// console.log(entry.data.attributes.id)
 			history.push(`/entries/${entry.data.attributes.id}`)
-			
 			}
 		})
 	.catch(err => console.log(err))
