@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom'
 
 const EntryCard = (data) => {
 
-	// console.log("EntryCard entry", data)
-	// console.log("EntryCard id", data.entry.id)
-	// console.log("EntryCard title", data.entry.title)
+	console.log("EntryCard entry", data)
+	console.log("EntryCard id", data.entry.id)
+	console.log("EntryCard title", data.entry.title)
 
 	return (		
 		<div className="entry-card">
@@ -27,5 +27,3 @@ const EntryCard = (data) => {
 	)
 }
 export default EntryCard
-
-// style={{color: "yellow"}}

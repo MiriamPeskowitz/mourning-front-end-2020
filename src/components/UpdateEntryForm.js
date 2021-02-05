@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { updateEntryForm, deleteEntry } from '../actions/entries.js'
 import { setFormDataForEdit, updateEditedEntryToReducer, resetEditForm }  from '../actions/updateForm.js'
@@ -32,14 +33,14 @@ class UpdateEntryForm extends Component {
 		updateEditedEntryToReducer(name, value)
 	}
 
-	handleSubmit = (e, updateFormData) => {
-		const { updateEntryForm, entry, history, currentUserId } = this.props
+	handleSubmit = (e, ) => {
+		const { updateFormData, updateEntryForm, entry, history, currentUserId } = this.props
 		
 		e.preventDefault()
 
 		updateEntryForm({    
 			...updateFormData,
-			entryId: entry.id,
+			// entryId: entry.id,
 			currentUserId
 		}, history)
 	}
@@ -87,6 +88,9 @@ class UpdateEntryForm extends Component {
 					/>
 				</form>
 				<button onClick={()=>deleteEntry(id, history)}>Delete entry</button>
+    	  <br />
+    	  <button><Link to={'/profile'} >Back to my profile</Link></button>
+				
 			</div>
 		)
 	}

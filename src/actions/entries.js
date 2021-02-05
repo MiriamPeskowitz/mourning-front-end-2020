@@ -24,12 +24,12 @@ export const addEntry = newEntry => {
 	}
 }
 
-// fix this
-export const entryUpdateIsSuccessful = entryId => {
-	console.log("got to entryUpdateIsSuccessful, entryId:", entryId)
+// fix this entryId or entrydata
+export const entryUpdateIsSuccessful = entry => {
+	console.log("got to entryUpdateIsSuccessful, entry:", entry)
 	return {
 		type: "UPDATE_ENTRY",
-		entryId
+		entry
 	}
 }
 
@@ -108,13 +108,16 @@ export const createEntry = (entryData, history) => {
 	}
 }
 
+
 export const updateEntryForm = (entryData, history ) => {
+	console.log("entryData: ", entryData)
 	return dispatch => {
 		const sendableEntryData = {
-      title: entryData.entryFormData.title,
-			content: entryData.entryFormData.content,
+      title: entryData.title,
+			content: entryData.content,
       user_id: entryData.currentUserId
     }
+    // console.log("sendableEntryData: ", sendableEntryData)
 
 		const config = {
 			method: 'PATCH',
@@ -132,9 +135,9 @@ export const updateEntryForm = (entryData, history ) => {
 			if (entry.error) {
 				alert(entry.error)
 			} else {
-			// console.log('updateEntry.data', entry.data.attributes)
+			console.log('updatedEntry.data', entry.data.attributes)
 			// dispatch(addEntry(entry.data.attributes))
-			dispatch(entryUpdateIsSuccessful(entry.id))
+			dispatch(entryUpdateIsSuccessful(entry.data.attributes))
 			dispatch(resetEntryForm())
 			history.push(`/entries/${entry.data.id}`)
 			// console.log(entry.data.id)

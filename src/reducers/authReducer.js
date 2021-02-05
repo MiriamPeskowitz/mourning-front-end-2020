@@ -48,19 +48,24 @@ export default(state = initialState, action) => {
 					entries: state.currentUser.entries.concat(entry)
 				}
 			}
+//think about what I'm sending to update_entry, and how to structure 
 
 //may need to change, simi to addNewEntry currentUser : {}
-			// case "UPDATE_ENTRY":
-			// 	return state.map(entry => entry.id === action.entryIdd ? action.entry : entry)
+			case "UPDATE_ENTRY":
+				const newEntries = state.map(entry => entry.id === action.entryIdd ? action.entry : entry)
+				console.log("reducer-- ChangedEntry: ", newEntries)
+				return {
+					...state,
+					currentUser: {
+						...state.currentuser,
+						entries: newEntries
+					}
+				}
 			
 			// case "DELETE_ENTRY":
 			// 	return state.filter(entry => entry.id === action.entryId ? false: true)
 				
 		
-			case "CLEAR_ENTRIES":
-				console.log("entries cleared")
-				return initialState
-
 			default:
 				return state
 		}
