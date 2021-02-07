@@ -111,7 +111,7 @@ export const createEntry = (entryData, history) => {
 
 export const updateEntryForm = (entryData, history ) => {
 	console.log("got to action creator, entryData: ", entryData)
-	return dispatch => {
+	return (dispatch) => {
 		const sendableEntryData = {
       title: entryData.title,
 			content: entryData.content,
@@ -142,7 +142,9 @@ export const updateEntryForm = (entryData, history ) => {
 }
 
 export const deleteEntry = (id, history) => {
-		console.log("got to delete entry, entryId", id)
+		alert("got to deleteEntry")
+		// console.log("got to delete entry, entryId", id)
+		// console.log("got to delete entry, history", history)
 
 	return dispatch => {
     return fetch(`/entries/${id}`, {
@@ -151,17 +153,19 @@ export const deleteEntry = (id, history) => {
 			headers: {
 				"Content-Type": "application/json"
 			}
-		})
-		.then(response => response.json())
-		.then(resp => {
-			if (resp.error) {
-				alert(resp.error)
-			} else {
-				console.log("got response, id", resp.data.attributes.id)
-				dispatch(deleteEntryIsSuccessful(resp.data.attributes.id))
-				history.push("/profile")
+		}
+		)
+		.then(alert("got to fetch in deleteEntry"))
+		.then(response => {
+			response.json()
+			console.log('got to response.json: ', response)
 			}
-		})
+		)
+
+		.then(() => {
+				dispatch(deleteEntryIsSuccessful(id))
+				history.push("/profile")
+			})
 		.catch(err => console.log(err))
 	}
 }
