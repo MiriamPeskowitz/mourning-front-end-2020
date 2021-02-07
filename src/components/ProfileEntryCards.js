@@ -5,7 +5,7 @@ import { NavLink, withRouter } from 'react-router-dom'
 const ProfileEntryCards = (props) => {
 
 	const myEntryCards = props.entries.length > 0 ? props.entries.map(entry => (<li key={entry.id}><NavLink to={`/entries/${entry.id}`} activeStyle={{color: "white"}}>{entry.title}--{entry.content} </NavLink></li>)) : <p>No entries</p>
-
+	// alert('got back to profileEntryCards')
 	return (	
 		<div className="profile-entry-cards">
 			<h3>My Entries</h3>

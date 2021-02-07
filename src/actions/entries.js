@@ -143,7 +143,7 @@ export const updateEntryForm = (entryData, history ) => {
 
 export const deleteEntry = (id, history) => {
 		// alert("got to deleteEntry")
-		// console.log("got to delete entry, entryId", id)
+		console.log("got to delete entry, entryId", id)
 		// console.log("got to delete entry, history", history)
 
 	return dispatch => {
@@ -156,16 +156,18 @@ export const deleteEntry = (id, history) => {
 			}
 		)
 		// .then(alert("got to fetch in deleteEntry"))
-		.then(response => {
-			response.json()
-			// console.log('got to response.json: ', response)
-			}
-		)
-
-		.then(() => {
+		.then(response => response.json())
+		.then((r) => {
+			if (r.error) {
+				alert(r.error)
+			} else {
 				dispatch(deleteEntryIsSuccessful(id))
-				history.push("/profile")
-			})
+				// alert("got past the delete success dispatch ")
+				alert("dispath done, ready to go somewhere")
+				history.push('/profile')
+			}
+				// alert("got past history push to profile")
+		})
 		.catch(err => console.log(err))
 	}
 }

@@ -214,8 +214,9 @@ return action.tripFormData
 Sunday
 -- create and edit work, test DONE 
 -- delete isn't working. Why? DONE
+-- change click back to delete DONE 
 -- now: page refresh back to profile - needs to pull the new list -- it worked when page didn't refresh, but now now. 
--- change click back to delete 
+
 
 
 
