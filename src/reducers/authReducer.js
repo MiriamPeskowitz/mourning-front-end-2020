@@ -64,7 +64,10 @@ export default(state = initialState, action) => {
 
 		case "DELETE_ENTRY":
 			console.log("entry in reducer", action.id)
-			const newEntries = state.currentUser.entries.filter((entry) => entry.id === action.entryId ? false : true)
+			alert("got to reducer")
+			// const newEntries = state.currentUser.entries.filter((entry) => entry.id === action.entryId ? false : true)
+			const newEntries = state.currentUser.entries.filter(entry => entry.id === action.id ? false : true)
+			
 			return {
 		 	...state, 
 		 		currentUser: {

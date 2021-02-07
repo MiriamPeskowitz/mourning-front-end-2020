@@ -207,3 +207,15 @@ return action.tripFormData
  gets to the action, but the action creator doesn't call the reducer 
  Fixed the handleChange problem -- make sure to pull reduxified version of functions into the handleChange function 
  
+ ALL DONE 
+ -- debug new entry/create DONE 
+ -- debug why logout doesn't trigger new session navbar 
+
+Sunday
+-- create and edit work, test DONE 
+-- delete isn't working. Why? DONE
+-- now: page refresh back to profile - needs to pull the new list -- it worked when page didn't refresh, but now now. 
+-- change click back to delete 
+
+
+

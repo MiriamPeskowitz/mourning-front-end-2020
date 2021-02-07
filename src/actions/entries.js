@@ -142,7 +142,7 @@ export const updateEntryForm = (entryData, history ) => {
 }
 
 export const deleteEntry = (id, history) => {
-		alert("got to deleteEntry")
+		// alert("got to deleteEntry")
 		// console.log("got to delete entry, entryId", id)
 		// console.log("got to delete entry, history", history)
 
@@ -152,13 +152,13 @@ export const deleteEntry = (id, history) => {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json"
+				}
 			}
-		}
 		)
-		.then(alert("got to fetch in deleteEntry"))
+		// .then(alert("got to fetch in deleteEntry"))
 		.then(response => {
 			response.json()
-			console.log('got to response.json: ', response)
+			// console.log('got to response.json: ', response)
 			}
 		)
 
@@ -170,10 +170,3 @@ export const deleteEntry = (id, history) => {
 	}
 }
 
-	// const config = {
-		// 	method: "DELETE",
-		// 	credentials: "include",
-		// 	headers: {
-		// 		"Content-Type": "application/json"
-		// 	}
-		// }

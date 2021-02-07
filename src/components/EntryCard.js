@@ -17,7 +17,7 @@ const EntryCard = ({deleteEntry, entry, history}) => {
 			<div>
 	      <Link to={`/entries/${id}/edit`}>Edit</Link> 
   	     <br/> 
-  	    <button onClick={()=>deleteEntry(id, history)}>Click</button>
+  	    <button onClick={()=>deleteEntry(id, history)}>Delete Entry</button>
   	   
    	  	<br/>
     	  <Link to={'/profile'} >Back to my profile</Link>
