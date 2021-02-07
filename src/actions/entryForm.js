@@ -3,7 +3,7 @@
 
 //called in CreateEntryForm/handleChange
 export const updateNewEntryForm = (name, value) => {
-	console.log("got to updateNewEntryForm, entryId:", name, value)
+	// console.log("got to updateNewEntryForm, entryId:", name, value)
 	const formData= {
 		name: name, 
 		value: value}
@@ -12,16 +12,6 @@ export const updateNewEntryForm = (name, value) => {
 		formData
 	}
 }
-
-// 	const formData = {
-// 			name: name,
-// 			value: value
-// 		}
-// 	return {
-// 		type: "UPDATE_EDITED_ENTRY",
-// 		formData
-// 	}
-// }
 
 export const resetEntryForm = () => {
 	return {

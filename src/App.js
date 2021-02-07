@@ -16,15 +16,14 @@ import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {		
 	componentDidMount() {
-		console.log("got to componentDidMount")
+		// console.log("got to componentDidMount")
 		this.props.getCurrentUser()
 	}
 	
 	render() {
 		const { currentUser, entries } = this.props
-		console.log("app, entries:", entries )
+		console.log("app:entries:", entries )
 	  return (
-
 	  	<>
 	  		<div className="App-header">  
 	  			<h1 className="App-title">Mourning</h1>

@@ -51,7 +51,7 @@ export default(state = initialState, action) => {
 //think about what I'm sending to update_entry, and how to structure 
 //look through all --map
 		case "UPDATE_ENTRY":
-			console.log("REDucer-- entry", action.entry);
+			// console.log("REDucer-- entry", action.entry);
 		 const returnVal =  state.currentUser.entries.map(entry => entry.id === action.entry.id ? action.entry : entry)
 		 	
 		 return {
@@ -62,61 +62,18 @@ export default(state = initialState, action) => {
 		 		}
 		 }
 
-
-		 	// console.log("reducer --:", state.currentUser.entries.map(entry => entry.id === action.entryId ? action.entry : entry))
-		  
-		 		// ? action.entry : entry))
-		 	// console.log("REducer, updatedEntry", updatedEntry)
-		 	// return updatedEntry
-
-// const initialState = []
-//       return [].map(trip => trip.id === action.trip.id ? action.trip : trip)
-
-// const initialState = { 
-// 	currentUser: {
-// 		username: '',
-// 		email: '',
-// 		description: '',
-// 		id: '',
-// 		entries: [],
-// 		// loading: false
-// 	 }
-// 	}
-		 // console.log("update entry reducer: ",entries)
-		 // return entries
-		// case "UPDATE_ENTRY":
-		// 	console.log('got to REDUCER update_entry', state.currentUser.entries.find(entry => entry.id = action.entryId) )
-		// 	// const newEntries = state.currentUser.entries.map(entry => entry.id === action.entryId ? action.entry : entry) wrong
-		// 	// const newEntries =state.currentUser.entries.map(entry => entry.id !=== action.entryId ? action.entry : entry)
-		// 	console.log("reducer-- ChangedEntry: ", )
-		// 	return 
-				
-		// 		currentUser: {
-		// 			...state.currentuser,
-		// 			entries: state.entries.map(entry => {
-		// 				if (entry.id !== action.entry.id) {
-		// 					return entry
-		// 				}
-		// 				return ...entry, {
-		// 					title: action.entry.title,
-		// 					content: action.entry.content
-		// 					id: action.entry.id
-		// 				}
-		// 			})
-				
-		// 	}
-
-// currentUser: {
-// 		entries: [],
-
-		
-
-			
-			// case "DELETE_ENTRY":
-			// 	return state.filter(entry => entry.id === action.entryId ? false: true)
-				
-		
+		case "DELETE_ENTRY":
+			const newArray = state.filter((entry) => entry.id === action.entryId ? false : true)
+			return {
+		 	...state, 
+		 		currentUser: {
+		 			...state.currentUser,
+		 			entries: newArray
+		 		}
+		 }
 			default:
 				return state
 		}
 }
+//delete entry 
+ // return state.filter(trip => trip.id === action.tripId ? false : true)

@@ -10,21 +10,21 @@ export const entriesLoading = () => {
 }
 
 export const setEntries = entries => {
-		return	{
-			  type: "ENTRIES_LOADED", 
-			  payload: entries.data
-			}
+	return	{
+		  type: "ENTRIES_LOADED", 
+		  payload: entries.data
+		}
 }
 
 export const addEntry = newEntry => {
-	console.log('got to addNewEntry this is the payload', newEntry)
+	// console.log('got to addNewEntry this is the payload', newEntry)
 	return {
 		type: "ADD_NEW_ENTRY",
 		payload: newEntry
 	}
 }
 
-// fix this entryId or entrydata
+
 export const entryUpdateIsSuccessful = entry => {
 	console.log("got to entryUpdateIsSuccessful, entry:", entry)
 	return {
@@ -33,11 +33,11 @@ export const entryUpdateIsSuccessful = entry => {
 	}
 }
 
-export const deleteEntryIsSuccessful = (entryId) => {
-		console.log("got to deleteEntryIsSuccessful")
+export const deleteEntryIsSuccessful = (id) => {
+		console.log("got to deleteEntryIsSuccessful", id)
 	return {
 		type: "DELETE_ENTRY",
-		entryId
+		id
 	}
 }
 
@@ -98,7 +98,7 @@ export const createEntry = (entryData, history) => {
 		return fetch( "/entries", config)
 		.then(response => response.json())
 		.then(entry => {
-			console.log('entry in addNewEntry.data', entry.data.attributes)
+			// console.log('entry in addNewEntry.data', entry.data.attributes)
 			dispatch(addEntry(entry.data.attributes))
 			dispatch(resetEntryForm())
 			history.push(`/entries/${entry.data.id}`)
@@ -117,8 +117,6 @@ export const updateEntryForm = (entryData, history ) => {
 			content: entryData.content,
       user_id: entryData.currentUserId
     }
-    // console.log("sendableEntryData: ", sendableEntryData)
-
 		const config = {
 			method: 'PATCH',
 			credentials: "include",
@@ -128,14 +126,12 @@ export const updateEntryForm = (entryData, history ) => {
 				},
 			body: JSON.stringify(sendableEntryData)
 		}
-
 		return fetch( `/entries/${entryData.id}`, config)
 		.then(response => response.json())
 		.then(entry => {
 			if (entry.error) {
 				alert(entry.error)
 			} else {
-			console.log('updatedEntry.data', entry.data.attributes)
 			dispatch(entryUpdateIsSuccessful(entry.data.attributes))
 			dispatch(resetEntryForm())
 			history.push(`/entries/${entry.data.attributes.id}`)
@@ -145,24 +141,37 @@ export const updateEntryForm = (entryData, history ) => {
 	}
 }
 
-export const deleteEntry = (entryId, history) => {
+export const deleteEntry = (id, history) => {
+	console.log("got to delete entry")
+		console.log("entryId", id)
+		console.log('fetch /entries/${id}', id)
+
 	return dispatch => {
-		const config = {
+    return fetch(`/entries/${id}`, {
+			credentials: "include",
 			method: "DELETE",
-			credentials: "include",	
 			headers: {
 				"Content-Type": "application/json"
-			},
-		}
-
-		return fetch(`/entries/${entryId}`, config)
+			}
+		})
 		.then(response => response.json())
 		.then(resp => {
-		// 	if (resp.error) {
-		// 		alert(resp.error)
-		// 	} else {
-				dispatch(deleteEntryIsSuccessful(entryId))
-				history.push('/profile')
-			})
-		}
+			if (resp.error) {
+				alert(resp.error)
+			} else {
+				console.log("got response, id", resp.data.attributes.id)
+				dispatch(deleteEntryIsSuccessful(resp.data.attributes.id))
+				history.push("/profile")
+			}
+		})
+		.catch(err => console.log(err))
 	}
+}
+
+	// const config = {
+		// 	method: "DELETE",
+		// 	credentials: "include",
+		// 	headers: {
+		// 		"Content-Type": "application/json"
+		// 	}
+		// }

@@ -38,8 +38,7 @@ const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateNewE
 						type="text" 
 						name="content" 
 						value={entryFormData.content}
-						onChange={handleChange}
-						
+						onChange={handleChange}			
 					/>
 				</div>
 				<br/>
