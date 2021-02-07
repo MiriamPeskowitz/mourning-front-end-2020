@@ -142,9 +142,7 @@ export const updateEntryForm = (entryData, history ) => {
 }
 
 export const deleteEntry = (id, history) => {
-	console.log("got to delete entry")
-		console.log("entryId", id)
-		console.log('fetch /entries/${id}', id)
+		console.log("got to delete entry, entryId", id)
 
 	return dispatch => {
     return fetch(`/entries/${id}`, {

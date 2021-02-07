@@ -14,14 +14,14 @@ import ExitPage from './components/ExitPage'
 import './stylesheets/App.css'
 import { Route, Switch } from 'react-router-dom'
 
+//refactor -- may not need logged in in MSP 
 class App extends Component {		
 	componentDidMount() {
-		// console.log("got to componentDidMount")
 		this.props.getCurrentUser()
 	}
 	
 	render() {
-		const { currentUser, entries } = this.props
+		const { entries } = this.props
 		console.log("app:entries:", entries )
 	  return (
 	  	<>
@@ -64,7 +64,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
 	return ({
 		loggedIn: !!state.authReducer.currentUser,
-		currentUser: state.authReducer.currentUser,
+		// currentUser: state.authReducer.currentUser,
 		entries: state.authReducer.currentUser.entries,
 	})
 }

@@ -27,7 +27,6 @@ class UpdateEntryForm extends Component {
 	
 	handleChange=(event) => {
 		event.preventDefault()
-		const { updateFormData } = this.props
 		const { updateEditedEntryToReducer } = this.props
 		const {name, value } = event.target
 		updateEditedEntryToReducer(name, value)
@@ -35,7 +34,7 @@ class UpdateEntryForm extends Component {
 
 	handleSubmit = (e, ) => {
 		console.log("got to handle submit")
-		const { updateFormData, updateEntryForm, entry, history, currentUserId } = this.props
+		const { updateFormData, updateEntryForm, history, currentUserId } = this.props
 		
 		e.preventDefault()
 

@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 import { deleteEntry } from "../entries/auth.js"
 import { withRouter } from 'react-router-dom'
 
+//experimented to see if this was needed
+//probably delete, moved functionality into 
+//entry card 
+
 const Delete = ({ deleteEntry, history}) => {
 
 	return (
