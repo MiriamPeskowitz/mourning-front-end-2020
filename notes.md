@@ -241,4 +241,8 @@ Component structure; mirror ProfileEntryCards
  ProfileMemoryCards
  --use react-bootstrap for style 
  https://react-bootstrap.github.io/components/cards/
+<div className="profile-entry-cards">
+	<p><Link to="entries/new" >Create a new entry </Link></p>
+	<ProfileEntryCards />
+</div>
 
