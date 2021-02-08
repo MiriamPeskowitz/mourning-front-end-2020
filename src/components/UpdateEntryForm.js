@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { updateEntryForm, deleteEntry } from '../actions/entries.js'
 import { setFormDataForEdit, updateEditedEntryToReducer, resetEditForm }  from '../actions/updateForm.js'
 
-// changeUpdatedEntryForm 
+
 class UpdateEntryForm extends Component {
 	// take the data sent over by the router -- entry -- 
 	//and send it to setFormDataForEntry, to load the reducer
@@ -13,7 +13,6 @@ class UpdateEntryForm extends Component {
 	// from the store to fill the fields. 
 
 	componentDidMount() {
-		// console.log("CDM setFormDataForEdit", this.props.entry )
 		this.props.entry && this.props.setFormDataForEdit(this.props.entry)
 	}
 
@@ -40,7 +39,6 @@ class UpdateEntryForm extends Component {
 
 		updateEntryForm({    
 			...updateFormData,
-			// entryId: entry.id,
 			currentUserId
 		}, history)
 	}
@@ -64,7 +62,7 @@ class UpdateEntryForm extends Component {
 					<div>
 						<input 
 							placeholder={content}
-							type="text" 
+							type="text"
 							name="content" 
 							onChange={this.handleChange}
 							value={content}

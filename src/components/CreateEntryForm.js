@@ -51,7 +51,7 @@ const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateNewE
 	)
 }
 
-//add public/private boolean 
+//feature: add public/private boolean 
 const mapStateToProps = state => {
   return { 
   	entryFormData: state.entryFormReducer,

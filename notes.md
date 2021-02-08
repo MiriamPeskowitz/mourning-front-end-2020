@@ -221,7 +221,10 @@ It's almost like it's trying to double-delete, and then it can't find
 the id # 
 -- Maybe make my Entries link to a new component, 
 and make that a class compoonent 
+DONE -- put the history.push before the call to the reducer, and somehow that worked. Delete works fully, page refr
 
+Monday: 
+-- add loading to all, be consistent 
 
 
 

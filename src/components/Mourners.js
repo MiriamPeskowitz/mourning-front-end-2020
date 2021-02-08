@@ -4,11 +4,10 @@ import getUsers from '../actions/users'
 import MournersList from '../components/MournersList'
 
 class Mourners extends Component {
-
 	componentDidMount(){
 		this.props.getUsers()
 	}
-
+	
 	render() {		
 		return (
 			<div className="mourner-list">

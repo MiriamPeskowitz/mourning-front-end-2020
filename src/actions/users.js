@@ -1,4 +1,3 @@
-
 const getUsers = () => {
 	return (dispatch) => {
 		dispatch({

@@ -1,6 +1,4 @@
 import { resetEntryForm } from "./entryForm"
-// import { updateEntryForm } from "./entryForm"
-
 
 export const entriesLoading = () => {
 	console.log('got to LOADING_ENTRIES')
