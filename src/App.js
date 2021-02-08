@@ -24,9 +24,9 @@ class App extends Component {
 		const { entries } = this.props
 		console.log("app component -> entries:", entries )
 	  return (
-	  	<>
-	  		<div className="App-header">  
-	  			<h1 className="App-title">Mourning</h1>	
+	  	<div className="app">
+	  		<div className="app-header">  
+	  			<h1 className="app-title">Mourning</h1>	
 					<Switch>		
 	 					<Route exact path="/signup" component={Signup} />
 						<Route exact path="/login" component={Login} />
@@ -39,17 +39,17 @@ class App extends Component {
               return (<EntryCard entry={entry} {...props} />)
             	}}/>
 						<Route exact strict path='/entries/:id/edit' render={ (props) => {
-	              const id = parseInt(props.match.params.id)
-	              const entry = entries.find(entry => entry.id === id)
-	              console.log("edit-route-entry:", entry)
-	              return (<UpdateEntryForm entry={entry} {...props} />)
+              const id = parseInt(props.match.params.id)
+              const entry = entries.find(entry => entry.id === id)
+              console.log("edit-route-entry:", entry)
+              return (<UpdateEntryForm entry={entry} {...props} />)
 	            }}/>
 						<Route exact path="/story" component={Story} />
 						<Route exact path="/exit"  component={ExitPage} />
 						<Route exact path="/" component={Home} />	
 					</Switch>
 			  </div>	
-		  </>
+			 </div>
 	  )
 	}
 }
