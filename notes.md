@@ -211,7 +211,8 @@ return action.tripFormData
  -- debug new entry/create DONE 
  -- debug why logout doesn't trigger new session navbar 
 
-Sunday
+SundayDONE, what a great day, I solved so many problems 
+
 -- create and edit work, test DONE 
 -- delete isn't working. Why? DONE
 -- change click back to delete DONE 
@@ -245,4 +246,8 @@ Component structure; mirror ProfileEntryCards
 	<p><Link to="entries/new" >Create a new entry </Link></p>
 	<ProfileEntryCards />
 </div>
+
+-- backend, make the model 
+--start putting on heroku and netflify 
+-- also, find a start to injecting bootstrap 
 
