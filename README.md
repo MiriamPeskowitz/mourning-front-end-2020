@@ -1,7 +1,7 @@
 # Mourning
-Final project for Flatiron Software Engineer program
-Full CRUD functionality
-Backend: https://github.com/MiriamPeskowitz/mourningAPI
+### Final project for Flatiron Software Engineer program
+### Full CRUD functionality
+### Backend: https://github.com/MiriamPeskowitz/mourningAPI
 
 # File Structure
 ![Screen Shot 2021-02-08 at 10 21 28 AM](https://user-images.githubusercontent.com/18649892/107240008-71156c00-69f7-11eb-9d26-bdcbd529bbfe.png)
