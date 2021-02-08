@@ -1,6 +1,6 @@
 import React  from 'react'
 import { connect } from 'react-redux'
-import MemoryCard from './MemoryCard'
+import MemoryCards from './MemoryCards'
 import ProfileEntryCards from './ProfileEntryCards'
 import CurrentUserNavBar from './CurrentUserNavbar'
 import { Link, withRouter } from 'react-router-dom'
@@ -15,7 +15,7 @@ const Profile = ({ currentUser, history}) => {
 					<p><Link to="entries/new" >Create a new entry </Link></p>
 					<ProfileEntryCards />
 				</div>
-				<MemoryCard />	
+				<MemoryCards />	
 			</div>
 		</>
 	)

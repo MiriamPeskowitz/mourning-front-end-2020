@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const MemoryCard = () => {
+const MemoryCards = () => {
 	return (
 		<>
 		<h3>Memory Card aka People I Remember</h3>
@@ -19,4 +19,4 @@ const MemoryCard = () => {
 // }
 
 // export default connect(mapStateToProps, {} )(Profile);
-export default MemoryCard
+export default MemoryCards

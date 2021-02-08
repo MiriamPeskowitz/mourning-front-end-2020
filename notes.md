@@ -232,4 +232,13 @@ Monday:
 		//two sections. 1 is the alter 2. is the entries. currentUser.entries
 
 
+people
+have name, date of death, relationship, about, images, age at death
+belongs to: user
+card: user, image on top 
+
+Component structure; mirror ProfileEntryCards 
+ ProfileMemoryCards
+ --use react-bootstrap for style 
+ https://react-bootstrap.github.io/components/cards/
 
