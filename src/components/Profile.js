@@ -13,6 +13,7 @@ const Profile = ({ currentUser, history}) => {
 				
 				<div className="profile-entry-cards">
 					<h3>My Entries</h3>
+					//make this a button
 					<p><Link to="entries/new" >Create a new entry </Link></p>
 					<ProfileEntryCards />
 				</div>
