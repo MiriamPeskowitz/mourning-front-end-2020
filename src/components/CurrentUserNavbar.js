@@ -9,13 +9,13 @@ const CurrentUserNavbar = ( {currentUser} ) => {
 	console.log("CUNavbar:currentUser", currentUser)
 	return (
 		<>
-		<p className="center"> Welcome back, {currentUser.username} </p>
-	  <ul className="navbar">
-	 		<li> <NavLink style={gray} exact to="/">Home</NavLink> </li> 
-	 		<li> <NavLink style={gray} exact to="/story">About</NavLink> </li> 
-	 		<li> <NavLink style={gray} exact to="/profile">My Profile</NavLink> </li> 
-	    <li> <NavLink style={gray} exact to="/logout">Logout</NavLink> </li> 			    
-	  </ul> 
+		  <ul className="navbar">
+		 		<li> <NavLink style={gray} exact to="/">Home</NavLink> </li> 
+		 		<li> <NavLink style={gray} exact to="/story">About</NavLink> </li> 
+		 		<li> <NavLink style={gray} exact to="/profile">My Profile</NavLink> </li> 
+		    <li> <NavLink style={gray} exact to="/logout">Logout</NavLink> </li> 			    
+		  </ul> 
+		  <p>    Welcome back, {currentUser.username} </p>
 	  </>
 	)
 }

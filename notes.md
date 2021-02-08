@@ -256,7 +256,8 @@ Component structure; mirror ProfileEntryCards
 		-- test for how it renders in browser  
 -- how to add basic rspect tests for an api
 -- https://reactjs.org/docs/testing-recipes.html 
-
+- react-router v4
+- 
 
 Smaller to-dos
 -- front end READme -- find a model , add api repo 

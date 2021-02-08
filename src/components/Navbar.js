@@ -2,12 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import CurrentUserNavbar from './CurrentUserNavbar'
 import NewSessionNavbar from './NewSessionNavbar'
-// import Logout from './Logout'
-
 
 const Navbar = ({ currentUser }) => {	
 	const loggedIn = currentUser.username !== ""
-	// this feels kind of hacky, )
 	console.log("currentUser?", loggedIn)
 	return ( 
 		<>
@@ -23,7 +20,5 @@ const mapStateToProps = (state ) => {
 	}
 }
 
-export default connect(mapStateToProps, null)(Navbar)
-
-					   
+export default connect(mapStateToProps, null)(Navbar)		   
 				

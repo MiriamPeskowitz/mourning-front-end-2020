@@ -71,9 +71,10 @@ export const signup = (user, history) => {
 				if (user.error) {
 					alert(user.error)
 				} else {
-					dispatch(setCurrentUser(user.data))
-					dispatch(resetSignupForm())
 					history.push('/profile')
+					dispatch(resetSignupForm())	
+					dispatch(setCurrentUser(user.data))
+					
 				}
 			})
 			.catch(error=> console.log("from actions/auth.js: signup didn't work"))

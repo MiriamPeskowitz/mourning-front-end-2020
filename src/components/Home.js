@@ -5,6 +5,7 @@ import Entries from './Entries'
 
 const Home = () => {
 	return (
+		
 		<div className="Home">
 			<Navbar />
   		<Entries />

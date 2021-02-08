@@ -11,3 +11,4 @@ export const resetSignupForm = () => {
 	}
 }
 
+//refactor into single line 
