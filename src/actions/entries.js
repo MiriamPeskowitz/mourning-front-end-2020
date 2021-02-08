@@ -17,7 +17,6 @@ export const setEntries = entries => {
 }
 
 export const addEntry = newEntry => {
-	// console.log('got to addNewEntry this is the payload', newEntry)
 	return {
 		type: "ADD_NEW_ENTRY",
 		payload: newEntry
@@ -26,7 +25,6 @@ export const addEntry = newEntry => {
 
 
 export const entryUpdateIsSuccessful = entry => {
-	console.log("got to entryUpdateIsSuccessful, entry:", entry)
 	return {
 		type: "UPDATE_ENTRY",
 		entry
@@ -34,7 +32,6 @@ export const entryUpdateIsSuccessful = entry => {
 }
 
 export const deleteEntryIsSuccessful = (id) => {
-		console.log("got to deleteEntryIsSuccessful", id)
 	return {
 		type: "DELETE_ENTRY",
 		id
@@ -142,10 +139,7 @@ export const updateEntryForm = (entryData, history ) => {
 }
 
 export const deleteEntry = (id, history) => {
-		// alert("got to deleteEntry")
-		console.log("got to delete entry, entryId", id)
-		console.log("got to delete entry, history", history)
-		const intId = parseInt(id)
+	const intId = parseInt(id)
 	return dispatch => {
     return fetch(`/entries/${intId}`, {
 			credentials: "include",
@@ -155,7 +149,6 @@ export const deleteEntry = (id, history) => {
 				}
 			}
 		)
-		// .then(alert("got to fetch in deleteEntry"))
 		.then(response => response.json())
 		.then((r) => {
 			if (r.error) {
@@ -163,24 +156,9 @@ export const deleteEntry = (id, history) => {
 				} else {
 				history.push('/profile')
 				dispatch(deleteEntryIsSuccessful(id))
-			
-				
-				// 			{forceRefresh: true}
-				// const reload = history({forceRefresh: true})
-					
-				// if (currentUrl == newUrl) {
-   	//  			history.push("/profile");
-  		// 	  history.goBack();
-				// }
-				
-				// alert("dispatch done, ready to go somewhere")
-			
 			}
-				// alert("got past history push to profile")
 		})
 		.catch(err => console.log(err))
 	}
 }
 
-// For issue on reloading data after history.push: 
-// https://stackoverflow.com/questions/46820682/how-do-i-reload-a-page-with-react-router

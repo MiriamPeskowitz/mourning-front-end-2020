@@ -48,12 +48,9 @@ export default(state = initialState, action) => {
 					entries: state.currentUser.entries.concat(entry)
 				}
 			}
-//think about what I'm sending to update_entry, and how to structure 
-//look through all --map
+
 		case "UPDATE_ENTRY":
-			// console.log("REDucer-- entry", action.entry);
-		 const returnVal =  state.currentUser.entries.map(entry => entry.id === action.entry.id ? action.entry : entry)
-		 	
+		 const returnVal =  state.currentUser.entries.map(entry => entry.id === action.entry.id ? action.entry : entry)	 	
 		 return {
 		 	...state, 
 		 		currentUser: {
@@ -63,14 +60,8 @@ export default(state = initialState, action) => {
 		 }
 
 		case "DELETE_ENTRY":
-			// console.log("entry in reducer", action.id)
-			// const newState = [...state.currentUser.entries]
-			// const indexToDelete = state.currentUser.entries.findIndex(entry => entry.id === action.id)
-			// const newValue = newState.splice(indexToDelete, 1)
-			// return newValue
+			
 			const newEntries = state.currentUser.entries.filter(entry => entry.id === action.id ? false : true)
-			console.log('got to reducer ')
-			alert("ready to go somewhere")
 			return {
 		 	...state, 
 		 		currentUser: {
@@ -83,6 +74,13 @@ export default(state = initialState, action) => {
 		}
 }
 
+
+//notes on possible ways to delete 
+// console.log("entry in reducer", action.id)
+			// const newState = [...state.currentUser.entries]
+			// const indexToDelete = state.currentUser.entries.findIndex(entry => entry.id === action.id)
+			// const newValue = newState.splice(indexToDelete, 1)
+			// return newValue
 
 // or: case types.DELETE_CAT_SUCCESS: {
 //       const newState = Object.assign([], state);

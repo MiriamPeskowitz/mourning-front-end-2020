@@ -31,18 +31,11 @@ class App extends Component {
 	 					<Route exact path="/signup" component={Signup} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/logout" component={Logout} />
-
 						<Route exact path="/profile" component={Profile} />
 						<Route exact path="/entries/new" component={CreateEntryForm} />
-						
 						<Route exact path='/entries/:id' render={ (props) => {
-       			// console.log("props:", props)
-       			// console.log("entries:", entries)
-       			// console.log("match params id:", props.match.params.id)
        				const id = parseInt(props.match.params.id)
-       			// console.log("id-parseInt:", id)
               const entry = entries.find(entry => entry.id === id)
-              // console.log(entry)
               return (<EntryCard entry={entry} {...props} />)
             	}}/>
 						<Route exact strict path='/entries/:id/edit' render={ (props) => {
@@ -64,13 +57,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
 	return ({
 		loggedIn: !!state.authReducer.currentUser,
-		// currentUser: state.authReducer.currentUser,
 		entries: state.authReducer.currentUser.entries,
 	})
 }
 export default connect(mapStateToProps, { getCurrentUser })(App);
-	  	// component={()=><HomeContainer/>
-						// <Route exact path="/profile" render={() => <Profile />} />
-// <Redirect exact from="/profile/reload" to="/profile" />
-						// <Route  exact path="/profile/reload" render={() => <Profile/>} />
-					
