@@ -216,6 +216,11 @@ Sunday
 -- delete isn't working. Why? DONE
 -- change click back to delete DONE 
 -- now: page refresh back to profile - needs to pull the new list -- it worked when page didn't refresh, but now now. 
+--okay it can't send back successfully. why? 
+It's almost like it's trying to double-delete, and then it can't find 
+the id # 
+-- Maybe make my Entries link to a new component, 
+and make that a class compoonent 
 
 
 

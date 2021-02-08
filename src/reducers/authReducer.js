@@ -63,8 +63,14 @@ export default(state = initialState, action) => {
 		 }
 
 		case "DELETE_ENTRY":
-			console.log("entry in reducer", action.id)
+			// console.log("entry in reducer", action.id)
+			// const newState = [...state.currentUser.entries]
+			// const indexToDelete = state.currentUser.entries.findIndex(entry => entry.id === action.id)
+			// const newValue = newState.splice(indexToDelete, 1)
+			// return newValue
 			const newEntries = state.currentUser.entries.filter(entry => entry.id === action.id ? false : true)
+			console.log('got to reducer ')
+			alert("ready to go somewhere")
 			return {
 		 	...state, 
 		 		currentUser: {
@@ -76,5 +82,16 @@ export default(state = initialState, action) => {
 				return state
 		}
 }
+
+
+// or: case types.DELETE_CAT_SUCCESS: {
+//       const newState = Object.assign([], state);
+//       const indexOfCatToDelete = state.findIndex(cat => {
+//         return cat.id == action.cat.id
+//       })
+//       newState.splice(indexOfCatToDelete, 1);
+//       browserHistory.push('/cats');
+//       return newState;
 //delete entry 
  // return state.filter(trip => trip.id === action.tripId ? false : true)
+// or return {todos: state.todos.filter(todo => todo.id !== action.payload)}

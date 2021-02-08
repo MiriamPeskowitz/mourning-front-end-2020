@@ -26,12 +26,12 @@ class App extends Component {
 	  return (
 	  	<>
 	  		<div className="App-header">  
-	  			<h1 className="App-title">Mourning</h1>
-	  	
+	  			<h1 className="App-title">Mourning</h1>	
 					<Switch>		
 	 					<Route exact path="/signup" component={Signup} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/logout" component={Logout} />
+
 						<Route exact path="/profile" component={Profile} />
 						<Route exact path="/entries/new" component={CreateEntryForm} />
 						
@@ -69,4 +69,8 @@ const mapStateToProps = (state) => {
 	})
 }
 export default connect(mapStateToProps, { getCurrentUser })(App);
-
+	  	// component={()=><HomeContainer/>
+						// <Route exact path="/profile" render={() => <Profile />} />
+// <Redirect exact from="/profile/reload" to="/profile" />
+						// <Route  exact path="/profile/reload" render={() => <Profile/>} />
+					

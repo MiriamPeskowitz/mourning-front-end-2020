@@ -144,10 +144,10 @@ export const updateEntryForm = (entryData, history ) => {
 export const deleteEntry = (id, history) => {
 		// alert("got to deleteEntry")
 		console.log("got to delete entry, entryId", id)
-		// console.log("got to delete entry, history", history)
-
+		console.log("got to delete entry, history", history)
+		const intId = parseInt(id)
 	return dispatch => {
-    return fetch(`/entries/${id}`, {
+    return fetch(`/entries/${intId}`, {
 			credentials: "include",
 			method: "DELETE",
 			headers: {
@@ -160,11 +160,21 @@ export const deleteEntry = (id, history) => {
 		.then((r) => {
 			if (r.error) {
 				alert(r.error)
-			} else {
-				dispatch(deleteEntryIsSuccessful(id))
-				// alert("got past the delete success dispatch ")
-				alert("dispath done, ready to go somewhere")
+				} else {
 				history.push('/profile')
+				dispatch(deleteEntryIsSuccessful(id))
+			
+				
+				// 			{forceRefresh: true}
+				// const reload = history({forceRefresh: true})
+					
+				// if (currentUrl == newUrl) {
+   	//  			history.push("/profile");
+  		// 	  history.goBack();
+				// }
+				
+				// alert("dispatch done, ready to go somewhere")
+			
 			}
 				// alert("got past history push to profile")
 		})
@@ -172,3 +182,5 @@ export const deleteEntry = (id, history) => {
 	}
 }
 
+// For issue on reloading data after history.push: 
+// https://stackoverflow.com/questions/46820682/how-do-i-reload-a-page-with-react-router
