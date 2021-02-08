@@ -13,13 +13,13 @@ const initialState = {
 
 export default(state = initialState, action) => {
 	switch(action.type){
-
 // login => sets current user
 		case "SET_CURRENT_USER":
 			return {
 				currentUser: action.payload,
 				// loading: false
 			}
+		
 		case "LOADING_CURRENT_USER":
 			return {
 				...state, 
@@ -33,9 +33,7 @@ export default(state = initialState, action) => {
 				currentUser: ""
 			}
 
-		case "ADD_NEW_ENTRY":	
-			console.log("entry payload in reducer:", action.payload)	
-			
+		case "ADD_NEW_ENTRY":				
 			const entry = {
 				id: action.payload.id,
 				title: action.payload.title,
@@ -59,8 +57,7 @@ export default(state = initialState, action) => {
 		 		}
 		 }
 
-		case "DELETE_ENTRY":
-			
+		case "DELETE_ENTRY":	
 			const newEntries = state.currentUser.entries.filter(entry => entry.id === action.id ? false : true)
 			return {
 		 	...state, 

@@ -1,5 +1,3 @@
-// import { resetLoginForm, resetSignin} from other actioncreator files
-// Needed here, but they fit into other reducer patterns, in terms of the data they control in the store 
 import { resetSignupForm } from "./signupForm"
 import { resetLoginForm } from "./loginForm"
 import { clearEntries } from "./entries"
