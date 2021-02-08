@@ -225,6 +225,11 @@ DONE -- put the history.push before the call to the reducer, and somehow that wo
 
 Monday: 
 -- add loading to all, be consistent 
+-- //cards -- with data of each person <
+		//jane.people -- need new model 
+		//start with one. 
+		//will show all the entries of a single user 
+		//two sections. 1 is the alter 2. is the entries. currentUser.entries
 
 
 
