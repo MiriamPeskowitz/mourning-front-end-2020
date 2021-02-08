@@ -14,6 +14,8 @@ import ExitPage from './components/ExitPage'
 import './stylesheets/App.css'
 import { Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
+// import Container from 'react-bootstrap/Container'
+import CreateMemoryForm from './components/CreateMemoryForm'
 
 
 class App extends Component {		
@@ -45,12 +47,13 @@ class App extends Component {
               console.log("edit-route-entry:", entry)
               return (<UpdateEntryForm entry={entry} {...props} />)
 	            }}/>
+	          <Route exact path="/memories/new" component={CreateMemoryForm} />
 						<Route exact path="/story" component={Story} />
 						<Route exact path="/exit"  component={ExitPage} />
 						<Route exact path="/" component={Home} />	
 					</Switch>
-			  </div>	
-			 </div>
+			  </div>		
+			</div>
 	  )
 	}
 }

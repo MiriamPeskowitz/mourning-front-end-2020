@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createEntry } from '../actions/entries.js'
 import { updateNewEntryForm }  from '../actions/entryForm.js'
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form, Col } from 'react-bootstrap'
 
 const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateNewEntryForm, history }) => {
 
@@ -22,26 +22,33 @@ const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateNewE
 	
 	return (
 		<div className="login">
-			<h3>Create new entry</h3>
+			<h3>Create a new entry</h3>
 			<form onSubmit={handleSubmit}> 
 				
-				<Form.Group>
+				<Form.Group row controlId="formGroupTitle">
+					<Col md>
 					<input
-						type="text"
 						placeholder="title"
+						type="text"
+						id="title"
 						name="title" 
 						onChange={handleChange}
 						value={entryFormData.title}
 					/>
+				</Col>
 				</Form.Group>
-				<Form.Group>
-					<input 
-						placeholder="How are you feeling?"
-						type="text" 
-						name="content" 
-						value={entryFormData.content}
-						onChange={handleChange}			
-					/>
+
+				<Form.Group row controlId="formGroupContent">
+					<Col md>
+						<input 
+							placeholder="How are you feeling?"
+							type="text" 
+							id="text"
+							name="content" 
+							onChange={handleChange}
+							value={entryFormData.content}			
+						/>
+					</Col>
 				</Form.Group>
 				<br/>
 				<Button><input 
