@@ -211,7 +211,8 @@ return action.tripFormData
  -- debug new entry/create DONE 
  -- debug why logout doesn't trigger new session navbar 
 
-Sunday
+SundayDONE, what a great day, I solved so many problems 
+
 -- create and edit work, test DONE 
 -- delete isn't working. Why? DONE
 -- change click back to delete DONE 
@@ -225,6 +226,38 @@ DONE -- put the history.push before the call to the reducer, and somehow that wo
 
 Monday: 
 -- add loading to all, be consistent 
+-- //cards -- with data of each person <
+		//jane.people -- need new model 
+		//start with one. 
+		//will show all the entries of a single user 
+		//two sections. 1 is the alter 2. is the entries. currentUser.entries
 
 
+people
+have name, date of death, relationship, about, images, age at death
+belongs to: user
+card: user, image on top 
+
+Component structure; mirror ProfileEntryCards 
+ ProfileMemoryCards
+ --use react-bootstrap for style 
+ https://react-bootstrap.github.io/components/cards/
+<div className="profile-entry-cards">
+	<p><Link to="entries/new" >Create a new entry </Link></p>
+	<ProfileEntryCards />
+</div>
+
+-- backend, make the model 
+--start putting on heroku and netflify 
+-- also, find a start to injecting bootstrap 
+
+-- how to add JEST tests
+		-- test functionality 
+		-- test for how it renders in browser  
+-- how to add basic rspect tests for an api
+-- https://reactjs.org/docs/testing-recipes.html 
+
+
+Smaller to-dos
+-- front end READme -- find a model , add api repo 
 

@@ -7,7 +7,6 @@ const ProfileEntryCards = (props) => {
 	
 	return (	
 		<div className="profile-entry-cards">
-			<h3>My Entries</h3>
 			<ul>{myEntryCards}</ul>		
 		</div>
 	)

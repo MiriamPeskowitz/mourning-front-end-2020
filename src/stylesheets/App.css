@@ -1,12 +1,39 @@
 body {
-  background-color: #696969;
+  /*background-color: #696969;*/
+ 
 }
 
-.App {
-  text-align: center;
+ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style: none;
+  }
+
+li {
+  display: inline-flex;
+  padding-right: 8px;
 }
 
-.App-header {
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover, a:active {
+  color: white;  
+}
+
+.app {
+  background-color: #ccc8c8;
+}
+
+.app-header {
   padding: 1em;
   background-color: #282c34;
   min-height: 100vh;
@@ -18,38 +45,27 @@ body {
   color: white;
 }
 
-.App-title {
+.app-title {
   margin: 10px;
   color: blue;
 }
 
-/*ul {
-  list-style-type: none;
-  margin: 0;
-}*/
-ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    list-style: none;
-  }
+.entry-list, .mourner-list, .story-header {
+  text-align: center;
+  margin: 5px;
+}
+
+.entries-list {
+  color: yellow;
+}
 
 .nav-bar {
   display: inline-block;  
   padding: 1em; 
 }
-a:link {
-  color: blue;
-}
 
-a:visited {
-  color: green;
-}
-
-a:hover, a:active {
-  color: white;  
+.navbar {
+  color: '#C0C0C0'
 }
 
 .center {
