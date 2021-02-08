@@ -4,7 +4,6 @@ import { login }  from '../actions/auth.js'
 import { updateLoginForm }  from '../actions/loginForm.js'
 
 const Login = ({loginFormData, updateLoginForm, login, history}) => {
-
 	const handleChange = (e) => {
 		const updatedFormInfo = {
 			...loginFormData,

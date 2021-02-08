@@ -5,8 +5,8 @@ import '../stylesheets/App.css'
 
 const gray = {color: '#C0C0C0'};
 
-const CurrentUserNavbar = ( {currentUser, loggedIn} ) => {	
-	console.log("CUNb", currentUser)
+const CurrentUserNavbar = ( {currentUser} ) => {	
+	console.log("CUNavbar:currentUser", currentUser)
 	return (
 		<>
 		<p className="center"> Welcome back, {currentUser.username} </p>
@@ -19,9 +19,8 @@ const CurrentUserNavbar = ( {currentUser, loggedIn} ) => {
 	  </>
 	)
 }
-const mapStateToProps = (state ) => {
+const mapStateToProps = state => {
 	return {
-		loggedIn: !!state.authReducer.currentUser,
 		currentUser: state.authReducer.currentUser
 	}
 }
