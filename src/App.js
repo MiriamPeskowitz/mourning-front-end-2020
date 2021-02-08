@@ -14,25 +14,24 @@ import ExitPage from './components/ExitPage'
 import './stylesheets/App.css'
 import { Route, Switch } from 'react-router-dom'
 
+//refactor -- may not need logged in in MSP 
 class App extends Component {		
 	componentDidMount() {
-		console.log("got to componentDidMount")
 		this.props.getCurrentUser()
 	}
 	
 	render() {
-		const { currentUser, entries } = this.props
-		console.log("app, entries:", entries )
+		const { entries } = this.props
+		console.log("app:entries:", entries )
 	  return (
-
 	  	<>
 	  		<div className="App-header">  
-	  			<h1 className="App-title">Mourning</h1>
-	  	
+	  			<h1 className="App-title">Mourning</h1>	
 					<Switch>		
 	 					<Route exact path="/signup" component={Signup} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/logout" component={Logout} />
+
 						<Route exact path="/profile" component={Profile} />
 						<Route exact path="/entries/new" component={CreateEntryForm} />
 						
@@ -65,9 +64,13 @@ class App extends Component {
 const mapStateToProps = (state) => {
 	return ({
 		loggedIn: !!state.authReducer.currentUser,
-		currentUser: state.authReducer.currentUser,
+		// currentUser: state.authReducer.currentUser,
 		entries: state.authReducer.currentUser.entries,
 	})
 }
 export default connect(mapStateToProps, { getCurrentUser })(App);
-
+	  	// component={()=><HomeContainer/>
+						// <Route exact path="/profile" render={() => <Profile />} />
+// <Redirect exact from="/profile/reload" to="/profile" />
+						// <Route  exact path="/profile/reload" render={() => <Profile/>} />
+					

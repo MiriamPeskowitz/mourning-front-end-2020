@@ -10,21 +10,21 @@ export const entriesLoading = () => {
 }
 
 export const setEntries = entries => {
-		return	{
-			  type: "ENTRIES_LOADED", 
-			  payload: entries.data
-			}
+	return	{
+		  type: "ENTRIES_LOADED", 
+		  payload: entries.data
+		}
 }
 
 export const addEntry = newEntry => {
-	console.log('got to addNewEntry this is the payload', newEntry)
+	// console.log('got to addNewEntry this is the payload', newEntry)
 	return {
 		type: "ADD_NEW_ENTRY",
 		payload: newEntry
 	}
 }
 
-// fix this entryId or entrydata
+
 export const entryUpdateIsSuccessful = entry => {
 	console.log("got to entryUpdateIsSuccessful, entry:", entry)
 	return {
@@ -33,11 +33,11 @@ export const entryUpdateIsSuccessful = entry => {
 	}
 }
 
-export const deleteEntryIsSuccessful = (entryId) => {
-		console.log("got to deleteEntryIsSuccessful")
+export const deleteEntryIsSuccessful = (id) => {
+		console.log("got to deleteEntryIsSuccessful", id)
 	return {
 		type: "DELETE_ENTRY",
-		entryId
+		id
 	}
 }
 
@@ -98,7 +98,7 @@ export const createEntry = (entryData, history) => {
 		return fetch( "/entries", config)
 		.then(response => response.json())
 		.then(entry => {
-			console.log('entry in addNewEntry.data', entry.data.attributes)
+			// console.log('entry in addNewEntry.data', entry.data.attributes)
 			dispatch(addEntry(entry.data.attributes))
 			dispatch(resetEntryForm())
 			history.push(`/entries/${entry.data.id}`)
@@ -111,14 +111,12 @@ export const createEntry = (entryData, history) => {
 
 export const updateEntryForm = (entryData, history ) => {
 	console.log("got to action creator, entryData: ", entryData)
-	return dispatch => {
+	return (dispatch) => {
 		const sendableEntryData = {
       title: entryData.title,
 			content: entryData.content,
       user_id: entryData.currentUserId
     }
-    // console.log("sendableEntryData: ", sendableEntryData)
-
 		const config = {
 			method: 'PATCH',
 			credentials: "include",
@@ -128,14 +126,12 @@ export const updateEntryForm = (entryData, history ) => {
 				},
 			body: JSON.stringify(sendableEntryData)
 		}
-
 		return fetch( `/entries/${entryData.id}`, config)
 		.then(response => response.json())
 		.then(entry => {
 			if (entry.error) {
 				alert(entry.error)
 			} else {
-			console.log('updatedEntry.data', entry.data.attributes)
 			dispatch(entryUpdateIsSuccessful(entry.data.attributes))
 			dispatch(resetEntryForm())
 			history.push(`/entries/${entry.data.attributes.id}`)
@@ -145,24 +141,46 @@ export const updateEntryForm = (entryData, history ) => {
 	}
 }
 
-export const deleteEntry = (entryId, history) => {
+export const deleteEntry = (id, history) => {
+		// alert("got to deleteEntry")
+		console.log("got to delete entry, entryId", id)
+		console.log("got to delete entry, history", history)
+		const intId = parseInt(id)
 	return dispatch => {
-		const config = {
+    return fetch(`/entries/${intId}`, {
+			credentials: "include",
 			method: "DELETE",
-			credentials: "include",	
 			headers: {
 				"Content-Type": "application/json"
-			},
-		}
-
-		return fetch(`/entries/${entryId}`, config)
+				}
+			}
+		)
+		// .then(alert("got to fetch in deleteEntry"))
 		.then(response => response.json())
-		.then(resp => {
-		// 	if (resp.error) {
-		// 		alert(resp.error)
-		// 	} else {
-				dispatch(deleteEntryIsSuccessful(entryId))
+		.then((r) => {
+			if (r.error) {
+				alert(r.error)
+				} else {
 				history.push('/profile')
-			})
-		}
+				dispatch(deleteEntryIsSuccessful(id))
+			
+				
+				// 			{forceRefresh: true}
+				// const reload = history({forceRefresh: true})
+					
+				// if (currentUrl == newUrl) {
+   	//  			history.push("/profile");
+  		// 	  history.goBack();
+				// }
+				
+				// alert("dispatch done, ready to go somewhere")
+			
+			}
+				// alert("got past history push to profile")
+		})
+		.catch(err => console.log(err))
 	}
+}
+
+// For issue on reloading data after history.push: 
+// https://stackoverflow.com/questions/46820682/how-do-i-reload-a-page-with-react-router
