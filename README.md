@@ -1,7 +1,9 @@
-Mourning
+#Mourning
 Final project for Flatiron Software Engineer program
+Full CRUD functionality
 Backend: https://github.com/MiriamPeskowitz/mourningAPI
-React-Redux-Thunk
+
+# File Structure
 public
 src ---|
     --actions
@@ -11,13 +13,20 @@ src ---|
     --tests 
     App.js
     index.js
-Built with: 
+    
+#Languages/Libraries, etc 
 Ruby
 Rails
 React
 Redux
 Thunk
 
-Full CRUD functionality
 
-Screenshots
+
+#Screenshots
+
+
+
+
+
+
