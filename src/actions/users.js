@@ -1,13 +1,13 @@
 const getUsers = () => {
 	return (dispatch) => {
 		dispatch({
-			type: "LOADING_MOURNERS_NAMES"
+			type: "LOADING_ALL_USERS_NAMES"
 		})
 		return fetch("/users")
 		.then(res => res.json())
 		.then(users => {			
 			dispatch({
-			  type: "MOURNERS_LOADED", 
+			  type: "ALL_USERS_LOADED", 
 			  payload: users.data
 			})
 		})

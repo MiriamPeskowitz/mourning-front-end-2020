@@ -43,9 +43,6 @@ export const getCurrentUser = () => {
 			} else {
 				dispatch(setCurrentUser(response.data.attributes))
 				console.log("currentUser is (response.data.attributes.username): ", response.data.attributes.username)
-			
-				// alert(`Welcome, response.data.attributes.username`)
-				//dispatch get another kind of data needed) 
 			}
 		})
 		.catch(err => console.log(err))
@@ -55,6 +52,9 @@ export const getCurrentUser = () => {
 
 export const signup = (user, history) => {	
 	return (dispatch) => {
+		dispatch({
+			type: "LOADING_CURRENT_USER"
+		})
 		const config = {
 			method: 'POST',
 			credentials: "include",
@@ -66,7 +66,7 @@ export const signup = (user, history) => {
 			}
 		return fetch( "/users", config)
 			.then(response => response.json())
-			.then((user) => console.log("payload:user: ", user))
+			.then((user) => console.log("Signup response -- user: ", user))
 			.then((user) => {
 				if (user.error) {
 					alert(user.error)
@@ -99,7 +99,7 @@ export const login = (credentials, history) => {
 				alert(user.error)
 			} else {
 				dispatch(setCurrentUser(user))
-				console.log("user(action): ", user)
+				console.log("login- user(action): ", user)
 				history.push('/profile')
 			}
 		})

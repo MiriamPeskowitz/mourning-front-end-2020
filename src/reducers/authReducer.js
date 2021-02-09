@@ -1,5 +1,7 @@
 //holds login/logout and actions related to current user 
 //adding, updating, deleting pieces of their profile 
+import { SET_CURRENT_USER, CLEAR_CURRENT_USER, LOADING_CURRENT_USER, ADD_NEW_ENTRY, ENTRIES_LOADED, LOADING_ENTRIES, UPDATE_ENTRY, DELETE_ENTRY } from "../actions/types"
+
 const initialState = { 
 	currentUser: {
 		username: '',
@@ -7,33 +9,33 @@ const initialState = {
 		description: '',
 		id: '',
 		entries: [],
-		// loading: false
+		loading: false
 	 }
 	}
 
 export default(state = initialState, action) => {
 	switch(action.type){
 // login => sets current user
-		case "SET_CURRENT_USER":
+		case SET_CURRENT_USER:
 			return {
 				currentUser: action.payload,
-				// loading: false
+				loading: false
 			}
 		
-		case "LOADING_CURRENT_USER":
+		case LOADING_CURRENT_USER:
 			return {
 				...state, 
-				// loading: true
+				loading: true
 			}
 
 //logout => clears current user on front end 
-		case "CLEAR_CURRENT_USER":
+		case CLEAR_CURRENT_USER:
 			console.log("current user cleared")
 			return {
 				currentUser: ""
 			}
 
-		case "ADD_NEW_ENTRY":				
+		case ADD_NEW_ENTRY:				
 			const entry = {
 				id: action.payload.id,
 				title: action.payload.title,
@@ -47,7 +49,9 @@ export default(state = initialState, action) => {
 				}
 			}
 
-		case "UPDATE_ENTRY":
+//FIGURE OUT WHERE THIS COMES FROM -- SAME AS
+//UPDATE_EDITED_ENTRY? 
+		case UPDATE_ENTRY:
 		 const returnVal =  state.currentUser.entries.map(entry => entry.id === action.entry.id ? action.entry : entry)	 	
 		 return {
 		 	...state, 
@@ -57,7 +61,7 @@ export default(state = initialState, action) => {
 		 		}
 		 }
 
-		case "DELETE_ENTRY":	
+		case DELETE_ENTRY:	
 			const newEntries = state.currentUser.entries.filter(entry => entry.id === action.id ? false : true)
 			return {
 		 	...state, 

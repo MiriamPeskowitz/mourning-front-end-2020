@@ -261,4 +261,8 @@ Component structure; mirror ProfileEntryCards
 
 Smaller to-dos
 -- front end READme -- find a model , add api repo 
+-- fix signup, doesn't reset or push to new page, and shows error but the new user is created in the backend 
 
+Tuesday
+  -- wired up loading feature for welcome back username 
+  

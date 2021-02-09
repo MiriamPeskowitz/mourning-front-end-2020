@@ -1,3 +1,5 @@
+import { UPDATE_LOGIN_FORM, RESET_LOGIN_FORM } from "../actions/types"
+
 const initialState = {
 	username: "", 
 	password: "",
@@ -5,10 +7,10 @@ const initialState = {
 
 export default(state=initialState, action) => {
 	switch (action.type) {
-		case  "UPDATE_LOGIN_FORM":
+		case  UPDATE_LOGIN_FORM:
 		  return action.formData 
 		
-		case "RESET_LOGIN_FORM":
+		case RESET_LOGIN_FORM:
 		  return initialState
 		
 		default:

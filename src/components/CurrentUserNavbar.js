@@ -6,7 +6,7 @@ import '../stylesheets/App.css'
 const gray = {color: '#C0C0C0'};
 
 const CurrentUserNavbar = ( {currentUser} ) => {	
-	console.log("CUNavbar:currentUser", currentUser)
+	console.log("CUNavbar:currentUser", currentUser.loading)
 	return (
 		<>
 		  <ul className="navbar">
@@ -15,7 +15,9 @@ const CurrentUserNavbar = ( {currentUser} ) => {
 		 		<li> <NavLink style={gray} exact to="/profile">My Profile</NavLink> </li> 
 		    <li> <NavLink style={gray} exact to="/logout">Logout</NavLink> </li> 			    
 		  </ul> 
-		  <p>    Welcome back, {currentUser.username} </p>
+		 <div>
+		  	{currentUser.loading ? <p>Loading...</p> : <p>Welcome back, {currentUser.username}</p>}
+	   </div>
 	  </>
 	)
 }
