@@ -4,7 +4,7 @@ import MemoryCards from './MemoryCards'
 import ProfileEntryCards from './ProfileEntryCards'
 import CurrentUserNavBar from './CurrentUserNavbar'
 import { Link, withRouter } from 'react-router-dom'
-import { Button, Card, Container } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 
 const Profile = ({ currentUser, history}) => {
 	return (

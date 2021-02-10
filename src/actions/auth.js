@@ -1,6 +1,6 @@
 import { resetSignupForm } from "./signupForm"
 import { resetLoginForm } from "./loginForm"
-import { clearEntries } from "./entries"
+// import { clearEntries } from "./entries"
 
 export const setCurrentUser = user => {
 	console.log("user in setCurrentUser:,", user)
@@ -11,9 +11,9 @@ export const setCurrentUser = user => {
 }
 
 export const clearCurrentUser = () => {
-	console.log("got to ccu")
+	console.log("got to action-ccu")
 	return {
-		type: 'CLEAR_CURRENT_USER'
+		type: "CLEAR_CURRENT_USER"
 	}
  }
 
@@ -112,13 +112,18 @@ export const login = (credentials, history) => {
 
 export const logOut = (event) => {	
 	console.log("got to logOut action creator")
-	return (dispatch) => {	
-		dispatch(clearCurrentUser)	
-		dispatch(clearEntries)
-		return fetch("/logout", {
-      credentials: "include",
-      method: "DELETE"
-    })
+	return dispatch => {			// return fetch("/logout", {
+  //     credentials: "include",
+  //     method: "DELETE"
+  //   })
+  //   // .then(r => r.json())
+  //   .then(response => {
+  //   	if (response.notice) { alert(response.notice)}
+  //   })
+  //   .then ( () => {
+    	dispatch(clearCurrentUser)	
+			// dispatch(clearEntries)
+		// })
   }
 }
 

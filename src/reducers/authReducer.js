@@ -15,22 +15,25 @@ const initialState = {
 export default(state = initialState, action) => {
 	switch(action.type){
 // login/signup => sets current user
+//this may be setting current user in diff format from the others/ 
 		case SET_CURRENT_USER:
 			return {
 				currentUser: action.payload
 			}
 		
-		case LOADING_CURRENT_USER:
-			return {
-				...state
-			}
+		// case LOADING_CURRENT_USER:
+		// 	return {
+		// 		...state
+		// 	}
 
 //logout => clears current user on front end 
 		case CLEAR_CURRENT_USER:
 			console.log("current user cleared")
-			return {
-				currentUser: ""
-			}
+			// alert("got to CCU Reducer")
+			return initialState
+				// 
+				// currentUser: ""
+			
 
 		case ADD_NEW_ENTRY:				
 			const entry = {

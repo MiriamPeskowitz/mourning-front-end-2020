@@ -6,9 +6,10 @@ import '../stylesheets/App.css'
 const gray = {color: '#C0C0C0'};
 
 const CurrentUserNavbar = ( {currentUser} ) => {	
-	console.log("CUNavbar:currentUser", currentUser.loading)
+	console.log("CUNavbar:currentUser", currentUser)
 	return (
 		<>
+			<p>Welcome back, {currentUser.username}</p>
 		  <ul className="navbar">
 		 		<li> <NavLink style={gray} exact to="/">Home</NavLink> </li> 
 		 		<li> <NavLink style={gray} exact to="/story">About</NavLink> </li> 
@@ -16,7 +17,6 @@ const CurrentUserNavbar = ( {currentUser} ) => {
 		    <li> <NavLink style={gray} exact to="/logout">Logout</NavLink> </li> 			    
 		  </ul> 
 		 <div>
-		  	{currentUser.loading ? <p>Loading...</p> : <p>Welcome back, {currentUser.username}</p>}
 	   </div>
 	  </>
 	)
@@ -27,3 +27,6 @@ const mapStateToProps = state => {
 	}
 }
 export default connect(mapStateToProps, null)(CurrentUserNavbar)
+
+// {currentUser.loading ? <p>Loading...</p> : <p>Welcome back, {currentUser.username}</p>}
+

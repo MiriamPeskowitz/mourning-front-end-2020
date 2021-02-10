@@ -1,13 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { logOut } from "../actions/auth.js"
+import { logOut, clearCurrentUser } from "../actions/auth.js"
 import { withRouter } from 'react-router-dom'
 
-const Logout = ({ logOut, history}) => {
+const Logout = ({ logOut, clearCurrentUser, history}) => {
 	return (
 		<form onSubmit = {(event) => {
 			event.preventDefault()
-			logOut()
+	
+			clearCurrentUser()
 			history.push('/exit')
 			}
 		}>
@@ -16,5 +17,5 @@ const Logout = ({ logOut, history}) => {
 	)
 }
 
-export default withRouter(connect(null, { logOut} )(Logout))
-
+export default withRouter(connect(null, { logOut, clearCurrentUser} )(Logout))
+		// logOut()
