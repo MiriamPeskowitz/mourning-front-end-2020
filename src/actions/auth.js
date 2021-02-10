@@ -51,6 +51,7 @@ export const getCurrentUser = () => {
 
 
 export const signup = (user, history) => {	
+	console.log("signup", history)
 	return (dispatch) => {
 		dispatch({
 			type: "LOADING_CURRENT_USER"
@@ -66,20 +67,21 @@ export const signup = (user, history) => {
 			}
 		return fetch( "/users", config)
 			.then(response => response.json())
-			.then((user) => console.log("Signup response -- user: ", user))
-			.then((user) => {
-				if (user.error) {
-					alert(user.error)
-				} else {
-					history.push('/profile')
+			.then(user => {
+
+				// if (user.error) {
+				// 	alert(user.error)
+				// } else {
+					console.log("Signup response -- user: ", user)
+					dispatch(setCurrentUser(user.data.attributes))
 					dispatch(resetSignupForm())	
-					dispatch(setCurrentUser(user.data))
-					
-				}
+					history.push('/profile')
+				// }
 			})
-			.catch(error=> console.log("from actions/auth.js: signup didn't work"))
+			.catch(err=> console.log(err))
 	}
 }
+//could refactor with getMyEntries after setCurrentuser, if I wanted to totally refactor the reducer structure 
 
 //send credentials, if good, setcurrentuser and go to profile page 
 export const login = (credentials, history) => {

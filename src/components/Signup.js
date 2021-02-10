@@ -13,12 +13,12 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
   	updateSignupForm(updatedSignupForm)
   } 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, history) => {
   	e.preventDefault()	
 
     if (signupFormData.password === signupFormData.password_confirmation) {
-      signup(signupFormData)
-      console.log("passwords match. newUser can SignUp: ", signupFormData)
+      console.log("passwords match. newUser can SignUp: ", signupFormData, history)
+      signup(signupFormData, history)
     } else {
       alert("passwords don't match; can you fix?")
     }

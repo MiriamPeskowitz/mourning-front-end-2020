@@ -1,6 +1,6 @@
 //holds login/logout and actions related to current user 
 //adding, updating, deleting pieces of their profile 
-import { SET_CURRENT_USER, CLEAR_CURRENT_USER, LOADING_CURRENT_USER, ADD_NEW_ENTRY, ENTRIES_LOADED, LOADING_ENTRIES, UPDATE_ENTRY, DELETE_ENTRY } from "../actions/types"
+import { SET_CURRENT_USER, CLEAR_CURRENT_USER, LOADING_CURRENT_USER, ADD_NEW_ENTRY, UPDATE_ENTRY, DELETE_ENTRY } from "../actions/types"
 
 const initialState = { 
 	currentUser: {
@@ -9,23 +9,20 @@ const initialState = {
 		description: '',
 		id: '',
 		entries: [],
-		loading: false
 	 }
 	}
 
 export default(state = initialState, action) => {
 	switch(action.type){
-// login => sets current user
+// login/signup => sets current user
 		case SET_CURRENT_USER:
 			return {
-				currentUser: action.payload,
-				loading: false
+				currentUser: action.payload
 			}
 		
 		case LOADING_CURRENT_USER:
 			return {
-				...state, 
-				loading: true
+				...state
 			}
 
 //logout => clears current user on front end 
