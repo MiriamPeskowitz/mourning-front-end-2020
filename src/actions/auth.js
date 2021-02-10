@@ -112,18 +112,19 @@ export const login = (credentials, history) => {
 
 export const logOut = (event) => {	
 	console.log("got to logOut action creator")
-	return dispatch => {			// return fetch("/logout", {
-  //     credentials: "include",
-  //     method: "DELETE"
-  //   })
-  //   // .then(r => r.json())
-  //   .then(response => {
-  //   	if (response.notice) { alert(response.notice)}
-  //   })
-  //   .then ( () => {
+	return dispatch => {			// 
+		return fetch("/logout", {
+      credentials: "include",
+      method: "DELETE"
+    })
+    .then(r => r.json())
+    .then(response => {
+    	if (response.notice) { alert(response.notice)}
+    })
+    .then ( () => {
     	dispatch(clearCurrentUser)	
 			// dispatch(clearEntries)
-		// })
+		})
   }
 }
 

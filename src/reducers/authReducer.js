@@ -29,7 +29,7 @@ export default(state = initialState, action) => {
 //logout => clears current user on front end 
 		case CLEAR_CURRENT_USER:
 			console.log("current user cleared")
-			// alert("got to CCU Reducer")
+		
 			return initialState
 				// 
 				// currentUser: ""
