@@ -17,14 +17,11 @@ export default(state = initialState, action) => {
 // login/signup => sets current user
 //this may be setting current user in diff format from the others/ 
 		case SET_CURRENT_USER:
+		console.log("SET_CURRENT_USER-reducer", action.payload)
 			return {
 				currentUser: action.payload
 			}
 		
-		// case LOADING_CURRENT_USER:
-		// 	return {
-		// 		...state
-		// 	}
 
 //logout => clears current user on front end 
 		case CLEAR_CURRENT_USER:

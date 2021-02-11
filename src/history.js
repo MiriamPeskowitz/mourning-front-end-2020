@@ -42,10 +42,13 @@ function HomeButton() {
   );
 }
 
+
+and 
+<Route .... path.. render={(props) => <SignUp />
+
 or: !!
 f you are using redux and redux-thunk the best solution will be using react-router-redux
 
 import { push } from 'react-router-redux'
-<Route .... path.. render={(props) => <SignUp />
 
 dispatch(push('/some/path'))

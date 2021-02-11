@@ -5,7 +5,7 @@ import ProfileEntryCards from './ProfileEntryCards'
 import CurrentUserNavBar from './CurrentUserNavbar'
 import { Link, withRouter } from 'react-router-dom'
 import { Button, Container } from 'react-bootstrap'
-
+//withRouter might be extra, since Profile is child of Router in App.js 
 const Profile = ({ currentUser, history}) => {
 	return (
 		<>
@@ -13,15 +13,16 @@ const Profile = ({ currentUser, history}) => {
 				<div className="profile">
 					<CurrentUserNavBar currentUser={currentUser} />
 				
-						<div className="profile-entry-cards">
-							<h3>My Entries</h3>
-								<Button variant="secondary"><Link to="entries/new">Create a new entry </Link></Button>
-					
-								<ProfileEntryCards />
-					
-						</div>
-				
-					<div className="profile-memory-cards">
+					<div className="profile-entry-cards">
+						<h3>My Entries</h3>
+						<Button variant="secondary">
+							<Link to="entries/new">Create a new entry </Link>
+						</Button>
+			
+						<ProfileEntryCards entries={currentUser.entries} />	
+					</div>
+			
+				<div className="profile-memory-cards">
 						<h3>People I Remember</h3>
 						<Button variant="secondary"><Link to="memories/new">Create a new memory card </Link></Button>
 						<MemoryCards />	

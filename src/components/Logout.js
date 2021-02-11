@@ -8,7 +8,7 @@ const Logout = ({ logOut, clearCurrentUser, history}) => {
 		<form onSubmit = {(event) => {
 			event.preventDefault()
 	
-			clearCurrentUser()
+			logOut()
 			history.push('/exit')
 			}
 		}>

@@ -1,6 +1,5 @@
 import { resetSignupForm } from "./signupForm"
 import { resetLoginForm } from "./loginForm"
-// import { clearEntries } from "./entries"
 
 export const setCurrentUser = user => {
 	console.log("user in setCurrentUser:,", user)
@@ -11,7 +10,7 @@ export const setCurrentUser = user => {
 }
 
 export const clearCurrentUser = () => {
-	console.log("got to action-ccu")
+	console.log("got to action-clearCurrentUser")
 	return {
 		type: "CLEAR_CURRENT_USER"
 	}
@@ -26,9 +25,9 @@ export const currentUserLoading = () => {
 
 //use dispatch when thunk/async is involved 
 export const getCurrentUser = () => {
-	console.log('first')
 	return dispatch => {
 		dispatch(currentUserLoading())
+
 		return fetch("/get_current_user", {
 			credentials: "include",
 			method: "GET",
@@ -110,9 +109,11 @@ export const login = (credentials, history) => {
 	}
 }
 
+//why does this need an event arg? 
 export const logOut = (event) => {	
 	console.log("got to logOut action creator")
-	return dispatch => {			// 
+	return dispatch => {	
+		dispatch(clearCurrentUser)			// 
 		return fetch("/logout", {
       credentials: "include",
       method: "DELETE"
@@ -121,10 +122,6 @@ export const logOut = (event) => {
     .then(response => {
     	if (response.notice) { alert(response.notice)}
     })
-    .then ( () => {
-    	dispatch(clearCurrentUser)	
-			// dispatch(clearEntries)
-		})
   }
 }
 
