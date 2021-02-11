@@ -11,20 +11,20 @@ const Profile = ({ currentUser, history}) => {
 		<>
 			<Container fluid>
 				<div className="profile">
-					<CurrentUserNavBar currentUser={currentUser} />
+					<CurrentUserNavBar />
 				
 					<div className="profile-entry-cards">
-						<h3>My Entries</h3>
+						<h3>{currentUser.username}'s Entries</h3>
 						<Button variant="secondary">
 							<Link to="entries/new">Create a new entry </Link>
 						</Button>
 			
-						<ProfileEntryCards entries={currentUser.entries} />	
+						<ProfileEntryCards />	
 					</div>
 			
 				<div className="profile-memory-cards">
 						<h3>People I Remember</h3>
-						<Button variant="secondary"><Link to="memories/new">Create a new memory card </Link></Button>
+						<Button variant="secondary"><Link to="memories/new">Coming Soon: create a new memory card </Link></Button>
 						<MemoryCards />	
 					</div>
 				</div>
@@ -33,7 +33,8 @@ const Profile = ({ currentUser, history}) => {
 	)
 }
 					// <h2>{currentUser.username}'s page</h2>
-	
+						// <CurrentUserNavBar currentUser={currentUser} />
+
 const mapStateToProps = state => {
 	return ({
 			currentUser: state.authReducer.currentUser		

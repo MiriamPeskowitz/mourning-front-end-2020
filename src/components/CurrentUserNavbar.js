@@ -5,6 +5,7 @@ import '../stylesheets/App.css'
 
 const gray = {color: '#C0C0C0'};
 
+//make link a button? 
 const CurrentUserNavbar = ( {currentUser} ) => {	
 	console.log("CUNavbar:currentUser", currentUser)
 	return (

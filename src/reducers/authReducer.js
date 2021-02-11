@@ -28,9 +28,7 @@ export default(state = initialState, action) => {
 			console.log("current user cleared")
 		
 			return initialState
-				// 
-				// currentUser: ""
-			
+				
 
 		case ADD_NEW_ENTRY:				
 			const entry = {
