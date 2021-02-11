@@ -1,7 +1,7 @@
 //holds login/logout and actions related to current user 
 //adding, updating, deleting pieces of their profile 
-import { SET_CURRENT_USER, CLEAR_CURRENT_USER, LOADING_CURRENT_USER, ADD_NEW_ENTRY, UPDATE_ENTRY, DELETE_ENTRY } from "../actions/types"
-
+import { SET_CURRENT_USER, CLEAR_CURRENT_USER,  ADD_NEW_ENTRY, UPDATE_ENTRY, DELETE_ENTRY } from "../actions/types"
+// LOADING_CURRENT_USER,
 const initialState = { 
 	currentUser: {
 		username: '',

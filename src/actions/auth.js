@@ -68,14 +68,14 @@ export const signup = (user, history) => {
 			.then(response => response.json())
 			.then(user => {
 
-				// if (user.error) {
-				// 	alert(user.error)
-				// } else {
+				if (user.error) {
+					alert(user.error)
+				} else {
 					console.log("Signup response -- user: ", user)
 					dispatch(setCurrentUser(user.data.attributes))
 					dispatch(resetSignupForm())	
 					history.push('/profile')
-				// }
+				}
 			})
 			.catch(err=> console.log(err))
 	}

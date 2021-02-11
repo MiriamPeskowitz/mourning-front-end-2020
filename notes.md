@@ -260,9 +260,16 @@ Component structure; mirror ProfileEntryCards
 - 
 
 Smaller to-dos
--- front end READme -- find a model , add api repo 
--- fix signup, doesn't reset or push to new page, and shows error but the new user is created in the backend 
+-- DONE, for nowfront end READme -- find a model , add api repo 
+-- fix signup, doesn't reset or push to new page, and shows error but the new user is created in the backend DONE, i think 
 
 Tuesday
-  -- wired up loading feature for welcome back username 
-  
+  -- DONE wired up loading feature for welcome back username DONE
+  -- DONE action types? DONE, for convention's sake; debugging, using constants not strings as case names, per redux docs. 
+  -- How to edit your personal description, user.description
+  -- How to add date of death there -- add attribute to model 
+  -- DONE change users call to be like the others DONE
+  --logout -> home. Doesn't reset the currentuser to none 
+
+  -- reverse list -- DONE
+  -- how to limit list and add a more button? 
