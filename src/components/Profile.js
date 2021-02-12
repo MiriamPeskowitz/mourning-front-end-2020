@@ -36,8 +36,6 @@ const Profile = ({ currentUser, history}) => {
 		</>
 	)
 }
-					// <h2>{currentUser.username}'s page</h2>
-						// <CurrentUserNavBar currentUser={currentUser} />
 
 const mapStateToProps = state => {
 	return ({

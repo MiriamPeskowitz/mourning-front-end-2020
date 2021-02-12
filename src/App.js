@@ -37,6 +37,7 @@ class App extends Component {
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/logout" component={Logout} />
 						<Route exact path="/profile" component={Profile} />
+
 						<Route exact path="/entries/new" component={CreateEntryForm} />
 						<Route exact path='/entries/:id' render={ (props) => {
        				const id = parseInt(props.match.params.id)
@@ -59,7 +60,6 @@ class App extends Component {
 	  )
 	}
 }
-// <Route exact path="/description/edit" component={DescriptionCardEditForm} />
 
 
 const mapStateToProps = (state) => {
@@ -68,3 +68,5 @@ const mapStateToProps = (state) => {
 	})
 }
 export default connect(mapStateToProps, { getCurrentUser })(App);
+
+						// <Route exact strict path="/description/edit" component={DescriptionCardEditForm} />

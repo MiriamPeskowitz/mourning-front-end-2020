@@ -7,7 +7,7 @@ const DescriptionCard = ({description}) => {
 		
 		return (
 			<>
-				<h3>What brought you here? Who have you lost?</h3>
+				<h3>What brought you here? Whom have you lost?</h3>
 				<p>{description} </p>
 				<Button variant="secondary">
 					<Link to="description/edit">Coming soon:Edit your description </Link>

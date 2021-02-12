@@ -1,22 +1,9 @@
-Next: 
--- DONE get rid of bullets with list, 
 
--- DONE Make nav bar for real: clarify workflow: navbar with links, the route
-	-- DONE navigation moved to navbar.js
-	-- DONE what is the right syntax for where the switch goes? 
--- DONE Fix color of nav bar buttons 
-	-- Need to get the auth working 
-	-- Need to organize what shows when, 
+
+ 
 
 	-- fix css centering etc  
 
-	-- build out auth 
-		-- DONE add user signup
-			-- DONE test out file? adds to db? WORKS!!
-			-- add rest -- including history 
-		-- DONE add login
-
--- add jwt 
 
 
 		-- the blue line, chrome => accessibility https://stackoverflow.com/questions/42423371/how-do-i-remove-the-blue-border-that-appears-when-clicking-on-a-uib-accordion-he
@@ -43,46 +30,9 @@ The sign-in isn't working. Why?
 User has Entries. User has Profile 
 
 
-Signup: 
--get data
---this.props.signupUser(user, () => this.props.history.push('/'))
-
-
-Wednesday: okay, try to use spacecowboy as a model, and redo/simplify mine. The focus is the profile page -- the homepage just pulls from stuff. Homepage is the currentUser 
-
-Mon Jan 11 
-Goal: be able to get current user
-Starting again. Decided to use sessions first, then change to JWT 
--- fix sessions and applicationController -- 
-
- Tuesday. start with getCurrentUser 
---action -- getCurrentUser 
--- reducer -- DONE 
-Current User -- almost,
-Do a big debug of all the login/signup stuff. 
-Start with signup 
-signup -- is new entry created? 
------ created and fixed up signup
-
--- DONE ALSO: something is stuck, FIXED
---DONEALSO: signupFormData is undefined -- FIX THIS MIDNIGHT< got it. I 
-was calling signupFormData: state.signupForm when 
-it needed to be signupFormData: state.signupFormReducer. BUT I FIGURED IT OUT> 
-NOW: signup page loads. 
-NEXT: make the backend work for signup-- DONE 
-
-NEXT: Once signup works, make login work, and then 
-get current user. Then I'm done -- can make more features in profile, including entries 
-
-Thursday: 
-NEXT: Fix the logout, esp the backend. Follow the flow of data. 
-
 https://dev.to/mmcclure11/flatiron-final-project-rails-api-react-redux-e0g
 
-Thurs at 1.50. Auth is working, logout works, now: something is happening, where loginReducer is clearing Welcome user prints, then user deletes 
-Figure out why. 
-
-Thursday afternoon 
+ 
 -- mostly fixed, there is an async issue that I need to figure out. 
 --star work on profile. Look at caring bridge and make a list of what should go here. 
 
@@ -90,33 +40,12 @@ People I am mourning. What should I call this category?
 	name, age, relationship. date of death. notes. images 
 	Card for each one 
 	They can stack up. 
-Am I writing to me, or writing for others? 
-Entries. 
-	this is under user.entries etc 
 
 --small fixes, add capitalization to username 
 Profile --new build out from here. 
 	EntryForm
 	PersonalEntries
 	AllEntries
-
-actions/entries.js
-I have the general -- now I need to add the show -- the create.
-
-
-CreateEntryForm
--- frontend WORKS, make sure addEntry action creators work 
--- connect to backend. What is the route, to get to user.entry 
-	-- fixed action-creator DONE
-	-- made reducer add entry DONE
-	-- routes? should be part of RESTFUl - DONE 
-	-- create DONE
-	-- transmit user id from front-end, OR DONE
-	capture current_user, since only current_user will make an entry 
-j_all = j.entries.all
-j_all.map {|entry| entry.title}
-	way to get titles, for a frontend list 
-http://localhost:3001/api/v1/users/31
 
 Works!!! Entries appear on the profile page! 
 
@@ -129,27 +58,7 @@ Monday
    -- profile routing -- profile should be users/1, etc 
   Monday night: added cards, can click on an entry to edit (and eventually delete) NEXT: the data doesn't go through. I can get from profile to http://localhost:3000/entry/14 -- but what shows up is the null part of the ternary, as if data isn't coming through yet  `
 
-entry on Entry card is undefined -- not getting passed through 
-match.params.id is a string not integer --> 
-
-{history: {…}, location: {…}, match: {…}, staticContext: undefined}
-history: {length: 50, action: "PUSH", location: {…}, createHref: ƒ, push: ƒ, …}
-location: {pathname: "/entry/9", search: "", hash: "", state: undefined, key: "66cojz"}
-match:
-isExact: true
-params:
-id: "9"
-__proto__: Object
-path: "/entry/:id"
-url: "/entry/9"
-__proto__: Object
-staticContext: undefined
-__proto__: Object
-
  -- then do Bootstrap
-
--- change home page -- make names a separate category, separate from the
-descriptions, so home page has three colored sections 
 
 -- Stretch: do the People I remember cards. 
 Model: dead_people -- user has_many my_people
