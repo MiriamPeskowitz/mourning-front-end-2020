@@ -76,10 +76,7 @@ export const createEntry = (entryData, history) => {
 			content: entryData.entryFormData.content,
       user_id: entryData.currentUserId
     }
-   
-			 // public: formData.public
-  			 //date? or take from date-create on the back end 	
-  	
+     	console.log("sendableEntryData", sendableEntryData)
 		const config = {
 			method: 'POST',
 			credentials: "include",
@@ -93,7 +90,7 @@ export const createEntry = (entryData, history) => {
 		return fetch( "/entries", config)
 		.then(response => response.json())
 		.then(entry => {
-			// console.log('entry in addNewEntry.data', entry.data.attributes)
+			console.log('entry in addNewEntry.data', entry.data)
 			dispatch(addEntry(entry.data.attributes))
 			dispatch(resetEntryForm())
 			history.push(`/entries/${entry.data.id}`)

@@ -1,20 +1,20 @@
-const getUsers = () => {
+export const getUsers = () => {
 	return (dispatch) => {
 		dispatch({
-			type: "LOADING_MOURNERS_NAMES"
+			type: "LOADING_ALL_USERS_NAMES"
 		})
 		return fetch("/users")
 		.then(res => res.json())
 		.then(users => {			
 			dispatch({
-			  type: "MOURNERS_LOADED", 
+			  type: "ALL_USERS_LOADED", 
 			  payload: users.data
 			})
 		})
 	}
 }
 
-export default getUsers
+
 
 //these are action creators; functions that are dispatched to emit a change: they return a function 
 //when action is dispatched, it hits a reducer, which is a pure function, the reducer changes the state and returns a modified copy. 

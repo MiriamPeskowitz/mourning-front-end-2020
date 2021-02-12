@@ -1,13 +1,15 @@
+import { LOADING_ALL_USERS_NAMES, ALL_USERS_LOADED  } from "../actions/types"
+
 export default(state = {users: [], loading: false}, action) => {
 
 	switch(action.type){
-		case "LOADING_MOURNERS_NAMES":
+		case LOADING_ALL_USERS_NAMES:
 			return {
 				...state,
 				loading: true
 			}
 		
-		case "MOURNERS_LOADED":
+		case ALL_USERS_LOADED :
 			return {
 				...state,
 				users: action.payload,

@@ -1,6 +1,5 @@
 import { resetSignupForm } from "./signupForm"
 import { resetLoginForm } from "./loginForm"
-import { clearEntries } from "./entries"
 
 export const setCurrentUser = user => {
 	console.log("user in setCurrentUser:,", user)
@@ -11,9 +10,9 @@ export const setCurrentUser = user => {
 }
 
 export const clearCurrentUser = () => {
-	console.log("got to ccu")
+	console.log("got to action-clearCurrentUser")
 	return {
-		type: 'CLEAR_CURRENT_USER'
+		type: "CLEAR_CURRENT_USER"
 	}
  }
 
@@ -26,9 +25,9 @@ export const currentUserLoading = () => {
 
 //use dispatch when thunk/async is involved 
 export const getCurrentUser = () => {
-	console.log('first')
 	return dispatch => {
 		dispatch(currentUserLoading())
+
 		return fetch("/get_current_user", {
 			credentials: "include",
 			method: "GET",
@@ -43,9 +42,6 @@ export const getCurrentUser = () => {
 			} else {
 				dispatch(setCurrentUser(response.data.attributes))
 				console.log("currentUser is (response.data.attributes.username): ", response.data.attributes.username)
-			
-				// alert(`Welcome, response.data.attributes.username`)
-				//dispatch get another kind of data needed) 
 			}
 		})
 		.catch(err => console.log(err))
@@ -54,7 +50,11 @@ export const getCurrentUser = () => {
 
 
 export const signup = (user, history) => {	
+	console.log("signup", history)
 	return (dispatch) => {
+		dispatch({
+			type: "LOADING_CURRENT_USER"
+		})
 		const config = {
 			method: 'POST',
 			credentials: "include",
@@ -66,20 +66,21 @@ export const signup = (user, history) => {
 			}
 		return fetch( "/users", config)
 			.then(response => response.json())
-			.then((user) => console.log("payload:user: ", user))
-			.then((user) => {
+			.then(user => {
+
 				if (user.error) {
 					alert(user.error)
 				} else {
-					history.push('/profile')
+					console.log("Signup response -- user: ", user)
+					dispatch(setCurrentUser(user.data.attributes))
 					dispatch(resetSignupForm())	
-					dispatch(setCurrentUser(user.data))
-					
+					history.push('/profile')
 				}
 			})
-			.catch(error=> console.log("from actions/auth.js: signup didn't work"))
+			.catch(err=> console.log(err))
 	}
 }
+//could refactor with getMyEntries after setCurrentuser, if I wanted to totally refactor the reducer structure 
 
 //send credentials, if good, setcurrentuser and go to profile page 
 export const login = (credentials, history) => {
@@ -98,9 +99,12 @@ export const login = (credentials, history) => {
 			if (user.error) {
 				alert(user.error)
 			} else {
-				dispatch(setCurrentUser(user))
-				console.log("user(action): ", user)
-				history.push('/profile')
+				dispatch(setCurrentUser(user.data.attributes))
+				console.log("login- user(action): ", user.data.attributes)
+				history.push('/')
+									//is this history.push(/profile) the problem, in why I get the
+									//error when loading the profile entry cards -- 
+
 			}
 		})
 		.then(dispatch(resetLoginForm()))
@@ -108,14 +112,20 @@ export const login = (credentials, history) => {
 	}
 }
 
+//why does this need an event arg? 
 export const logOut = (event) => {	
 	console.log("got to logOut action creator")
-	return (dispatch) => {	
-		dispatch(clearCurrentUser)	
-		dispatch(clearEntries)
+	return dispatch => {	
+		dispatch(clearCurrentUser())			 
 		return fetch("/logout", {
       credentials: "include",
       method: "DELETE"
+    })
+    .then(r => r.json())
+    .then(response => {
+    	if (response.notice) { 
+    		alert(response.notice)
+    	}
     })
   }
 }

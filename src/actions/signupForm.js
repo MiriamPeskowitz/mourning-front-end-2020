@@ -10,5 +10,3 @@ export const resetSignupForm = () => {
 		type: "RESET_SIGNUP_FORM"
 	}
 }
-
-//refactor into single line 

@@ -17,8 +17,8 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
   	e.preventDefault()	
 
     if (signupFormData.password === signupFormData.password_confirmation) {
-      signup(signupFormData)
-      console.log("passwords match. newUser can SignUp: ", signupFormData)
+      console.log("passwords match. newUser can SignUp: ", signupFormData, history)
+      signup(signupFormData, history)
     } else {
       alert("passwords don't match; can you fix?")
     }
