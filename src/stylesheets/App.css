@@ -1,7 +1,6 @@
 body {
   /*background-color: #696969;*/
- 
-}
+ }
 
 ul {
   margin: 0;
@@ -19,11 +18,11 @@ li {
 }
 
 a:link {
-  color: blue;
+  color: yellow;
 }
 
 a:visited {
-  color: yellow;
+  color: white;
 }
 
 a:hover, a:active {
@@ -75,6 +74,19 @@ a:hover, a:active {
   align-items: center;
 }
 
+.nav-bar {
+  display: inline-block;  
+  padding: 1em; 
+}
+
 .description-card {
   bottom-margin: 50px;
 }
+/*signup */
+.input-field{
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+  }

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { signup } from '../actions/auth.js'
 import { updateSignupForm } from '../actions/signupForm.js'
-import '../stylesheets/Signup.css'
+// import '../stylesheets/Signup.css'
 
 const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
   const handleChange = (e) => {
