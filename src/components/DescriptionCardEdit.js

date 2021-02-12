@@ -1,0 +1,19 @@
+import React from 'react'
+// import { connect } from 'react-redux'
+
+
+const DescriptionCardEdit = () => {
+	return (
+		<p>DescriptionCardEdit </p>
+		)
+}
+
+//needs prepopulated form,
+// const mapStateToProps = state => {
+// 	return ({
+// 		description: state.authReducer.currentUser.description
+// 	})
+// }
+	
+export default DescriptionCardEdit
+// connect(mapStateToProps, null )

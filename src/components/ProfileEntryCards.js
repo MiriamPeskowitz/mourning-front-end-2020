@@ -19,9 +19,12 @@ const ProfileEntryCards = ( {entries} ) => {
 
 
 	return (	
-		<div className="profile-entry-cards">
-			{ myEntryCards }
-		</div>	
+		<>
+			<div className="profile-entry-cards">
+				{ myEntryCards }
+			</div>	
+			<br/>
+		</>
 	)
 }
 

@@ -72,5 +72,9 @@ a:hover, a:active {
 .center {
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
+}
+
+.description-card {
+  bottom-margin: 50px;
 }
