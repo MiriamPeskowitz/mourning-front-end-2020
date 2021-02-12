@@ -13,7 +13,7 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
   	updateSignupForm(updatedSignupForm)
   } 
 
-  const handleSubmit = (e, history) => {
+  const handleSubmit = (e) => {
   	e.preventDefault()	
 
     if (signupFormData.password === signupFormData.password_confirmation) {

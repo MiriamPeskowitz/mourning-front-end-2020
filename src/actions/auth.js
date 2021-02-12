@@ -99,8 +99,8 @@ export const login = (credentials, history) => {
 			if (user.error) {
 				alert(user.error)
 			} else {
-				dispatch(setCurrentUser(user))
-				console.log("login- user(action): ", user)
+				dispatch(setCurrentUser(user.data.attributes))
+				console.log("login- user(action): ", user.data.attributes)
 				history.push('/')
 									//is this history.push(/profile) the problem, in why I get the
 									//error when loading the profile entry cards -- 
@@ -116,7 +116,7 @@ export const login = (credentials, history) => {
 export const logOut = (event) => {	
 	console.log("got to logOut action creator")
 	return dispatch => {	
-		dispatch(clearCurrentUser)			 
+		dispatch(clearCurrentUser())			 
 		return fetch("/logout", {
       credentials: "include",
       method: "DELETE"
