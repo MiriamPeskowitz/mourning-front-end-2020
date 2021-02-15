@@ -1,5 +1,10 @@
 import { resetMemoryForm } from "./memoryForm"
+//sync
+export const addMemory = () => {
+	console.log("got to addMemory")
+}
 
+//async
 export const createMemory = (data, history) => {
 	console.log("Got to createMemories")
 	return (dispatch) => {
