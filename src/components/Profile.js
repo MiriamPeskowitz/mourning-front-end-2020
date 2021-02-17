@@ -26,7 +26,7 @@ const Profile = ({ currentUser, history}) => {
 					</div>
 			
 					<div className="profile-memory-cards">
-						<h3>People I Remember</h3>
+						<h3>Coming Soon: People I Remember</h3>
 						<Button variant="secondary"><Link to="memories/new">Coming Soon: create a new memory card </Link></Button>
 						<MemoryCards />	
 					</div>
@@ -36,8 +36,6 @@ const Profile = ({ currentUser, history}) => {
 		</>
 	)
 }
-					// <h2>{currentUser.username}'s page</h2>
-						// <CurrentUserNavBar currentUser={currentUser} />
 
 const mapStateToProps = state => {
 	return ({

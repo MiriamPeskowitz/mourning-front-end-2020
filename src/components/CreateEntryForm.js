@@ -25,7 +25,7 @@ const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateNewE
 			<h3>Create a new entry</h3>
 			<form onSubmit={handleSubmit}> 
 				
-				<Form.Group row controlId="formGroupTitle">
+				<Form.Group controlId="formGroupTitle">
 					<Col md>
 					<input
 						placeholder="title"
@@ -38,7 +38,7 @@ const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateNewE
 				</Col>
 				</Form.Group>
 
-				<Form.Group row controlId="formGroupContent">
+				<Form.Group controlId="formGroupContent">
 					<Col md>
 						<input 
 							placeholder="How are you feeling?"

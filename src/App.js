@@ -16,7 +16,8 @@ import { Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import Container from 'react-bootstrap/Container'
 import CreateMemoryForm from './components/CreateMemoryForm'
-// import DescriptionCardEdit from './components/DescriptionCardEdit'
+// import DescriptionCardEditForm from './components/DescriptionCardEditForm'
+import DescriptionCard from './components/DescriptionCard'
 
 
 class App extends Component {		
@@ -36,6 +37,7 @@ class App extends Component {
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/logout" component={Logout} />
 						<Route exact path="/profile" component={Profile} />
+
 						<Route exact path="/entries/new" component={CreateEntryForm} />
 						<Route exact path='/entries/:id' render={ (props) => {
        				const id = parseInt(props.match.params.id)
@@ -48,7 +50,6 @@ class App extends Component {
               console.log("edit-route-entry:", entry)
               return (<UpdateEntryForm entry={entry} {...props} />)
 	            }}/>
-
 	          <Route exact path="/memories/new" component={CreateMemoryForm} />
 						<Route exact path="/story" component={Story} />
 						<Route exact path="/exit"  component={ExitPage} />
@@ -59,7 +60,6 @@ class App extends Component {
 	  )
 	}
 }
-// <Route exact path='/description/edit' component={DescriptionCardEdit} />
 
 
 const mapStateToProps = (state) => {
@@ -68,3 +68,5 @@ const mapStateToProps = (state) => {
 	})
 }
 export default connect(mapStateToProps, { getCurrentUser })(App);
+
+						// <Route exact strict path="/description/edit" component={DescriptionCardEditForm} />
