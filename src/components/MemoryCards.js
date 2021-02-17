@@ -19,6 +19,19 @@ const MemoryCards = () => {
 			    <Button variant="primary">Edit</Button>
 			  </Card.Body>
 			</Card>
+			<Card style={{ width: '18rem', }}>
+			  <Card.Img variant="top" src="holder.js/100px180" />
+			  <Card.Body style={{ color: "black"}}>
+			    <Card.Title>My grandfather Morris</Card.Title>
+			    <Card.Text>
+			      years lived-died
+			    </Card.Text>
+			    <Card.Text>
+			      Something about him
+			    </Card.Text>
+			    <Button variant="primary">Edit</Button>
+			  </Card.Body>
+			</Card>
 		</div>
 		)
 }
