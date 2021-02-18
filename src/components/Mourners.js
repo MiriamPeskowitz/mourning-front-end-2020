@@ -10,9 +10,11 @@ class Mourners extends Component {
 		this.props.getUsers()
 	}
 	
+	state = {}
+
 	alphaList = (users) => {
-		alert('clicked')
-	 	const newUsers = users.sort((a, b) => {
+		const newUsers = [...users]
+	 	const sortedUsers = newUsers.sort((a, b) => {
 		 	const nameA = a.attributes.username.toUpperCase()
 		 	const nameB = b.attributes.username.toUpperCase()
 		 	//gives numeric value to username string and assesses that
@@ -24,25 +26,30 @@ class Mourners extends Component {
 		  }
 		  return 0;
 			})
-		 
-	 console.log("alphabetized users list", newUsers)
-	 return newUsers
-	 }
+		
+	 this.setState({sortedUsers});
+	 
+	}
+
 
 	render() {	
 		const {users} = this.props
-		// console.log("users in mourners:", users)	
+		
 		return (
 			<div className="mourner-list">
 			 <h2>Who is here mourning their dead?</h2>
-			 <button onClick={this.alphaList(users)}>Click here to alphabetize</button>
+			 <button onClick={() => this.alphaList(users)}>Click here to alphabetize</button>
 			<div>
-			  {this.props.loading ? <h3>Loading...</h3> : <MournersList users={this.props.users} /> }
+				{this.state.sortedUsers ? <MournersList users={this.state.sortedUsers} /> : <MournersList users={this.props.users} />}
+			
 			  </div>
 			</div>
 		)
 	}
 }
+
+			 // <button onClick={() => this.alphaList(users)}>Click here to alphabetize</button>
+
 const mapStateToProps = state => {
 	return {
 		users: state.usersReducer.users,
@@ -51,7 +58,7 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { getUsers } )(Mourners)
-
+  // {this.props.loading ? <h3>Loading...</h3> : <MournersList users={this.props.users} /> }
 	// componentDidUpdate(previousProps) {
 	// 	this.props.users && !previousProps.users && this.props.getusers(this.props.users)
 	// }
