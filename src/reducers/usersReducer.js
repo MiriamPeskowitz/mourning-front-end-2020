@@ -1,4 +1,4 @@
-import { LOADING_ALL_USERS_NAMES, ALL_USERS_LOADED  } from "../actions/types"
+import { LOADING_ALL_USERS_NAMES, ALL_USERS_LOADED, SET_ALPHABETIZED_LIST  } from "../actions/types"
 
 export default(state = {users: [], loading: false}, action) => {
 
@@ -16,6 +16,12 @@ export default(state = {users: [], loading: false}, action) => {
 				loading: false
 			}
 			
+		case SET_ALPHABETIZED_LIST: 
+			console.log('got to SAList')
+			return {
+				...state, 
+				users: action.payload
+			}
 		default:
 			return state
 	}

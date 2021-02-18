@@ -178,16 +178,11 @@ Tuesday
   -- How to edit your personal description, user.description
   -- How to add date of death there -- add attribute to model 
   -- DONE change users call to be like the others DONE
-  --logout -> home. Doesn't reset the currentuser to none DONE< FIxed with Cernan 
+  --logout -> home. Doesn't reset the currentuser to none 
 
   -- reverse list -- DONE
   -- how to limit list and add a more button? 
-  --how to add images
-  -- a place to edit the description -- add a form-action-reducer 
-  -- add the backend 
-  -- 
 
-  Wednesday: 
-  -- branch description-form is where I'm working on this featyure, 
-  -- create eval branch for changes made during  eval. I can decide later whether to bring them over to main. 
-  
+Wednesday -- saved the description-form branch. Everything merged. 
+-- create eval branch -- from main -- everything up to date. 
+
