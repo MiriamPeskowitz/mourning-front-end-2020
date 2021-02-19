@@ -1,4 +1,6 @@
 import React from 'react'
+import '../stylesheets/App.css';
+
 
 const EntriesList = ( {entries} ) => {
 	
@@ -18,4 +20,19 @@ const EntriesList = ( {entries} ) => {
 export default EntriesList
 
 
-// feature: change to most recent 15 
+// const EntriesList = ( {entries} ) => {
+// 	console.log(entries)
+// 	const feelings = entries.map(entry => {
+// 				<div key={entry.id} >
+// 					<h3>{entry.attributes.title}</h3>
+// 					<p>{entries.attributes.content}</p>
+// 				</div>
+// 			})
+	
+// 	return (
+// 		<div>
+// 			{feelings}
+// 		</div>
+// 	);
+// }
+// export default EntriesList

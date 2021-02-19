@@ -56,7 +56,10 @@ a:hover, a:active {
 }
 
 .entries-list {
-  color: yellow;
+  background-color: #eee;
+  color: black;
+  margin: 2rem;
+  padding: 1rem;
 }
 
 .nav-bar {
