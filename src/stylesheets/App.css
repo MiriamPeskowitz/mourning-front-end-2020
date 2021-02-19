@@ -1,5 +1,5 @@
 body {
-  /*background-color: #696969;*/
+  background-color: #696969;
  }
 
 ul {
@@ -47,7 +47,7 @@ a:hover, a:active {
 
 .app-title {
   margin: 10px;
-  color: blue;
+  color: white;
 }
 
 .entry-list, .mourner-list, .story-header {
