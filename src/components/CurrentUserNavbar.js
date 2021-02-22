@@ -17,10 +17,7 @@ const Styles = styled.div`
 	}
 `;
 
-const CurrentUserNavbar = ( {currentUser} ) => {	
-	console.log("CUNavbar:currentUser", currentUser)
-	return(
-		<div>
+const CurrentUserNavbar = ( {currentUser} ) => (
 		<Styles>
 			<Navbar bg="transparent" expand="lg" variant="dark">
 				<Container>
@@ -38,7 +35,6 @@ const CurrentUserNavbar = ( {currentUser} ) => {
 								<LinkContainer exact to="/story">	
 									<Nav.Link>About</Nav.Link>
 								</LinkContainer>
-
 							</Nav.Item>
 							<Nav.Item>
 								<LinkContainer exact to="/profile">	
@@ -55,9 +51,7 @@ const CurrentUserNavbar = ( {currentUser} ) => {
 				</Container>			
 			</Navbar>
 		 </Styles>
-		</div>
 	)
-}
 const mapStateToProps = state => {
 	return {
 		currentUser: state.authReducer.currentUser

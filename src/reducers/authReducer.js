@@ -14,6 +14,7 @@ const initialState = {
 
 export default(state = initialState, action) => {
 	switch(action.type){
+		case SET_CURRENT_USER:
 // login/signup => sets current user
 			return {
 				currentUser: action.payload
