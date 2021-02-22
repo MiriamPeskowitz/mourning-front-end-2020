@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { Nav, Navbar, Container } from 'react-bootstrap'
+import { LinkContainer } from "react-router-bootstrap"
 
 const Styles = styled.div`
 	.navbar {
@@ -24,30 +24,31 @@ const CurrentUserNavbar = ( {currentUser} ) => {
 		<Styles>
 			<Navbar bg="transparent" expand="lg" variant="dark">
 				<Container>
-					<Navbar.Brand href="/">Mourning</Navbar.Brand>
-					<span>Welcome back, {currentUser.username}</span>
+					<Navbar.Brand className="font-weight-bold text-muted" href="/">Mourning</Navbar.Brand>
+					<span className="navbar-text">Welcome back, {currentUser.username}</span>
 					<Navbar.Toggle aria-controls="basic-navbar-nav"/>
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="ml-auto">
 							<Nav.Item>
-								<Nav.Link> 
-									<NavLink exact to="/">Home</NavLink>
-								</Nav.Link>
+								<LinkContainer exact to="/">	
+									<Nav.Link>Home</Nav.Link>
+								</LinkContainer>
 							</Nav.Item>
 							<Nav.Item>
-								<Nav.Link>
-									<NavLink exact to="/story">About</NavLink>
-								</Nav.Link>
+								<LinkContainer exact to="/story">	
+									<Nav.Link>About</Nav.Link>
+								</LinkContainer>
+
 							</Nav.Item>
 							<Nav.Item>
-								<Nav.Link> 
-								<NavLink exact to="/profile">My Profile</NavLink>
-								</Nav.Link>
+								<LinkContainer exact to="/profile">	
+									<Nav.Link>My Profile</Nav.Link>
+								</LinkContainer>
 							</Nav.Item>
 							<Nav.Item>
-								<Nav.Link> 
-									<NavLink exact to="/logout">Logout</NavLink> 
-								</Nav.Link>
+								<LinkContainer exact to="/logout">	
+									<Nav.Link>Logout</Nav.Link>
+								</LinkContainer>
 							</Nav.Item>
 						</Nav>
 					</Navbar.Collapse>	

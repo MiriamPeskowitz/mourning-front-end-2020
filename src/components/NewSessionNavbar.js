@@ -1,7 +1,7 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { Nav, Navbar, Container } from 'react-bootstrap'
+import { LinkContainer } from "react-router-bootstrap"
 
 const Styles = styled.div`
 	.navbar {
@@ -25,24 +25,24 @@ const NewSessionNavbar = () => (
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="ml-auto">
 						<Nav.Item>
-							<Nav.Link> 
-								<NavLink exact to="/">Home</NavLink>
-							</Nav.Link>
+							<LinkContainer exact to="/">	
+								<Nav.Link>Home</Nav.Link>
+							</LinkContainer>
 						</Nav.Item>
 						<Nav.Item>
-							<Nav.Link>
-								<NavLink exact to="/story">About</NavLink>
-							</Nav.Link>
+							<LinkContainer exact to="/story">	
+								<Nav.Link>About</Nav.Link>
+							</LinkContainer>
 						</Nav.Item>
 						<Nav.Item>
-							<Nav.Link> 
-								<NavLink  exact to="/signup">SignUp</NavLink>
-							</Nav.Link>
+							<LinkContainer exact to="/signup">	
+								<Nav.Link>Signup</Nav.Link>
+							</LinkContainer>
 						</Nav.Item>
 						<Nav.Item>
-							<Nav.Link> 
-								<NavLink exact to="/login">Login</NavLink>
-							</Nav.Link>
+							<LinkContainer exact to="/login">	
+								<Nav.Link>Login</Nav.Link>
+							</LinkContainer>
 						</Nav.Item>
 					</Nav>
 				</Navbar.Collapse>	
