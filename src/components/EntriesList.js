@@ -1,7 +1,5 @@
 import React from 'react'
 import '../stylesheets/App.css';
-
-
 const EntriesList = ( {entries} ) => {
 	
 	const feelings = entries.map(entry => (
@@ -10,7 +8,8 @@ const EntriesList = ( {entries} ) => {
 			<p> {entry.attributes.content} </p>
 		</div>
 	))
-	
+
+
 	return (
 		<div className="entries-list">
 			{feelings}
@@ -18,6 +17,48 @@ const EntriesList = ( {entries} ) => {
 	)
 }
 export default EntriesList
+
+
+
+// import React from 'react'
+// import '../stylesheets/App.css';
+// import { FixedSizeList as List } from "react-window";
+
+// const EntriesList = ( entries ) => {
+// 	console.log("entries", entries)
+
+// 	const data = entries.map(entry => {
+// 		id: entry.id,
+// 		title: entry.attributes.title,
+// 		content: entry.attributes.content
+// 	});
+		
+// 		const Row = "terrific"
+
+// 	// const Row = ({ data, index, key, style }) => {
+// 	// 		<div className="entries-list">
+// 	// 			<div key={data.id} style={style} > 
+// 	// 				<h3>{data[index].title}</h3>
+// 	// 				<p> {data[index].content} </p>
+// 	// 			</div>			
+// 	// 		</div>
+// 	// 	}
+
+// 	return (
+// 		<div>
+// 			<List
+//       width={1400}
+//       height={700}
+//       itemCount={data.length}
+//       itemSize={120}
+//     	>
+//       {Row}
+//     	</List>
+// 		</div>
+// 	)
+// }
+// export default EntriesList
+
 
 
 // const EntriesList = ( {entries} ) => {
@@ -37,20 +78,8 @@ export default EntriesList
 // }
 // export default EntriesList
 
+// import React from 'react'
+// import '../stylesheets/App.css';
+// import { FixedSizeList as List } from "react-window";
 
-// const EntriesList = ( {entries} ) => {
-// 	console.log(entries)
-// 	const feelings = entries.map(entry => {
-// 				<div key={entry.id} >
-// 					<h3>{entry.attributes.title}</h3>
-// 					<p>{entries.attributes.content}</p>
-// 				</div>
-// 			})
-	
-// 	return (
-// 		<div>
-// 			{feelings}
-// 		</div>
-// 	);
-// }
-// export default EntriesList
+

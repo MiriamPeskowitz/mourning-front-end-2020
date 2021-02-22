@@ -67,10 +67,10 @@ a:hover, a:active {
   padding: 1em; 
 }
 
-.navbar {
+/*.navbar {
   color: '#C0C0C0'
 }
-
+*/
 .center {
   display: flex;
   justify-content: center;
