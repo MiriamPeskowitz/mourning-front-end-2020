@@ -25,6 +25,7 @@ class App extends Component {
 		this.props.getCurrentUser()
 	}
 	//do I need classNames app and app-header ? 
+	//should I make this a bootstrap container? or make a layout file and wrap that here? 
 	render() {
 		const { entries } = this.props
 		console.log("app component -> entries:", entries )

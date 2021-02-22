@@ -15,21 +15,14 @@ const initialState = {
 export default(state = initialState, action) => {
 	switch(action.type){
 // login/signup => sets current user
-//this may be setting current user in diff format from the others/ 
-		case SET_CURRENT_USER:
-		console.log("SET_CURRENT_USER-reducer", action.payload)
 			return {
 				currentUser: action.payload
 			}
-		
 
 //logout => clears current user on front end 
-		case CLEAR_CURRENT_USER:
-			console.log("current user cleared")
-		
+		case CLEAR_CURRENT_USER:		
 			return initialState
 				
-
 		case ADD_NEW_ENTRY:				
 			const entry = {
 				id: action.payload.id,
@@ -69,23 +62,3 @@ export default(state = initialState, action) => {
 				return state
 		}
 }
-
-
-//notes on possible ways to delete 
-// console.log("entry in reducer", action.id)
-			// const newState = [...state.currentUser.entries]
-			// const indexToDelete = state.currentUser.entries.findIndex(entry => entry.id === action.id)
-			// const newValue = newState.splice(indexToDelete, 1)
-			// return newValue
-
-// or: case types.DELETE_CAT_SUCCESS: {
-//       const newState = Object.assign([], state);
-//       const indexOfCatToDelete = state.findIndex(cat => {
-//         return cat.id == action.cat.id
-//       })
-//       newState.splice(indexOfCatToDelete, 1);
-//       browserHistory.push('/cats');
-//       return newState;
-//delete entry 
- // return state.filter(trip => trip.id === action.tripId ? false : true)
-// or return {todos: state.todos.filter(todo => todo.id !== action.payload)}

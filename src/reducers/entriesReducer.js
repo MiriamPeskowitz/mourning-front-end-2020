@@ -19,7 +19,6 @@ export default(state = {entries: [], loading: false}, action) => {
 			}
 	
 		case CLEAR_ENTRIES:
-				console.log("entries cleared")
 				return state
 
 		default:

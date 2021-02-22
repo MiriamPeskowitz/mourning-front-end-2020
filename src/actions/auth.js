@@ -2,7 +2,6 @@ import { resetSignupForm } from "./signupForm"
 import { resetLoginForm } from "./loginForm"
 
 export const setCurrentUser = user => {
-	console.log("user in setCurrentUser:,", user)
 	return {
 		type: "SET_CURRENT_USER",
 		payload: user
@@ -10,14 +9,12 @@ export const setCurrentUser = user => {
 }
 
 export const clearCurrentUser = () => {
-	console.log("got to action-clearCurrentUser")
 	return {
 		type: "CLEAR_CURRENT_USER"
 	}
  }
 
 export const currentUserLoading = () => {
-	console.log('got to currentUserLoading')
 	return {
 		type: "LOADING_CURRENT_USER",
 	}
@@ -50,7 +47,6 @@ export const getCurrentUser = () => {
 
 
 export const signup = (user, history) => {	
-	console.log("signup", history)
 	return (dispatch) => {
 		dispatch({
 			type: "LOADING_CURRENT_USER"
@@ -67,11 +63,9 @@ export const signup = (user, history) => {
 		return fetch( "/users", config)
 			.then(response => response.json())
 			.then(user => {
-
 				if (user.error) {
 					alert(user.error)
 				} else {
-					console.log("Signup response -- user: ", user)
 					dispatch(setCurrentUser(user.data.attributes))
 					dispatch(resetSignupForm())	
 					history.push('/profile')
@@ -100,11 +94,7 @@ export const login = (credentials, history) => {
 				alert(user.error)
 			} else {
 				dispatch(setCurrentUser(user.data.attributes))
-				console.log("login- user(action): ", user.data.attributes)
 				history.push('/')
-									//is this history.push(/profile) the problem, in why I get the
-									//error when loading the profile entry cards -- 
-
 			}
 		})
 		.then(dispatch(resetLoginForm()))
