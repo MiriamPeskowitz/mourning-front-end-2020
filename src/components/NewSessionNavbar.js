@@ -3,14 +3,10 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { Nav, Navbar, Container } from 'react-bootstrap'
 
-const gray = {color: '#C0C0C0'}; //refactor to bootstrap 
-
 const Styles = styled.div`
 	.navbar {
 		background-color: #222;
 	}
-	
-
 	a, .navbar-brand, .navbar-nav, .nav-link {
 		color: #bbb;
 
@@ -18,9 +14,7 @@ const Styles = styled.div`
 			color: white;
 		}
 	}
-	
 `;
-
 
 const NewSessionNavbar = () => (	
 	<Styles>
@@ -37,17 +31,17 @@ const NewSessionNavbar = () => (
 						</Nav.Item>
 						<Nav.Item>
 							<Nav.Link>
-								<NavLink style={gray} exact to="/story">About</NavLink>
+								<NavLink exact to="/story">About</NavLink>
 							</Nav.Link>
 						</Nav.Item>
 						<Nav.Item>
 							<Nav.Link> 
-								<NavLink style={gray} exact to="/signup">SignUp</NavLink>
+								<NavLink  exact to="/signup">SignUp</NavLink>
 							</Nav.Link>
 						</Nav.Item>
 						<Nav.Item>
 							<Nav.Link> 
-								<NavLink style={gray} exact to="/login">Login</NavLink>
+								<NavLink exact to="/login">Login</NavLink>
 							</Nav.Link>
 						</Nav.Item>
 					</Nav>
@@ -59,14 +53,4 @@ const NewSessionNavbar = () => (
 	)
 
 export default NewSessionNavbar
-
-// 	return (
-// 		<ul className="navbar">
-// 	 		<li> <NavLink style={gray} exact to="/">Home</NavLink> </li> 
-// 	 		<li> <NavLink style={gray} exact to="/story">About</NavLink> </li> 
-// 	 		<li> <NavLink style={gray} exact to="/signup">SignUp</NavLink> </li>    
-// 	    <li> <NavLink style={gray} exact to="/login">Login</NavLink> </li>	   
-// 	  </ul> 
-//   )
-// }
 
