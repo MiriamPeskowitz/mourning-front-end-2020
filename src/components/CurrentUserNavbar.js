@@ -62,7 +62,5 @@ const mapStateToProps = state => {
 		currentUser: state.authReducer.currentUser
 	}
 }
-export default connect(mapStateToProps, null)(CurrentUserNavbar)
 
-// {currentUser.loading ? <p>Loading...</p> : <p>Welcome back, {currentUser.username}</p>}
-// <p>Welcome back, {currentUser.username}</p>
+export default connect(mapStateToProps, null)(CurrentUserNavbar)

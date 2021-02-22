@@ -11,9 +11,9 @@ class Mourners extends Component {
 	render() {		
 		return (
 			<div className="mourner-list">
-			 <h2>Who is here mourning their dead?</h2>
+			 <h3>Who is here mourning their dead?</h3>
 			  <div>
-			  {this.props.loading ? <h3>Loading...</h3> : <MournersList users={this.props.users} /> }
+			  {this.props.loading ? <h5>Loading...</h5> : <MournersList users={this.props.users} /> }
 			  </div>
 			</div>
 		)

@@ -7,13 +7,13 @@ class Entries extends Component {
 	componentDidMount(){
 		this.props.getEntries()	
 	}
-
+//change h3 to fontsize 
 	render() {		
 		return (
 			<div className="entry-list">
-			 <h2>What they are saying? What do they need? </h2>
+			 <h3>What they are saying? What do they need? </h3>
 
-			 {this.props.loading ? <h3>Loading...</h3> : <EntriesList entries={this.props.entries} />}
+			 {this.props.loading ? <h4>Loading...</h4> : <EntriesList entries={this.props.entries} />}
 			</div>
 		)
 	}   

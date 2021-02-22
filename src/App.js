@@ -17,50 +17,45 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // import Container from 'react-bootstrap/Container'
 import CreateMemoryForm from './components/CreateMemoryForm'
 // import DescriptionCardEditForm from './components/DescriptionCardEditForm'
-import DescriptionCard from './components/DescriptionCard'
+// import DescriptionCard from './components/DescriptionCard'
 
 
 class App extends Component {		
 	componentDidMount() {
 		this.props.getCurrentUser()
 	}
-	
+	//do I need classNames app and app-header ? 
 	render() {
 		const { entries } = this.props
 		console.log("app component -> entries:", entries )
 	  return (
-	  	<div className="app">
-	  		<div className="app-header">  
-	  			<h1 className="app-title">Mourning</h1>	
-					<Switch>		
-	 					<Route exact path="/signup" component={Signup} />
-						<Route exact path="/login" component={Login} />
-						<Route exact path="/logout" component={Logout} />
-						<Route exact path="/profile" component={Profile} />
-
-						<Route exact path="/entries/new" component={CreateEntryForm} />
-						<Route exact path='/entries/:id' render={ (props) => {
-       				const id = parseInt(props.match.params.id)
-              const entry = entries.find(entry => entry.id === id)
-              return (<EntryCard entry={entry} {...props} />)
-            	}}/>
-						<Route exact strict path='/entries/:id/edit' render={ (props) => {
-              const id = parseInt(props.match.params.id)
-              const entry = entries.find(entry => entry.id === id)
-              console.log("edit-route-entry:", entry)
-              return (<UpdateEntryForm entry={entry} {...props} />)
-	            }}/>
-	          <Route exact path="/memories/new" component={CreateMemoryForm} />
-						<Route exact path="/story" component={Story} />
-						<Route exact path="/exit"  component={ExitPage} />
-						<Route exact path="/" component={Home} />	
-					</Switch>
-			  </div>		
+	  	<div className="app app-header">
+				<Switch>		
+ 					<Route exact path="/signup" component={Signup} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/logout" component={Logout} />
+					<Route exact path="/profile" component={Profile} />
+					<Route exact path="/entries/new" component={CreateEntryForm} />
+					<Route exact path='/entries/:id' render={ (props) => {
+     				const id = parseInt(props.match.params.id)
+            const entry = entries.find(entry => entry.id === id)
+            return (<EntryCard entry={entry} {...props} />)
+          	}}/>
+					<Route exact strict path='/entries/:id/edit' render={ (props) => {
+            const id = parseInt(props.match.params.id)
+            const entry = entries.find(entry => entry.id === id)
+            console.log("edit-route-entry:", entry)
+            return (<UpdateEntryForm entry={entry} {...props} />)
+            }}/>
+          <Route exact path="/memories/new" component={CreateMemoryForm} />
+					<Route exact path="/story" component={Story} />
+					<Route exact path="/exit"  component={ExitPage} />
+					<Route exact path="/" component={Home} />	
+					</Switch>	
 			</div>
 	  )
 	}
 }
-
 
 const mapStateToProps = (state) => {
 	return ({
@@ -68,5 +63,4 @@ const mapStateToProps = (state) => {
 	})
 }
 export default connect(mapStateToProps, { getCurrentUser })(App);
-
-						// <Route exact strict path="/description/edit" component={DescriptionCardEditForm} />
+	

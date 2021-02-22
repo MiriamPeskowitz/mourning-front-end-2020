@@ -18,7 +18,7 @@ const Styles = styled.div`
 
 const NewSessionNavbar = () => (	
 	<Styles>
-	<Navbar bg="transparent" expand="lg" variant="dark">
+		<Navbar bg="transparent" expand="lg" variant="dark">
 			<Container>
 				<Navbar.Brand href="/">Mourning</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav"/>
