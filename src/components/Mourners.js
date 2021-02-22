@@ -13,7 +13,7 @@ class Mourners extends Component {
 			<div className="mourner-list">
 			 <h3>Who is here mourning their dead?</h3>
 			  <div>
-			  {this.props.loading ? <h5>Loading...</h5> : <MournersList users={this.props.users} /> }
+			  {this.props.loading ? <h4>Loading...</h4> : <MournersList users={this.props.users} /> }
 			  </div>
 			</div>
 		)

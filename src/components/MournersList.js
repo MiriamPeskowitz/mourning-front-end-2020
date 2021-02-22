@@ -1,9 +1,14 @@
 import React from 'react'
+import '../stylesheets/App.css';
 
 const MournersList = ( {users} ) => {
-	const names = users.map((user) => (
-		<li key={user.id}> {user.attributes.username}: {user.attributes.description} </li>
+
+	const names = users.map(user => (
+		<div key={user.id} > 
+			<h4>{user.attributes.title}</h4>
+			<p> {user.attributes.description} </p>
+		</div>
 	))
-	return <ul style={{color: 'pink'}}>{names}</ul>	
+	return <div className="mourners-list" >{names}</div>	
 }
 export default MournersList

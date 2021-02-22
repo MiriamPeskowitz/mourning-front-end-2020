@@ -55,7 +55,7 @@ a:hover, a:active {
   margin: 5px;
 }
 
-.entries-list {
+.entries-list, .mourners-list {
   background-color: #eee;
   color: black;
   margin: 2rem;
