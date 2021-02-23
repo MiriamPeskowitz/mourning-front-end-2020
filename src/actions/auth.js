@@ -104,7 +104,6 @@ export const login = (credentials, history) => {
 
 //why does this need an event arg? 
 export const logOut = (event) => {	
-	console.log("got to logOut action creator")
 	return dispatch => {	
 		dispatch(clearCurrentUser())			 
 		return fetch("/logout", {
@@ -114,7 +113,7 @@ export const logOut = (event) => {
     .then(r => r.json())
     .then(response => {
     	if (response.notice) { 
-    		alert(response.notice)
+    		console.log(response.notice)
     	}
     })
   }

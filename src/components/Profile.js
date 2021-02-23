@@ -6,7 +6,7 @@ import CurrentUserNavBar from './CurrentUserNavbar'
 import DescriptionCard from './DescriptionCard'
 import { Link, withRouter } from 'react-router-dom'
 import { Button, Container } from 'react-bootstrap'
-//withRouter might be extra, since Profile is child of Router in App.js 
+
 const Profile = ({ currentUser, history}) => {
 	return (
 		<>

@@ -17,13 +17,13 @@ li {
   padding-right: 8px;
 }
 
-a:link {
-  color: yellow;
+a, .profile-entry-cards:link {
+  color: black;
 }
-
+/*
 a:visited {
   color: white;
-}
+}*/
 
 a:hover, a:active {
   color: pink;  
@@ -56,7 +56,6 @@ a:hover, a:active {
 }
 
 .entries-list, .mourners-list {
-  background-color: #eee;
   color: black;
   margin: 2rem;
   padding: 1rem;
@@ -66,6 +65,7 @@ a:hover, a:active {
   display: inline-block;  
   padding: 1em; 
 }
+
 
 /*.navbar {
   color: '#C0C0C0'
