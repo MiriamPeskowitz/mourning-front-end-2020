@@ -15,12 +15,15 @@ import styled from 'styled-components'
 //now back to msp, still doesn't work coming straight from login 
 
 const Styles = styled.div`
+	a {
+		color: black;
+	}
 	.profile-entry-cards {
 	 	background-color: #eee;
-  	color: black;
+  	font-color: black;
   	margin: 2rem;
   	padding: 1rem;
-
+  	
 		&:hover {
 			color: dark-blue;
 		}
@@ -28,13 +31,11 @@ const Styles = styled.div`
 `;
 
 
-
-//Why did I have withRouter? since I'm not passing history. Delete? 
 const ProfileEntryCards = ( {entries} ) => {
 
 	const ent = entries.reverse()
 
-	const myEntryCards = ent.length > 0 ? ent.map(entry => 	<div key={entry.id} className="profile-entry-cards"> 
+	const myEntryCards = ent.length > 0 ? ent.map(entry => 	<div key={entry.id} className="profile-entry-cards" > 
 				<NavLink exact to={`/entries/${entry.id}`}>
 					<h4>{entry.title}</h4>
 					<p> {entry.content} </p>

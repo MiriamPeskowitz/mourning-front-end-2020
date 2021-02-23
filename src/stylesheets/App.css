@@ -2,7 +2,7 @@ body {
   background-color: #696969;
  }
 
-ul {
+/*ul {
   margin: 0;
   padding: 0;
   display: flex;
@@ -15,19 +15,21 @@ li {
   display: inline-flex;
   text-align: left;
   padding-right: 8px;
-}
-
-a, .profile-entry-cards:link {
+}*/
+a {
   color: black;
 }
+/*a, .profile-entry-cards:link {
+  color: black;
+}*/
 /*
 a:visited {
   color: white;
 }*/
-
+/*
 a:hover, a:active {
   color: pink;  
-}
+}*/
 
 .app {
   background-color: #ccc8c8;
@@ -55,17 +57,18 @@ a:hover, a:active {
   margin: 5px;
 }
 
-.entries-list, .mourners-list {
+.entries-list, .mourners-list, .description-card {
+  background-color: white;
   color: black;
   margin: 2rem;
   padding: 1rem;
 }
 
-.nav-bar {
+/*.nav-bar {
   display: inline-block;  
   padding: 1em; 
 }
-
+*/
 
 /*.navbar {
   color: '#C0C0C0'
@@ -82,9 +85,7 @@ a:hover, a:active {
   padding: 1em; 
 }
 
-.description-card {
-  bottom-margin: 50px;
-}
+
 /*signup */
 .input-field{
     margin: 2em;

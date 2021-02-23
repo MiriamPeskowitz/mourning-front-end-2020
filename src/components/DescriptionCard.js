@@ -1,22 +1,36 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
+import styled from 'styled-components'
+
+//add card 
+const Styles = styled.div`
+	
+	a {
+		color: black;
+	}
+`
 
 const DescriptionCard = ({description}) => {
 		
 		return (
-			<>
-				<h3>What brought you here? Whom have you lost?</h3>
-				<p>{description} </p>
-				<Button variant="secondary">
-					<Link to="description/edit">Coming soon:Edit your description </Link>
-				</Button>
-				<br/>
-				<br/>
-			</>
+			<Styles>
+				<Card className="description-card">
+				  <Card.Body >
+				    <Card.Text>
+				      {description}
+				    </Card.Text>
+				    <Button variant="light">
+				    	<Link to="description/edit">Coming soon:Edit your description </Link>
+				    </Button>
+				  </Card.Body>
+				</Card>
+			</Styles>
 		)
 }
+
+			
 
 // <Link to={'/description/edit'}>Edit Description</Link> </p> 
 const mapStateToProps = state => {
@@ -26,3 +40,10 @@ const mapStateToProps = state => {
 }
 	
 export default connect(mapStateToProps, null )(DescriptionCard)
+// style={{ color: "black"}}
+// <div className="description-card">
+// 				<p>{description} </p>
+// 				<Button  variant="primary" size="sm">
+// 					<Link to="description/edit">Coming soon:Edit your description </Link>
+// 				</Button>
+// 			</div>
