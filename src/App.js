@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/auth"
+import { Layout } from './components/Layout'
 import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
@@ -28,31 +29,33 @@ class App extends Component {
 	//should I make this a bootstrap container? or make a layout file and wrap that here? 
 	render() {
 		const { entries } = this.props
-		console.log("app component -> entries:", entries )
+		console.log("app component: entries ", entries )
 	  return (
 	  	<div className="app app-header">
-				<Switch>		
- 					<Route exact path="/signup" component={Signup} />
-					<Route exact path="/login" component={Login} />
-					<Route exact path="/logout" component={Logout} />
-					<Route exact path="/profile" component={Profile} />
-					<Route exact path="/entries/new" component={CreateEntryForm} />
-					<Route exact path='/entries/:id' render={ (props) => {
-     				const id = parseInt(props.match.params.id)
-            const entry = entries.find(entry => entry.id === id)
-            return (<EntryCard entry={entry} {...props} />)
-          	}}/>
-					<Route exact strict path='/entries/:id/edit' render={ (props) => {
-            const id = parseInt(props.match.params.id)
-            const entry = entries.find(entry => entry.id === id)
-            console.log("edit-route-entry:", entry)
-            return (<UpdateEntryForm entry={entry} {...props} />)
-            }}/>
-          <Route exact path="/memories/new" component={CreateMemoryForm} />
-					<Route exact path="/story" component={Story} />
-					<Route exact path="/exit"  component={ExitPage} />
-					<Route exact path="/" component={Home} />	
+	  		<Layout>
+					<Switch>		
+	 					<Route exact path="/signup" component={Signup} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/logout" component={Logout} />
+						<Route exact path="/profile" component={Profile} />
+						<Route exact path="/entries/new" component={CreateEntryForm} />
+						<Route exact path='/entries/:id' render={ (props) => {
+	     				const id = parseInt(props.match.params.id)
+	            const entry = entries.find(entry => entry.id === id)
+	            return (<EntryCard entry={entry} {...props} />)
+	          	}}/>
+						<Route exact strict path='/entries/:id/edit' render={ (props) => {
+	            const id = parseInt(props.match.params.id)
+	            const entry = entries.find(entry => entry.id === id)
+	            console.log("edit-route-entry:", entry)
+	            return (<UpdateEntryForm entry={entry} {...props} />)
+	            }}/>
+	          <Route exact path="/memories/new" component={CreateMemoryForm} />
+						<Route exact path="/story" component={Story} />
+						<Route exact path="/exit"  component={ExitPage} />
+						<Route exact path="/" component={Home} />	
 					</Switch>	
+				</Layout>
 			</div>
 	  )
 	}
