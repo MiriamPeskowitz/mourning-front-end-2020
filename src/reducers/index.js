@@ -7,6 +7,7 @@ import signupFormReducer from './signupFormReducer'
 import entryFormReducer from './entryFormReducer'
 import updateFormReducer from './updateFormReducer'
 import memoryFormReducer from './memoryFormReducer'
+import descriptionFormReducer from './descriptionFormReducer'
 
 const rootReducer = combineReducers({
 	authReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
 	signupFormReducer,
 	entryFormReducer,
 	updateFormReducer,
-	memoryFormReducer
+	memoryFormReducer,
+	descriptionFormReducer
 })
 
 export default rootReducer

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { Button, Card } from 'react-bootstrap'
 import styled from 'styled-components'
 
-//add card 
 const Styles = styled.div`
 	
 	a {
@@ -13,7 +12,7 @@ const Styles = styled.div`
 `
 
 const DescriptionCard = ({description}) => {
-		
+		console.log("description:", description)
 		return (
 			<Styles>
 				<Card className="description-card">
@@ -30,9 +29,6 @@ const DescriptionCard = ({description}) => {
 		)
 }
 
-			
-
-// <Link to={'/description/edit'}>Edit Description</Link> </p> 
 const mapStateToProps = state => {
 	return ({
 		description: state.authReducer.currentUser.description
@@ -40,10 +36,3 @@ const mapStateToProps = state => {
 }
 	
 export default connect(mapStateToProps, null )(DescriptionCard)
-// style={{ color: "black"}}
-// <div className="description-card">
-// 				<p>{description} </p>
-// 				<Button  variant="primary" size="sm">
-// 					<Link to="description/edit">Coming soon:Edit your description </Link>
-// 				</Button>
-// 			</div>

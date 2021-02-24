@@ -5,34 +5,36 @@ import ProfileEntryCards from './ProfileEntryCards'
 import CurrentUserNavBar from './CurrentUserNavbar'
 import DescriptionCard from './DescriptionCard'
 import CreateEntryButton  from './CreateEntryButton'
-import { Link, withRouter } from 'react-router-dom'
-import { Button, Container } from 'react-bootstrap'
-
+import MoreMemoryCardsButton  from './MoreMemoryCardsButton'
+import { withRouter } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 
 
 const Profile = ({ currentUser, history}) => {
+	const { username } = currentUser
+	const nameCapitalized = username.charAt(0).toUpperCase() + username.slice(1)
+	console.log("nameCapitalized:", nameCapitalized)
 	return (
 		<>
 			<Container fluid>
 				<div className="profile">
 					<CurrentUserNavBar />
+					<section>
+						<h3>Who have you lost?</h3>
+						<DescriptionCard />
+					</section>			
 
-					<h3>Who have you lost?</h3>
-
-					<DescriptionCard />
-			
-
-					<div className="profile-entry-cards">
-						<h3>{currentUser.username}'s Entries</h3>
+					<section className="profile-entry-cards">
+						<h3>{nameCapitalized}'s Entries</h3>
 						<CreateEntryButton />
 						<ProfileEntryCards />	
-					</div>
+					</section>
 			
-					<div className="profile-memory-cards">
-						<h3>Coming Soon: People I Remember</h3>
-						<Button variant="light"><Link to="memories/new">Coming Soon: create a new memory card </Link></Button>
+					<section className="profile-memory-cards">
+						<h3>Coming Soon: My People</h3>
+						<MoreMemoryCardsButton />
 						<MemoryCards />	
-					</div>
+					</section>
 					
 				</div>
 			</Container>
@@ -40,6 +42,7 @@ const Profile = ({ currentUser, history}) => {
 	)
 }
 
+//refactor 
 const mapStateToProps = state => {
 	return ({
 			currentUser: state.authReducer.currentUser		

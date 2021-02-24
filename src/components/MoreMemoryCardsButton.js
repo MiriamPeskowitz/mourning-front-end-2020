@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
+import { Button}  from 'react-bootstrap'
 import styled from 'styled-components'
 
 const Styles = styled.div`
@@ -8,11 +8,11 @@ const Styles = styled.div`
 			color: black;
 		}
 `
-const CreateEntryButton = () => (
+const MoreMemoryCardsButton = () => (
 	<Styles>
 		<Button variant="light">
-			<Link to="entries/new">Create a new entry </Link>
+			<Link to="memories/new">Coming Soon: create a new memory card </Link>
 		</Button>
 	</Styles>
 )
-export default CreateEntryButton
+export default MoreMemoryCardsButton

@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { deleteEntry } from '../actions/entries.js'
 import { Link, withRouter  } from 'react-router-dom'
-import styled from 'styled-components'
+
+// import styled from 'styled-components' //needed? 
 
 
 const EntryCard = ({deleteEntry, entry, history}) => {

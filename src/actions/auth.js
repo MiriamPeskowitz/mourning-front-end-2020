@@ -1,5 +1,6 @@
 import { resetSignupForm } from "./signupForm"
 import { resetLoginForm } from "./loginForm"
+import { resetDescriptionForm } from "./descriptionForm"
 
 export const setCurrentUser = user => {
 	return {
@@ -120,6 +121,43 @@ export const logOut = (event) => {
 }
 
 
+
+export const userDescriptionUpdateIsSuccessful = entry => {
+	return {
+		type: "UPDATE_ENTRY",
+		entry
+	}
+}
+
+export const updateDescription = (userData, history ) => {
+	return (dispatch) => {
+		const sendableData = {
+			id: userData.id,
+      description: userData.description
+    }
+		const config = {
+			method: 'PATCH',
+			credentials: "include",
+			headers: {
+			 'Content-Type': 'application/json',
+			  "Accept": 'application/json'
+				},
+			body: JSON.stringify(sendableData)
+		}
+		return fetch( `/users/${userData.id}`, config)
+		.then(response => response.json())
+		.then(user => {
+			if (user.error) {
+				alert(user.error)
+			} else {
+			dispatch(userDescriptionUpdateIsSuccessful(user.data.attributes))
+			dispatch(resetDescriptionForm())
+			history.push(`/profile`)
+			}
+		})
+	.catch(err => console.log(err))
+	}
+}
 
 
 
