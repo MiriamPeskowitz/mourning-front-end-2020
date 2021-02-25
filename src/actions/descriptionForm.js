@@ -1,10 +1,8 @@
 
 export const setDescriptionDataForEdit = (description) => {
-	const descriptionFormData = {
-		description: description
-	}
 	return {
-		type: "SET_DESCRIPTION_DATA_FOR_EDIT"
+		type: "SET_DESCRIPTION_DATA_FOR_EDIT",
+		payload: description
 	}
 }
 
@@ -17,7 +15,9 @@ export const setDescriptionDataForEdit = (description) => {
 // 	return {
 // 		type: "UPDATE_ENTRY_FORM",
 // 		formData
-export const updateDescriptionForm = (formData) => {
+export const updateDescriptionForm = (name, value) => {
+	const formData = { name, value }
+	console.log("formData", formData)
 	return {
 		type: "UPDATE_DESCRIPTION_FORM",
 		formData

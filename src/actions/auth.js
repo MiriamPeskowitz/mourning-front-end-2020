@@ -130,6 +130,7 @@ export const userDescriptionUpdateIsSuccessful = entry => {
 }
 
 export const updateDescription = (userData, history ) => {
+	console.log("UpdateDes", userData)
 	return (dispatch) => {
 		const sendableData = {
 			id: userData.id,

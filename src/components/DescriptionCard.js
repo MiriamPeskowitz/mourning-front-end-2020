@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Button, Card } from 'react-bootstrap'
 import styled from 'styled-components'
 
@@ -12,17 +12,18 @@ const Styles = styled.div`
 `
 
 const DescriptionCard = ({description}) => {
+
 		console.log("description:", description)
+
+
+		const myDescription = description.length > 0 ? <NavLink exact to={"description/edit"}>{description}</NavLink> : <p>No Description Yet</p>
 		return (
 			<Styles>
 				<Card className="description-card">
 				  <Card.Body >
 				    <Card.Text>
-				      {description}
+				      { myDescription }
 				    </Card.Text>
-				    <Button variant="light">
-				    	<Link to="description/edit">Coming soon:Edit your description </Link>
-				    </Button>
 				  </Card.Body>
 				</Card>
 			</Styles>
@@ -36,3 +37,8 @@ const mapStateToProps = state => {
 }
 	
 export default connect(mapStateToProps, null )(DescriptionCard)
+
+
+// <Button variant="light">
+// 				    	<Link to="description/edit">Coming soon:Edit your description </Link>
+// 				    </Button>

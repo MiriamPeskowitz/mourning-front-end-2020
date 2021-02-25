@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { updateDescription } from '../actions/auth.js'
-import { setDescriptionDataForEdit, updateDescriptionForm, resetDescriptionForm }  from '../actions/descriptionForm.js'
+import { updateDescriptionForm, setDescriptionDataForEdit, resetDescriptionForm }  from '../actions/descriptionForm.js'
 import { Link  } from 'react-router-dom'
-import { Button, Form, Col } from 'react-bootstrap'
+import { Container, Button, Form } from 'react-bootstrap'
 
 import styled from 'styled-components' //needed? 
-
+	const Styles = styled.div`
+	a {
+			color: black;
+		}
+`
 
 // currentUser.description
 class EditDescriptionForm extends Component {
@@ -24,53 +28,55 @@ class EditDescriptionForm extends Component {
 	}
 
 	handleChange = (event) => {
-		event.preventDefault()
+		const { updateDescription } = this.props
 		const { name, value } = event.target
 		updateDescriptionForm(name, value)
 	}
 
 	handleSubmit = (e) => {
-		const { descriptionFormData, updateDescription, history, currentUserId } = this.props
-
+		const { descriptionFormData, updateDescription, history, currentUser } = this.props
+		const { id } = currentUser
+		console.log("id:", id)
 		e.preventDefault()
 		updateDescription({
 			...descriptionFormData, 
-			currentUserId,
+			id,
 		}, history)
 	}
 	
 	render() {
-		const { descriptionFormData, updateDescription, history} = this.props
+		const { currentUser, descriptionFormData, updateDescription, history} = this.props
+		const { id, description } = currentUser
+		console.log("des:", description)
 	return (
-		<div className="description-card">
-			<h3>Would you like to edit your description? </h3>
-			<form onSubmit={this.handleSubmit}> 
+		<Styles>
+		<div className="edit-description-card">
+			<Container fluid>
+			<Form> 
 				
-				<Form.Group controlId="formGroupText">
-					<Col md>
-					<input
-						placeholder="text"
-						type="text"
-						id="text"
-						name="text" 
+				<Form.Group>
+				
+					<Form.Label>Would you like to edit your description? </Form.Label>
+					<Form.Control as="textarea" rows={3}
+
+						type="textarea"
+						name="description" 
+						value={description}
 						onChange={this.handleChange}
-						value={descriptionFormData}
-					/>
-				</Col>
+						
+						>
+					</Form.Control>
+			
 				</Form.Group>
-				<Col>
-					<Button>
-						<input 
-						type="submit" 
-						value="Save" 
-						/>
-					</Button>
-					</Col>
-			</form>
-			<Button>
-			   <Link to={'/profile'} >Back to my profile</Link>
+				<Button variant="light" onClick={this.handleSubmit}>Save</Button>
+				
+			</Form>
+			<Button variant="light">
+			   <Link to={'/profile'}>Return to profile</Link>
 			</Button>
+			</Container>
 		</div>
+		</Styles>
 		)
 	}
 }
@@ -78,14 +84,29 @@ class EditDescriptionForm extends Component {
 //feature: add public/private boolean 
 const mapStateToProps = state => {
   return { 
-  	descriptionFormData: state.descriptionFormReducer,
-  	currentUserId: state.authReducer.currentUser.id
+  	descriptionFormData: state.descriptionFormReducer.description,
+  	currentUser: state.authReducer.currentUser
   }
 }
 
-export default connect(mapStateToProps, { updateDescription, resetDescriptionForm, setDescriptionDataForEdit })(EditDescriptionForm)
+export default connect(mapStateToProps, { updateDescription, setDescriptionDataForEdit, resetDescriptionForm  })(EditDescriptionForm)
+						// placeholder="What brought you here? Who have you lost?"
 
+// <input
+// 						placeholder="text"
+// 						type="textarea"
+// 						id="text"
+// 						name="text" 
+// 						onChange={this.handleChange}
+// 						value={description}
+// 					/>
 
+// <InputGroup>
+// 				    <InputGroup.Prepend>
+// 				      <InputGroup.Text>With textarea</InputGroup.Text>
+// 				    </InputGroup.Prepend>
+// 				    <FormControl as="textarea" aria-label="With textarea" />
+// 				  </InputGroup>
 //needs prepopulated form,
 // const mapStateToProps = state => {
 // 	return ({

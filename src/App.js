@@ -51,9 +51,10 @@ class App extends Component {
 	            console.log("edit-route-entry:", entry)
 	            return (<UpdateEntryForm entry={entry} {...props} />)
 	            }}/>
-	          <Route exact strict path='/description/edit' render={ (props) => {
-	          	return (<EditDescriptionForm />)
-	          }} />
+	          
+	          <Route exact strict path='/description/edit' component={EditDescriptionForm} />
+	          
+
 	          <Route exact path="/memories/new" component={CreateMemoryForm} />
 						<Route exact path="/story" component={Story} />
 						<Route exact path="/exit"  component={ExitPage} />
