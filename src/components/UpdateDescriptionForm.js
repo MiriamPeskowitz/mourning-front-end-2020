@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { updateDescription } from '../actions/auth.js'
-import { updateDescriptionForm, setDescriptionDataForEdit, resetDescriptionForm }  from '../actions/descriptionForm.js'
+import { sendUpdatedDescriptionToReducer, setDescriptionDataForEdit, resetDescriptionForm }  from '../actions/descriptionForm.js'
 import { Link  } from 'react-router-dom'
 import { Container, Button, Form } from 'react-bootstrap'
 
@@ -17,11 +17,13 @@ class UpdateDescriptionForm extends Component {
 //pick up: setting initial value and getting it to the reducer 
 //work with componentDidMount	
 //set with data from currentUser.description
-	// componentDidMount() {
-	// 	const initialDescription = this.props.currentUser.description
-	// 	console.log("initDes:", initialDescription)
-	// 	initialDescription && this.props.setDescriptionDataForEdit(initialData)
-	// }
+
+	componentDidMount() {
+		console.log("cdm:", this.props.user)
+		const initialData = this.props.currentUser.description
+		console.log("initDes:", initialData)
+		initialData && this.props.setDescriptionDataForEdit(this.props.user)
+	}
 
 	componentDidUpdate(previousProps) {
 		this.props.description && !previousProps.description && this.props.setDescriptionDataForEdit(this.props.descriptionFormData)
@@ -34,7 +36,7 @@ class UpdateDescriptionForm extends Component {
 	handleChange = (event) => {
 		const { updateDescription } = this.props
 		const { name, value } = event.target
-		updateDescriptionForm(name, value)
+		sendUpdatedDescriptionToReducer(name, value)
 	}
 
 	handleSubmit = (e) => {
@@ -62,7 +64,7 @@ class UpdateDescriptionForm extends Component {
 				
 					<Form.Label>Would you like to edit your description? </Form.Label>
 					<Form.Control as="textarea" rows={3}
-
+						placeholder={description}
 						type="textarea"
 						name="description" 
 						value={description}
@@ -93,7 +95,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateDescription, setDescriptionDataForEdit, resetDescriptionForm  })(UpdateDescriptionForm)
+export default connect(mapStateToProps, { updateDescription, setDescriptionDataForEdit, sendUpdatedDescriptionToReducer, resetDescriptionForm  })(UpdateDescriptionForm)
 						// placeholder="What brought you here? Who have you lost?"
 
 // <input

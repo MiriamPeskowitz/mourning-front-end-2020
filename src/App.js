@@ -52,7 +52,12 @@ class App extends Component {
 	            return (<UpdateEntryForm entry={entry} {...props} />)
 	            }}/>
 	          
-	          <Route exact strict path='/description/edit' component={UpdateDescriptionForm} />
+	          <Route exact strict path='/user/:id/edit' render={ (props) => {
+	          	const id = parseInt(props.match.params.id)
+	          	console.log("route:", id)
+	          	return (<UpdateDescriptionForm  {...props} />)
+	          
+	        	}}/>
 	          
 
 	          <Route exact path="/memories/new" component={CreateMemoryForm} />
@@ -65,6 +70,9 @@ class App extends Component {
 	  )
 	}
 }
+	          	// console.log("edit", user)
+
+	          	// const user = users.find(user => user.id === id)
 
 const mapStateToProps = (state) => {
 	return ({

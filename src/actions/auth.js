@@ -121,7 +121,7 @@ export const logOut = (event) => {
 }
 
 
-
+//work here for description update 
 export const userDescriptionUpdateIsSuccessful = entry => {
 	return {
 		type: "UPDATE_ENTRY",

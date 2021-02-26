@@ -45,7 +45,7 @@ class UpdateEntryForm extends Component {
 	
 	render()  {
 		const { updateFormData,  deleteEntry, history } = this.props
-		const {title, content, id } = updateFormData
+		const { title, content, id } = updateFormData
 		return (
 			<div className="UpdateEntryForm">
 				<h3>Form for Editing an Entry</h3>
