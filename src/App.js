@@ -9,7 +9,7 @@ import EntryCard from './components/EntryCard'
 import Profile from './components/Profile'
 import CreateEntryForm from './components/CreateEntryForm'
 import UpdateEntryForm from './components/UpdateEntryForm'
-import EditDescriptionForm from './components/EditDescriptionForm'
+import UpdateDescriptionForm from './components/UpdateDescriptionForm'
 import Logout from './components/Logout'
 import Story from './components/Story'
 import ExitPage from './components/ExitPage'
@@ -52,7 +52,7 @@ class App extends Component {
 	            return (<UpdateEntryForm entry={entry} {...props} />)
 	            }}/>
 	          
-	          <Route exact strict path='/description/edit' component={EditDescriptionForm} />
+	          <Route exact strict path='/description/edit' component={UpdateDescriptionForm} />
 	          
 
 	          <Route exact path="/memories/new" component={CreateMemoryForm} />

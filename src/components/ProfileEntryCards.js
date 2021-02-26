@@ -58,7 +58,18 @@ const mapStateToProps = state => {
 }
 	
 export default connect(mapStateToProps, null )(ProfileEntryCards)
+// const myDescription = description.length > 0 ? <NavLink exact to={"description/edit"}>{description}</NavLink> : <p>No Description Yet</p>
 
+// 		return (
+// 			<Styles>
+// 				<Card className="description-card">
+// 				  <Card.Body >
+// 				    <Card.Text>
+// 				      { myDescription }
+// 				    </Card.Text>
+// 				  </Card.Body>
+// 				</Card>
+// 			</Styles>
 
 // a, .navbar-brand, .navbar-nav, .nav-link {
 // 		color: #bbb;

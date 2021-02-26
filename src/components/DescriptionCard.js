@@ -15,8 +15,8 @@ const DescriptionCard = ({description}) => {
 
 		console.log("description:", description)
 
-
 		const myDescription = description.length > 0 ? <NavLink exact to={"description/edit"}>{description}</NavLink> : <p>No Description Yet</p>
+
 		return (
 			<Styles>
 				<Card className="description-card">
