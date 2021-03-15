@@ -2,6 +2,7 @@ body {
   background-color: #696969;
  }
 
+
 /*ul {
   margin: 0;
   padding: 0;
@@ -98,4 +99,14 @@ a:hover, a:active {
 .memory-cards {
   
   
+}
+
+.entries-list {
+  margin: 15px;
+  border: 1px black;
+}
+
+.mourners-list {
+  margin: 15px;
+  border: 1px black;
 }
