@@ -8,17 +8,19 @@ const gray = {color: '#C0C0C0'};
 
 const CurrentUserNavbar = ( {currentUser} ) => {	
 	// console.log("currentUser", currentUser)
-	const {username} = currentUser
-	// console.log("userName", username)
-	const nameC = name => {
-		const nameCap = username[0].toUpperCase() + username.slice(1)
-		console.log("nameCap", nameCap)
+	const name = currentUser.username
+	// console.log("name", name)
+	const nameC = (name) => {
+		// console.log(name)
+		const nameCap = name[0].toUpperCase() + name.slice(1)
+		// console.log("nameCap", nameCap)
 		return nameCap
 	}
 	
+
 	return (
 		<>
-			<p id="welcome-back">Welcome back, {nameC({username})}</p>
+			<p id="welcome-back">Welcome back, {nameC(name)}</p>
 		  <ul className="navbar">
 		 		<li> <NavLink style={gray} exact to="/">Home</NavLink> </li> 
 		 		<li> <NavLink style={gray} exact to="/story">About</NavLink> </li> 
