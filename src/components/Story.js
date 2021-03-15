@@ -7,7 +7,7 @@ const Story = () => {
 	const gray = {color: '#C0C0C0'};
 	return (
 		<div className="story">
-			<NavLink id="story-link-to-home" style={gray} exact to="/">Home</NavLink> 
+			<NavLink class="left-margin" style={gray} exact to="/">Home</NavLink> 
 			<h2 id="story-title"> A space for feelings and memory</h2>
 				<section id="story-paragraphs">
 				<p>My dad died in May 2017.  During that time, friends were loving and attentive. As the days and weeks passed, it was only natural for people to stop asking how my mourning was going. I wasn't sure how to communicate this, either. 

@@ -23,7 +23,7 @@ const CurrentUserNavbar = ( {currentUser} ) => {
 			<p id="welcome-back">Welcome back, {nameC(name)}</p>
 		  <ul className="navbar">
 		 		<li> <NavLink style={gray} exact to="/">Home</NavLink> </li> 
-		 		<li> <NavLink style={gray} exact to="/story">About</NavLink> </li> 
+		 		<li> <NavLink style={gray} exact to="/story">Story</NavLink> </li> 
 		 		<li> <NavLink style={gray} exact to="/profile">My Profile</NavLink> </li> 
 		    <li> <NavLink style={gray} exact to="/logout">Logout</NavLink> </li> 			    
 		  </ul> 

@@ -7,7 +7,7 @@ const NewSessionNavbar = () => {
 	return (
 		<ul className="navbar">
 	 		<li> <NavLink style={gray} exact to="/">Home</NavLink> </li> 
-	 		<li> <NavLink style={gray} exact to="/story">About</NavLink> </li> 
+	 		<li> <NavLink style={gray} exact to="/story">Story</NavLink> </li> 
 	 		<li> <NavLink style={gray} exact to="/signup">SignUp</NavLink> </li>    
 	    <li> <NavLink style={gray} exact to="/login">Login</NavLink> </li>	   
 	  </ul> 

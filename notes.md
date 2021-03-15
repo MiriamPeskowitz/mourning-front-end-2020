@@ -193,13 +193,17 @@ Tuesday
   
 
 Monday changes
-  -- Change color of Mourning DONE 
-  -- get rid of alert that no one is logged in
-  -- DONE About page -- has welcome back, even when no one is logged in. Remove the whole line 
+  -- DONEChange color of Mourning DONE 
+  -- DONE get rid of alert that no one is logged in
+  -- DONE About page -- has welcome back, even when no one is logged in. 
   -- DONE About page -- remove every nav except Home
   -- DONE About page -- much more margin and padding 
-  -- Edit and spell check the about page 
+  -- DONEEdit and spell check the about page 
   -- Update description -- description card edit 
   -- DONE story -- maybe take out third graph here 
+  -- DONE logout button is horrible -- it's the home button, actually 
+  -- signup page -- change color of join us 
 
+Next: 
+-- fix current user capitalization in backend 
 

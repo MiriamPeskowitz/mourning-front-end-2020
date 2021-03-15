@@ -2,6 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { signup } from '../actions/auth.js'
 import { updateSignupForm } from '../actions/signupForm.js'
+import { NavLink } from 'react-router-dom'
+
+const gray = {color: '#C0C0C0'};
+
 // import '../stylesheets/Signup.css'
 
 const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
@@ -26,7 +30,8 @@ const Signup = ({signupFormData, updateSignupForm, history, signup}) => {
  
   return (
     <>
-      <h2 style={{ color: '#9400d3' }}>Join us. Grief is welcome here. </h2>
+      <NavLink className="left-margin" style={gray} exact to="/">Home</NavLink> 
+      <h2 style={{ color: 'white' }}>Join us. Grief is welcome here. </h2>
     	<div>
       	<form className="input-field" onSubmit={handleSubmit} >
       	  <div>

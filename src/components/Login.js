@@ -18,7 +18,7 @@ const Login = ({loginFormData, updateLoginForm, login, history}) => {
 	}
 	
 	return (
-		<div className="login">
+		<div className="login left-margin">
 			<h3>Login</h3>
 			<form onSubmit={handleSubmit}> 
 				<div>
