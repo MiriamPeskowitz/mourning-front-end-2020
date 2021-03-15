@@ -191,3 +191,15 @@ Tuesday
   -- branch description-form is where I'm working on this featyure, 
   -- create eval branch for changes made during  eval. I can decide later whether to bring them over to main. 
   
+
+Monday changes
+  -- Change color of Mourning DONE 
+  -- get rid of alert that no one is logged in
+  -- DONE About page -- has welcome back, even when no one is logged in. Remove the whole line 
+  -- DONE About page -- remove every nav except Home
+  -- DONE About page -- much more margin and padding 
+  -- Edit and spell check the about page 
+  -- Update description -- description card edit 
+  -- DONE story -- maybe take out third graph here 
+
+

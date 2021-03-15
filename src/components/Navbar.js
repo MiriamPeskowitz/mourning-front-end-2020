@@ -5,7 +5,7 @@ import NewSessionNavbar from './NewSessionNavbar'
 
 const Navbar = ({ currentUser }) => {	
 	const loggedIn = currentUser.username !== ""
-	console.log("currentUser?", loggedIn)
+	// console.log("currentUser?", loggedIn)
 	return ( 
 		<>
 		{ loggedIn ? <CurrentUserNavbar /> : <NewSessionNavbar /> }

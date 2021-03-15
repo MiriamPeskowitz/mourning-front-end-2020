@@ -47,12 +47,13 @@ a:hover, a:active {
 
 .app-title {
   margin: 10px;
-  color: blue;
+  font-weight: bold;
+  color: white;
 }
 
 .entry-list, .mourner-list, .story-header {
   text-align: left;
-  margin: 5px;
+  margin: 10px;
 }
 
 .entries-list {
@@ -94,4 +95,18 @@ a:hover, a:active {
 .memory-cards {
   
   
+}
+
+#story-paragraphs {
+  margin-left: 40px;
+}
+#story-title {
+  margin-left: 10px;
+}
+#story-link-to-home {
+  margin-left: 10px;
+}
+
+#welcome-back {
+  margin-left: 10px;
 }

@@ -27,7 +27,6 @@ class App extends Component {
 	
 	render() {
 		const { entries } = this.props
-		console.log("app component -> entries:", entries )
 	  return (
 	  	<div className="app">
 	  		<div className="app-header">  
@@ -68,5 +67,3 @@ const mapStateToProps = (state) => {
 	})
 }
 export default connect(mapStateToProps, { getCurrentUser })(App);
-
-						// <Route exact strict path="/description/edit" component={DescriptionCardEditForm} />

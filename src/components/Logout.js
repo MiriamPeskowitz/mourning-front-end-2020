@@ -4,13 +4,11 @@ import { logOut, clearCurrentUser } from "../actions/auth.js"
 import { withRouter } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 
-//is this extra -- push 
 const Logout = ({ logOut, clearCurrentUser, history}) => {
 	return (
 		<Button>
 			<form onSubmit = {(event) => {
-				event.preventDefault()
-				
+				event.preventDefault()		
 				logOut()
 				history.push('/exit')
 				}

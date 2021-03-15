@@ -24,7 +24,6 @@ const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateNewE
 		<div className="login">
 			<h3>Create a new entry</h3>
 			<form onSubmit={handleSubmit}> 
-				
 				<Form.Group controlId="formGroupTitle">
 					<Col md>
 					<input

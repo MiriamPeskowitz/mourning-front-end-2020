@@ -38,7 +38,6 @@ export const deleteEntryIsSuccessful = (id) => {
 
 // refactor? same as resetEntries ? 
 export const clearEntries = () => {
-	console.log("got to clearEntries")
 	return {
 		type: "CLEAR_ENTRIES"
 	}
@@ -76,7 +75,6 @@ export const createEntry = (entryData, history) => {
 			content: entryData.entryFormData.content,
       user_id: entryData.currentUserId
     }
-     	console.log("sendableEntryData", sendableEntryData)
 		const config = {
 			method: 'POST',
 			credentials: "include",
@@ -90,7 +88,6 @@ export const createEntry = (entryData, history) => {
 		return fetch( "/entries", config)
 		.then(response => response.json())
 		.then(entry => {
-			console.log('entry in addNewEntry.data', entry.data)
 			dispatch(addEntry(entry.data.attributes))
 			dispatch(resetEntryForm())
 			history.push(`/entries/${entry.data.id}`)

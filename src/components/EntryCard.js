@@ -4,7 +4,7 @@ import { deleteEntry } from '../actions/entries.js'
 import { Link, withRouter  } from 'react-router-dom'
 
 const EntryCard = ({deleteEntry, entry, history}) => {
-	const { title, content, id} = entry
+	const { title, content, id } = entry
 	return (		
 		<div className="entry-card">
 			<p>{title}</p>

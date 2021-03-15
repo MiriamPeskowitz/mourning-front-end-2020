@@ -26,8 +26,8 @@ const Profile = ({ currentUser, history}) => {
 					</div>
 			
 					<div className="profile-memory-cards">
-						<h3>Coming Soon: People I Remember</h3>
-						<Button variant="secondary"><Link to="memories/new">Coming Soon: create a new memory card </Link></Button>
+						<h3>Coming Soon:People I Remember</h3>
+						<Button variant="secondary"><Link to="memories/new">Create a new memory card </Link></Button>
 						<MemoryCards />	
 					</div>
 					

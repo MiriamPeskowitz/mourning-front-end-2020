@@ -10,14 +10,12 @@ export const setCurrentUser = user => {
 }
 
 export const clearCurrentUser = () => {
-	console.log("got to action-clearCurrentUser")
 	return {
 		type: "CLEAR_CURRENT_USER"
 	}
  }
 
 export const currentUserLoading = () => {
-	console.log('got to currentUserLoading')
 	return {
 		type: "LOADING_CURRENT_USER",
 	}
@@ -38,10 +36,9 @@ export const getCurrentUser = () => {
 		.then(response => response.json())
 		.then(response => {
 			if (response.error) {
-				alert(response.error)
+				console.log(response.error)
 			} else {
 				dispatch(setCurrentUser(response.data.attributes))
-				console.log("currentUser is (response.data.attributes.username): ", response.data.attributes.username)
 			}
 		})
 		.catch(err => console.log(err))
@@ -71,7 +68,7 @@ export const signup = (user, history) => {
 				if (user.error) {
 					alert(user.error)
 				} else {
-					console.log("Signup response -- user: ", user)
+					// console.log("Signup response -- user: ", user)
 					dispatch(setCurrentUser(user.data.attributes))
 					dispatch(resetSignupForm())	
 					history.push('/profile')
@@ -94,17 +91,13 @@ export const login = (credentials, history) => {
 			body: JSON.stringify(credentials),
 			})
 		.then(response => response.json())
-		.then(console.log("got here"))
 		.then(user => {
 			if (user.error) {
-				alert(user.error)
+				console.log(user.error)
 			} else {
 				dispatch(setCurrentUser(user.data.attributes))
-				console.log("login- user(action): ", user.data.attributes)
+				// console.log("login- user(action): ", user.data.attributes)
 				history.push('/')
-									//is this history.push(/profile) the problem, in why I get the
-									//error when loading the profile entry cards -- 
-
 			}
 		})
 		.then(dispatch(resetLoginForm()))
@@ -114,7 +107,6 @@ export const login = (credentials, history) => {
 
 //why does this need an event arg? 
 export const logOut = (event) => {	
-	console.log("got to logOut action creator")
 	return dispatch => {	
 		dispatch(clearCurrentUser())			 
 		return fetch("/logout", {
@@ -124,7 +116,7 @@ export const logOut = (event) => {
     .then(r => r.json())
     .then(response => {
     	if (response.notice) { 
-    		alert(response.notice)
+    		console.log(response.notice)
     	}
     })
   }

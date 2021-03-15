@@ -5,20 +5,26 @@ import '../stylesheets/App.css'
 
 const gray = {color: '#C0C0C0'};
 
-//make link a button? 
+
 const CurrentUserNavbar = ( {currentUser} ) => {	
-	console.log("CUNavbar:currentUser", currentUser)
+	// console.log("currentUser", currentUser)
+	const {username} = currentUser
+	// console.log("userName", username)
+	const nameC = name => {
+		const nameCap = username[0].toUpperCase() + username.slice(1)
+		console.log("nameCap", nameCap)
+		return nameCap
+	}
+	
 	return (
 		<>
-			<p>Welcome back, {currentUser.username}</p>
+			<p id="welcome-back">Welcome back, {nameC({username})}</p>
 		  <ul className="navbar">
 		 		<li> <NavLink style={gray} exact to="/">Home</NavLink> </li> 
 		 		<li> <NavLink style={gray} exact to="/story">About</NavLink> </li> 
 		 		<li> <NavLink style={gray} exact to="/profile">My Profile</NavLink> </li> 
 		    <li> <NavLink style={gray} exact to="/logout">Logout</NavLink> </li> 			    
 		  </ul> 
-		 <div>
-	   </div>
 	  </>
 	)
 }
