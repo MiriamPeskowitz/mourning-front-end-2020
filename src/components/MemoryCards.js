@@ -4,7 +4,7 @@ import { Button, Card } from 'react-bootstrap'
 const MemoryCards = () => {
 	return (
 		<div className="memory-cards">
-			<p>Create a memory card for each person you've lost and want to remember.</p>
+			<p></p>
 			
 			<Card style={{ width: '18rem', }}>
 			  // <Card.Img variant="top" src="holder.js/100px180" />
