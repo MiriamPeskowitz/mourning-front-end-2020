@@ -199,10 +199,13 @@ Monday changes
   -- DONE About page -- remove every nav except Home
   -- DONE About page -- much more margin and padding 
   -- DONEEdit and spell check the about page 
-  -- Update description -- description card edit 
   -- DONE story -- maybe take out third graph here 
   -- DONE logout button is horrible -- it's the home button, actually 
-  -- signup page -- change color of join us 
+  -- DONE signup page -- change color of join us 
+  -- Update description -- description card edit -- new / code in branch? 
+
+
+
 
 Next: 
 -- fix current user capitalization in backend 
