@@ -4,30 +4,27 @@ import { Button, Card } from 'react-bootstrap'
 const MemoryCards = () => {
 	return (
 		<div className="memory-cards">
-			<p>Coming Soon, Memory cards for each person a user has lost and is remembering</p>
-			
 			<Card style={{ width: '18rem', }}>
-			  <Card.Img variant="top" src="holder.js/100px180" />
+			  // <Card.Img variant="top" src="holder.js/100px180" />
 			  <Card.Body style={{ color: "black"}}>
 			    <Card.Title>My grandma Roz</Card.Title>
 			    <Card.Text>
-			      years lived-died
+			      1915-2016
 			    </Card.Text>
 			    <Card.Text>
-			      Something about her
-			    </Card.Text>
+ 						memories description stories reminders remembrances chronicle archive sweetness memories			    </Card.Text>
 			    <Button variant="primary">Edit</Button>
 			  </Card.Body>
 			</Card>
 			<Card style={{ width: '18rem', }}>
-			  <Card.Img variant="top" src="holder.js/100px180" />
+			  // <Card.Img variant="top" src="holder.js/100px180" />
 			  <Card.Body style={{ color: "black"}}>
 			    <Card.Title>My grandfather Morris</Card.Title>
 			    <Card.Text>
-			      years lived-died
+			      1900-1994
 			    </Card.Text>
 			    <Card.Text>
-			      Something about him
+			     memories description stories reminders remembrances chronicle archive sweetness memories
 			    </Card.Text>
 			    <Button variant="primary">Edit</Button>
 			  </Card.Body>

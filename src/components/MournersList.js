@@ -5,7 +5,7 @@ const MournersList = ( {users} ) => {
 
 	const names = users.map(user => (
 		<div key={user.id} > 
-			<h4>{user.attributes.title}</h4>
+			<h4>{user.attributes.username}</h4>
 			<p> {user.attributes.description} </p>
 		</div>
 	))

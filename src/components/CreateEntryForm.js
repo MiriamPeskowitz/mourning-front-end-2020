@@ -41,6 +41,7 @@ const createEntryForm = ({ currentUserId, entryFormData, createEntry, updateNewE
 				<Form.Group controlId="formGroupContent">
 					<Col md>
 						<input 
+							className="w-100"
 							placeholder="How are you feeling?"
 							type="text" 
 							id="text"

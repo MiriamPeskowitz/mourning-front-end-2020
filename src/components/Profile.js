@@ -13,14 +13,14 @@ import { Container } from 'react-bootstrap'
 const Profile = ({ currentUser, history}) => {
 	const { username } = currentUser
 	const nameCapitalized = username.charAt(0).toUpperCase() + username.slice(1)
-	console.log("nameCapitalized:", nameCapitalized)
+	// console.log("nameCapitalized:", nameCapitalized)
 	return (
 		<>
 			<Container fluid>
 				<div className="profile">
 					<CurrentUserNavBar />
 					<section>
-						<h3>Who have you lost?</h3>
+						<h3>Whom have you lost?</h3>
 						<DescriptionCard />
 					</section>			
 
@@ -31,8 +31,10 @@ const Profile = ({ currentUser, history}) => {
 					</section>
 			
 					<section className="profile-memory-cards">
-						<h3>Coming Soon: My People</h3>
+						<h3>People I Remember</h3>
+						<div>
 						<MoreMemoryCardsButton />
+						</div>
 						<MemoryCards />	
 					</section>
 					
