@@ -2,7 +2,6 @@ import { resetSignupForm } from "./signupForm"
 import { resetLoginForm } from "./loginForm"
 
 export const setCurrentUser = user => {
-	console.log("user in setCurrentUser:,", user)
 	return {
 		type: "SET_CURRENT_USER",
 		payload: user
@@ -10,14 +9,12 @@ export const setCurrentUser = user => {
 }
 
 export const clearCurrentUser = () => {
-	console.log("got to action-clearCurrentUser")
 	return {
 		type: "CLEAR_CURRENT_USER"
 	}
  }
 
 export const currentUserLoading = () => {
-	console.log('got to currentUserLoading')
 	return {
 		type: "LOADING_CURRENT_USER",
 	}
@@ -41,7 +38,6 @@ export const getCurrentUser = () => {
 				alert(response.error)
 			} else {
 				dispatch(setCurrentUser(response.data.attributes))
-				console.log("currentUser is (response.data.attributes.username): ", response.data.attributes.username)
 			}
 		})
 		.catch(err => console.log(err))
@@ -50,7 +46,6 @@ export const getCurrentUser = () => {
 
 
 export const signup = (user, history) => {	
-	console.log("signup", history)
 	return (dispatch) => {
 		dispatch({
 			type: "LOADING_CURRENT_USER"
@@ -71,7 +66,6 @@ export const signup = (user, history) => {
 				if (user.error) {
 					alert(user.error)
 				} else {
-					console.log("Signup response -- user: ", user)
 					dispatch(setCurrentUser(user.data.attributes))
 					dispatch(resetSignupForm())	
 					history.push('/profile')
@@ -80,9 +74,7 @@ export const signup = (user, history) => {
 			.catch(err=> console.log(err))
 	}
 }
-//could refactor with getMyEntries after setCurrentuser, if I wanted to totally refactor the reducer structure 
 
-//send credentials, if good, setcurrentuser and go to profile page 
 export const login = (credentials, history) => {
 	return (dispatch) => {
 		return fetch("/login", {
@@ -94,7 +86,6 @@ export const login = (credentials, history) => {
 			body: JSON.stringify(credentials),
 			})
 		.then(response => response.json())
-		.then(console.log("got here"))
 		.then(user => {
 			if (user.error) {
 				alert(user.error)
@@ -102,8 +93,8 @@ export const login = (credentials, history) => {
 				dispatch(setCurrentUser(user.data.attributes))
 				console.log("login- user(action): ", user.data.attributes)
 				history.push('/')
-									//is this history.push(/profile) the problem, in why I get the
-									//error when loading the profile entry cards -- 
+				//is this history.push(/profile) the problem, in why I get the
+				//error when loading the profile entry cards -- 
 
 			}
 		})
@@ -112,21 +103,21 @@ export const login = (credentials, history) => {
 	}
 }
 
-//why does this need an event arg? 
-export const logOut = (event) => {	
-	console.log("got to logOut action creator")
+//had an event arg here, deleted 
+export const logOut = () => {	
+	console.log("logout")
 	return dispatch => {	
 		dispatch(clearCurrentUser())			 
 		return fetch("/logout", {
       credentials: "include",
       method: "DELETE"
     })
-    .then(r => r.json())
-    .then(response => {
-    	if (response.notice) { 
-    		alert(response.notice)
-    	}
-    })
+    // .then(r => r.json())
+    // .then(response => {
+    // 	if (response.notice) { 
+    // 		alert(response.notice)
+    // 	}
+    // })
   }
 }
 

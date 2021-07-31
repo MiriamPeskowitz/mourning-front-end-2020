@@ -1,7 +1,6 @@
 import { resetEntryForm } from "./entryForm"
 
 export const entriesLoading = () => {
-	console.log('got to LOADING_ENTRIES')
 	return {
 		type: "LOADING_ENTRIES",
 	}
@@ -38,7 +37,6 @@ export const deleteEntryIsSuccessful = (id) => {
 
 // refactor? same as resetEntries ? 
 export const clearEntries = () => {
-	console.log("got to clearEntries")
 	return {
 		type: "CLEAR_ENTRIES"
 	}
@@ -57,10 +55,10 @@ export const getEntries = () => {
 		.then(res => res.json())
 		.then(entries => {
 			if (entries.error) {
-			alert(entries.error)
+				alert(entries.error)
 			} else {		
-			dispatch(setEntries(entries))
-			dispatch(resetEntryForm())
+				dispatch(setEntries(entries))
+				dispatch(resetEntryForm())
 			}
 		})
 		.catch(err => console.log(err))
