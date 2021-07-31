@@ -4,6 +4,7 @@ import MemoryCards from './MemoryCards'
 import ProfileEntryCards from './ProfileEntryCards'
 import CurrentUserNavBar from './CurrentUserNavbar'
 import DescriptionCard from './DescriptionCard'
+import CapitalizeName from './CapitalizeName'
 import { Link, withRouter } from 'react-router-dom'
 import { Button, Container } from 'react-bootstrap'
 //withRouter might be extra, since Profile is child of Router in App.js 
@@ -18,7 +19,7 @@ const Profile = ({ currentUser, history}) => {
 					</div>
 
 					<div className="profile-entry-cards">
-						<h3>{currentUser.username}'s Entries</h3>
+						<h3>{CapitalizeName(currentUser.username)}'s Entries</h3>
 						<Button variant="secondary">
 							<Link to="entries/new">Create a new entry </Link>
 						</Button>
