@@ -46,6 +46,7 @@ export const getCurrentUser = () => {
 
 
 export const signup = (user, history) => {	
+	console.log('signup')
 	return (dispatch) => {
 		dispatch({
 			type: "LOADING_CURRENT_USER"
