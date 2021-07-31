@@ -8,18 +8,18 @@ const gray = {color: '#C0C0C0'};
 //make link a button? 
 const CurrentUserNavbar = ( {currentUser} ) => {	
 	console.log("CUNavbar:currentUser", currentUser)
+	const name = currentUser.username
+	const capitalizedUsername = name.charAt(0).toUpperCase() + name.slice(1)
 	return (
-		<>
-			<p>Welcome back, {currentUser.username}</p>
+		<div>
+			<p>Welcome back, {capitalizedUsername}</p>
 		  <ul className="navbar">
 		 		<li> <NavLink style={gray} exact to="/">Home</NavLink> </li> 
 		 		<li> <NavLink style={gray} exact to="/story">About</NavLink> </li> 
 		 		<li> <NavLink style={gray} exact to="/profile">My Profile</NavLink> </li> 
 		    <li> <NavLink style={gray} exact to="/logout">Logout</NavLink> </li> 			    
 		  </ul> 
-		 <div>
-	   </div>
-	  </>
+	  </div>
 	)
 }
 const mapStateToProps = state => {

@@ -22,8 +22,8 @@ const Login = ({loginFormData, updateLoginForm, login, history}) => {
 			<h3>Login</h3>
 			<form onSubmit={handleSubmit}> 
 				<div>
+					<label>Username:  </label>
 					<input 
-						placeholder="username"
 						type="text" 
 						name="username" 
 						onChange={handleChange}
@@ -31,8 +31,8 @@ const Login = ({loginFormData, updateLoginForm, login, history}) => {
 					/>
 				</div>
 				<div>
+					<label>Password:  </label>
 					<input 
-						placeholder="password"
 						type="password" 
 						name="password" 
 						onChange={handleChange}
