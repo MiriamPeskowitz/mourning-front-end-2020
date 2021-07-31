@@ -1,7 +1,8 @@
 //entryForm actions to control entry data in store
 //see actions/entries.js for REST actionCreators 
 export const updateNewEntryForm = (name, value) => {
-	const formData= {
+	//refactor to destructured name, value 
+	const formData = {
 		name: name, 
 		value: value
 	}
