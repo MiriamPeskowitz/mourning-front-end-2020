@@ -74,7 +74,7 @@ export const createEntry = (entryData, history) => {
 			content: entryData.entryFormData.content,
       user_id: entryData.currentUserId
     }
-     	console.log("sendableEntryData", sendableEntryData)
+     	// console.log("sendableEntryData", sendableEntryData)
 		const config = {
 			method: 'POST',
 			credentials: "include",
@@ -88,7 +88,7 @@ export const createEntry = (entryData, history) => {
 		return fetch( "/entries", config)
 		.then(response => response.json())
 		.then(entry => {
-			console.log('entry in addNewEntry.data', entry.data)
+			// console.log('entry in addNewEntry.data', entry.data)
 			dispatch(addEntry(entry.data.attributes))
 			dispatch(resetEntryForm())
 			history.push(`/entries/${entry.data.id}`)
@@ -122,9 +122,9 @@ export const updateEntryForm = (entryData, history ) => {
 			if (entry.error) {
 				alert(entry.error)
 			} else {
-			dispatch(entryUpdateIsSuccessful(entry.data.attributes))
-			dispatch(resetEntryForm())
-			history.push(`/entries/${entry.data.attributes.id}`)
+				dispatch(entryUpdateIsSuccessful(entry.data.attributes))
+				dispatch(resetEntryForm())
+				history.push(`/entries/${entry.data.attributes.id}`)
 			}
 		})
 	.catch(err => console.log(err))
@@ -146,7 +146,7 @@ export const deleteEntry = (id, history) => {
 		.then((r) => {
 			if (r.error) {
 				alert(r.error)
-				} else {
+			} else {
 				history.push('/profile')
 				dispatch(deleteEntryIsSuccessful(id))
 			}
