@@ -15,7 +15,7 @@ const CurrentUserNavbar = ( {currentUser} ) => {
 	// const capitalizedUsername = name.charAt(0).toUpperCase() + name.slice(1)
 	return (
 		<div>
-			<p>Welcome back, {CapitalizeName(currentUser.username)}</p>
+			<p className="welcome">Welcome back, {CapitalizeName(currentUser.username)}</p>
 		  <ul className="navbar">
 		 		<li> <NavLink style={gray} exact to="/">Home</NavLink> </li> 
 		 		<li> <NavLink style={gray} exact to="/story">About</NavLink> </li> 

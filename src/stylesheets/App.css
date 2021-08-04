@@ -59,6 +59,7 @@ a:hover, a:active {
   color: yellow;
 }
 
+
 .nav-bar {
   display: inline-block;  
   padding: 1em; 
@@ -80,7 +81,7 @@ a:hover, a:active {
 }
 
 .description-card {
-  bottom-margin: 50px;
+  margin-bottom: 50px;
 }
 /*signup */
 .input-field{
@@ -94,4 +95,8 @@ a:hover, a:active {
 .memory-cards {
   
   
+}
+
+.welcome {
+  margin: 5px;
 }
