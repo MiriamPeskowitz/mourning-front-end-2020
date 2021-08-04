@@ -46,8 +46,8 @@ a:hover, a:active {
 }
 
 .app-title {
-  margin: 10px;
-  color: blue;
+  margin: 5px;
+  color: white;
 }
 
 .entry-list, .mourner-list, .story-header {

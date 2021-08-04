@@ -12,12 +12,12 @@ class Entries extends Component {
 		return (
 			<div className="entry-list">
 			 <h2>What they are saying? What do they need? </h2>
-
 			 {this.props.loading ? <h3>Loading...</h3> : <EntriesList entries={this.props.entries} />}
 			</div>
 		)
 	}   
 }
+
 const mapStateToProps = state => {
 	return {
 		entries: state.entriesReducer.entries,

@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom'
 
 //Why did I have withRouter? since I'm not passing history. Delete? 
 const ProfileEntryCards = ( {entries} ) => {
-	console.log("PEC, entries:", entries)
+	// console.log("PEC, entries:", entries)
 
 	const ent = entries.reverse()
 
