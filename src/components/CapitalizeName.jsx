@@ -1,3 +1,4 @@
+//does this need to import react, if it's only a reusable function w/ no render? 
 
 
 const CapitalizeName = (username) => {
