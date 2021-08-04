@@ -6,13 +6,9 @@ import '../stylesheets/App.css'
 
 const gray = {color: '#C0C0C0'};
 
-//make link a button? 
 const CurrentUserNavbar = ( {currentUser} ) => {	
 	console.log("CUNavbar:currentUser", currentUser)
-	// const name = CapitalizeName(currentUser.username)
-	// console.log("cappedName: ", name)
-	// const name = currentUser.username
-	// const capitalizedUsername = name.charAt(0).toUpperCase() + name.slice(1)
+
 	return (
 		<div>
 			<p className="welcome">Welcome back, {CapitalizeName(currentUser.username)}</p>
@@ -30,7 +26,6 @@ const mapStateToProps = state => {
 		currentUser: state.authReducer.currentUser
 	}
 }
-export default connect(mapStateToProps, null)(CurrentUserNavbar)
 
-// {currentUser.loading ? <p>Loading...</p> : <p>Welcome back, {currentUser.username}</p>}
+export default connect(mapStateToProps, null)(CurrentUserNavbar)
 
