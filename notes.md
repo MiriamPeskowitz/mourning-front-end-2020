@@ -194,5 +194,8 @@ Tuesday
 
   Aug 4: dev log 
   -- DONE fix render on profile entries, to li's with proper line break 
-  -- refactor for consistency between similar types of components 
+  -- DONE, at least the ones I was focusing on: entries, PEC, mourners, refactor for consistency between similar types of components 
   -- // feature: change to most recent 15 , with more button 
+  -- fix color issue on entries: white, yellow when hovering 
+  -- entries show page, fix buttons Edit, Delete, back -- make similar and horizontal, and above entry 
+  
