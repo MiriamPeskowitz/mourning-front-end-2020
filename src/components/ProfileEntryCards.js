@@ -8,7 +8,7 @@ const ProfileEntryCards = ({entries}) => {
 	const individualEntries = ent.map(entry => (
 			<p>
 				<li key={entry.id}>
-					<NavLink to={`/entries/${entry.id}`} className="entryLink">
+					<NavLink  className="entryLink" to={`/entries/${entry.id}`} >
 						{entry.title}:  {entry.content} 
 					</NavLink>
 				</li>
