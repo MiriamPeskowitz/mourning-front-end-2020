@@ -198,4 +198,6 @@ Tuesday
   -- // feature: change to most recent 15 , with more button 
   -- fix color issue on entries: white, yellow when hovering 
   -- entries show page, fix buttons Edit, Delete, back -- make similar and horizontal, and above entry 
+  --home page -- wrap entries in <p> so there is space between, make sure css for all three lists is the same. 
+    
   

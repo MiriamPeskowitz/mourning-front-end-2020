@@ -9,10 +9,10 @@ const EntryCard = ({deleteEntry, entry, history}) => {
 		<div className="entry-card">
 			<p>{title}</p>
 			<p>{content}</p>
-			<div>
+			<div className="entry-card-buttons-horizontal">
 	      <Link to={`/entries/${id}/edit`}>Edit</Link> 
   	    <br/> 
-  	    <button onClick={()=>deleteEntry(id, history)}>Delete Entry</button> 	   
+  	    <button onClick={()=>deleteEntry(id, history)}>Delete</button> 	   
    	  	<br/>
     	  <Link to={'/profile'} >Back to my profile</Link>
    		</div>

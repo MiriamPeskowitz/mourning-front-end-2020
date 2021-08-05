@@ -2,6 +2,21 @@ body {
   /*background-color: #696969;*/
  }
 
+
+a:visited {
+  color: white;
+}
+
+a:hover, .entryLink:hover{
+  color: yellow;  
+}
+
+li {
+  display: inline-flex;
+  text-align: left;
+  padding-right: 8px;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -11,27 +26,20 @@ ul {
   list-style: none;
 }
 
-li {
-  display: inline-flex;
-  text-align: left;
-  padding-right: 8px;
-}
 
-a:link {
+/*a:link {
   color: yellow;
 }
+*/
 
-a:visited {
-  color: white;
-}
-
-a:hover, a:active {
-  color: pink;  
-}
-
+/*keep classNames in alphabetical order */
 .app {
   background-color: #ccc8c8;
 }
+
+/*.app.a.hover {   
+  color: yellow; 
+ } same as a: hover, just experimenting*/ 
 
 .app-header {
   padding: 1em;
@@ -50,6 +58,16 @@ a:hover, a:active {
   color: white;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.description-card {
+  margin-bottom: 50px;
+}
+
 .entry-list, .mourner-list, .profile-list, .story-header {
   display: inline;
   text-align: left;
@@ -57,34 +75,12 @@ a:hover, a:active {
   color: white;
 }
 
-.entries-list {
-  color: white;
-}
-
-
-.nav-bar {
+/* use this when fixing buttons on show page  */
+.entry-card-buttons-horizontal {
   display: inline-block;  
   margin: 5px;
 }
 
-.navbar {
-  color: '#C0C0C0'
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-bar {
-  display: inline-block;  
-  padding: 1em; 
-}
-
-.description-card {
-  margin-bottom: 50px;
-}
 /*signup */
 .input-field{
     margin: 2em;
@@ -95,8 +91,16 @@ a:hover, a:active {
   }
 
 .memory-cards {
-  
-  
+
+}
+/*check difference between these two */
+.nav-bar {
+  display: inline-block;  
+  margin: 5px;
+}
+
+.navbar {
+  color: '#C0C0C0' /* gray */
 }
 
 .welcome {

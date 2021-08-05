@@ -7,9 +7,9 @@ const EntriesList = ( {entries} ) => {
 			{entry.attributes.title}: {entry.attributes.content} 
 		</li>
 	))
-	
+
 	return (
-		<section className="entries-list">
+		<section className="entry-list">
 			<ul style={{color: 'pink'}}>{feelings}</ul>
 		</section>
 	)
@@ -17,4 +17,3 @@ const EntriesList = ( {entries} ) => {
 export default EntriesList
 
 
-// feature: change to most recent 15 

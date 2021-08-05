@@ -2,14 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom' 
 
-const ProfileEntryCards = ( {entries} ) => {
-	// console.log("PEC, entries:", entries)
+const ProfileEntryCards = ({entries}) => {
 	const ent = entries.reverse()
-
+// className="link"
 	const individualEntries = ent.map(entry => (
 			<p>
 				<li key={entry.id}>
-					<NavLink to={`/entries/${entry.id}`}>
+					<NavLink to={`/entries/${entry.id}`} className="entryLink">
 						{entry.title}:  {entry.content} 
 					</NavLink>
 				</li>
@@ -19,7 +18,7 @@ const ProfileEntryCards = ( {entries} ) => {
 				
 	const myEntryCards = ent.length > 0 ? individualEntries : <p>No entries</p>
 
-	return <ul className="profile-list">{myEntryCards}</ul>
+	return <ul className="entry-list">{myEntryCards}</ul>
 }
 
 const mapStateToProps = state => {
