@@ -8,12 +8,15 @@ const ProfileEntryCards = ( {entries} ) => {
 	const ent = entries.reverse()
 
 	const individualEntries = ent.map(entry => (
+			<p>
 				<li key={entry.id}>
 					<NavLink to={`/entries/${entry.id}`} >
 					{entry.title}:  {entry.content} 
 					</NavLink>
 				</li>
-			))
+			</p>
+		)
+	)
 				
 	const myEntryCards = ent.length > 0 ? individualEntries : <p>No entries</p>
 
