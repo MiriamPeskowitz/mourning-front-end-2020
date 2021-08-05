@@ -9,17 +9,16 @@ const ProfileEntryCards = ( {entries} ) => {
 
 	const individualEntries = ent.map(entry => (
 				<li key={entry.id}>
-					<NavLink to={`/entries/${entry.id}`} 
-					activeStyle={{color: "white"}}>
+					<NavLink to={`/entries/${entry.id}`} >
 					{entry.title}:  {entry.content} 
-					</NavLink><br/>
+					</NavLink>
 				</li>
 			))
 				
 	const myEntryCards = ent.length > 0 ? individualEntries : <p>No entries</p>
 
-//change to li -- 
-	return <ul className="profile-entry-cards">{myEntryCards}</ul>
+
+	return <ul className="profile-list" style={{color: 'pink'}}>{myEntryCards}</ul>
 
 }
 
@@ -33,6 +32,7 @@ const mapStateToProps = state => {
 }
 	
 export default connect(mapStateToProps, null )(ProfileEntryCards)
+					// activeStyle={{color: "white"}}>
 
 // entryiesList format
 // const EntriesList = ( {entries} ) => {
