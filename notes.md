@@ -196,8 +196,10 @@ Tuesday
   -- DONE fix render on profile entries, to li's with proper line break 
   -- DONE, at least the ones I was focusing on: entries, PEC, mourners, refactor for consistency between similar types of components 
   -- // feature: change to most recent 15 , with more button 
-  -- fix color issue on entries: white, yellow when hovering 
+  -- DONE fix color issue on entries: white, yellow when hovering 
   -- entries show page, fix buttons Edit, Delete, back -- make similar and horizontal, and above entry 
   --home page -- wrap entries in <p> so there is space between, make sure css for all three lists is the same. 
-    
+  -- fix color issue on entries: white, yellow when hovering -- blue is default in react router. 
+  --DONE put css in alphabetical order 
+
   
