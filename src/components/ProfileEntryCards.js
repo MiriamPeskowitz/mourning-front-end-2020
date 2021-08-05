@@ -18,7 +18,7 @@ const ProfileEntryCards = ( {entries} ) => {
 	const myEntryCards = ent.length > 0 ? individualEntries : <p>No entries</p>
 
 
-	return <ul className="profile-list" style={{color: 'pink'}}>{myEntryCards}</ul>
+	return <ul className="profile-list">{myEntryCards}</ul>
 
 }
 

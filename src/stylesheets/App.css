@@ -54,6 +54,7 @@ a:hover, a:active {
   display: inline;
   text-align: left;
   margin: 5px;
+  color: white;
 }
 
 .entries-list {

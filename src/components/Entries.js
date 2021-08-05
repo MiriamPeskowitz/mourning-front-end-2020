@@ -7,7 +7,6 @@ class Entries extends Component {
 	componentDidMount(){
 		this.props.getEntries()	
 	}
-
 	render() {		
 		return (
 			<div className="entry-list">
