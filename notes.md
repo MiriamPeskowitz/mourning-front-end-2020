@@ -191,3 +191,8 @@ Tuesday
   -- branch description-form is where I'm working on this featyure, 
   -- create eval branch for changes made during  eval. I can decide later whether to bring them over to main. 
   
+
+  Aug 4: dev log 
+  -- DONE fix render on profile entries, to li's with proper line break 
+  -- refactor for consistency between similar types of components 
+  -- // feature: change to most recent 15 , with more button 
