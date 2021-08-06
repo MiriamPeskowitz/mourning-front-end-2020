@@ -198,11 +198,12 @@ Tuesday
   -- DONE fix color issue on entries: white, yellow when hovering 
   -- DONE entries show page, fix buttons Edit, Delete, back -- make similar and horizontal, and above entry 
   --home page -- wrap entries in <p> so there is space between, make sure css for all three lists is the same. 
-  -- fix color issue on entries: white, yellow when hovering -- blue is default in react router. 
+  -- DONE fix color issue on entries: white, yellow when hovering -- blue is default in react router. BUT MAY NEED TO CHECK THROUGHOUT 
   -- go through and fix all button and link hover colors to yellow 
   --DONE put css in alphabetical order 
   -- when entry show page loads on its own, doesn't know what entries are. Is this an issue, other than in debugging, as it would never in user do this? 
-  -- edit mourning edit form add labels, look at hover colors. 
+  -- DONE edit mourning edit form add labels, look at hover colors. 
+ -- figure out style for buttons, make consistent throughout 
 
   Bigger: 
     -- // feature: change to most recent 15 , with more button 
