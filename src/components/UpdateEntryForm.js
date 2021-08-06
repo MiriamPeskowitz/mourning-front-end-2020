@@ -47,10 +47,10 @@ class UpdateEntryForm extends Component {
 		const { updateFormData,  deleteEntry, history } = this.props
 		const {title, content, id } = updateFormData
 		return (
-			<div className="UpdateEntryForm">
-				<h3>Do you need to change this entry?</h3>
+			<div className="edit-entry-form">
+				<h4>Do you need to change this entry?</h4>
 				<form onSubmit={this.handleSubmit}> 
-					<label> Title: 
+					<label> Title: <br/>
 						<input 
 							name="title" 
 							type="text"
@@ -59,7 +59,7 @@ class UpdateEntryForm extends Component {
 						/>
 					</label>
 					<br />
-					<label> Content: 
+					<label> Content: <br/>
 						<textarea 
 							type="text"
 							name="content"
@@ -73,14 +73,21 @@ class UpdateEntryForm extends Component {
 						value="Save" 
 					/>
 				</form>
-				<button onClick={()=>deleteEntry(id, history)}>Delete entry</button>
-    	  <br />
-    	  <button><Link to={'/profile'} >Back to my profile</Link></button>
-				
+				<div className="edit-entry-form-footer" >
+					<button className='edit-entry-link'  onClick={()=>deleteEntry(id, history)}>Delete Entry</button>
+    	  	<span> || </span>
+    	  	<button><Link className='edit-entry-link' to={'/profile'} >Back to My Profile</Link></button>
+				</div>
 			</div>
 		)
 	}
 }
+
+// <div className="entry-card-buttons-horizontal">
+// 	      <Link className='entryLink' to={`/entries/${id}/edit`} >Edit</Link> 
+//    			<span>  ||  </span>	
+//     	  <Link className='entryLink' to={'/profile'} >Back to My Profile</Link> 	  	
+//    		</div>
 
 const mapStateToProps = state => {
 
