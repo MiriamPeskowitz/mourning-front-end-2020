@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { updateEntryForm, deleteEntry } from '../actions/entries.js'
 import { setFormDataForEdit, updateEditedEntryToReducer, resetEditForm }  from '../actions/updateForm.js'
 
-
+//try to refactor to hooks 
 class UpdateEntryForm extends Component {
 	// take the data sent over by the router -- entry -- 
 	//and send it to setFormDataForEntry, to load the reducer
@@ -48,31 +48,29 @@ class UpdateEntryForm extends Component {
 		const {title, content, id } = updateFormData
 		return (
 			<div className="UpdateEntryForm">
-				<h3>Form for Editing an Entry</h3>
+				<h3>Do you need to change this entry?</h3>
 				<form onSubmit={this.handleSubmit}> 
-					<div>
+					<label> Title: 
 						<input 
-							placeholder={title}
-							type="text"
 							name="title" 
-							value={title}
-						 	onChange={this.handleChange}
-						/>
-					</div>
-					<div>
-						<input 
-							placeholder={content}
 							type="text"
-							name="content" 
+						 	onChange={this.handleChange}
+						 	value={title}
+						/>
+					</label>
+					<br />
+					<label> Content: 
+						<textarea 
+							type="text"
+							name="content"
 							onChange={this.handleChange}
 							value={content}
 						/>
-					</div>
-
+					</label>
 					<br/>
 					<input 
 						type="submit" 
-						value="Save changes" 
+						value="Save" 
 					/>
 				</form>
 				<button onClick={()=>deleteEntry(id, history)}>Delete entry</button>
@@ -94,6 +92,7 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, { setFormDataForEdit, updateEditedEntryToReducer, updateEntryForm, deleteEntry, resetEditForm })(UpdateEntryForm)
 
+//[placeholder={content}
 
 
 
