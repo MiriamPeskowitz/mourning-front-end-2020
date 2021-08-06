@@ -12,6 +12,10 @@ a:hover, .entryLink:hover{
   background: black; 
 }
 
+button {
+  padding: 0;
+  border-color: black
+}
 li {
   display: inline-flex;
   text-align: left;
@@ -95,10 +99,16 @@ ul {
   color: pink; 
   background: black; 
   text-decoration: none;
+  margin: 0;
+}
+ 
+ a.edit-entry-link:hover {
+  background: black;
 }
 
-.entry-edit-form-footer {
-  margin-top: 30px;
+.edit-entry-form-footer {
+  margin: 40px;
+  font: 1em;
 }
 /*signup */
 .input-field{

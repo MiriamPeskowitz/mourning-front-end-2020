@@ -48,7 +48,7 @@ class UpdateEntryForm extends Component {
 		const {title, content, id } = updateFormData
 		return (
 			<div className="edit-entry-form">
-				<h4>Do you need to change this entry?</h4>
+				<h4>Change this entry</h4>
 				<form onSubmit={this.handleSubmit}> 
 					<label> Title: <br/>
 						<input 
@@ -73,11 +73,11 @@ class UpdateEntryForm extends Component {
 						value="Save" 
 					/>
 				</form>
-				<div className="edit-entry-form-footer" >
+				<footer className="edit-entry-form-footer" >
 					<button className='edit-entry-link'  onClick={()=>deleteEntry(id, history)}>Delete Entry</button>
     	  	<span> || </span>
     	  	<button><Link className='edit-entry-link' to={'/profile'} >Back to My Profile</Link></button>
-				</div>
+				</footer>
 			</div>
 		)
 	}
