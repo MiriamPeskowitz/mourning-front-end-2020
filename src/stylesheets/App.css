@@ -7,15 +7,17 @@ a:visited {
   color: white;
 }
 */
+
 a:hover, .entry-link:hover{
   color: pink; 
   background: black; 
 }
-/*
+
 button {
   padding: 0;
-  border-color: black
-}*/
+  border-color: black;
+  color: black;
+}
 li {
   display: inline-flex;
   text-align: left;

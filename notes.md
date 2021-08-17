@@ -192,20 +192,23 @@ Tuesday
   -- create eval branch for changes made during  eval. I can decide later whether to bring them over to main. 
   
 
-  Aug 4, 5: dev log 
+  Aug 14, 15: dev log 
   -- DONE fix render on profile entries, to li's with proper line break 
   -- DONE, at least the ones I was focusing on: entries, PEC, mourners, refactor for consistency between similar types of components 
   -- DONE fix color issue on entries: white, yellow when hovering 
   -- DONE entries show page, fix buttons Edit, Delete, back -- make similar and horizontal, and above entry 
-  --home page -- wrap entries in <p> so there is space between, make sure css for all three lists is the same. 
+  --DONE home page -- wrap entries in <p> so there is space between, make sure css for all three lists is the same. 
   -- DONE fix color issue on entries: white, yellow when hovering -- blue is default in react router. BUT MAY NEED TO CHECK THROUGHOUT 
-  -- go through and fix all button and link hover colors to yellow 
   --DONE put css in alphabetical order 
   -- when entry show page loads on its own, doesn't know what entries are. Is this an issue, other than in debugging, as it would never in user do this? 
   -- DONE edit mourning edit form add labels, look at hover colors. 
  -- figure out style for buttons, make consistent throughout 
+  -- go through and fix all button and link hover colors to yellow 
 
   Bigger: 
     -- // feature: change to most recent 15 , with more button 
 -- add edit feature to description
 -- create memory section
+
+And even bigger things to think about: 
+-- using rails 5.2.2 and ruby 2.6 -- update? 
